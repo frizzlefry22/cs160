@@ -14,15 +14,30 @@ class RegisterViewController: UIViewController {
 
     @IBOutlet weak var continueButton: UIButton!
     
+    @IBOutlet weak var warningLabel: UILabel!
+    
     @IBAction func emailEdited(sender: UITextField) {
         
-        
-        if (emailExists(email.text)) {
+        if (!emailExists(email.text) && emailValid(email.text)) {
             continueButton.enabled = true
-            email.textColor = UIColor.greenColor()
+            warningLabel.text = "Available"
+            warningLabel.textColor = UIColor.greenColor()
+            //Makes the button fully blue again
+            continueButton.alpha = 1
+        }
+        else if (emailExists(email.text))
+        {
+            warningLabel.text = "Email exists"
+            warningLabel.textColor = UIColor.redColor()
+            continueButton.enabled = false
+            continueButton.alpha = 0.4
         }
         else {
-            email.textColor = UIColor.redColor()
+            
+            warningLabel.text = "Invalid email"
+            warningLabel.textColor = UIColor.redColor()
+            continueButton.enabled = false
+            continueButton.alpha = 0.4
         }
     }
     
@@ -30,6 +45,8 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //This makes the button look unclickable
+        continueButton.alpha = 0.4
         
         // Do any additional setup after loading the view.
     }

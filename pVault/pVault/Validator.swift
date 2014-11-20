@@ -53,7 +53,10 @@ func checkCredentials( email : String, pas : String ) -> Bool {
 
 //Just checks for an @
 func emailValid ( em : String ) -> Bool{
-  return em.rangeOfString("@") != nil
+
+  var hasAt = em.rangeOfString("@") != nil
+  var hasEnd = em.rangeOfString(".com") != nil
+  return hasAt && hasEnd
 }
 
 /*

@@ -116,6 +116,12 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8e-tY-Ypr">
+                                <rect key="frame" x="56" y="205" width="263" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -123,6 +129,7 @@
                     <connections>
                         <outlet property="continueButton" destination="D1B-up-P5K" id="Y8o-gd-Dxr"/>
                         <outlet property="email" destination="FO6-xp-1pw" id="EFS-LH-0rf"/>
+                        <outlet property="warningLabel" destination="h8e-tY-Ypr" id="hqH-Le-YTQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cq7-DY-JqG" userLabel="First Responder" sceneMemberID="firstResponder"/>
