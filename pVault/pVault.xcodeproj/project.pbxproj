@@ -144,7 +144,7 @@
 				29A451381A1C4EB700B7CB53 /* ViewControllers */,
 				29152BB91A1971C100A88FEA /* AppDelegate.swift */,
 				29152BBD1A1971C100A88FEA /* Main.storyboard */,
-				10D33C891A1D980900E17563 /* DatabaseConnection.swift */,
+				10D33C891A1D980900E17563 /* DBConnectionProtocol.swift */,
 				10D33CA71A1D9B7500E17563 /* pVault-Bridging-Header.h */,
 				29152BC01A1971C100A88FEA /* Images.xcassets */,
 				29A451321A1C42E800B7CB53 /* Validator.swift */,
