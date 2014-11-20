@@ -9,8 +9,7 @@
 import Foundation
 
 class DatabaseConnection{
-    let appKey = "oYyJc42HMA5WVZrufqQv5UtJt8CRNIUpkJyklqTd" //application key to connect to parseDB
-    let clientKey = "cSMbV7VGBEEboCA3KYlbIWzu4ljHd0BVwBYdPUhf" //client key to connect to parseDB
+
     
     func create(){
         
