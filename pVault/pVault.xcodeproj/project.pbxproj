@@ -434,6 +434,7 @@
 					/Users/arjaynguyen/Downloads/ParseStarterProject,
 					"/Users/josephorlando/Downloads/parse-library-1.5.0",
 					/Users/josephorlando/Git/cs160/ParseStuff,
+					/Users/kevintran/Git/cs160/ParseStuff,
 					/Users/lashkar/Desktop/git/cs160/ParseStuff,
 				);
 				INFOPLIST_FILE = pVault/Info.plist;
@@ -454,6 +455,7 @@
 					/Users/arjaynguyen/Downloads/ParseStarterProject,
 					"/Users/josephorlando/Downloads/parse-library-1.5.0",
 					/Users/josephorlando/Git/cs160/ParseStuff,
+					/Users/kevintran/Git/cs160/ParseStuff,
 					/Users/lashkar/Desktop/git/cs160/ParseStuff,
 				);
 				INFOPLIST_FILE = pVault/Info.plist;
