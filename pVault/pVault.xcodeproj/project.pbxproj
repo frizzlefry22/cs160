@@ -107,21 +107,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		247385C21A1DC72C005235C6 /* framework */ = {
+		29104E961A1E4FCF0058F475 /* frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				299FA8511A1DBE3A00D26744 /* ParseUI.framework */,
-				299FA8501A1DBE3A00D26744 /* ParseFacebookUtils.framework */,
-				299FA84F1A1DBE3A00D26744 /* Parse.framework */,
-				299FA84E1A1DBE3A00D26744 /* Bolts.framework */,
-			);
-			name = framework;
-			sourceTree = "<group>";
-		};
-		29152BAB1A1971C100A88FEA = {
-			isa = PBXGroup;
-			children = (
-				247385C21A1DC72C005235C6 /* framework */,
 				10D33C931A1D998C00E17563 /* AudioToolbox.framework */,
 				10D33C941A1D998C00E17563 /* CFNetwork.framework */,
 				10D33C951A1D998C00E17563 /* CoreGraphics.framework */,
@@ -132,6 +120,18 @@
 				10D33C9A1A1D998C00E17563 /* Security.framework */,
 				10D33C9B1A1D998C00E17563 /* StoreKit.framework */,
 				10D33C9C1A1D998C00E17563 /* SystemConfiguration.framework */,
+				299FA8511A1DBE3A00D26744 /* ParseUI.framework */,
+				299FA8501A1DBE3A00D26744 /* ParseFacebookUtils.framework */,
+				299FA84F1A1DBE3A00D26744 /* Parse.framework */,
+				299FA84E1A1DBE3A00D26744 /* Bolts.framework */,
+			);
+			name = frameworks;
+			sourceTree = "<group>";
+		};
+		29152BAB1A1971C100A88FEA = {
+			isa = PBXGroup;
+			children = (
+				29104E961A1E4FCF0058F475 /* frameworks */,
 				29152BB61A1971C100A88FEA /* pVault */,
 				29152BCC1A1971C100A88FEA /* pVaultTests */,
 				29152BB51A1971C100A88FEA /* Products */,
@@ -431,11 +431,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/arjaynguyen/Downloads/ParseStarterProject,
-					"/Users/josephorlando/Downloads/parse-library-1.5.0",
-					/Users/josephorlando/Git/cs160/ParseStuff,
-					/Users/kevintran/Git/cs160/ParseStuff,
-					/Users/lashkar/Desktop/git/cs160/ParseStuff,
+					../ParseStuff,
 				);
 				INFOPLIST_FILE = pVault/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -452,11 +448,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/arjaynguyen/Downloads/ParseStarterProject,
-					"/Users/josephorlando/Downloads/parse-library-1.5.0",
-					/Users/josephorlando/Git/cs160/ParseStuff,
-					/Users/kevintran/Git/cs160/ParseStuff,
-					/Users/lashkar/Desktop/git/cs160/ParseStuff,
+					../ParseStuff,
 				);
 				INFOPLIST_FILE = pVault/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
