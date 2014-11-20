@@ -7,7 +7,7 @@
         <!--pVault-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="pVault" id="BYZ-38-t0r" customClass="ViewController" customModule="pVault" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="pVault" id="BYZ-38-t0r" customClass="LoginViewController" customModule="pVault" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -54,15 +54,19 @@
                     </view>
                     <navigationItem key="navigationItem" id="dBY-c2-WWZ"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="loginEmail" destination="tMT-uH-6cF" id="m0S-6j-b9G"/>
+                        <outlet property="loginPassword" destination="CNI-Hh-qUT" id="w5y-gX-Qap"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="958.5" y="172.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Register View Controller-->
         <scene sceneID="tOJ-m9-NfM">
             <objects>
-                <viewController id="Psl-VE-1iP" sceneMemberID="viewController">
+                <viewController id="Psl-VE-1iP" customClass="RegisterViewController" customModule="pVault" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hhd-2Z-mMQ"/>
                         <viewControllerLayoutGuide type="bottom" id="Q4u-c9-vPH"/>
@@ -75,14 +79,19 @@
                                 <rect key="frame" x="56" y="234" width="263" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="emailEdited:" destination="Psl-VE-1iP" eventType="editingChanged" id="Hfk-Q6-wfV"/>
+                                </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D1B-up-P5K">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D1B-up-P5K">
                                 <rect key="frame" x="197" y="294" width="85" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <accessibility key="accessibilityConfiguration" label="continueBut">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                 <state key="normal" title="Continue">
                                     <color key="titleColor" red="1" green="0.97787825129999995" blue="0.97791751650000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="mYk-xg-oLA" kind="show" id="ws1-Uj-xkr"/>
@@ -111,6 +120,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="continueButton" destination="D1B-up-P5K" id="Y8o-gd-Dxr"/>
+                        <outlet property="email" destination="FO6-xp-1pw" id="EFS-LH-0rf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cq7-DY-JqG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -119,7 +132,7 @@
         <!--Register New User-->
         <scene sceneID="6y0-RB-q0L">
             <objects>
-                <viewController title="Register New User" id="mYk-xg-oLA" sceneMemberID="viewController">
+                <viewController title="Register New User" id="mYk-xg-oLA" customClass="CreatePasswordPINViewController" customModule="pVault" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9Hh-gS-zMA"/>
                         <viewControllerLayoutGuide type="bottom" id="M4a-Oz-soT"/>
@@ -132,6 +145,9 @@
                                 <rect key="frame" x="107" y="209" width="160" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <connections>
+                                    <action selector="passwordTextEntered:" destination="mYk-xg-oLA" eventType="editingChanged" id="bCT-dD-ge7"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8zV-7b-PeJ">
                                 <rect key="frame" x="107" y="258" width="160" height="30"/>
@@ -170,6 +186,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="continueButton" destination="rSs-X2-GYv" id="xsr-hJ-Hlr"/>
+                        <outlet property="pass" destination="DPw-oK-pY1" id="0kE-eA-hgI"/>
+                        <outlet property="passConfirm" destination="8zV-7b-PeJ" id="rz2-kF-68J"/>
+                        <outlet property="pinCode" destination="vdH-Re-yFB" id="CZW-qe-xGx"/>
+                        <outlet property="pinCodeConfirmed" destination="OlR-sx-XlL" id="j8X-Ic-dKR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2bR-Ac-YKk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -178,7 +201,7 @@
         <!--Register New User-->
         <scene sceneID="vnb-mA-yW5">
             <objects>
-                <viewController title="Register New User" id="vGC-7v-U7o" sceneMemberID="viewController">
+                <viewController title="Register New User" id="vGC-7v-U7o" customClass="RegisterViewController" customModule="pVault" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="suT-Rz-LWH"/>
                         <viewControllerLayoutGuide type="bottom" id="hjm-Qh-Xpj"/>
