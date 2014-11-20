@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		10D33C8A1A1D980900E17563 /* DatabaseConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D33C891A1D980900E17563 /* DatabaseConnection.swift */; };
+		10D33C8A1A1D980900E17563 /* DBConnectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D33C891A1D980900E17563 /* DBConnectionProtocol.swift */; };
 		10D33C8F1A1D994500E17563 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D33C8B1A1D994500E17563 /* Bolts.framework */; };
 		10D33C901A1D994500E17563 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D33C8C1A1D994500E17563 /* Parse.framework */; };
 		10D33C911A1D994500E17563 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D33C8D1A1D994500E17563 /* ParseFacebookUtils.framework */; };
@@ -41,7 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		10D33C891A1D980900E17563 /* DatabaseConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseConnection.swift; sourceTree = "<group>"; };
+		10D33C891A1D980900E17563 /* DBConnectionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBConnectionProtocol.swift; sourceTree = "<group>"; };
 		10D33C8B1A1D994500E17563 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../../../Downloads/ParseStarterProject/Bolts.framework; sourceTree = "<group>"; };
 		10D33C8C1A1D994500E17563 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../../../Downloads/ParseStarterProject/Parse.framework; sourceTree = "<group>"; };
 		10D33C8D1A1D994500E17563 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtils.framework; path = ../../../Downloads/ParseStarterProject/ParseFacebookUtils.framework; sourceTree = "<group>"; };
@@ -139,7 +139,7 @@
 				29152BB91A1971C100A88FEA /* AppDelegate.swift */,
 				29152BBB1A1971C100A88FEA /* ViewController.swift */,
 				29152BBD1A1971C100A88FEA /* Main.storyboard */,
-				10D33C891A1D980900E17563 /* DatabaseConnection.swift */,
+				10D33C891A1D980900E17563 /* DBConnectionProtocol.swift */,
 				10D33CA71A1D9B7500E17563 /* pVault-Bridging-Header.h */,
 				29152BC01A1971C100A88FEA /* Images.xcassets */,
 				29152BC21A1971C100A88FEA /* LaunchScreen.xib */,
@@ -274,7 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				29152BBC1A1971C100A88FEA /* ViewController.swift in Sources */,
-				10D33C8A1A1D980900E17563 /* DatabaseConnection.swift in Sources */,
+				10D33C8A1A1D980900E17563 /* DBConnectionProtocol.swift in Sources */,
 				29152BBA1A1971C100A88FEA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
