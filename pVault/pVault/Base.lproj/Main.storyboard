@@ -78,7 +78,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FO6-xp-1pw">
                                 <rect key="frame" x="56" y="234" width="263" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                 <connections>
                                     <action selector="emailEdited:" destination="Psl-VE-1iP" eventType="editingChanged" id="Hfk-Q6-wfV"/>
                                 </connections>
@@ -157,19 +157,20 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8zV-7b-PeJ">
-                                <rect key="frame" x="107" y="258" width="160" height="30"/>
+                                <rect key="frame" x="107" y="266" width="160" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Create a PIN" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vdH-Re-yFB">
-                                <rect key="frame" x="139" y="331" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <connections>
+                                    <action selector="passConfrimEdited:" destination="mYk-xg-oLA" eventType="editingChanged" id="12c-kA-MdA"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm PIN" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OlR-sx-XlL">
-                                <rect key="frame" x="139" y="376" width="97" height="30"/>
+                                <rect key="frame" x="139" y="388" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
+                                <connections>
+                                    <action selector="pinConfirmEdited:" destination="mYk-xg-oLA" eventType="editingChanged" id="FNE-Pb-5uI"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rSs-X2-GYv">
                                 <rect key="frame" x="146" y="505" width="82" height="30"/>
@@ -189,6 +190,32 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Np-Ya-RY7">
+                                <rect key="frame" x="107" y="180" width="160" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wPl-aY-cJH">
+                                <rect key="frame" x="107" y="247" width="160" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A9n-ed-rlM">
+                                <rect key="frame" x="139" y="370" width="97" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Create a PIN" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vdH-Re-yFB">
+                                <rect key="frame" x="139" y="341" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="yes" keyboardType="numberPad" secureTextEntry="YES"/>
+                                <connections>
+                                    <action selector="pinEdited:" destination="mYk-xg-oLA" eventType="editingChanged" id="tM3-Ng-n95"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -197,8 +224,11 @@
                         <outlet property="continueButton" destination="rSs-X2-GYv" id="xsr-hJ-Hlr"/>
                         <outlet property="pass" destination="DPw-oK-pY1" id="0kE-eA-hgI"/>
                         <outlet property="passConfirm" destination="8zV-7b-PeJ" id="rz2-kF-68J"/>
+                        <outlet property="passMatchWarning" destination="wPl-aY-cJH" id="9MB-GT-NeB"/>
+                        <outlet property="passwordWarning" destination="1Np-Ya-RY7" id="XQV-KD-KnP"/>
                         <outlet property="pinCode" destination="vdH-Re-yFB" id="CZW-qe-xGx"/>
                         <outlet property="pinCodeConfirmed" destination="OlR-sx-XlL" id="j8X-Ic-dKR"/>
+                        <outlet property="pinMatchWarning" destination="A9n-ed-rlM" id="Ps6-5a-g6L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2bR-Ac-YKk" userLabel="First Responder" sceneMemberID="firstResponder"/>

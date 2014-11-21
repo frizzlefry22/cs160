@@ -25,7 +25,6 @@ checkCredentials() : Boolean
 /* From Functional Requirement
 3.2.LV.3.FR.3
 The password must consist of numbers, letters, and special characters and must be at least 6 characters long and at most 25 characters long.
-
 */
 func passwordIsValid( pass : String ) -> Bool {
     
@@ -62,20 +61,18 @@ func emailValid ( em : String ) -> Bool{
 /*
     Function to check if two passwords are equal
 */
-func matchedPassword( s1 : String , s2 : String) -> Bool {
+func matches( s1 : String , s2 : String) -> Bool {
     return s1 == s2
 }
 
-func matchedPIN ( n1 : Int , n2 : Int ) -> Bool {
-    return n1 == n2
-}
 
 func checkPassword ( pas : String ) -> Bool {
     return false
 }
 
-func checkPIN( pin : String ) -> Bool {
-    return false
+//curently a PIN must be 4 characters in length
+func validPin( pin : String ) -> Bool {
+    return (countElements(pin) == 4)
 }
 
 /*
