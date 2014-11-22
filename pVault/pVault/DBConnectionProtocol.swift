@@ -8,9 +8,9 @@
 
 import Foundation
 
-protocol DatabaseConnection{
+protocol DBConnectionProtocol{
     
-    func create()
+    func create(var pfObj: PFObject)
     func read()
     func edit()
     func delete()

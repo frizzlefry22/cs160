@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10B4DD5F1A203DDA0008565C /* UserDatabaseConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B4DD5E1A203DDA0008565C /* UserDatabaseConnection.swift */; };
 		10D33C9D1A1D998C00E17563 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D33C931A1D998C00E17563 /* AudioToolbox.framework */; };
 		10D33C9E1A1D998C00E17563 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D33C941A1D998C00E17563 /* CFNetwork.framework */; };
 		10D33C9F1A1D998C00E17563 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D33C951A1D998C00E17563 /* CoreGraphics.framework */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		10B4DD5E1A203DDA0008565C /* UserDatabaseConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDatabaseConnection.swift; sourceTree = "<group>"; };
 		10D33C931A1D998C00E17563 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		10D33C941A1D998C00E17563 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		10D33C951A1D998C00E17563 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -155,6 +157,7 @@
 				29152BB91A1971C100A88FEA /* AppDelegate.swift */,
 				29152BBD1A1971C100A88FEA /* Main.storyboard */,
 				10D33CA71A1D9B7500E17563 /* pVault-Bridging-Header.h */,
+				10B4DD5E1A203DDA0008565C /* UserDatabaseConnection.swift */,
 				29152BC01A1971C100A88FEA /* Images.xcassets */,
 				29A451321A1C42E800B7CB53 /* Validator.swift */,
 				29152BC21A1971C100A88FEA /* LaunchScreen.xib */,
@@ -303,6 +306,7 @@
 				29A451331A1C42E800B7CB53 /* Validator.swift in Sources */,
 				29152BBA1A1971C100A88FEA /* AppDelegate.swift in Sources */,
 				29A4513A1A1C526000B7CB53 /* RegisterViewController.swift in Sources */,
+				10B4DD5F1A203DDA0008565C /* UserDatabaseConnection.swift in Sources */,
 				299FA8571A1DBE6800D26744 /* DBConnectionProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
