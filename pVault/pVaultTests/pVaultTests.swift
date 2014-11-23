@@ -15,9 +15,6 @@ class pVaultTests: XCTestCase {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
-        
-        /*   This throws an error, for some reason it's not finding the parse frameworks inside this folder? */
-        //var pfObjTest: PFObject
     }
     
     override func tearDown() {
@@ -27,6 +24,8 @@ class pVaultTests: XCTestCase {
     
     func testExample() {
         // This is an example of a functional test case.
+        //let userDB = UserDatabaseConnection()
+        
         XCTAssert(true, "Pass")
     }
     
