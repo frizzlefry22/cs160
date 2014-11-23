@@ -10,16 +10,14 @@ import Foundation
 
 class UserDatabaseConnection: DBConnectionProtocol{
     
-    init(){
-        
-    }
+    
     
     /*
         Intent: Receives a PFObject of a User object ready to be saved. Saves
         Param: pfObj: PFObject - PFObject ready to saved, should contain all User fields necessary
         Return: none
     */
-    func create(var pfObj: PFObject){
+    class func create(var pfObj: PFObject){
         
         //save pfObj in background, will use callback block to handle success/fail of save
         pfObj.saveInBackgroundWithBlock({(succeeded: Bool!, error: NSError!) -> Void in
@@ -39,7 +37,7 @@ class UserDatabaseConnection: DBConnectionProtocol{
         Param:
         Return:
     */
-    func edit(){
+    class func edit(){
         
     }
     
@@ -48,7 +46,7 @@ class UserDatabaseConnection: DBConnectionProtocol{
         Param:
         Return:
     */
-    func delete(){
+    class func delete(){
         
     }
     
@@ -57,12 +55,12 @@ class UserDatabaseConnection: DBConnectionProtocol{
         Param:
         Return:
     */
-    func read(){
+    class func read(){
         
     }
     
     //test method, used to create a user PFObject and returns created PFObject
-    func testCreate()-> PFObject{
+    class func testCreate()-> PFObject{
         var userId = "123"
         var email = "test@email.com"
         var password = "abc"

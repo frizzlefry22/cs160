@@ -11,10 +11,10 @@ import UIKit
 //Used to test UserDatabaseConnection
 class UserTestViewController: UIViewController {
 
-    var userDB = UserDatabaseConnection()
+    //var userDB = UserDatabaseConnection()
     
     @IBAction func testCreate(sender: AnyObject) {
-        userDB.create(userDB.testCreate())
+        UserDatabaseConnection.create(UserDatabaseConnection.testCreate())
         
     }
     override func viewDidLoad() {

@@ -12,7 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let appKey = "oYyJc42HMA5WVZrufqQv5UtJt8CRNIUpkJyklqT" //application key to connect to ParseDB
+    let appKey = "oYyJc42HMA5WVZrufqQv5UtJt8CRNIUpkJyklqTd" //application key to connect to ParseDB
     let clientKey = "cSMbV7VGBEEboCA3KYlbIWzu4ljHd0BVwBYdPUhf" //client key to connect to ParseDB
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
