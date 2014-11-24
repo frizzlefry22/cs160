@@ -8,9 +8,9 @@
 
 import Foundation
 
-var questionBank = ["Question 1","Question 2","Question 3","Question 4","Question 5"]
+var questionBank = ["Question 1", "Question 2", "Question 3", "Question 4", "Question 5"]
 
-var previousQuestion = ""
+var previousQuestion = [String]()
 
 //Initialize String Array
 var selectedQuestions = [String]()
@@ -34,7 +34,7 @@ Removes it from Bank and adds to selected array
 func selectQuestion(str : String) {
     let removed = removeString(str,  &questionBank)
     selectedQuestions.append(removed)
-    previousQuestion = str
+    previousQuestion.append(str)
 }
 
 /*
@@ -43,5 +43,9 @@ Removes form selected and adds back to bank
 */
 func unselectQuestion( str : String ) {
     addString(str,  &questionBank)
+    
+    //Sorts them so that they match the UIPicker
+    questionBank = sorted(questionBank)
+    
     removeString(str, &selectedQuestions)
 }

@@ -31,7 +31,6 @@ class SecurityQuestionsViewController: UIViewController,UIPickerViewDataSource,U
     //var currentQuestion : String
     
     var answers = [String]()
-    
       
     var currentQuestion = (0,"");
     
@@ -56,7 +55,7 @@ class SecurityQuestionsViewController: UIViewController,UIPickerViewDataSource,U
     override func viewWillDisappear(animated: Bool) {
         if (goingBack)
         {
-            unselectQuestion(previousQuestion)
+            unselectQuestion(previousQuestion.removeLast())
         }
         else {
             
