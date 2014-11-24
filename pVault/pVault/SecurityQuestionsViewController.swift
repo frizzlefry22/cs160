@@ -28,14 +28,7 @@ class SecurityQuestionsViewController: UIViewController,UIPickerViewDataSource,U
     
     //Vars
     var goingBack = true
-    //var currentQuestion : String
-    
-    var answers = [String]()
-      
-    var currentQuestion = (0,"");
-    
-    var securityQuestions = [ Int : (String,String) ]()
-    
+
     
     
     //Called before Seque is taken
@@ -44,10 +37,10 @@ class SecurityQuestionsViewController: UIViewController,UIPickerViewDataSource,U
         //This is not an ideal solution but works
         goingBack = false
         
-        //securityQuestions[currentQuestion.0] = ("","")
-        
         //Mylabel represent current question
-        selectQuestion(myLabel.text!)
+        SecurityQuestions.selectQuestion(myLabel.text!)
+        
+        SecurityQuestions.userAnswers.append(answer.text!)
         
         
     }
@@ -55,7 +48,16 @@ class SecurityQuestionsViewController: UIViewController,UIPickerViewDataSource,U
     override func viewWillDisappear(animated: Bool) {
         if (goingBack)
         {
-            unselectQuestion(previousQuestion.removeLast())
+            //
+            SecurityQuestions.unselectQuestion(SecurityQuestions.previousQuestion.removeLast())
+            
+            //If Empty skip because they are on Question 1 and want to go back to password screen
+            if (SecurityQuestions.userAnswers.isEmpty)
+            {
+                //When going back to prev question, remove its answer
+                SecurityQuestions.userAnswers.removeLast()
+            }
+            
         }
         else {
             
@@ -70,7 +72,7 @@ class SecurityQuestionsViewController: UIViewController,UIPickerViewDataSource,U
         myPicker.delegate = self
         myPicker.dataSource = self
 
-        myLabel.text = questionBank[0]
+        myLabel.text = SecurityQuestions.questionBank[0]
         
         // Do any additional setup after loading the view.
     }
@@ -85,15 +87,15 @@ class SecurityQuestionsViewController: UIViewController,UIPickerViewDataSource,U
         return 1
     }
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return questionBank.count
+        return SecurityQuestions.questionBank.count
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
-        return questionBank[row]
+        return SecurityQuestions.questionBank[row]
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        myLabel.text = questionBank[row]
+        myLabel.text = SecurityQuestions.questionBank[row]
     }
 
     
