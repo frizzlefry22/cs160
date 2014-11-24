@@ -13,6 +13,9 @@ class UserTestViewController: UIViewController {
 
     //var userDB = UserDatabaseConnection()
     
+    @IBAction func testRead(sender: AnyObject) {
+        UserDatabaseConnection.read(UserDatabaseConnection.createTestQuery())
+    }
     @IBAction func testCreate(sender: AnyObject) {
         UserDatabaseConnection.create(UserDatabaseConnection.testCreate())
         

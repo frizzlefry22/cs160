@@ -77,19 +77,36 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJU-XC-iJf">
-                                <rect key="frame" x="114" y="68" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <rect key="frame" x="114" y="68" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="Kaf-WY-06V"/>
+                                </constraints>
+                                <state key="normal" title="Create Test">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="testCreate:" destination="dZI-ED-a72" eventType="touchUpInside" id="NMc-p5-9wh"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OIc-fo-hwb">
+                                <rect key="frame" x="124" y="197" width="87" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="87" id="0we-cZ-L2z"/>
+                                </constraints>
+                                <state key="normal" title="Read Test">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="testRead:" destination="dZI-ED-a72" eventType="touchUpInside" id="6KZ-8N-7iH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="dJU-XC-iJf" firstAttribute="leading" secondItem="kqc-uo-JZU" secondAttribute="leadingMargin" constant="98" id="J5Z-xa-Abo"/>
-                            <constraint firstItem="dJU-XC-iJf" firstAttribute="top" secondItem="6DV-iS-uOQ" secondAttribute="bottom" constant="48" id="dle-G0-T3y"/>
+                            <constraint firstItem="OIc-fo-hwb" firstAttribute="leading" secondItem="kqc-uo-JZU" secondAttribute="leading" constant="124" id="Glp-bx-54m"/>
+                            <constraint firstItem="OIc-fo-hwb" firstAttribute="top" secondItem="dJU-XC-iJf" secondAttribute="bottom" constant="99" id="ghX-xn-oVs"/>
+                            <constraint firstItem="dJU-XC-iJf" firstAttribute="leading" secondItem="kqc-uo-JZU" secondAttribute="leadingMargin" constant="98" id="mZZ-gR-i9N"/>
+                            <constraint firstItem="dJU-XC-iJf" firstAttribute="top" secondItem="6DV-iS-uOQ" secondAttribute="bottom" constant="48" id="wWD-pz-zEw"/>
                         </constraints>
                     </view>
                 </viewController>

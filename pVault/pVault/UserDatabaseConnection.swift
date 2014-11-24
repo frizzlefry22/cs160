@@ -17,7 +17,7 @@ class UserDatabaseConnection: DBConnectionProtocol{
         Param: pfObj: PFObject - PFObject ready to saved, should contain all User fields necessary
         Return: none
     */
-    class func create(var pfObj: PFObject){
+    class func create(pfObj: PFObject){
         
         //save pfObj in background, will use callback block to handle success/fail of save
         pfObj.saveInBackgroundWithBlock({(succeeded: Bool!, error: NSError!) -> Void in
@@ -33,12 +33,27 @@ class UserDatabaseConnection: DBConnectionProtocol{
     }
     
     /*
-        Intent
-        Param:
+        Intent: Edit a User item in the database, prints success/fail state
+        Param:  query: PFQuery - query used to find user
+
         Return:
     */
-    class func edit(){
-        
+    class func edit(query: PFQuery){
+        query.findObjectsInBackgroundWithBlock{
+            (objects:[AnyObject]!, error: NSError!) -> Void in
+            
+            //object(s) found
+            if error == nil{
+                
+                for object in objects{
+                    //process object
+                }
+            }
+            //object(s) not found
+            else{
+                
+            }
+        }
     }
     
     /*
@@ -51,12 +66,36 @@ class UserDatabaseConnection: DBConnectionProtocol{
     }
     
     /*
-        Intent
+        Intent:
         Param:
         Return:
     */
-    class func read(){
-        
+    class func read(query: PFQuery){
+        query.findObjectsInBackgroundWithBlock{
+            (objects:[AnyObject]!, error: NSError!) -> Void in
+            
+            //object(s) found
+            if error == nil{
+                
+                //check if empty
+                if (objects.isEmpty){
+                    println("nothing found")
+                }
+                //if found, process objects, should only be one
+                else{
+                    for object in objects{
+                        //process object
+                    
+                        var id = object["userID"] as String
+                        println(id)
+                    }
+                }
+            }
+                //error
+            else{
+                
+            }
+        }
     }
     
     //test method, used to create a user PFObject and returns created PFObject
@@ -75,6 +114,14 @@ class UserDatabaseConnection: DBConnectionProtocol{
         userObj["secAnswers"] = secAnswers
         
         return userObj
+    }
+    
+    //test method, used to create a PFQuery, returns PFQuery
+    class func createTestQuery()->PFQuery{
+        var query = PFQuery(className: "User")
+        query.whereKey("userID", equalTo:"123")
+        
+        return query
     }
     
     
