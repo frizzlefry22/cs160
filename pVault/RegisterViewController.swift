@@ -41,6 +41,14 @@ class RegisterViewController: UIViewController {
         }
     }
     
+    //Called before it goes to next Screen
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        //Sets the email everytime this page advances
+        RegisterInfo.email = email.text!
+        
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

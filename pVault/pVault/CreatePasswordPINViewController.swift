@@ -127,6 +127,17 @@ class CreatePasswordPINViewController: UIViewController {
         }
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        //Set the password
+        RegisterInfo.passWord = pass.text!
+        
+        //
+        RegisterInfo.pinCode = pinCode.text.toInt()!
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

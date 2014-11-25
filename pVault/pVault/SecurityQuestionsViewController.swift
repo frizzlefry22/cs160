@@ -32,8 +32,8 @@ class SecurityQuestionsViewController: UIViewController,UIPickerViewDataSource,U
     
     
     //Called before Seque is taken
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
+    override func prepareForSegue(segue : UIStoryboardSegue, sender: AnyObject?) {
+    
         //This is not an ideal solution but works
         goingBack = false
         
@@ -42,17 +42,26 @@ class SecurityQuestionsViewController: UIViewController,UIPickerViewDataSource,U
         
         SecurityQuestions.userAnswers.append(answer.text!)
         
+        RegisterInfo.answers = SecurityQuestions.userAnswers
+        
+        RegisterInfo.questions = SecurityQuestions.selectedQuestions
         
     }
     
     override func viewWillDisappear(animated: Bool) {
         if (goingBack)
         {
+            
             //
-            SecurityQuestions.unselectQuestion(SecurityQuestions.previousQuestion.removeLast())
+            
+            if ( !SecurityQuestions.previousQuestion.isEmpty)
+            {
+                SecurityQuestions.unselectQuestion(SecurityQuestions.previousQuestion.removeLast())
+                
+            }
             
             //If Empty skip because they are on Question 1 and want to go back to password screen
-            if (SecurityQuestions.userAnswers.isEmpty)
+            if ( !SecurityQuestions.userAnswers.isEmpty)
             {
                 //When going back to prev question, remove its answer
                 SecurityQuestions.userAnswers.removeLast()
