@@ -35,7 +35,7 @@ class CreatePasswordPINViewController: UIViewController {
     
     @IBAction func passwordTextEntered(sender: AnyObject) {
         
-        if ( passwordIsValid(pass.text)){
+        if ( Validator.passwordIsValid(pass.text)){
             passwordWarning.text = "Valid"
             passwordWarning.textColor = UIColor.greenColor()
             
@@ -55,7 +55,7 @@ class CreatePasswordPINViewController: UIViewController {
 
     @IBAction func passConfrimEdited(sender: AnyObject) {
     
-        if (matches(pass.text, passConfirm.text)){
+        if ( Validator.matches (  pass.text, s2 : passConfirm.text)){
             matchingPassword = true
         }
         else {
@@ -67,7 +67,7 @@ class CreatePasswordPINViewController: UIViewController {
     
     @IBAction func pinEdited(sender: AnyObject) {
         
-        if (validPin(pinCode.text))
+        if (Validator.validPin(pinCode.text))
         {
             validPIN = true
         }
@@ -80,7 +80,7 @@ class CreatePasswordPINViewController: UIViewController {
     
     @IBAction func pinConfirmEdited(sender: AnyObject) {
         
-        if (matches(pinCode.text, pinCodeConfirmed.text))
+        if (Validator.matches(pinCode.text, s2 : pinCodeConfirmed.text))
         {
             matchingPIN = true
         }
@@ -92,7 +92,7 @@ class CreatePasswordPINViewController: UIViewController {
     }
     
     func updatePassWordWarning() {
-        if (matches(pass.text, passConfirm.text)){
+        if (Validator.matches(pass.text, s2 : passConfirm.text)){
             passMatchWarning.text = "Match"
             passMatchWarning.textColor = UIColor.greenColor()
         }
@@ -103,7 +103,7 @@ class CreatePasswordPINViewController: UIViewController {
     }
     
     func updatePinWarning() {
-        if (matches(pinCode.text, pinCodeConfirmed.text)) {
+        if (Validator.matches(pinCode.text, s2 : pinCodeConfirmed.text)) {
             pinMatchWarning.text = "Matches"
             pinMatchWarning.textColor = UIColor.greenColor()
         }

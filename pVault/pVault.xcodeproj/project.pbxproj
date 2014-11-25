@@ -27,6 +27,13 @@
 		29152BC11A1971C100A88FEA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29152BC01A1971C100A88FEA /* Images.xcassets */; };
 		29152BC41A1971C100A88FEA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29152BC21A1971C100A88FEA /* LaunchScreen.xib */; };
 		29152BD01A1971C100A88FEA /* pVaultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29152BCF1A1971C100A88FEA /* pVaultTests.swift */; };
+		2919301C1A24124800E34A27 /* UtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2919301B1A24124800E34A27 /* UtilsTests.swift */; };
+		2919301D1A2412AC00E34A27 /* SecurityQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2946417A1A21DA5A0025AECC /* SecurityQuestions.swift */; };
+		2919301F1A242B3C00E34A27 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2919301E1A242B3C00E34A27 /* Utils.swift */; };
+		291930201A242B6A00E34A27 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2919301E1A242B3C00E34A27 /* Utils.swift */; };
+		291930221A24625200E34A27 /* SecurityQuestionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291930211A24625200E34A27 /* SecurityQuestionTests.swift */; };
+		291930251A24628E00E34A27 /* ValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291930241A24628E00E34A27 /* ValidatorTests.swift */; };
+		291930261A2462B200E34A27 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A451321A1C42E800B7CB53 /* Validator.swift */; };
 		2946417B1A21DA5A0025AECC /* SecurityQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2946417A1A21DA5A0025AECC /* SecurityQuestions.swift */; };
 		299FA8571A1DBE6800D26744 /* DBConnectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299FA8561A1DBE6800D26744 /* DBConnectionProtocol.swift */; };
 		29A451331A1C42E800B7CB53 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A451321A1C42E800B7CB53 /* Validator.swift */; };
@@ -67,6 +74,10 @@
 		29152BC91A1971C100A88FEA /* pVaultTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pVaultTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		29152BCE1A1971C100A88FEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		29152BCF1A1971C100A88FEA /* pVaultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pVaultTests.swift; sourceTree = "<group>"; };
+		2919301B1A24124800E34A27 /* UtilsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilsTests.swift; sourceTree = "<group>"; };
+		2919301E1A242B3C00E34A27 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		291930211A24625200E34A27 /* SecurityQuestionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityQuestionTests.swift; sourceTree = "<group>"; };
+		291930241A24628E00E34A27 /* ValidatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidatorTests.swift; sourceTree = "<group>"; };
 		2946417A1A21DA5A0025AECC /* SecurityQuestions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityQuestions.swift; sourceTree = "<group>"; };
 		299FA84E1A1DBE3A00D26744 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../ParseStuff/Bolts.framework; sourceTree = "<group>"; };
 		299FA84F1A1DBE3A00D26744 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../ParseStuff/Parse.framework; sourceTree = "<group>"; };
@@ -154,7 +165,7 @@
 		29152BB61A1971C100A88FEA /* pVault */ = {
 			isa = PBXGroup;
 			children = (
-				2946417A1A21DA5A0025AECC /* SecurityQuestions.swift */,
+				291930231A24625800E34A27 /* Registeration */,
 				299FA8561A1DBE6800D26744 /* DBConnectionProtocol.swift */,
 				29A451381A1C4EB700B7CB53 /* ViewControllers */,
 				29152BB91A1971C100A88FEA /* AppDelegate.swift */,
@@ -164,6 +175,7 @@
 				29A451321A1C42E800B7CB53 /* Validator.swift */,
 				29152BC21A1971C100A88FEA /* LaunchScreen.xib */,
 				29152BB71A1971C100A88FEA /* Supporting Files */,
+				2919301E1A242B3C00E34A27 /* Utils.swift */,
 			);
 			path = pVault;
 			sourceTree = "<group>";
@@ -181,6 +193,9 @@
 			children = (
 				29152BCF1A1971C100A88FEA /* pVaultTests.swift */,
 				29152BCD1A1971C100A88FEA /* Supporting Files */,
+				2919301B1A24124800E34A27 /* UtilsTests.swift */,
+				291930211A24625200E34A27 /* SecurityQuestionTests.swift */,
+				291930241A24628E00E34A27 /* ValidatorTests.swift */,
 			);
 			path = pVaultTests;
 			sourceTree = "<group>";
@@ -191,6 +206,14 @@
 				29152BCE1A1971C100A88FEA /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		291930231A24625800E34A27 /* Registeration */ = {
+			isa = PBXGroup;
+			children = (
+				2946417A1A21DA5A0025AECC /* SecurityQuestions.swift */,
+			);
+			name = Registeration;
 			sourceTree = "<group>";
 		};
 		29A451381A1C4EB700B7CB53 /* ViewControllers */ = {
@@ -306,6 +329,7 @@
 			files = (
 				29A451351A1C4B9E00B7CB53 /* LoginViewController.swift in Sources */,
 				29A4513C1A1C846700B7CB53 /* CreatePasswordPINViewController.swift in Sources */,
+				2919301F1A242B3C00E34A27 /* Utils.swift in Sources */,
 				29104E981A1F1F2A0058F475 /* SecurityQuestionsViewController.swift in Sources */,
 				29A451331A1C42E800B7CB53 /* Validator.swift in Sources */,
 				29152BBA1A1971C100A88FEA /* AppDelegate.swift in Sources */,
@@ -319,7 +343,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				291930251A24628E00E34A27 /* ValidatorTests.swift in Sources */,
+				2919301D1A2412AC00E34A27 /* SecurityQuestions.swift in Sources */,
 				29152BD01A1971C100A88FEA /* pVaultTests.swift in Sources */,
+				2919301C1A24124800E34A27 /* UtilsTests.swift in Sources */,
+				291930261A2462B200E34A27 /* Validator.swift in Sources */,
+				291930201A242B6A00E34A27 /* Utils.swift in Sources */,
+				291930221A24625200E34A27 /* SecurityQuestionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

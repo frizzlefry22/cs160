@@ -49,16 +49,3 @@ struct SecurityQuestions {
     }
 }
 
-//These dont belong to the struct
-
-//Removes String from Array arrr
-func removeString ( str : String , inout arrr : [String] ) -> String{
-    
-    let ind = find(arrr,str)
-    return arrr.removeAtIndex(ind!)
-}
-
-//Adds String to aray arrr
-func addString( str : String, inout arrr : [String] ) {
-    arrr.append(str)
-}

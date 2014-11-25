@@ -18,14 +18,14 @@ class RegisterViewController: UIViewController {
     
     @IBAction func emailEdited(sender: UITextField) {
         
-        if (!emailExists(email.text) && emailValid(email.text)) {
+        if (!Validator.emailExists(email.text) && Validator.emailValid(email.text)) {
             continueButton.enabled = true
             warningLabel.text = "Available"
             warningLabel.textColor = UIColor.greenColor()
             //Makes the button fully blue again
             continueButton.alpha = 1
         }
-        else if (emailExists(email.text))
+        else if (Validator.emailExists(email.text))
         {
             warningLabel.text = "Email exists"
             warningLabel.textColor = UIColor.redColor()
