@@ -14,13 +14,13 @@ class Test{
     
     
     func testCreate(){
-        var testDoc = Document(creatorID: "testString")
+        //var testDoc = Document(creatorID: "testString")
         //var dbConnection = DocumentDBConnecion()
         
-        testDoc.docID = "testDocID"
-        testDoc.docName = "Testdoc"
-        testDoc.docType = DocumentType.Other
-        testDoc.docDiscription = "This is a test description"
+//        testDoc.docID = "testDocID"
+//        testDoc.docName = "Testdoc"
+//        testDoc.docType = DocumentType.Other
+//        testDoc.docDiscription = "This is a test description"
         
         
         //XCTAssertNotNil(dbConnection.create(testDoc), "Did not create pfobject")

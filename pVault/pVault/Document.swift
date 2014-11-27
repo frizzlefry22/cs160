@@ -10,50 +10,53 @@ import Foundation
 
 class Document{
     
-    
+    var _docID = ""
     var docID: String{
         set(setDocID){
-            self.docID=setDocID
+            self._docID=setDocID
         }
         get{
-            return self.docID
+            return self._docID
         }
     }
     
+    var _userID = ""
     var userID: String{
-        set(setUserID){
-            self.userID = setUserID
+        set(setUID){
+            self._userID = setUID
         }
         get{
-            return self.userID
+            return self._userID
         }
     }
     
+    var _docName = ""
     var docName: String{
         set(setDocName){
-            self.docName = setDocName
+            self._docName = setDocName
         }
         get{
-            return self.docName
+            return self._docName
         }
     }
     
+    var _docType = DocumentType.Other
     var docType: DocumentType{
         set(setDocType){
-            self.docType = setDocType
+            self._docType = setDocType
         }
         get{
-            return self.docType
+            return self._docType
             }
         }
     
-    
+    var _docDiscription = ""
     var docDiscription: String{
         set(setDocDiscription){
-            self.docDiscription = setDocDiscription
+            self._docDiscription = setDocDiscription
         }
         get{
-            return self.docDiscription
+            return self._docDiscription
         }
     }
     
@@ -61,21 +64,22 @@ class Document{
     var docFieldTypes = ["Credit Card", "Other"]
     var docFiledValues = [String]()
     
-    var docImage: UIImage{
-        set(setUIImage){
-            self.docImage = setUIImage
-        }
-        get{
-            return self.docImage
-        }
-    }
+
+//    var docImage: UIImage{
+//        set(setUIImage){
+//            self._docImage = setUIImage
+//        }
+//        get{
+//            return self._docImage
+//        }
+//    }
 
     //docID generator?
     //takes the current user's id who is creating the document
-    init(creatorID: String){
-        self.userID = creatorID
-        docID = "testdocID"
-    }
+//    init(creatorID: String){
+//        userID = creatorID
+//        docID = "testdocID"
+//    }
     
     //Param takes in a DocumentType enum
     //returns the document type as an int for use in the db
@@ -87,4 +91,8 @@ class Document{
             return 1;
         }
     }
+    
+//    func setUserID(uID: String){
+//               self.userID = uID;
+//    }
 }

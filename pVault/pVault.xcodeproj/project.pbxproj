@@ -35,9 +35,9 @@
 		658F07731A22C5FD00D375A9 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299FA8511A1DBE3A00D26744 /* ParseUI.framework */; };
 		658F077E1A22C65300D375A9 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299FA84F1A1DBE3A00D26744 /* Parse.framework */; };
 		658F077F1A22C65500D375A9 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299FA84E1A1DBE3A00D26744 /* Bolts.framework */; };
+		658F07821A22E3B300D375A9 /* TestDocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658F07811A22E3B300D375A9 /* TestDocumentViewController.swift */; };
 		65F0BA821A1F2B7F005EBEEC /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F0BA811A1F2B7F005EBEEC /* Document.swift */; };
 		65F0BA841A219990005EBEEC /* documentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F0BA831A219990005EBEEC /* documentType.swift */; };
-		65F0BA881A21D818005EBEEC /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F0BA871A21D818005EBEEC /* test.swift */; };
 		65F0BA8E1A22ABCE005EBEEC /* DocumentDBConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F0BA7F1A1F1726005EBEEC /* DocumentDBConnection.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,10 +81,10 @@
 		29A451341A1C4B9E00B7CB53 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		29A451391A1C526000B7CB53 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewController.swift; path = ../RegisterViewController.swift; sourceTree = "<group>"; };
 		29A4513B1A1C846700B7CB53 /* CreatePasswordPINViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePasswordPINViewController.swift; sourceTree = "<group>"; };
+		658F07811A22E3B300D375A9 /* TestDocumentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestDocumentViewController.swift; sourceTree = "<group>"; };
 		65F0BA7F1A1F1726005EBEEC /* DocumentDBConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentDBConnection.swift; sourceTree = "<group>"; };
 		65F0BA811A1F2B7F005EBEEC /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		65F0BA831A219990005EBEEC /* documentType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = documentType.swift; sourceTree = "<group>"; };
-		65F0BA871A21D818005EBEEC /* test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,7 +166,6 @@
 		29152BB61A1971C100A88FEA /* pVault */ = {
 			isa = PBXGroup;
 			children = (
-				65F0BA871A21D818005EBEEC /* test.swift */,
 				65F0BA7F1A1F1726005EBEEC /* DocumentDBConnection.swift */,
 				65F0BA811A1F2B7F005EBEEC /* Document.swift */,
 				65F0BA831A219990005EBEEC /* documentType.swift */,
@@ -174,6 +173,7 @@
 				29A451381A1C4EB700B7CB53 /* ViewControllers */,
 				29152BB91A1971C100A88FEA /* AppDelegate.swift */,
 				29152BBD1A1971C100A88FEA /* Main.storyboard */,
+				658F07811A22E3B300D375A9 /* TestDocumentViewController.swift */,
 				10D33CA71A1D9B7500E17563 /* pVault-Bridging-Header.h */,
 				29152BC01A1971C100A88FEA /* Images.xcassets */,
 				29A451321A1C42E800B7CB53 /* Validator.swift */,
@@ -321,11 +321,11 @@
 				65F0BA8E1A22ABCE005EBEEC /* DocumentDBConnection.swift in Sources */,
 				65F0BA821A1F2B7F005EBEEC /* Document.swift in Sources */,
 				29A451351A1C4B9E00B7CB53 /* LoginViewController.swift in Sources */,
-				65F0BA881A21D818005EBEEC /* test.swift in Sources */,
 				29A4513C1A1C846700B7CB53 /* CreatePasswordPINViewController.swift in Sources */,
 				29A451331A1C42E800B7CB53 /* Validator.swift in Sources */,
 				29152BBA1A1971C100A88FEA /* AppDelegate.swift in Sources */,
 				65F0BA841A219990005EBEEC /* documentType.swift in Sources */,
+				658F07821A22E3B300D375A9 /* TestDocumentViewController.swift in Sources */,
 				29A4513A1A1C526000B7CB53 /* RegisterViewController.swift in Sources */,
 				299FA8571A1DBE6800D26744 /* DBConnectionProtocol.swift in Sources */,
 			);
