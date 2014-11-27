@@ -8,26 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		10B4DD5F1A203DDA0008565C /* UserDatabaseConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B4DD5E1A203DDA0008565C /* UserDatabaseConnection.swift */; };
-		10B4DD651A22833F0008565C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299FA84F1A1DBE3A00D26744 /* Parse.framework */; };
-		10B4DD671A2283460008565C /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299FA8501A1DBE3A00D26744 /* ParseFacebookUtils.framework */; };
-		10B4DD681A2283480008565C /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299FA8511A1DBE3A00D26744 /* ParseUI.framework */; };
-		10B4DD691A22837C0008565C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D33C9C1A1D998C00E17563 /* SystemConfiguration.framework */; };
-		10B4DD6A1A22837F0008565C /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D33C9B1A1D998C00E17563 /* StoreKit.framework */; };
-		10B4DD6B1A2283820008565C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D33C9A1A1D998C00E17563 /* Security.framework */; };
-		10B4DD6C1A2283850008565C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D33C991A1D998C00E17563 /* QuartzCore.framework */; };
-		10B4DD6D1A2283880008565C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D33C981A1D998C00E17563 /* MobileCoreServices.framework */; };
-		10B4DD6E1A22838B0008565C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D33C971A1D998C00E17563 /* libz.dylib */; };
-		10B4DD6F1A22838E0008565C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D33C961A1D998C00E17563 /* CoreLocation.framework */; };
-		10B4DD701A2283910008565C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D33C951A1D998C00E17563 /* CoreGraphics.framework */; };
-		10B4DD711A2283930008565C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D33C941A1D998C00E17563 /* CFNetwork.framework */; };
-		10B4DD721A2283960008565C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D33C931A1D998C00E17563 /* AudioToolbox.framework */; };
-		10B4DD731A2283A40008565C /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299FA84E1A1DBE3A00D26744 /* Bolts.framework */; };
-		10B4DD751A2283BC0008565C /* ParseUI.framework in Headers */ = {isa = PBXBuildFile; fileRef = 299FA8511A1DBE3A00D26744 /* ParseUI.framework */; settings = {ATTRIBUTES = (Public, ); }; };
-		10B4DD761A2283BC0008565C /* ParseFacebookUtils.framework in Headers */ = {isa = PBXBuildFile; fileRef = 299FA8501A1DBE3A00D26744 /* ParseFacebookUtils.framework */; settings = {ATTRIBUTES = (Public, ); }; };
-		10B4DD771A2283BC0008565C /* Parse.framework in Headers */ = {isa = PBXBuildFile; fileRef = 299FA84F1A1DBE3A00D26744 /* Parse.framework */; settings = {ATTRIBUTES = (Public, ); }; };
-		10B4DD781A2283BC0008565C /* Bolts.framework in Headers */ = {isa = PBXBuildFile; fileRef = 299FA84E1A1DBE3A00D26744 /* Bolts.framework */; settings = {ATTRIBUTES = (Public, ); }; };
-		10B4DD7A1A22841D0008565C /* pVault-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 10D33CA71A1D9B7500E17563 /* pVault-Bridging-Header.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		10B4DD7E1A22877B0008565C /* UserTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B4DD7D1A22877B0008565C /* UserTestViewController.swift */; };
 		10D33C9D1A1D998C00E17563 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D33C931A1D998C00E17563 /* AudioToolbox.framework */; };
 		10D33C9E1A1D998C00E17563 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D33C941A1D998C00E17563 /* CFNetwork.framework */; };
 		10D33C9F1A1D998C00E17563 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D33C951A1D998C00E17563 /* CoreGraphics.framework */; };
@@ -77,7 +57,6 @@
 
 /* Begin PBXFileReference section */
 		10B4DD5E1A203DDA0008565C /* UserDatabaseConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDatabaseConnection.swift; sourceTree = "<group>"; };
-		10B4DD7D1A22877B0008565C /* UserTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTestViewController.swift; sourceTree = "<group>"; };
 		10D33C931A1D998C00E17563 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		10D33C941A1D998C00E17563 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		10D33C951A1D998C00E17563 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -143,20 +122,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10B4DD701A2283910008565C /* CoreGraphics.framework in Frameworks */,
-				10B4DD6C1A2283850008565C /* QuartzCore.framework in Frameworks */,
-				10B4DD6F1A22838E0008565C /* CoreLocation.framework in Frameworks */,
-				10B4DD6E1A22838B0008565C /* libz.dylib in Frameworks */,
-				10B4DD651A22833F0008565C /* Parse.framework in Frameworks */,
-				10B4DD711A2283930008565C /* CFNetwork.framework in Frameworks */,
-				10B4DD691A22837C0008565C /* SystemConfiguration.framework in Frameworks */,
-				10B4DD6A1A22837F0008565C /* StoreKit.framework in Frameworks */,
-				10B4DD6B1A2283820008565C /* Security.framework in Frameworks */,
-				10B4DD6D1A2283880008565C /* MobileCoreServices.framework in Frameworks */,
-				10B4DD721A2283960008565C /* AudioToolbox.framework in Frameworks */,
-				10B4DD681A2283480008565C /* ParseUI.framework in Frameworks */,
-				10B4DD671A2283460008565C /* ParseFacebookUtils.framework in Frameworks */,
-				10B4DD731A2283A40008565C /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,7 +227,6 @@
 		29A451381A1C4EB700B7CB53 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				10B4DD7D1A22877B0008565C /* UserTestViewController.swift */,
 				29A451391A1C526000B7CB53 /* RegisterViewController.swift */,
 				29A451341A1C4B9E00B7CB53 /* LoginViewController.swift */,
 				29A4513B1A1C846700B7CB53 /* CreatePasswordPINViewController.swift */,
@@ -274,21 +238,6 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		10B4DD741A2283B40008565C /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				10B4DD751A2283BC0008565C /* ParseUI.framework in Headers */,
-				10B4DD761A2283BC0008565C /* ParseFacebookUtils.framework in Headers */,
-				10B4DD771A2283BC0008565C /* Parse.framework in Headers */,
-				10B4DD7A1A22841D0008565C /* pVault-Bridging-Header.h in Headers */,
-				10B4DD781A2283BC0008565C /* Bolts.framework in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
 		29152BB31A1971C100A88FEA /* pVault */ = {
 			isa = PBXNativeTarget;
@@ -297,7 +246,6 @@
 				29152BB01A1971C100A88FEA /* Sources */,
 				29152BB11A1971C100A88FEA /* Frameworks */,
 				29152BB21A1971C100A88FEA /* Resources */,
-				10B4DD741A2283B40008565C /* Headers */,
 			);
 			buildRules = (
 			);
@@ -399,7 +347,6 @@
 				29152BBA1A1971C100A88FEA /* AppDelegate.swift in Sources */,
 				2946417B1A21DA5A0025AECC /* SecurityQuestions.swift in Sources */,
 				29A4513A1A1C526000B7CB53 /* RegisterViewController.swift in Sources */,
-				10B4DD7E1A22877B0008565C /* UserTestViewController.swift in Sources */,
 				10B4DD5F1A203DDA0008565C /* UserDatabaseConnection.swift in Sources */,
 				299FA8571A1DBE6800D26744 /* DBConnectionProtocol.swift in Sources */,
 				2919302C1A246C8900E34A27 /* ConfirmRegisterViewController.swift in Sources */,
@@ -571,7 +518,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					/Users/arjaynguyen/Git/cs160/ParseStuff,
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -594,7 +540,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					/Users/arjaynguyen/Git/cs160/ParseStuff,
 				);
 				INFOPLIST_FILE = pVaultTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
