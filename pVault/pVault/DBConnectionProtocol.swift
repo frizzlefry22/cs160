@@ -10,9 +10,9 @@ import Foundation
 
 protocol DBConnectionProtocol{
     
-    func create(var pfObj: PFObject)
-    func read()
-    func edit()
-    func delete()
+    class func create(pfObj: PFObject)
+    class func read(query: PFQuery)
+    class func edit(query: PFQuery)
+    class func delete(query: PFQuery)
     
 }

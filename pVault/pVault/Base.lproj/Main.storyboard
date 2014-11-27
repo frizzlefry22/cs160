@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useTraitCollections="YES" initialViewController="4JB-0R-fOf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4JB-0R-fOf">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--pVault-->
+        <!--pVaultViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="pVault" id="BYZ-38-t0r" customClass="LoginViewController" customModule="pVault" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeView" title="pVaultViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="pVault" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -58,6 +63,70 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1266.5" y="224.5"/>
+        </scene>
+        <!--User Test View Controller-->
+        <scene sceneID="PFa-5V-PKc">
+            <objects>
+                <viewController id="dZI-ED-a72" customClass="UserTestViewController" customModule="pVault" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6DV-iS-uOQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="ytv-UY-cvV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kqc-uo-JZU">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJU-XC-iJf">
+                                <rect key="frame" x="114" y="68" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="Kaf-WY-06V"/>
+                                </constraints>
+                                <state key="normal" title="Create Test">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="testCreate:" destination="dZI-ED-a72" eventType="touchUpInside" id="NMc-p5-9wh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OIc-fo-hwb">
+                                <rect key="frame" x="124" y="197" width="87" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="87" id="0we-cZ-L2z"/>
+                                </constraints>
+                                <state key="normal" title="Read Test">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="testRead:" destination="dZI-ED-a72" eventType="touchUpInside" id="6KZ-8N-7iH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MU0-YX-bJw">
+                                <rect key="frame" x="144" y="311" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="Vjl-Pk-W3H"/>
+                                </constraints>
+                                <state key="normal" title="Delete Test">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="testDelete:" destination="dZI-ED-a72" eventType="touchUpInside" id="z8e-66-VCa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OIc-fo-hwb" firstAttribute="leading" secondItem="kqc-uo-JZU" secondAttribute="leading" constant="124" id="Glp-bx-54m"/>
+                            <constraint firstItem="MU0-YX-bJw" firstAttribute="leading" secondItem="kqc-uo-JZU" secondAttribute="leading" constant="144" id="XdI-oK-rd6"/>
+                            <constraint firstItem="OIc-fo-hwb" firstAttribute="top" secondItem="dJU-XC-iJf" secondAttribute="bottom" constant="99" id="ghX-xn-oVs"/>
+                            <constraint firstItem="dJU-XC-iJf" firstAttribute="leading" secondItem="kqc-uo-JZU" secondAttribute="leadingMargin" constant="98" id="mZZ-gR-i9N"/>
+                            <constraint firstItem="MU0-YX-bJw" firstAttribute="top" secondItem="OIc-fo-hwb" secondAttribute="bottom" constant="84" id="u5s-mj-JtV"/>
+                            <constraint firstItem="dJU-XC-iJf" firstAttribute="top" secondItem="6DV-iS-uOQ" secondAttribute="bottom" constant="48" id="wWD-pz-zEw"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V4k-UJ-PdI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1687" y="107"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="tOJ-m9-NfM">
