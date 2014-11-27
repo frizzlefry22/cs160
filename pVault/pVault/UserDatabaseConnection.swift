@@ -63,7 +63,7 @@ class UserDatabaseConnection: DBConnectionProtocol{
     class func delete(query: PFQuery){
         query.findObjectsInBackgroundWithBlock{
             (objects:[AnyObject]!, error: NSError!) -> Void in
-            
+            //kevin sucks
             //object(s) found
             if error == nil{
                 
