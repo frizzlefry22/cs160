@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Pvault2. All rights reserved.
 //
 
-//import Cocoa
 import XCTest
 
 class UtilsTests: XCTestCase {
@@ -26,6 +25,9 @@ class UtilsTests: XCTestCase {
         var strArr = ["a","b","cd","e"]
         
         removeString("cd", &strArr)
+        
+
+        
         
         XCTAssertEqual(strArr, ["a","b","e"], "Shuold remove cd")
         

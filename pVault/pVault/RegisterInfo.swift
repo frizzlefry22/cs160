@@ -28,6 +28,7 @@ struct RegisterInfo {
     //Maybed create User here ?
     static func createUser(){
         
+        
         println("Debug")
         
     }

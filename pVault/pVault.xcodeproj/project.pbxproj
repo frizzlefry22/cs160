@@ -28,7 +28,6 @@
 		29152BC41A1971C100A88FEA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29152BC21A1971C100A88FEA /* LaunchScreen.xib */; };
 		29152BD01A1971C100A88FEA /* pVaultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29152BCF1A1971C100A88FEA /* pVaultTests.swift */; };
 		2919301C1A24124800E34A27 /* UtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2919301B1A24124800E34A27 /* UtilsTests.swift */; };
-		2919301D1A2412AC00E34A27 /* SecurityQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2946417A1A21DA5A0025AECC /* SecurityQuestions.swift */; };
 		2919301F1A242B3C00E34A27 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2919301E1A242B3C00E34A27 /* Utils.swift */; };
 		291930201A242B6A00E34A27 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2919301E1A242B3C00E34A27 /* Utils.swift */; };
 		291930221A24625200E34A27 /* SecurityQuestionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291930211A24625200E34A27 /* SecurityQuestionTests.swift */; };
@@ -36,6 +35,7 @@
 		291930261A2462B200E34A27 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A451321A1C42E800B7CB53 /* Validator.swift */; };
 		291930281A24674000E34A27 /* RegisterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291930271A24674000E34A27 /* RegisterInfo.swift */; };
 		2919302C1A246C8900E34A27 /* ConfirmRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2919302B1A246C8900E34A27 /* ConfirmRegisterViewController.swift */; };
+		2922C05D1A26DFDE00A31962 /* SecurityQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2946417A1A21DA5A0025AECC /* SecurityQuestions.swift */; };
 		2946417B1A21DA5A0025AECC /* SecurityQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2946417A1A21DA5A0025AECC /* SecurityQuestions.swift */; };
 		299FA8571A1DBE6800D26744 /* DBConnectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299FA8561A1DBE6800D26744 /* DBConnectionProtocol.swift */; };
 		29A451331A1C42E800B7CB53 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A451321A1C42E800B7CB53 /* Validator.swift */; };
@@ -282,9 +282,11 @@
 				TargetAttributes = {
 					29152BB31A1971C100A88FEA = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = N9545MW4RW;
 					};
 					29152BC81A1971C100A88FEA = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = N9545MW4RW;
 						TestTargetID = 29152BB31A1971C100A88FEA;
 					};
 				};
@@ -352,7 +354,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				291930251A24628E00E34A27 /* ValidatorTests.swift in Sources */,
-				2919301D1A2412AC00E34A27 /* SecurityQuestions.swift in Sources */,
+				2922C05D1A26DFDE00A31962 /* SecurityQuestions.swift in Sources */,
 				29152BD01A1971C100A88FEA /* pVaultTests.swift in Sources */,
 				2919301C1A24124800E34A27 /* UtilsTests.swift in Sources */,
 				291930261A2462B200E34A27 /* Validator.swift in Sources */,
@@ -507,6 +509,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -518,6 +522,7 @@
 				INFOPLIST_FILE = pVaultTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/pVault.app/pVault";
 			};
 			name = Debug;
@@ -526,6 +531,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -533,6 +540,7 @@
 				INFOPLIST_FILE = pVaultTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/pVault.app/pVault";
 			};
 			name = Release;
