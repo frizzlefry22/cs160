@@ -14,22 +14,47 @@ class RegisterViewController: UIViewController {
 
     @IBOutlet weak var continueButton: UIButton!
     
+    @IBOutlet weak var warningLabel: UILabel!
+    
     @IBAction func emailEdited(sender: UITextField) {
         
-        
-        if (emailExists(email.text)) {
+        if (!Validator.emailExists(email.text) && Validator.emailValid(email.text)) {
             continueButton.enabled = true
-            email.textColor = UIColor.greenColor()
+            warningLabel.text = "Available"
+            warningLabel.textColor = UIColor.greenColor()
+            //Makes the button fully blue again
+            continueButton.alpha = 1
+        }
+        else if (Validator.emailExists(email.text))
+        {
+            warningLabel.text = "Email exists"
+            warningLabel.textColor = UIColor.redColor()
+            continueButton.enabled = false
+            continueButton.alpha = 0.4
         }
         else {
-            email.textColor = UIColor.redColor()
+            
+            warningLabel.text = "Invalid email"
+            warningLabel.textColor = UIColor.redColor()
+            continueButton.enabled = false
+            continueButton.alpha = 0.4
         }
+    }
+    
+    //Called before it goes to next Screen
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        //Sets the email everytime this page advances
+        RegisterInfo.email = email.text!
+        
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //This makes the button look unclickable
+        continueButton.alpha = 0.4
         
         // Do any additional setup after loading the view.
     }

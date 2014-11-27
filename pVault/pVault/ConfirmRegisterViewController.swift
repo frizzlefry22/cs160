@@ -1,22 +1,35 @@
 //
-//  LoginViewController.swift
+//  ConfirmRegisterViewController.swift
 //  pVault
 //
-//  Created by Joseph ORLANDO on 11/18/14.
+//  Created by Joseph ORLANDO on 11/24/14.
 //  Copyright (c) 2014 Pvault2. All rights reserved.
 //
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class ConfirmRegisterViewController: UIViewController {
 
-    @IBOutlet weak var loginEmail: UITextField!
     
-    @IBOutlet weak var loginPassword: UITextField!
+    
+    @IBOutlet weak var emailTextBox: UITextField!
+    
+    
+    
+    @IBAction func debugButtonForNow(sender: AnyObject) {
+        
+        RegisterInfo.createUser()
+        
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        emailTextBox.text = RegisterInfo.email
+        emailTextBox.enabled = false
+        
+        
         // Do any additional setup after loading the view.
     }
 
@@ -25,8 +38,7 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    
+
     /*
     // MARK: - Navigation
 
