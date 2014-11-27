@@ -20,16 +20,15 @@ class UserDatabaseConnection: DBConnectionProtocol{
     class func create(pfObj: PFObject){
         
         //save pfObj in background, will use callback block to handle success/fail of save
-        pfObj.saveInBackgroundWithBlock({(succeeded: Bool!, error: NSError!) -> Void in
-            //success block
-            if(succeeded!){
-                println("File Saved")
-            }
+        var succeeded = pfObj.save()
+        
+        if(succeeded){
+            println("File Saved")
+        }
             //fail block
-            else{
-                println("File not saved, will be saved when connection to DB is establed")
-            }
-        })
+        else{
+            println("File not saved, will be saved when connection to DB is establed")
+        }
     }
     
     /*
@@ -61,8 +60,41 @@ class UserDatabaseConnection: DBConnectionProtocol{
         Param:
         Return:
     */
-    class func delete(){
-        
+    class func delete(query: PFQuery){
+        query.findObjectsInBackgroundWithBlock{
+            (objects:[AnyObject]!, error: NSError!) -> Void in
+            
+            //object(s) found
+            if error == nil{
+                
+                //check if empty
+                if (objects.isEmpty){
+                    println("nothing found")
+                }
+                    //if found, process objects, should only be one
+                else{
+                    for object in objects{
+                        //process object
+                        
+                        object.deleteInBackgroundWithBlock({(succeeded: Bool!, error: NSError!) -> Void in
+                            //success block
+                            if(succeeded!){
+                                println("File Deleted")
+                            }
+                                //fail block
+                            else{
+                                println("File not deleted, will be saved when connection to DB is establed")
+                            }
+                        })
+                    }
+                }
+            }
+                //error
+            else{
+                
+            }
+        }
+
     }
     
     /*
@@ -119,7 +151,7 @@ class UserDatabaseConnection: DBConnectionProtocol{
     //test method, used to create a PFQuery, returns PFQuery
     class func createTestQuery()->PFQuery{
         var query = PFQuery(className: "User")
-        query.whereKey("userID", equalTo:"123")
+        query.whereKey("userID", equalTo:"124")
         
         return query
     }

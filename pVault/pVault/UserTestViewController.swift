@@ -11,10 +11,17 @@ import UIKit
 //Used to test UserDatabaseConnection
 class UserTestViewController: UIViewController {
 
+    @IBAction func testDelete(sender: AnyObject) {
+        UserDatabaseConnection.delete(UserDatabaseConnection.createTestQuery())
+    }
     //var userDB = UserDatabaseConnection()
     
     @IBAction func testRead(sender: AnyObject) {
-        UserDatabaseConnection.read(UserDatabaseConnection.createTestQuery())
+        let storyboard = UIStoryboard(name: "Main", bundle:nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier("HomeView") as UIViewController
+        //self.showViewController(vc as UIViewController, sender: vc)
+        self.presentViewController(vc, animated: false, completion: nil)
+        //UserDatabaseConnection.read(UserDatabaseConnection.createTestQuery())
     }
     @IBAction func testCreate(sender: AnyObject) {
         UserDatabaseConnection.create(UserDatabaseConnection.testCreate())
