@@ -10,6 +10,9 @@ import Foundation
 
 public class DocumentDBConnecion{//: DBConnectionProtocol{
     
+    
+    
+    
     //Param takes in a PFObject
     //PFObject is saved into parse database
     //mostly done just need to get the two array and file and then test
@@ -63,6 +66,12 @@ public class DocumentDBConnecion{//: DBConnectionProtocol{
         
     }
     
+    //Param takes in an existing document 
+    //Return returns a parse query to upload new document
+    class func editOverExisting(doc: Document) -> PFQuery{
+        
+    }
+    
     //Param takes in a document ID
     //this query removes a document from the database
     class func delete(docID: String){
@@ -70,7 +79,7 @@ public class DocumentDBConnecion{//: DBConnectionProtocol{
         query.getObjectInBackgroundWithId(docID) {
             (document: PFObject!, error: NSError!) -> Void in
             if error == nil {
-                document.deleteInBackground()
+                document.delete()
                 NSLog("%@", document)
             } else {
                 NSLog("%@", error)
@@ -114,36 +123,71 @@ public class DocumentDBConnecion{//: DBConnectionProtocol{
         return document
     }
     
+    //var docDictionary = [String: String]()
+    //public var docList:[(docID: String, docName: String, docType: Int)] = []
     
-    class func getDocList(userID: String) -> Dictionary<String, String>{
-        var docDictionary = [String: String]()
+    class func getDocList(userID: String) -> [(docID: String, docName: String, docType: Int)]{//String{ //Dictionary<String, String>{
+        var docList:[(docID: String, docName: String, docType: Int)] = []
+        var aString = ""
         var query = PFQuery(className:"Document")
         query.whereKey("userID", equalTo: userID)
         query.findObjectsInBackgroundWithBlock {
             (objects: [AnyObject]!, error: NSError!) -> Void in
             if error == nil {
                 // The find succeeded.
-                NSLog("Successfully retrieved \(objects.count) Something!.")
+                NSLog("Successfully retrieved \(objects.count) objects!.")
                 // Do something with the found objects
                 for object in objects {
-                    var docID = object["objectid"] as String
-                    var docName = object["docName"] as String
-                    docDictionary[docID] = docName
-                    NSLog("%@", object.objectId)
+                    var someID = object.objectId as String
+                    var someName = object["docName"] as String
+                    var someType = object["docType"] as Int
+                    //self.docDictionary[someDocID] = someDocName
+                    var tuple = (docID: someID, docName: someName, docType: someType)
+                    docList += [tuple]
+                    
+                    //aString += "ID: " + someID + " Name: " + someName + " type: " + someType + "\n"
+//                    println("Stored something")
+                    //println("doc ID: " + someDocID + " doc name: " + someDocName)
+                    //object.fetch()
+                    //NSLog("%@", object.objectId)
                 }
+//                for someDocID in docDictionary.values{
+//                    println("before printing")
+//                    println("someDocID: " + someDocID)
+//                }
+                //
+                //tuple test
+//                for tuple in docList{
+//                    var type: String = String(tuple.docType)
+//                    print("id: " + tuple.docID )
+//                    print(" name: " + tuple.docName)
+//                    print(" type:  " + type + "\n")
+//                }
+//                for keys in docDictionary.keys{
+//                    println("key: " + keys)
+//                }
             } else {
                 // Log details of the failure
                 NSLog("Error: %@ %@", error, error.userInfo!)
             }
         }
-        return docDictionary
+           //returns list by doc type
+
+        
+        return docList//docDictionary
     }
     
-    //returns list by doc type
     class func searchDocByType(){
         
     }
     
+    //used to test adding a ditionary to parse, parse saves it as an array
+    class func testDictionary(){
+        var dictionary = ["name": "Kevin", "id": 12345, "age": 100]
+        var object = PFObject(className: "TestClass")
+        object.addObject(dictionary, forKey: "infor")
+        object.save()
+    }
 //    let testDoc = Document(creatorID: "testString")
 //    let dbConnection = DocumentDBConnecion()
 //    

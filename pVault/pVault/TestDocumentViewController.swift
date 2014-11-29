@@ -10,7 +10,7 @@ import UIKit
 
 class TestDocumentViewController: UIViewController {
 
-    let testDoc = Document()
+    let testDoc = Document(creatorID: "TestUserID")
     
     @IBOutlet weak var testLabel: UILabel!
     
@@ -18,7 +18,7 @@ class TestDocumentViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        testDoc.userID = "TestUserID"
+        //testDoc.userID = "TestUserID"
         testDoc.docID = "testDocID"
         testDoc.docName = "Testdoc"
         testDoc.docType = DocumentType.Other
@@ -38,7 +38,33 @@ class TestDocumentViewController: UIViewController {
         DocumentDBConnecion.read(DocumentDBConnecion.getSingleDocument(testDoc.docID))
     }
     
+    @IBAction func testList(sender: AnyObject) {
+         var temp =  DocumentDBConnecion.getDocList("TestUserID")
+//        for (someDocID, someDocName) in docDictionary{
+//            println("\(someDocID) test\t \(someDocName)")
+//        }
+//
+        
+        for tuple in temp{
+            var type: String = String(tuple.docType)
+            print("id: " + tuple.docID )
+            print(" name: " + tuple.docName)
+            print(" type:  " + type)
+        }
+        println(temp)//"I'm here")
+//        for someDocID in temp.values{
+//            println("before printing")
+//            println("someDocID: " + someDocID)
+//        }
+//
+//        for keys in temp.keys{
+//            println("key: " + keys)
+//        }
+    }
 
+    @IBAction func testDictionary(sender: AnyObject) {
+        DocumentDBConnecion.testDictionary()
+    }
     /*
     // MARK: - Navigation
 

@@ -10,6 +10,11 @@ import Foundation
 
 class Document{
     
+    init(creatorID: String){
+        self.userID = creatorID
+    }
+    
+    //document ID
     var _docID = ""
     var docID: String{
         set(setDocID){
@@ -20,6 +25,7 @@ class Document{
         }
     }
     
+    //user id, person who is loged in and created document
     var _userID = ""
     var userID: String{
         set(setUID){
@@ -30,6 +36,7 @@ class Document{
         }
     }
     
+    //document name
     var _docName = ""
     var docName: String{
         set(setDocName){
@@ -40,6 +47,7 @@ class Document{
         }
     }
     
+    //document type this is an enum
     var _docType = DocumentType.Other
     var docType: DocumentType{
         set(setDocType){
@@ -50,6 +58,7 @@ class Document{
             }
         }
     
+    //document discription
     var _docDiscription = ""
     var docDiscription: String{
         set(setDocDiscription){
@@ -60,9 +69,10 @@ class Document{
         }
     }
     
+    
     //what goes in these two arrays
-    var docFieldTypes = ["Credit Card", "Other"]
-    var docFiledValues = [String]()
+    var docField = Dictionary<String, String>()
+    
     
 
 //    var docImage: UIImage{
@@ -76,10 +86,7 @@ class Document{
 
     //docID generator?
     //takes the current user's id who is creating the document
-//    init(creatorID: String){
-//        userID = creatorID
-//        docID = "testdocID"
-//    }
+    
     
     //Param takes in a DocumentType enum
     //returns the document type as an int for use in the db
@@ -91,6 +98,25 @@ class Document{
             return 1;
         }
     }
+    
+    //Param this takes in a document type 
+    //sets the document's fields 
+    //In the controller we can set the fields with
+    //docField["Card Holder"] = "Joe"
+    //docField.updateValue("Joe", forKey: "Card Holder")
+    func setDocField(type: DocumentType){
+        switch type{
+        case .Creditcard:
+            self.docField = ["Card Holder": "", "Credit Card Number": "", "Security Pin": "", "Expiration Date": ""]
+            break
+        case .BirthCertificate:
+            self.docField = ["Name": "", "Date of Birth": "", "Place of Birth": "", "Parent's name": "", "Certificate Name": ""]
+            break
+        case DriverLicense:
+            self.docField = ["First Name": "", "Last Name": "", "Driver License Number": "", "Expiration Date": "", "Class": "", "Date of Birth": "", "Address": ""]
+        case .Other:
+            break
+        }    }
     
 //    func setUserID(uID: String){
 //               self.userID = uID;

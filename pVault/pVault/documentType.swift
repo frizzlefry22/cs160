@@ -10,5 +10,7 @@ import Foundation
 
 enum DocumentType{
     case Creditcard
+    case BirthCertificate
+    case DriverLicense 
     case Other
 }
