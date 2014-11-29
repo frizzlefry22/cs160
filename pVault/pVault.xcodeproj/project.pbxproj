@@ -18,6 +18,7 @@
 		10D33CA41A1D998C00E17563 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D33C9A1A1D998C00E17563 /* Security.framework */; };
 		10D33CA51A1D998C00E17563 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D33C9B1A1D998C00E17563 /* StoreKit.framework */; };
 		10D33CA61A1D998C00E17563 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D33C9C1A1D998C00E17563 /* SystemConfiguration.framework */; };
+		10EB92121A293A97009B3570 /* UserTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EB92111A293A97009B3570 /* UserTestViewController.swift */; };
 		247385C31A1DC806005235C6 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299FA8511A1DBE3A00D26744 /* ParseUI.framework */; };
 		247385C41A1DC80A005235C6 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299FA8501A1DBE3A00D26744 /* ParseFacebookUtils.framework */; };
 		247385C51A1DC80D005235C6 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299FA84F1A1DBE3A00D26744 /* Parse.framework */; };
@@ -68,6 +69,7 @@
 		10D33C9B1A1D998C00E17563 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		10D33C9C1A1D998C00E17563 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		10D33CA71A1D9B7500E17563 /* pVault-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "pVault-Bridging-Header.h"; sourceTree = "<group>"; };
+		10EB92111A293A97009B3570 /* UserTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTestViewController.swift; sourceTree = "<group>"; };
 		29104E971A1F1F2A0058F475 /* SecurityQuestionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityQuestionsViewController.swift; sourceTree = "<group>"; };
 		29152BB41A1971C100A88FEA /* pVault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pVault.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29152BB81A1971C100A88FEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				29A451391A1C526000B7CB53 /* RegisterViewController.swift */,
 				29A451341A1C4B9E00B7CB53 /* LoginViewController.swift */,
 				29A4513B1A1C846700B7CB53 /* CreatePasswordPINViewController.swift */,
+				10EB92111A293A97009B3570 /* UserTestViewController.swift */,
 				29104E971A1F1F2A0058F475 /* SecurityQuestionsViewController.swift */,
 				2919302B1A246C8900E34A27 /* ConfirmRegisterViewController.swift */,
 			);
@@ -346,6 +349,7 @@
 				29A451331A1C42E800B7CB53 /* Validator.swift in Sources */,
 				29152BBA1A1971C100A88FEA /* AppDelegate.swift in Sources */,
 				2946417B1A21DA5A0025AECC /* SecurityQuestions.swift in Sources */,
+				10EB92121A293A97009B3570 /* UserTestViewController.swift in Sources */,
 				29A4513A1A1C526000B7CB53 /* RegisterViewController.swift in Sources */,
 				10B4DD5F1A203DDA0008565C /* UserDatabaseConnection.swift in Sources */,
 				299FA8571A1DBE6800D26744 /* DBConnectionProtocol.swift in Sources */,

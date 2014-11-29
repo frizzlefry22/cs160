@@ -17,11 +17,22 @@ class UserTestViewController: UIViewController {
     //var userDB = UserDatabaseConnection()
     
     @IBAction func testRead(sender: AnyObject) {
-        let storyboard = UIStoryboard(name: "Main", bundle:nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("HomeView") as UIViewController
+        var array: [[String:String]]
+        var user: [String:String]
+        //let storyboard = UIStoryboard(name: "Main", bundle:nil)
+        //let vc = storyboard.instantiateViewControllerWithIdentifier("HomeView") as UIViewController
         //self.showViewController(vc as UIViewController, sender: vc)
-        self.presentViewController(vc, animated: false, completion: nil)
-        //UserDatabaseConnection.read(UserDatabaseConnection.createTestQuery())
+        //self.presentViewController(vc, animated: false, completion: nil)
+        array = UserDatabaseConnection.read(UserDatabaseConnection.createTestQuery())
+        user = array[0]
+        
+        println(user["userID"])
+        println(user["email"])
+        println(user["PIN"])
+        println(user["password"])
+        println(user["secAns1"])
+        println(user["secAns2"])
+        println(user["secAns3"])
     }
     @IBAction func testCreate(sender: AnyObject) {
         UserDatabaseConnection.create(UserDatabaseConnection.testCreate())

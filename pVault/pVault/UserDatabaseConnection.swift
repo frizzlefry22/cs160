@@ -37,7 +37,7 @@ class UserDatabaseConnection: DBConnectionProtocol{
 
         Return:
     */
-    class func edit(query: PFQuery){
+    class func edit(query: PFQuery, editCols: [String: String]){
         query.findObjectsInBackgroundWithBlock{
             (objects:[AnyObject]!, error: NSError!) -> Void in
             
@@ -102,7 +102,10 @@ class UserDatabaseConnection: DBConnectionProtocol{
         Param:
         Return:
     */
-    class func read(query: PFQuery){
+    class func read(query: PFQuery)->[[String:String]]{
+        var array = [[String:String]]()
+        var row = [String:String]()
+        
         query.findObjectsInBackgroundWithBlock{
             (objects:[AnyObject]!, error: NSError!) -> Void in
             
@@ -115,21 +118,52 @@ class UserDatabaseConnection: DBConnectionProtocol{
                 }
                 //if found, process objects, should only be one
                 else{
-                    for object in objects{
-                        //process object
                     
-                        var id = object["userID"] as String
-                        println(id)
+                    //check if more than one user
+                    if (objects.count == 1){
+                        var ans: [String]
+                        
+                        var object:AnyObject = objects[0]
+                        row["userID"] = object["userID"] as String!
+                        row["email"] = object["email"] as String!
+                        row["password"] = object["password"] as String!
+                        row["PIN"] = object["PIN"] as String!
+                        
+                        ans = object["secAnswers"] as Array
+                        
+                        var i = 1
+                        for i = 1; i <= ans.count; i++ {
+                            var rowInc = "secAns" + String(i)
+                            row[rowInc] = ans[i-1]
+                        }
+                        
+                        
+                        array.append(row)
+                        
+                        
+                    }
+                    else{
+                        //inform user issue, cannot find unique user
+                        //print issue to console
                     }
                 }
             }
-                //error
+            //error
             else{
-                
+                println("read user error")
             }
         }
+        return array
     }
     
+    class func testEdit(){
+        var dict: [String: String] =  ["email": "editTest@email.com", "password": "newPW", "PIN": "4231" ]
+        var query = PFQuery(className: "User")
+        query.whereKey("email", equalTo:"test@email.com")
+        
+        
+        edit(query, editCols: dict)
+    }
     //test method, used to create a user PFObject and returns created PFObject
     class func testCreate()-> PFObject{
         var userId = "123"
