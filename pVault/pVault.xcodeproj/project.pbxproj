@@ -39,6 +39,7 @@
 		291E83BC1A27B0ED0037DEE0 /* DocPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291E83BB1A27B0ED0037DEE0 /* DocPhotoViewController.swift */; };
 		291E83BE1A294FFC0037DEE0 /* Encryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291E83BD1A294FFC0037DEE0 /* Encryption.swift */; };
 		2922C05D1A26DFDE00A31962 /* SecurityQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2946417A1A21DA5A0025AECC /* SecurityQuestions.swift */; };
+		294566B91A2B048B00DD7A3A /* Encoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294566B81A2B048B00DD7A3A /* Encoder.swift */; };
 		2946417B1A21DA5A0025AECC /* SecurityQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2946417A1A21DA5A0025AECC /* SecurityQuestions.swift */; };
 		29833EDA1A2ABAA900E30CCD /* TempViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29833ED91A2ABAA900E30CCD /* TempViewController.swift */; };
 		29833EDC1A2ABB0400E30CCD /* AcceptDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29833EDB1A2ABB0400E30CCD /* AcceptDataDelegate.swift */; };
@@ -90,6 +91,7 @@
 		2919302B1A246C8900E34A27 /* ConfirmRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmRegisterViewController.swift; sourceTree = "<group>"; };
 		291E83BB1A27B0ED0037DEE0 /* DocPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocPhotoViewController.swift; sourceTree = "<group>"; };
 		291E83BD1A294FFC0037DEE0 /* Encryption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encryption.swift; sourceTree = "<group>"; };
+		294566B81A2B048B00DD7A3A /* Encoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encoder.swift; sourceTree = "<group>"; };
 		2946417A1A21DA5A0025AECC /* SecurityQuestions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityQuestions.swift; sourceTree = "<group>"; };
 		29833ED91A2ABAA900E30CCD /* TempViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempViewController.swift; sourceTree = "<group>"; };
 		29833EDB1A2ABB0400E30CCD /* AcceptDataDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptDataDelegate.swift; sourceTree = "<group>"; };
@@ -179,6 +181,8 @@
 		29152BB61A1971C100A88FEA /* pVault */ = {
 			isa = PBXGroup;
 			children = (
+				294566B71A2B044700DD7A3A /* Utils */,
+				294566B61A2B043800DD7A3A /* protocols */,
 				291930231A24625800E34A27 /* Registeration */,
 				299FA8561A1DBE6800D26744 /* DBConnectionProtocol.swift */,
 				29A451381A1C4EB700B7CB53 /* ViewControllers */,
@@ -187,12 +191,8 @@
 				10D33CA71A1D9B7500E17563 /* pVault-Bridging-Header.h */,
 				10B4DD5E1A203DDA0008565C /* UserDatabaseConnection.swift */,
 				29152BC01A1971C100A88FEA /* Images.xcassets */,
-				29A451321A1C42E800B7CB53 /* Validator.swift */,
 				29152BC21A1971C100A88FEA /* LaunchScreen.xib */,
 				29152BB71A1971C100A88FEA /* Supporting Files */,
-				2919301E1A242B3C00E34A27 /* Utils.swift */,
-				291E83BD1A294FFC0037DEE0 /* Encryption.swift */,
-				29833EDB1A2ABB0400E30CCD /* AcceptDataDelegate.swift */,
 			);
 			path = pVault;
 			sourceTree = "<group>";
@@ -232,6 +232,25 @@
 				291930271A24674000E34A27 /* RegisterInfo.swift */,
 			);
 			name = Registeration;
+			sourceTree = "<group>";
+		};
+		294566B61A2B043800DD7A3A /* protocols */ = {
+			isa = PBXGroup;
+			children = (
+				29833EDB1A2ABB0400E30CCD /* AcceptDataDelegate.swift */,
+			);
+			name = protocols;
+			sourceTree = "<group>";
+		};
+		294566B71A2B044700DD7A3A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				291E83BD1A294FFC0037DEE0 /* Encryption.swift */,
+				29A451321A1C42E800B7CB53 /* Validator.swift */,
+				2919301E1A242B3C00E34A27 /* Utils.swift */,
+				294566B81A2B048B00DD7A3A /* Encoder.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		29A451381A1C4EB700B7CB53 /* ViewControllers */ = {
@@ -356,6 +375,7 @@
 				2919301F1A242B3C00E34A27 /* Utils.swift in Sources */,
 				291E83BC1A27B0ED0037DEE0 /* DocPhotoViewController.swift in Sources */,
 				29104E981A1F1F2A0058F475 /* SecurityQuestionsViewController.swift in Sources */,
+				294566B91A2B048B00DD7A3A /* Encoder.swift in Sources */,
 				291E83BE1A294FFC0037DEE0 /* Encryption.swift in Sources */,
 				29A451331A1C42E800B7CB53 /* Validator.swift in Sources */,
 				29833EDC1A2ABB0400E30CCD /* AcceptDataDelegate.swift in Sources */,

@@ -24,7 +24,7 @@ checkCredentials() : Boolean
 struct Validator {
     
     
-    
+    static let 💩 = false
     
     /* From Functional Requirement
     3.2.LV.3.FR.3
@@ -58,8 +58,7 @@ struct Validator {
     static func emailValid ( em : String ) -> Bool{
         
         var hasAt = em.rangeOfString("@") != nil
-        var hasEnd = em.rangeOfString(".com") != nil
-        return hasAt && hasEnd
+        return hasAt
     }
     
     /*
@@ -71,7 +70,7 @@ struct Validator {
     
     
     static func checkPassword ( pas : String ) -> Bool {
-        return false
+        return 💩
     }
     
     //curently a PIN must be 4 characters in length
