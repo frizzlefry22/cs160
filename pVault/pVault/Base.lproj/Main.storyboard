@@ -64,7 +64,7 @@
             <objects>
                 <viewController id="HGv-4L-quC" customClass="UserTestViewController" customModule="pVault" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c5i-Bt-lGC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <userGuides>
                             <userLayoutGuide location="300" affinity="minY"/>
@@ -581,6 +581,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="9bQ-cD-dsS"/>
+        <segue reference="Lt9-Mh-5yl"/>
     </inferredMetricsTieBreakers>
 </document>
