@@ -36,6 +36,8 @@
 		291930261A2462B200E34A27 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A451321A1C42E800B7CB53 /* Validator.swift */; };
 		291930281A24674000E34A27 /* RegisterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291930271A24674000E34A27 /* RegisterInfo.swift */; };
 		2919302C1A246C8900E34A27 /* ConfirmRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2919302B1A246C8900E34A27 /* ConfirmRegisterViewController.swift */; };
+		291E83BC1A27B0ED0037DEE0 /* DocPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291E83BB1A27B0ED0037DEE0 /* DocPhotoViewController.swift */; };
+		291E83BE1A294FFC0037DEE0 /* Encryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291E83BD1A294FFC0037DEE0 /* Encryption.swift */; };
 		2922C05D1A26DFDE00A31962 /* SecurityQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2946417A1A21DA5A0025AECC /* SecurityQuestions.swift */; };
 		2946417B1A21DA5A0025AECC /* SecurityQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2946417A1A21DA5A0025AECC /* SecurityQuestions.swift */; };
 		299FA8571A1DBE6800D26744 /* DBConnectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299FA8561A1DBE6800D26744 /* DBConnectionProtocol.swift */; };
@@ -84,6 +86,8 @@
 		291930241A24628E00E34A27 /* ValidatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidatorTests.swift; sourceTree = "<group>"; };
 		291930271A24674000E34A27 /* RegisterInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterInfo.swift; sourceTree = "<group>"; };
 		2919302B1A246C8900E34A27 /* ConfirmRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmRegisterViewController.swift; sourceTree = "<group>"; };
+		291E83BB1A27B0ED0037DEE0 /* DocPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocPhotoViewController.swift; sourceTree = "<group>"; };
+		291E83BD1A294FFC0037DEE0 /* Encryption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encryption.swift; sourceTree = "<group>"; };
 		2946417A1A21DA5A0025AECC /* SecurityQuestions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityQuestions.swift; sourceTree = "<group>"; };
 		299FA84E1A1DBE3A00D26744 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../ParseStuff/Bolts.framework; sourceTree = "<group>"; };
 		299FA84F1A1DBE3A00D26744 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../ParseStuff/Parse.framework; sourceTree = "<group>"; };
@@ -183,6 +187,7 @@
 				29152BC21A1971C100A88FEA /* LaunchScreen.xib */,
 				29152BB71A1971C100A88FEA /* Supporting Files */,
 				2919301E1A242B3C00E34A27 /* Utils.swift */,
+				291E83BD1A294FFC0037DEE0 /* Encryption.swift */,
 			);
 			path = pVault;
 			sourceTree = "<group>";
@@ -232,6 +237,7 @@
 				29A4513B1A1C846700B7CB53 /* CreatePasswordPINViewController.swift */,
 				29104E971A1F1F2A0058F475 /* SecurityQuestionsViewController.swift */,
 				2919302B1A246C8900E34A27 /* ConfirmRegisterViewController.swift */,
+				291E83BB1A27B0ED0037DEE0 /* DocPhotoViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -342,7 +348,9 @@
 				29A4513C1A1C846700B7CB53 /* CreatePasswordPINViewController.swift in Sources */,
 				291930281A24674000E34A27 /* RegisterInfo.swift in Sources */,
 				2919301F1A242B3C00E34A27 /* Utils.swift in Sources */,
+				291E83BC1A27B0ED0037DEE0 /* DocPhotoViewController.swift in Sources */,
 				29104E981A1F1F2A0058F475 /* SecurityQuestionsViewController.swift in Sources */,
+				291E83BE1A294FFC0037DEE0 /* Encryption.swift in Sources */,
 				29A451331A1C42E800B7CB53 /* Validator.swift in Sources */,
 				29152BBA1A1971C100A88FEA /* AppDelegate.swift in Sources */,
 				2946417B1A21DA5A0025AECC /* SecurityQuestions.swift in Sources */,

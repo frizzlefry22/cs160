@@ -45,6 +45,16 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="P6i-JL-zsf">
+                                <rect key="frame" x="289" y="98" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="aRa-yW-KPM" kind="show" id="cfj-uo-fBw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.98832370920000001" green="0.98832370920000001" blue="0.98832370920000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -58,6 +68,69 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1266.5" y="224.5"/>
+        </scene>
+        <!--Doc Photo View Controller-->
+        <scene sceneID="xgl-Qz-DFe">
+            <objects>
+                <viewController id="Ca7-MZ-dRW" customClass="DocPhotoViewController" customModule="pVault" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tbm-US-gnn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" id="QJ9-2g-RyM">
+                                <rect key="frame" x="121" y="106" width="123" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Camera"/>
+                                    <segment title="Import"/>
+                                </segments>
+                                <connections>
+                                    <action selector="selectorChanged:" destination="Ca7-MZ-dRW" eventType="valueChanged" id="DTL-gf-OpF"/>
+                                </connections>
+                            </segmentedControl>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="iaT-pW-Qg8">
+                                <rect key="frame" x="37" y="150" width="301" height="491"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="imageDisplay" destination="iaT-pW-Qg8" id="eHt-bE-XJl"/>
+                        <outlet property="uiSelector" destination="QJ9-2g-RyM" id="hMr-B6-2cd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="17r-q1-fWE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2200.5" y="35.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="e1O-8e-G1z">
+            <objects>
+                <viewController id="aRa-yW-KPM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OgX-ND-osY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ug5-hY-LPf">
+                                <rect key="frame" x="211" y="307" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Ca7-MZ-dRW" kind="show" id="JG5-OA-QLN"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eCE-7S-k5m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1746.5" y="35.5"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="tOJ-m9-NfM">
@@ -459,6 +532,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="9bQ-cD-dsS"/>
+        <segue reference="Lt9-Mh-5yl"/>
     </inferredMetricsTieBreakers>
 </document>
