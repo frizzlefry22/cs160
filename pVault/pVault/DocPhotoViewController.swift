@@ -1,25 +1,4 @@
-//
-//  ViewController.swift
-//  Taking Photos with the Camera
-//
-//  Created by Vandad Nahavandipoor on 7/10/14.
-//  Copyright (c) 2014 Pixolity Ltd. All rights reserved.
-//
-//  These example codes are written for O'Reilly's iOS 8 Swift Programming Cookbook
-//  If you use these solutions in your apps, you can give attribution to
-//  Vandad Nahavandipoor for his work. Feel free to visit my blog
-//  at http://vandadnp.wordpress.com for daily tips and tricks in Swift
-//  and Objective-C and various other programming languages.
-//
-//  You can purchase "iOS 8 Swift Programming Cookbook" from
-//  the following URL:
-//  http://shop.oreilly.com/product/0636920034254.do
-//
-//  If you have any questions, you can contact me directly
-//  at vandad.np@gmail.com
-//  Similarly, if you find an error in these sample codes, simply
-//  report them to O'Reilly at the following URL:
-//  http://www.oreilly.com/catalog/errata.csp?isbn=0636920034254
+//The basic template for this code is based on the Swfit IOS Book by  Vandad Nahavandipoor
 
 import UIKit
 import MobileCoreServices
@@ -27,31 +6,37 @@ import MobileCoreServices
 class DocPhotoViewController: UIViewController,
 UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
-    /* We will use this variable to determine if the viewDidAppear:
-    method of our view controller is already called or not. If not, we will
-    display the camera view */
-    var beenHereBefore = false
+    var delegate : AcceptDataDelegate!
+    
     var controller: UIImagePickerController?
     
-    
+    //The image that is returned form the Camera or Photos
     var docIMage : UIImage?
     
-
+    
     @IBOutlet weak var uiSelector: UISegmentedControl!
 
+    @IBAction func accepted(sender: AnyObject) {
+        delegate.pictureChosen(docIMage!)
+    }
+    
+    //Called when Selectors value is changed
     @IBAction func selectorChanged(sender: UISegmentedControl) {
         
         if  ( sender.selectedSegmentIndex == 0)
         {
             openCamera()
+            println("Get Picture")
         }
         else {
             openPhotos()
             println("Get photo")
         }
-    
-        
     }
+    
+
+    @IBOutlet weak var imageDisplay: UIImageView!
+    
     
     //Opens up IOS Photo picker/ requests promission from Phone
     func openPhotos() {
@@ -64,10 +49,29 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         self.presentViewController(picker, animated: true, completion: nil)
     }
     
-    @IBOutlet weak var imageDisplay: UIImageView!
+    func openCamera () {
+        if isCameraAvailable() && doesCameraSupportTakingPhotos(){
+            
+            controller = UIImagePickerController()
+            
+            if let theController = controller{
+                theController.sourceType = .Camera
+                
+                theController.mediaTypes = [kUTTypeImage as NSString]
+                
+                theController.allowsEditing = true
+                theController.delegate = self
+                
+                presentViewController(theController, animated: true, completion: nil)
+            }
+            
+        } else {
+            println("Camera is not available")
+        }
+        
+    }
     
-    
-    // This is called if the user Accepts the picture
+    // This is called on Success for both camera and choosing pictures from the Photos
     // Most of it from  Vandad Nahavandipoor
     func imagePickerController(picker: UIImagePickerController!,
         didFinishPickingMediaWithInfo info: [NSObject : AnyObject]!){
@@ -118,7 +122,6 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     }
     
     //If the User clicks Cancel
-    // Vandad Nahavandipoor
     func imagePickerControllerDidCancel(picker: UIImagePickerController!) {
         println("Picker was cancelled")
         picker.dismissViewControllerAnimated(true, completion: nil)
@@ -151,74 +154,15 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
             return false
     }
     
+    // Vandad Nahavandipoor
     func doesCameraSupportTakingPhotos() -> Bool{
         return cameraSupportsMedia(kUTTypeImage as NSString, sourceType: .Camera)
     }
     
-    
-    func showDecoded() {
-        
-        
-        let decodedData = NSData(base64EncodedString: Encryptor.base64String, options: NSDataBase64DecodingOptions.allZeros)
-    
-        //
-        var decodedImage = UIImage(data: decodedData!)
-        
-        //Have to Rotate the image since when it is created from Base64String it has wrong oreintation
-        var rotatedImage = UIImage(CGImage: decodedImage?.CGImage, scale: 1, orientation: UIImageOrientation.Right)
-    
-        
-        uncodeImage.image = rotatedImage
-        
-    }
-    
-    
-    @IBAction func saveToBase64(sender: AnyObject) {
-        
-        var imageData = UIImagePNGRepresentation(docIMage)
-        
-
-        let base64String = imageData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.allZeros)
-        
-        Encryptor.base64String = base64String
-        
-        //println(base64String)
-        
-        showDecoded()
-        
-    }
-    
-    
-    
-    func openCamera () {
-        if isCameraAvailable() && doesCameraSupportTakingPhotos(){
-            
-            controller = UIImagePickerController()
-            
-            if let theController = controller{
-                theController.sourceType = .Camera
-                
-                theController.mediaTypes = [kUTTypeImage as NSString]
-                
-                theController.allowsEditing = true
-                theController.delegate = self
-                
-                presentViewController(theController, animated: true, completion: nil)
-            }
-            
-        } else {
-            println("Camera is not available")
-        }
-
-    }
-    
+    //THink this is needed
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
-        
     }
-    
-    
     
 }
 

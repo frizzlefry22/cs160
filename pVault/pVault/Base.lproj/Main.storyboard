@@ -89,9 +89,19 @@
                                 </connections>
                             </segmentedControl>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="iaT-pW-Qg8">
-                                <rect key="frame" x="37" y="150" width="301" height="491"/>
+                                <rect key="frame" x="37" y="150" width="301" height="418"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Q3s-zc-rcd">
+                                <rect key="frame" x="137" y="585" width="96" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Use this ">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="accepted:" destination="Ca7-MZ-dRW" eventType="touchUpInside" id="M0s-jw-kYn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -105,10 +115,10 @@
             </objects>
             <point key="canvasLocation" x="2200.5" y="35.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Temp View Controller-->
         <scene sceneID="e1O-8e-G1z">
             <objects>
-                <viewController id="aRa-yW-KPM" sceneMemberID="viewController">
+                <viewController id="aRa-yW-KPM" customClass="TempViewController" customModule="pVault" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OgX-ND-osY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -123,10 +133,17 @@
                                     <segue destination="Ca7-MZ-dRW" kind="show" id="JG5-OA-QLN"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="qJt-GZ-GR4">
+                                <rect key="frame" x="80" y="405" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="imageView" destination="qJt-GZ-GR4" id="z4n-k7-qzZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eCE-7S-k5m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
