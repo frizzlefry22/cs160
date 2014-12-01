@@ -13,6 +13,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Sii-z7-3by"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="G29-K8-Cgg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ArjayTest" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UGg-Zl-0OZ">
@@ -33,9 +34,9 @@
                                 <exclude reference="UGg-Zl-0OZ"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="kqA-gg-T0G"/>
                                 <exclude reference="AOW-Of-yAF"/>
                                 <exclude reference="tZM-gM-4lJ"/>
-                                <exclude reference="kqA-gg-T0G"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -43,9 +44,9 @@
                                 <include reference="UGg-Zl-0OZ"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="kqA-gg-T0G"/>
                                 <include reference="AOW-Of-yAF"/>
                                 <include reference="tZM-gM-4lJ"/>
-                                <include reference="kqA-gg-T0G"/>
                             </mask>
                         </variation>
                     </view>
