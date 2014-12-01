@@ -3,5 +3,56 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="bdY-3d-mGr">
+            <objects>
+                <viewController storyboardIdentifier="ArjayTestView" id="VWj-sA-p42" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JSn-4w-5T1"/>
+                        <viewControllerLayoutGuide type="bottom" id="Sii-z7-3by"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="G29-K8-Cgg">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ArjayTest" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UGg-Zl-0OZ">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UGg-Zl-0OZ" firstAttribute="leading" secondItem="G29-K8-Cgg" secondAttribute="leading" constant="179" id="AOW-Of-yAF"/>
+                            <constraint firstItem="Sii-z7-3by" firstAttribute="top" secondItem="UGg-Zl-0OZ" secondAttribute="bottom" constant="430" id="kqA-gg-T0G"/>
+                            <constraint firstItem="UGg-Zl-0OZ" firstAttribute="top" secondItem="JSn-4w-5T1" secondAttribute="bottom" constant="129" id="tZM-gM-4lJ"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="UGg-Zl-0OZ"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="AOW-Of-yAF"/>
+                                <exclude reference="tZM-gM-4lJ"/>
+                                <exclude reference="kqA-gg-T0G"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="UGg-Zl-0OZ"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="AOW-Of-yAF"/>
+                                <include reference="tZM-gM-4lJ"/>
+                                <include reference="kqA-gg-T0G"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dfC-Dc-z32" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="277.5" y="280"/>
+        </scene>
+    </scenes>
 </document>

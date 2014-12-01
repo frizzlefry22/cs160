@@ -49,8 +49,72 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="anq-Kf-cGy">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Document">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="47" y="83" width="71" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="moveToDocument:" destination="7vb-xh-5f1" eventType="touchUpInside" id="15i-zO-P9F"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sX3-u5-zEx">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Settings">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="47" y="137" width="57" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="moveToSettings:" destination="7vb-xh-5f1" eventType="touchUpInside" id="IxZ-aD-2J7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zlb-Og-BZI">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="ArjayTest">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="186" y="83" width="63" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="moveToArjayTest:" destination="7vb-xh-5f1" eventType="touchUpInside" id="fPN-wb-Rcm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pem-Fo-ePD">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="KevinTest">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="186" y="137" width="66" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="moveToKevinTest:" destination="7vb-xh-5f1" eventType="touchUpInside" id="uN1-Ih-5qv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.98832370920000001" green="0.98832370920000001" blue="0.98832370920000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="anq-Kf-cGy"/>
+                                <exclude reference="sX3-u5-zEx"/>
+                                <exclude reference="Zlb-Og-BZI"/>
+                                <exclude reference="Pem-Fo-ePD"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="anq-Kf-cGy"/>
+                                <include reference="sX3-u5-zEx"/>
+                                <include reference="Zlb-Og-BZI"/>
+                                <include reference="Pem-Fo-ePD"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="P3b-lg-aJS"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
