@@ -28,7 +28,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="testEmails:" destination="VWj-sA-p42" eventType="touchUpInside" id="RcT-Lz-pIc"/>
+                                    <action selector="testEmails:" destination="VWj-sA-p42" eventType="touchUpInside" id="NpQ-v0-ZKU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fwb-kC-7DS">
@@ -37,7 +37,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="createTest:" destination="VWj-sA-p42" eventType="touchUpInside" id="iXQ-Yf-99C"/>
+                                    <action selector="testCreate:" destination="VWj-sA-p42" eventType="touchUpInside" id="Vw7-Id-elt"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n3y-lC-BHa">
@@ -83,15 +83,15 @@
                                 <exclude reference="px0-qH-OX3"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="kqA-gg-T0G"/>
+                                <exclude reference="AOW-Of-yAF"/>
+                                <exclude reference="JmY-jc-9Rw"/>
+                                <exclude reference="tZM-gM-4lJ"/>
                                 <exclude reference="3Vv-kS-R4P"/>
                                 <exclude reference="gxT-9r-thV"/>
                                 <exclude reference="PUV-pR-6FH"/>
                                 <exclude reference="yO3-Eb-SCM"/>
-                                <exclude reference="AOW-Of-yAF"/>
-                                <exclude reference="JmY-jc-9Rw"/>
-                                <exclude reference="tZM-gM-4lJ"/>
                                 <exclude reference="RGb-RK-gK5"/>
-                                <exclude reference="kqA-gg-T0G"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -103,15 +103,15 @@
                                 <include reference="px0-qH-OX3"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="kqA-gg-T0G"/>
+                                <include reference="AOW-Of-yAF"/>
+                                <include reference="JmY-jc-9Rw"/>
+                                <include reference="tZM-gM-4lJ"/>
                                 <include reference="3Vv-kS-R4P"/>
                                 <include reference="gxT-9r-thV"/>
                                 <include reference="PUV-pR-6FH"/>
                                 <include reference="yO3-Eb-SCM"/>
-                                <include reference="AOW-Of-yAF"/>
-                                <include reference="JmY-jc-9Rw"/>
-                                <include reference="tZM-gM-4lJ"/>
                                 <include reference="RGb-RK-gK5"/>
-                                <include reference="kqA-gg-T0G"/>
                             </mask>
                         </variation>
                     </view>

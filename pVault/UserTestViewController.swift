@@ -10,6 +10,14 @@ import UIKit
 
 class UserTestViewController: UIViewController {
 
+    @IBAction func testEmails(sender: AnyObject) {
+        var emails = UserDatabaseConnection.getEmails()
+    }
+    
+    @IBAction func testCreate(sender: AnyObject) {
+        UserDatabaseConnection.create(UserDatabaseConnection.testCreate())
+        
+    }
     @IBAction func testRead(sender: AnyObject) {
         var query = UserDatabaseConnection.createTestQuery()
         sessionUser = UserDatabaseConnection.read(query) as User
