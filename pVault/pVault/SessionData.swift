@@ -11,4 +11,4 @@
 import Foundation
 
 
-var user = User()
+var sessionUser = User(userID: "125", email: "ar", password: "123", PIN: "123", secQA: ["string": "string"])
