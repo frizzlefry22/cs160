@@ -35,7 +35,6 @@
 		247385C41A1DC80A005235C6 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299FA8501A1DBE3A00D26744 /* ParseFacebookUtils.framework */; };
 		247385C51A1DC80D005235C6 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299FA84F1A1DBE3A00D26744 /* Parse.framework */; };
 		247385C61A1DC810005235C6 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299FA84E1A1DBE3A00D26744 /* Bolts.framework */; };
-		2908A2A21A2D39630015F2EC /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2908A2A11A2D39630015F2EC /* Enums.swift */; };
 		29104E981A1F1F2A0058F475 /* SecurityQuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29104E971A1F1F2A0058F475 /* SecurityQuestionsViewController.swift */; };
 		29152BBA1A1971C100A88FEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29152BB91A1971C100A88FEA /* AppDelegate.swift */; };
 		29152BBF1A1971C100A88FEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29152BBD1A1971C100A88FEA /* Main.storyboard */; };
@@ -62,6 +61,14 @@
 		29A451351A1C4B9E00B7CB53 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A451341A1C4B9E00B7CB53 /* LoginViewController.swift */; };
 		29A4513A1A1C526000B7CB53 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A451391A1C526000B7CB53 /* RegisterViewController.swift */; };
 		29A4513C1A1C846700B7CB53 /* CreatePasswordPINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A4513B1A1C846700B7CB53 /* CreatePasswordPINViewController.swift */; };
+		658F07721A22C5FA00D375A9 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299FA8501A1DBE3A00D26744 /* ParseFacebookUtils.framework */; };
+		658F07731A22C5FD00D375A9 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299FA8511A1DBE3A00D26744 /* ParseUI.framework */; };
+		658F077E1A22C65300D375A9 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299FA84F1A1DBE3A00D26744 /* Parse.framework */; };
+		658F077F1A22C65500D375A9 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299FA84E1A1DBE3A00D26744 /* Bolts.framework */; };
+		65BDBAF41A30326800E52DE5 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BDBAF01A30326800E52DE5 /* Document.swift */; };
+		65BDBAF51A30326800E52DE5 /* DocumentDBConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BDBAF11A30326800E52DE5 /* DocumentDBConnection.swift */; };
+		65BDBAF61A30326800E52DE5 /* documentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BDBAF21A30326800E52DE5 /* documentType.swift */; };
+		65BDBAF71A30326800E52DE5 /* TestDocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BDBAF31A30326800E52DE5 /* TestDocumentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,7 +107,6 @@
 		2414C7BB1A2B8AC3003EA080 /* DriverLicenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverLicenseViewController.swift; sourceTree = "<group>"; };
 		2414C7BD1A2B8AE1003EA080 /* OtherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherViewController.swift; sourceTree = "<group>"; };
 		2414C7C51A2B96E4003EA080 /* DocumentListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentListTableViewController.swift; sourceTree = "<group>"; };
-		2908A2A11A2D39630015F2EC /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		29104E971A1F1F2A0058F475 /* SecurityQuestionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityQuestionsViewController.swift; sourceTree = "<group>"; };
 		29152BB41A1971C100A88FEA /* pVault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pVault.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29152BB81A1971C100A88FEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -132,6 +138,10 @@
 		29A451341A1C4B9E00B7CB53 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		29A451391A1C526000B7CB53 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewController.swift; path = ../RegisterViewController.swift; sourceTree = "<group>"; };
 		29A4513B1A1C846700B7CB53 /* CreatePasswordPINViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePasswordPINViewController.swift; sourceTree = "<group>"; };
+		65BDBAF01A30326800E52DE5 /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		65BDBAF11A30326800E52DE5 /* DocumentDBConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentDBConnection.swift; sourceTree = "<group>"; };
+		65BDBAF21A30326800E52DE5 /* documentType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = documentType.swift; sourceTree = "<group>"; };
+		65BDBAF31A30326800E52DE5 /* TestDocumentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestDocumentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +170,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				658F077E1A22C65300D375A9 /* Parse.framework in Frameworks */,
+				658F07731A22C5FD00D375A9 /* ParseUI.framework in Frameworks */,
+				658F07721A22C5FA00D375A9 /* ParseFacebookUtils.framework in Frameworks */,
+				658F077F1A22C65500D375A9 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,7 +223,10 @@
 		29152BB61A1971C100A88FEA /* pVault */ = {
 			isa = PBXGroup;
 			children = (
-				295A00DA1A30355E00283E9C /* Documents */,
+				65BDBAF01A30326800E52DE5 /* Document.swift */,
+				65BDBAF11A30326800E52DE5 /* DocumentDBConnection.swift */,
+				65BDBAF21A30326800E52DE5 /* documentType.swift */,
+				65BDBAF31A30326800E52DE5 /* TestDocumentViewController.swift */,
 				294566B71A2B044700DD7A3A /* Utils */,
 				294566B61A2B043800DD7A3A /* protocols */,
 				291930231A24625800E34A27 /* Registeration */,
@@ -285,16 +302,8 @@
 				29A451321A1C42E800B7CB53 /* Validator.swift */,
 				2919301E1A242B3C00E34A27 /* Utils.swift */,
 				294566B81A2B048B00DD7A3A /* Encoder.swift */,
-				2908A2A11A2D39630015F2EC /* Enums.swift */,
 			);
 			name = Utils;
-			sourceTree = "<group>";
-		};
-		295A00DA1A30355E00283E9C /* Documents */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Documents;
 			sourceTree = "<group>";
 		};
 		29A451381A1C4EB700B7CB53 /* ViewControllers */ = {
@@ -429,9 +438,11 @@
 				1092DA8D1A2AE4B700820594 /* SessionData.swift in Sources */,
 				29A4513C1A1C846700B7CB53 /* CreatePasswordPINViewController.swift in Sources */,
 				291930281A24674000E34A27 /* RegisterInfo.swift in Sources */,
+				65BDBAF71A30326800E52DE5 /* TestDocumentViewController.swift in Sources */,
 				2919301F1A242B3C00E34A27 /* Utils.swift in Sources */,
 				291E83BC1A27B0ED0037DEE0 /* DocPhotoViewController.swift in Sources */,
 				29104E981A1F1F2A0058F475 /* SecurityQuestionsViewController.swift in Sources */,
+				65BDBAF51A30326800E52DE5 /* DocumentDBConnection.swift in Sources */,
 				2414C7B81A2B8A6A003EA080 /* CreditCardViewController.swift in Sources */,
 				294566B91A2B048B00DD7A3A /* Encoder.swift in Sources */,
 				291E83BE1A294FFC0037DEE0 /* Encryption.swift in Sources */,
@@ -441,12 +452,13 @@
 				2946417B1A21DA5A0025AECC /* SecurityQuestions.swift in Sources */,
 				2414C7BA1A2B8AA4003EA080 /* BirthCertificateViewController.swift in Sources */,
 				29A4513A1A1C526000B7CB53 /* RegisterViewController.swift in Sources */,
+				65BDBAF61A30326800E52DE5 /* documentType.swift in Sources */,
 				2414C7B61A2AE4D2003EA080 /* AddDocumentViewController.swift in Sources */,
 				2414C7C61A2B96E4003EA080 /* DocumentListTableViewController.swift in Sources */,
 				29833EDA1A2ABAA900E30CCD /* TempViewController.swift in Sources */,
-				2908A2A21A2D39630015F2EC /* Enums.swift in Sources */,
 				10B4DD5F1A203DDA0008565C /* UserDatabaseConnection.swift in Sources */,
 				299FA8571A1DBE6800D26744 /* DBConnectionProtocol.swift in Sources */,
+				65BDBAF41A30326800E52DE5 /* Document.swift in Sources */,
 				2414C7BE1A2B8AE1003EA080 /* OtherViewController.swift in Sources */,
 				2414C7BC1A2B8AC3003EA080 /* DriverLicenseViewController.swift in Sources */,
 				2919302C1A246C8900E34A27 /* ConfirmRegisterViewController.swift in Sources */,
@@ -618,6 +630,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					/Users/kevintran/Git/cs160/ParseStuff,
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -640,6 +653,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					/Users/kevintran/Git/cs160/ParseStuff,
 				);
 				INFOPLIST_FILE = pVaultTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
