@@ -11,9 +11,10 @@ import UIKit
 class LoginViewController: UIViewController {
 
     @IBAction func moveToDocument(sender: AnyObject) {
-        //let storyboard : UIStoryboard = UIStoryboard(name: "Document", bundle: nil);
-        //let vc : UIViewController = storyboard.instantiateViewControllerWithIdentifier("SETIDHERE") as UIViewController;
+        let storyboard : UIStoryboard = UIStoryboard(name: "Document", bundle: nil);
+        let vc : UIViewController = storyboard.instantiateViewControllerWithIdentifier("DocStoryBoard") as UIViewController;
         //self.presentViewController(vc, animated: true, completion: nil);
+        self.navigationController?.pushViewController(vc,animated : true);
     }
     @IBAction func moveToArjayTest(sender: AnyObject) {
         let storyboard : UIStoryboard = UIStoryboard(name: "CoolTesting", bundle: nil);

@@ -10,11 +10,47 @@ import UIKit
 
 class AddDocumentViewController: UIViewController, UIPickerViewDelegate{
     
-    var doctype = ["Credit Card", "Birth Certificate", "Driver License", "None", "Other"]
+    var currentSelected : String!
+    
+    
+    
+    @IBOutlet weak var docTitle: UITextField!
+    
+    
+    
+    @IBAction func nextPushed(sender: AnyObject) {
+        
+        //Performs Segue based on the UIPicker Selecetd
+        performSegueWithIdentifier( currentSelected , sender : sender)
+        
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if ( segue.identifier == DocType.CreditCard.rawValue ){
+        
+            let vc = segue.destinationViewController as CreditCardViewController
+            
+            vc.docTitle = docTitle.text
+            
+            //vc.delegate = self
+            
+        }
+        
+
+        
+    }
+    
+    
+    
+    var doctype = [ DocType.None.rawValue, DocType.CreditCard.rawValue, DocType.Certificate.rawValue, DocType.License.rawValue, DocType.Other.rawValue]
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //navigation
+        
         // Do any additional setup after loading the view.
     }
 
@@ -27,7 +63,7 @@ class AddDocumentViewController: UIViewController, UIPickerViewDelegate{
     
        return 1
     
-    
+
     }
 
     func pickerView(pickerView: UIPickerView!, numberOfRowsInComponent component: Int) ->Int {
@@ -35,8 +71,9 @@ class AddDocumentViewController: UIViewController, UIPickerViewDelegate{
         return doctype.count
     }
     
-    func pickerView(pickerView: UIPickerView!, titleForRow row: Int, forComponent component: Int) -> String!{
+    func pickerView(pickerView: UIPickerView!, titleForRow row: Int, forComponent component: Int) -> String {
         
+        currentSelected = doctype[row]
         return doctype[row]
     }
 }

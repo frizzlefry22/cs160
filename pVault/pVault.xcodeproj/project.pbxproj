@@ -35,6 +35,7 @@
 		247385C41A1DC80A005235C6 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299FA8501A1DBE3A00D26744 /* ParseFacebookUtils.framework */; };
 		247385C51A1DC80D005235C6 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299FA84F1A1DBE3A00D26744 /* Parse.framework */; };
 		247385C61A1DC810005235C6 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299FA84E1A1DBE3A00D26744 /* Bolts.framework */; };
+		2908A2A21A2D39630015F2EC /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2908A2A11A2D39630015F2EC /* Enums.swift */; };
 		29104E981A1F1F2A0058F475 /* SecurityQuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29104E971A1F1F2A0058F475 /* SecurityQuestionsViewController.swift */; };
 		29152BBA1A1971C100A88FEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29152BB91A1971C100A88FEA /* AppDelegate.swift */; };
 		29152BBF1A1971C100A88FEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29152BBD1A1971C100A88FEA /* Main.storyboard */; };
@@ -99,6 +100,7 @@
 		2414C7BB1A2B8AC3003EA080 /* DriverLicenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverLicenseViewController.swift; sourceTree = "<group>"; };
 		2414C7BD1A2B8AE1003EA080 /* OtherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherViewController.swift; sourceTree = "<group>"; };
 		2414C7C51A2B96E4003EA080 /* DocumentListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentListTableViewController.swift; sourceTree = "<group>"; };
+		2908A2A11A2D39630015F2EC /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		29104E971A1F1F2A0058F475 /* SecurityQuestionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityQuestionsViewController.swift; sourceTree = "<group>"; };
 		29152BB41A1971C100A88FEA /* pVault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pVault.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29152BB81A1971C100A88FEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 		29152BB61A1971C100A88FEA /* pVault */ = {
 			isa = PBXGroup;
 			children = (
+				295A00DA1A30355E00283E9C /* Documents */,
 				294566B71A2B044700DD7A3A /* Utils */,
 				294566B61A2B043800DD7A3A /* protocols */,
 				291930231A24625800E34A27 /* Registeration */,
@@ -282,8 +285,16 @@
 				29A451321A1C42E800B7CB53 /* Validator.swift */,
 				2919301E1A242B3C00E34A27 /* Utils.swift */,
 				294566B81A2B048B00DD7A3A /* Encoder.swift */,
+				2908A2A11A2D39630015F2EC /* Enums.swift */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		295A00DA1A30355E00283E9C /* Documents */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Documents;
 			sourceTree = "<group>";
 		};
 		29A451381A1C4EB700B7CB53 /* ViewControllers */ = {
@@ -433,6 +444,7 @@
 				2414C7B61A2AE4D2003EA080 /* AddDocumentViewController.swift in Sources */,
 				2414C7C61A2B96E4003EA080 /* DocumentListTableViewController.swift in Sources */,
 				29833EDA1A2ABAA900E30CCD /* TempViewController.swift in Sources */,
+				2908A2A21A2D39630015F2EC /* Enums.swift in Sources */,
 				10B4DD5F1A203DDA0008565C /* UserDatabaseConnection.swift in Sources */,
 				299FA8571A1DBE6800D26744 /* DBConnectionProtocol.swift in Sources */,
 				2414C7BE1A2B8AE1003EA080 /* OtherViewController.swift in Sources */,

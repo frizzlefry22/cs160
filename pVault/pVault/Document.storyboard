@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--Credit Card-->
         <scene sceneID="hdr-ZC-PKI">
             <objects>
-                <viewController title="Credit Card" id="JDt-xG-Ogq" customClass="CreditCardViewController" customModule="pVault" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Credit Card" title="Credit Card" id="JDt-xG-Ogq" customClass="CreditCardViewController" customModule="pVault" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Soh-mE-Luh"/>
                         <viewControllerLayoutGuide type="bottom" id="qmT-8e-0n2"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="WpH-ic-ueO">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="Credit Card" id="WpH-ic-ueO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -68,19 +68,37 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vzL-9P-BX3">
+                                <rect key="frame" x="57" y="110" width="262" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PTo-Uz-hEl">
+                                <rect key="frame" x="142" y="81" width="97" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="DocName" destination="vzL-9P-BX3" id="iix-jR-Ho5"/>
+                        <outlet property="cardHolderName" destination="euR-EC-ipM" id="2OC-Tu-MT0"/>
+                        <outlet property="creditCardNumber" destination="UpM-Fw-lFZ" id="Hue-sN-hff"/>
+                        <outlet property="cvc" destination="k6Z-18-b7y" id="9vi-yV-72d"/>
+                        <outlet property="expirationDate" destination="hpu-wV-JcH" id="UjX-Fh-OkK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NzM-lu-Sl6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-448.5" y="-953.5"/>
+            <point key="canvasLocation" x="896.5" y="-1007.5"/>
         </scene>
         <!--Add Document-->
         <scene sceneID="EFL-rL-l4J">
             <objects>
-                <viewController title="Add Document" id="886-IX-96z" customClass="AddDocumentViewController" customModule="pVault" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DocStoryBoard" title="Add Document" useStoryboardIdentifierAsRestorationIdentifier="YES" id="886-IX-96z" customClass="AddDocumentViewController" customModule="pVault" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Xym-fZ-q5o"/>
                         <viewControllerLayoutGuide type="bottom" id="EF9-sU-vu8"/>
@@ -119,6 +137,9 @@
                                     <color key="titleColor" red="1" green="0.97787825129999995" blue="0.97791751650000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="nextPushed:" destination="886-IX-96z" eventType="touchUpInside" id="SWm-JK-UL9"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Document Info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZdH-5e-zrx">
                                 <rect key="frame" x="131" y="429" width="113" height="21"/>
@@ -135,11 +156,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ZYK-pb-2vl"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="docTitle" destination="lXC-DE-E7o" id="ovj-jo-QZN"/>
+                        <segue destination="JDt-xG-Ogq" kind="show" identifier="Credit Card" id="mrE-hO-EHR"/>
+                        <segue destination="L4N-qE-dKr" kind="show" id="iTn-PM-GhE"/>
+                        <segue destination="CZL-TO-0tS" kind="show" id="UKJ-my-ids"/>
+                        <segue destination="9tT-re-bop" kind="show" identifier="Other" id="cfg-P1-PFM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SIj-Pi-eP5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1039.5" y="-357.5"/>
+            <point key="canvasLocation" x="282.5" y="-399.5"/>
         </scene>
         <!--Birth Certificate-->
         <scene sceneID="vdA-Cv-mlt">
@@ -223,7 +252,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wff-O6-oPL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-50.5" y="-751.5"/>
+            <point key="canvasLocation" x="1573.5" y="-751.5"/>
         </scene>
         <!--Driver License-->
         <scene sceneID="B9g-Yb-q4T">
@@ -319,7 +348,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bDs-E2-uQd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-50.5" y="-1.5"/>
+            <point key="canvasLocation" x="1573.5" y="-1.5"/>
         </scene>
         <!--Document List-->
         <scene sceneID="7on-3A-sEl">
@@ -426,7 +455,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d4x-4h-feW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-448.5" y="215.5"/>
+            <point key="canvasLocation" x="-685.5" y="520.5"/>
         </scene>
         <!--Select Image-->
         <scene sceneID="XOY-U7-Nsc">
@@ -464,7 +493,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c3G-2D-30D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="515.5" y="-357.5"/>
+            <point key="canvasLocation" x="2139.5" y="-357.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Kud-rg-LrZ">
@@ -494,7 +523,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xvV-QN-7p7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="994.5" y="-357.5"/>
+            <point key="canvasLocation" x="2618.5" y="-357.5"/>
         </scene>
     </scenes>
 </document>
