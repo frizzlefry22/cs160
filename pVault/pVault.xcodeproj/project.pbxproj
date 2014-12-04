@@ -61,10 +61,6 @@
 		29A451351A1C4B9E00B7CB53 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A451341A1C4B9E00B7CB53 /* LoginViewController.swift */; };
 		29A4513A1A1C526000B7CB53 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A451391A1C526000B7CB53 /* RegisterViewController.swift */; };
 		29A4513C1A1C846700B7CB53 /* CreatePasswordPINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A4513B1A1C846700B7CB53 /* CreatePasswordPINViewController.swift */; };
-		658F07721A22C5FA00D375A9 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299FA8501A1DBE3A00D26744 /* ParseFacebookUtils.framework */; };
-		658F07731A22C5FD00D375A9 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299FA8511A1DBE3A00D26744 /* ParseUI.framework */; };
-		658F077E1A22C65300D375A9 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299FA84F1A1DBE3A00D26744 /* Parse.framework */; };
-		658F077F1A22C65500D375A9 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299FA84E1A1DBE3A00D26744 /* Bolts.framework */; };
 		65BDBAF41A30326800E52DE5 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BDBAF01A30326800E52DE5 /* Document.swift */; };
 		65BDBAF51A30326800E52DE5 /* DocumentDBConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BDBAF11A30326800E52DE5 /* DocumentDBConnection.swift */; };
 		65BDBAF61A30326800E52DE5 /* documentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BDBAF21A30326800E52DE5 /* documentType.swift */; };
@@ -170,10 +166,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				658F077E1A22C65300D375A9 /* Parse.framework in Frameworks */,
-				658F07731A22C5FD00D375A9 /* ParseUI.framework in Frameworks */,
-				658F07721A22C5FA00D375A9 /* ParseFacebookUtils.framework in Frameworks */,
-				658F077F1A22C65500D375A9 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -591,6 +583,7 @@
 		29152BD41A1971C100A88FEA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -608,6 +601,7 @@
 		29152BD51A1971C100A88FEA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
