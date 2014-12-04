@@ -9,16 +9,18 @@
 import Foundation
 
 class Document{
-    
+
     init(creatorID: String){
         self.userID = creatorID
     }
     
     //document ID
+    var objectID = ""
+    
     var _docID = ""
     var docID: String{
         set(setDocID){
-            self._docID=setDocID
+            self._docID = setDocID
         }
         get{
             return self._docID
@@ -74,7 +76,7 @@ class Document{
     var docField = Dictionary<String, String>()
     
     
-
+    var docImage: String = ""
 //    var docImage: UIImage{
 //        set(setUIImage){
 //            self._docImage = setUIImage
@@ -94,8 +96,12 @@ class Document{
         switch type{
         case .Creditcard:
             return 0;
-        case .Other:
+        case .BirthCertificate:
             return 1;
+        case .DriverLicense:
+            return 2;
+        case .Other:
+            return 3;
         }
     }
     
@@ -110,13 +116,16 @@ class Document{
             self.docField = ["Card Holder": "", "Credit Card Number": "", "Security Pin": "", "Expiration Date": ""]
             break
         case .BirthCertificate:
-            self.docField = ["Name": "", "Date of Birth": "", "Place of Birth": "", "Parent's name": "", "Certificate Name": ""]
+            self.docField = ["Name": "", "Date of Birth": "", "Place of Birth": "", "Parent's name": "", "Certificate Number": ""]
             break
-        case DriverLicense:
+        case .DriverLicense:
             self.docField = ["First Name": "", "Last Name": "", "Driver License Number": "", "Expiration Date": "", "Class": "", "Date of Birth": "", "Address": ""]
+            break
         case .Other:
             break
-        }    }
+        }
+    }
+    
     
 //    func setUserID(uID: String){
 //               self.userID = uID;

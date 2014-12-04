@@ -34,49 +34,67 @@ public class DocumentDBConnecion{//: DBConnectionProtocol{
     //Param takes in a PFQuery
     //returns the results of a PFQuery
     //need to test to make sure works, easily retrive the fields once i know it works
-    class func read(query: PFQuery){
+    class func read(objectID: String) -> Document{
+        //creates an empty document
+        var someDoc = Document(creatorID: "")
+        //querys for the document data from parse
+        var query = PFQuery(className:"Document")
+        var docObject = query.getObjectWithId(objectID)
+        //fills in the document data
+        someDoc.objectID = docObject.objectId as String
+        someDoc.docID = docObject["docID"] as String
+        someDoc.userID = docObject["userID"] as String
+        someDoc.docName = docObject["docName"] as String
+        someDoc.docType = self.getType(docObject["docType"] as Int)
+        someDoc.docDiscription = docObject["docDesc"] as String
+        someDoc.docField = docObject["docField"] as Dictionary
+        someDoc.docImage = docObject["docImage"] as String
         
-//        var query = PFQuery(className:"Document")
-//        query.whereKey("docID", equalTo: docID)
-        query.findObjectsInBackgroundWithBlock {
-            (objects: [AnyObject]!, error: NSError!) -> Void in
-            if error == nil {
-                // The find succeeded.
-                NSLog("Successfully retrieved \(objects.count) Something!.")
-                // Do something with the found objects
-                for object in objects {
-                    NSLog("%@", object.objectId)
-                }
-            } else {
-                // Log details of the failure
-                NSLog("Error: %@ %@", error, error.userInfo!)
-            }
-        }
-        
-        
-        println("Readed the document")
-        //let someDoc = Document(creatorID: "something")
-        
-        //return someDoc
+        return someDoc
     }
     
     //in progress
     //STUPID FUCNTION GOES HERE TOO I GUESS
     class func edit(query: PFQuery){
-        
+        var query = PFQuery(className:"Document")
     }
     
     //Param takes in an existing document 
-    //Return returns a parse query to upload new document
-    class func editOverExisting(doc: Document) -> PFQuery{
-        
+    //Calls createHistoryDocument to put the current document into a new PFObject to keep in history 
+    //Calls removeHistory to remove previous versions if there are more than 2 previous version
+    //only allowed to change document name, description, fields, and image
+    class func editSomething(currentDoc: Document, editDoc: Document) {//-> PFQuery{
+        self.createHistoryDocucment(currentDoc)
+        self.removeHistory(currentDoc.objectID)
+        var query = PFQuery(className:"Document")
+        query.getObjectInBackgroundWithId(currentDoc.objectID) {
+            (document: PFObject!, error: NSError!) -> Void in
+            if error != nil {
+                NSLog("%@", error)
+            } else {
+                document["docName"] = editDoc.docName
+                document["docDesc"] = editDoc.docDiscription
+                document["docField"] = editDoc.docField
+                document["docImage"] = editDoc.docImage
+                document.saveInBackgroundWithBlock({(succeeded: Bool!, error: NSError!) -> Void in
+                    //success block
+                    if(succeeded!){
+                        println("File Saved")
+                    }
+                        //fail block
+                    else{
+                        println("File not saved, will be saved when connection to DB is establed")
+                    }
+                })
+            }
+        }
     }
     
     //Param takes in a document ID
     //this query removes a document from the database
-    class func delete(docID: String){
+    class func delete(objectID: String){
         var query = PFQuery(className:"Account")
-        query.getObjectInBackgroundWithId(docID) {
+        query.getObjectInBackgroundWithId(objectID) {
             (document: PFObject!, error: NSError!) -> Void in
             if error == nil {
                 document.delete()
@@ -112,73 +130,109 @@ public class DocumentDBConnecion{//: DBConnectionProtocol{
         var document = PFObject(className:"Document")
         
         //will be using parse object id for document object
-        //document["docID"] = doc.docID
+        //document ID will be same as object id
+        document["docID"] = doc.docID
         document["userID"] = doc.userID
         document["docName"] = doc.docName
         document["docType"] = doc.getDocType(doc.docType)
         document["docDesc"] = doc.docDiscription
-        //        account["docFieldTypes"] = nil
-        //        account["docFieldValues"] = nil
-        //        account["docFile"] = nil    }
+        document["docField"] = doc.docField
+        document["docImage"] = doc.docImage
         return document
     }
     
-    //var docDictionary = [String: String]()
-    //public var docList:[(docID: String, docName: String, docType: Int)] = []
+    //will be removing this
+    class func createDocumentPFObject2(doc: Document) -> PFObject{
+        var document = PFObject(className:"Document")
+        
+        //will be using parse object id for document object
+        //document ID will be same as object id
+        document["userID"] = doc.userID
+        document["docName"] = doc.docName
+        document["docType"] = doc.getDocType(doc.docType)
+        document["docDesc"] = doc.docDiscription
+        document["docField"] = doc.docField
+        document["docImage"] = doc.docImage
+        return document
+    }
+    //takes in a document
+    //creates a copy of the document and uploads to document table 
+    //this is used for history, this document would have a document id which inidicated that it's a previous version of a current document. the latest version would have the no docID but the original object id
+    class func createHistoryDocucment(doc: Document){
+        var document = PFObject(className:"Document")
+        document["docID"] = doc.objectID
+        document["userID"] = doc.userID
+        document["docName"] = doc.docName
+        document["docType"] = doc.getDocType(doc.docType)
+        document["docDesc"] = doc.docDiscription
+        document["docField"] = doc.docField
+        document["docImage"] = doc.docImage
+        document.saveInBackgroundWithBlock({(succeeded: Bool!, error: NSError!) -> Void in
+            //success block
+            if(succeeded!){
+                println("File Saved")
+            }
+                //fail block
+            else{
+                println("File not saved, will be saved when connection to DB is establed")
+            }
+        })
+    }
     
-    class func getDocList(userID: String) -> [(docID: String, docName: String, docType: Int)]{//String{ //Dictionary<String, String>{
-        var docList:[(docID: String, docName: String, docType: Int)] = []
-        var aString = ""
+    //Param takes in an object id 
+    //this method looks at the history of a doc
+    //if there are more than 2 previous version, delete the excess documents
+    class func removeHistory(objectID: String){
+        var query = PFQuery(className:"Document")
+        query.whereKey("docID", equalTo: objectID)
+        query.orderByDescending("createdAt")
+        var objectArray = query.findObjects()
+        var count = objectArray.count
+        while(count >= 3)
+        {
+            var index = objectArray.count-1
+            objectArray[index].delete()
+            objectArray.removeAtIndex(index)
+            count--
+        }
+    }
+    
+    //Param takes in a user id
+    //Return returns a tuple that consists of doc pbject id, doc name, and doc type
+    //this func returns an array of tuples which will be used to populate the document list
+    class func getDocList(userID: String) -> [(objectID: String, docName: String, docType: Int)]{//String{ //Dictionary<String, String>{
+        var docList:[(objectID: String, docName: String, docType: Int)] = []
         var query = PFQuery(className:"Document")
         query.whereKey("userID", equalTo: userID)
-        query.findObjectsInBackgroundWithBlock {
-            (objects: [AnyObject]!, error: NSError!) -> Void in
-            if error == nil {
-                // The find succeeded.
-                NSLog("Successfully retrieved \(objects.count) objects!.")
-                // Do something with the found objects
-                for object in objects {
-                    var someID = object.objectId as String
-                    var someName = object["docName"] as String
-                    var someType = object["docType"] as Int
-                    //self.docDictionary[someDocID] = someDocName
-                    var tuple = (docID: someID, docName: someName, docType: someType)
-                    docList += [tuple]
-                    
-                    //aString += "ID: " + someID + " Name: " + someName + " type: " + someType + "\n"
-//                    println("Stored something")
-                    //println("doc ID: " + someDocID + " doc name: " + someDocName)
-                    //object.fetch()
-                    //NSLog("%@", object.objectId)
-                }
-//                for someDocID in docDictionary.values{
-//                    println("before printing")
-//                    println("someDocID: " + someDocID)
-//                }
-                //
-                //tuple test
-//                for tuple in docList{
-//                    var type: String = String(tuple.docType)
-//                    print("id: " + tuple.docID )
-//                    print(" name: " + tuple.docName)
-//                    print(" type:  " + type + "\n")
-//                }
-//                for keys in docDictionary.keys{
-//                    println("key: " + keys)
-//                }
-            } else {
-                // Log details of the failure
-                NSLog("Error: %@ %@", error, error.userInfo!)
-            }
-        }
-           //returns list by doc type
+        query.whereKey("docID", equalTo: "")
 
+        var objectArray = query.findObjects()
         
+        for object in objectArray{
+            var someID = object.objectId as String
+            var someName = object["docName"] as String
+            var someType = object["docType"] as Int
+            var tuple = (objectID: someID, docName: someName, docType: someType)
+            docList += [tuple]
+        }
         return docList//docDictionary
     }
     
-    class func searchDocByType(){
-        
+    class func getHistory(objectID: String) -> [(objectID: String, docName: String)]
+    {
+        var historyList:[(objectID: String, docName: String)] = []
+        var query = PFQuery(className:"Document")
+        query.whereKey("docID", equalTo: objectID)
+        query.orderByDescending("createdAt")
+        query.limit = 2
+        var objectArray = query.findObjects()
+        for object in objectArray{
+            var someID = object.objectId as String
+            var someName = object["docName"] as String
+            var tuple = (objectID: someID, docName: someName)
+            historyList += [tuple]
+        }
+        return historyList
     }
     
     //used to test adding a ditionary to parse, parse saves it as an array
@@ -188,24 +242,36 @@ public class DocumentDBConnecion{//: DBConnectionProtocol{
         object.addObject(dictionary, forKey: "infor")
         object.save()
     }
-//    let testDoc = Document(creatorID: "testString")
-//    let dbConnection = DocumentDBConnecion()
-//    
-//    
-//    func test(){
-//        testDoc.docID = "testDocID"
-//        testDoc.docName = "Testdoc"
-//        testDoc.docType = DocumentType.Other
-//        testDoc.docDiscription = "This is a test description"
-//        
-//        
-//        dbConnection.create(testDoc)
-//        dbConnection.read(testDoc.docID)
-//        
-//        XCTAssert(true, "Pass")
-//    }
     
     
+    //Param takes in an int which is the int for document type on parse db
+    //Return returns the document type
+    class func getType(anInt: Int) -> DocumentType{
+        switch anInt{
+        case 0:
+            return .Creditcard;
+        case 1:
+            return .BirthCertificate;
+        case 2:
+            return .DriverLicense;
+        case 3:
+            return .Other;
+        default:
+            return .Other;
+        }
+    }
+    
+    class func testGetDictionary(objectID: String) -> [String:String]{
+        var temp = [String:String]()
+        var someDoc = Document(creatorID: "")
+        var query = PFQuery(className:"Document")
+        var docObject = query.getObjectWithId(objectID)
+        temp = docObject["docField"] as Dictionary
+        for (myKey,myValue) in temp{
+            println("\(myKey) \t \(myValue)")
+        }
+        return temp
+    }
 }
 
 
