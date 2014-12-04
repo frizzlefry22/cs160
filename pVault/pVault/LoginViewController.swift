@@ -10,6 +10,26 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBAction func moveToDocument(sender: AnyObject) {
+        //let storyboard : UIStoryboard = UIStoryboard(name: "Document", bundle: nil);
+        //let vc : UIViewController = storyboard.instantiateViewControllerWithIdentifier("SETIDHERE") as UIViewController;
+        //self.presentViewController(vc, animated: true, completion: nil);
+    }
+    @IBAction func moveToArjayTest(sender: AnyObject) {
+        let storyboard : UIStoryboard = UIStoryboard(name: "CoolTesting", bundle: nil);
+        let vc : UIViewController = storyboard.instantiateViewControllerWithIdentifier("ArjayTestView") as UIViewController;
+        self.presentViewController(vc, animated: true, completion: nil);
+    }
+    @IBAction func moveToSettings(sender: AnyObject) {
+        //let storyboard : UIStoryboard = UIStoryboard(name: "Settings", bundle: nil);
+        //let vc : UIViewController = storyboard.instantiateViewControllerWithIdentifier("SETIDHERE") as UIViewController;
+        //self.presentViewController(vc, animated: true, completion: nil);
+    }
+    @IBAction func moveToKevinTest(sender: AnyObject) {
+        //let storyboard : UIStoryboard = UIStoryboard(name: "KevinTesting", bundle: nil);
+        //let vc : UIViewController = storyboard.instantiateViewControllerWithIdentifier("SETIDHERE") as UIViewController;
+        //self.presentViewController(vc, animated: true, completion: nil);
+    }
     @IBOutlet weak var loginEmail: UITextField!
     
     @IBOutlet weak var loginPassword: UITextField!
@@ -25,7 +45,8 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
+    
     /*
     // MARK: - Navigation
 
