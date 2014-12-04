@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--User Test View Controller-->
         <scene sceneID="bdY-3d-mGr">
             <objects>
-                <viewController storyboardIdentifier="ArjayTestView" id="VWj-sA-p42" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ArjayTestView" id="VWj-sA-p42" customClass="UserTestViewController" customModule="pVault" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JSn-4w-5T1"/>
                         <viewControllerLayoutGuide type="bottom" id="Sii-z7-3by"/>
@@ -22,31 +22,96 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c9F-IR-aId">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Emails">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="testEmails:" destination="VWj-sA-p42" eventType="touchUpInside" id="RcT-Lz-pIc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fwb-kC-7DS">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Create">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="createTest:" destination="VWj-sA-p42" eventType="touchUpInside" id="iXQ-Yf-99C"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n3y-lC-BHa">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Read">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="testRead:" destination="VWj-sA-p42" eventType="touchUpInside" id="pa3-wh-eaf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="px0-qH-OX3">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="91" y="355" width="30" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="testEdit:" destination="VWj-sA-p42" eventType="touchUpInside" id="kPh-zx-tqf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="c9F-IR-aId" firstAttribute="top" secondItem="JSn-4w-5T1" secondAttribute="bottom" constant="108" id="3Vv-kS-R4P"/>
                             <constraint firstItem="UGg-Zl-0OZ" firstAttribute="leading" secondItem="G29-K8-Cgg" secondAttribute="leading" constant="179" id="AOW-Of-yAF"/>
+                            <constraint firstItem="UGg-Zl-0OZ" firstAttribute="leading" secondItem="c9F-IR-aId" secondAttribute="trailing" constant="42" id="JmY-jc-9Rw"/>
+                            <constraint firstItem="fwb-kC-7DS" firstAttribute="leading" secondItem="n3y-lC-BHa" secondAttribute="leading" id="PUV-pR-6FH"/>
+                            <constraint firstItem="n3y-lC-BHa" firstAttribute="top" secondItem="fwb-kC-7DS" secondAttribute="bottom" constant="42" id="RGb-RK-gK5"/>
+                            <constraint firstItem="c9F-IR-aId" firstAttribute="leading" secondItem="fwb-kC-7DS" secondAttribute="leading" id="gxT-9r-thV"/>
                             <constraint firstItem="Sii-z7-3by" firstAttribute="top" secondItem="UGg-Zl-0OZ" secondAttribute="bottom" constant="430" id="kqA-gg-T0G"/>
                             <constraint firstItem="UGg-Zl-0OZ" firstAttribute="top" secondItem="JSn-4w-5T1" secondAttribute="bottom" constant="129" id="tZM-gM-4lJ"/>
+                            <constraint firstItem="fwb-kC-7DS" firstAttribute="top" secondItem="c9F-IR-aId" secondAttribute="bottom" constant="39" id="yO3-Eb-SCM"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="UGg-Zl-0OZ"/>
+                                <exclude reference="c9F-IR-aId"/>
+                                <exclude reference="fwb-kC-7DS"/>
+                                <exclude reference="n3y-lC-BHa"/>
+                                <exclude reference="px0-qH-OX3"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="kqA-gg-T0G"/>
+                                <exclude reference="3Vv-kS-R4P"/>
+                                <exclude reference="gxT-9r-thV"/>
+                                <exclude reference="PUV-pR-6FH"/>
+                                <exclude reference="yO3-Eb-SCM"/>
                                 <exclude reference="AOW-Of-yAF"/>
+                                <exclude reference="JmY-jc-9Rw"/>
                                 <exclude reference="tZM-gM-4lJ"/>
+                                <exclude reference="RGb-RK-gK5"/>
+                                <exclude reference="kqA-gg-T0G"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="UGg-Zl-0OZ"/>
+                                <include reference="c9F-IR-aId"/>
+                                <include reference="fwb-kC-7DS"/>
+                                <include reference="n3y-lC-BHa"/>
+                                <include reference="px0-qH-OX3"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="kqA-gg-T0G"/>
+                                <include reference="3Vv-kS-R4P"/>
+                                <include reference="gxT-9r-thV"/>
+                                <include reference="PUV-pR-6FH"/>
+                                <include reference="yO3-Eb-SCM"/>
                                 <include reference="AOW-Of-yAF"/>
+                                <include reference="JmY-jc-9Rw"/>
                                 <include reference="tZM-gM-4lJ"/>
+                                <include reference="RGb-RK-gK5"/>
+                                <include reference="kqA-gg-T0G"/>
                             </mask>
                         </variation>
                     </view>

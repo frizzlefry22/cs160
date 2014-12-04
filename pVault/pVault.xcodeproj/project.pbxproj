@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		107797D21A2FFFD8008E54AB /* UserTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107797D11A2FFFD8008E54AB /* UserTestViewController.swift */; };
 		1092DA8B1A2AE29B00820594 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1092DA8A1A2AE29B00820594 /* User.swift */; };
 		1092DA8D1A2AE4B700820594 /* SessionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1092DA8C1A2AE4B700820594 /* SessionData.swift */; };
 		10B4DD5F1A203DDA0008565C /* UserDatabaseConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B4DD5E1A203DDA0008565C /* UserDatabaseConnection.swift */; };
@@ -46,7 +47,6 @@
 		291930201A242B6A00E34A27 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2919301E1A242B3C00E34A27 /* Utils.swift */; };
 		291930221A24625200E34A27 /* SecurityQuestionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291930211A24625200E34A27 /* SecurityQuestionTests.swift */; };
 		291930251A24628E00E34A27 /* ValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291930241A24628E00E34A27 /* ValidatorTests.swift */; };
-		291930261A2462B200E34A27 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A451321A1C42E800B7CB53 /* Validator.swift */; };
 		291930281A24674000E34A27 /* RegisterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291930271A24674000E34A27 /* RegisterInfo.swift */; };
 		2919302C1A246C8900E34A27 /* ConfirmRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2919302B1A246C8900E34A27 /* ConfirmRegisterViewController.swift */; };
 		291E83BC1A27B0ED0037DEE0 /* DocPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291E83BB1A27B0ED0037DEE0 /* DocPhotoViewController.swift */; };
@@ -78,6 +78,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		107797D11A2FFFD8008E54AB /* UserTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserTestViewController.swift; path = ../UserTestViewController.swift; sourceTree = "<group>"; };
 		1092DA8A1A2AE29B00820594 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1092DA8C1A2AE4B700820594 /* SessionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionData.swift; sourceTree = "<group>"; };
 		10B4DD5E1A203DDA0008565C /* UserDatabaseConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDatabaseConnection.swift; sourceTree = "<group>"; };
@@ -228,12 +229,12 @@
 				10B88A5C1A2ADA7100B6F35B /* LogReg.storyboard */,
 				10B88A5E1A2ADA7C00B6F35B /* Document.storyboard */,
 				10B88A601A2ADA8800B6F35B /* Settings.storyboard */,
+				10B4DD5E1A203DDA0008565C /* UserDatabaseConnection.swift */,
 				10B88A621A2ADB5D00B6F35B /* CoolTesting.storyboard */,
 				1092DA8A1A2AE29B00820594 /* User.swift */,
 				1092DA8C1A2AE4B700820594 /* SessionData.swift */,
 				10B88A641A2ADC0100B6F35B /* KevinTesting.storyboard */,
 				10D33CA71A1D9B7500E17563 /* pVault-Bridging-Header.h */,
-				10B4DD5E1A203DDA0008565C /* UserDatabaseConnection.swift */,
 				29152BC01A1971C100A88FEA /* Images.xcassets */,
 				29152BC21A1971C100A88FEA /* LaunchScreen.xib */,
 				29152BB71A1971C100A88FEA /* Supporting Files */,
@@ -305,6 +306,7 @@
 				2414C7BB1A2B8AC3003EA080 /* DriverLicenseViewController.swift */,
 				2414C7BD1A2B8AE1003EA080 /* OtherViewController.swift */,
 				2414C7B91A2B8AA4003EA080 /* BirthCertificateViewController.swift */,
+				107797D11A2FFFD8008E54AB /* UserTestViewController.swift */,
 				2414C7B71A2B8A6A003EA080 /* CreditCardViewController.swift */,
 				2414C7B51A2AE4D2003EA080 /* AddDocumentViewController.swift */,
 				29A451391A1C526000B7CB53 /* RegisterViewController.swift */,
@@ -449,6 +451,7 @@
 				2414C7C61A2B96E4003EA080 /* DocumentListTableViewController.swift in Sources */,
 				29833EDA1A2ABAA900E30CCD /* TempViewController.swift in Sources */,
 				10B4DD5F1A203DDA0008565C /* UserDatabaseConnection.swift in Sources */,
+				107797D21A2FFFD8008E54AB /* UserTestViewController.swift in Sources */,
 				299FA8571A1DBE6800D26744 /* DBConnectionProtocol.swift in Sources */,
 				65BDBAF41A30326800E52DE5 /* Document.swift in Sources */,
 				2414C7BE1A2B8AE1003EA080 /* OtherViewController.swift in Sources */,
@@ -465,7 +468,6 @@
 				2922C05D1A26DFDE00A31962 /* SecurityQuestions.swift in Sources */,
 				29152BD01A1971C100A88FEA /* pVaultTests.swift in Sources */,
 				2919301C1A24124800E34A27 /* UtilsTests.swift in Sources */,
-				291930261A2462B200E34A27 /* Validator.swift in Sources */,
 				291930201A242B6A00E34A27 /* Utils.swift in Sources */,
 				291930221A24625200E34A27 /* SecurityQuestionTests.swift in Sources */,
 			);

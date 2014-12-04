@@ -68,7 +68,6 @@ struct Validator {
         return s1 == s2
     }
     
-    
     static func checkPassword ( pas : String ) -> Bool {
         return 💩
     }
@@ -83,7 +82,16 @@ struct Validator {
     @return true if email exists
     */
     static func emailExists ( em : String )-> Bool {
-        return em == FAKEEMAIL
+        
+        
+        var emails = UserDatabaseConnection.getEmails()
+        
+        for email in emails{
+            if(em == email){
+                return true
+            }
+        }
+        return false
     }
 
     
