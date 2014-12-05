@@ -37,11 +37,12 @@ class TestDocumentViewController: UIViewController {
     }
     
     @IBAction func testCreate(sender: AnyObject) {
-        DocumentDBConnecion.create(DocumentDBConnecion.createDocumentPFObject(testDoc))
+        DocumentDBConnection.create(DocumentDBConnection.createDocumentPFObject(testDoc))
     }
     
     @IBAction func testRead(sender: AnyObject) {
-        readDoc = DocumentDBConnecion.read(testDoc.objectID)
+        var query = DocumentDBConnection.readObject(testDoc.objectID)
+        readDoc = DocumentDBConnection.read(query) as Document
         var num = String(readDoc.getDocType(readDoc.docType))
         print("Object id: " + readDoc.objectID + "\n")
         print("Doc id: " + readDoc.docID + "\n")
@@ -58,7 +59,7 @@ class TestDocumentViewController: UIViewController {
     }
     
     @IBAction func testList(sender: AnyObject) {
-        var temp =  DocumentDBConnecion.getDocList("Kevin")
+        var temp =  DocumentDBConnection.getDocList("Kevin")
         for tuple in temp{
             var type: String = String(tuple.docType)
             print("id: " + tuple.objectID )
@@ -72,7 +73,7 @@ class TestDocumentViewController: UIViewController {
         //DocumentDBConnecion.testDictionary()
         
         //test getting dictionary
-        DocumentDBConnecion.testGetDictionary(testDoc.objectID)
+        DocumentDBConnection.testGetDictionary(testDoc.objectID)
     }
     
     @IBAction func testEdit(sender: AnyObject) {
@@ -81,11 +82,11 @@ class TestDocumentViewController: UIViewController {
         editDoc.docDiscription = "This is my new BOA  mastercard with 5% back on everything?!!!!"
         editDoc.docField = ["Card Holder": "Kevin H Tran", "Credit Card Number": "1122334455667788", "Security Pin": "411", "Expiration Date": "12/18"]
         editDoc.docImage = "newCCImage"
-        DocumentDBConnecion.editSomething(readDoc, editDoc: editDoc)
+        DocumentDBConnection.edit(readDoc, updated: editDoc)
     }
     
     @IBAction func testHistory(sender: AnyObject) {
-        var temp = DocumentDBConnecion.getHistory(readDoc.objectID)
+        var temp = DocumentDBConnection.getHistory(readDoc.objectID)
         for thing in temp{
             print("id: " + thing.objectID)
             print(" name: " + thing.docName)
