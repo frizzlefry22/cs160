@@ -153,10 +153,6 @@
         <scene sceneID="xJ9-NW-J2C">
             <objects>
                 <viewController id="Iyv-iM-Bo5" customClass="TestDocumentViewController" customModule="pVault" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ruN-hA-DkP"/>
-                        <viewControllerLayoutGuide type="bottom" id="DfY-Sb-GYC"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="eXm-A3-2DQ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
