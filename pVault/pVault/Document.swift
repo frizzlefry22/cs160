@@ -18,6 +18,7 @@ class Document{
     var objectID = ""
     
     var _docID = ""
+    
     var docID: String{
         set(setDocID){
             self._docID = setDocID
@@ -72,22 +73,11 @@ class Document{
     }
     
     
-    //what goes in these two arrays
+    //dictionary for the fields
     var docField = Dictionary<String, String>()
     
     
     var docImage: String = ""
-//    var docImage: UIImage{
-//        set(setUIImage){
-//            self._docImage = setUIImage
-//        }
-//        get{
-//            return self._docImage
-//        }
-//    }
-
-    //docID generator?
-    //takes the current user's id who is creating the document
     
     
     //Param takes in a DocumentType enum
@@ -132,7 +122,4 @@ class Document{
     }
     
     
-//    func setUserID(uID: String){
-//               self.userID = uID;
-//    }
 }
