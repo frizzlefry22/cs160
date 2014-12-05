@@ -17,6 +17,8 @@ class AddDocumentViewController: UIViewController, UIPickerViewDelegate{
     @IBOutlet weak var docTitle: UITextField!
     
     
+    @IBOutlet weak var descTextView: UITextView!
+    
     
     @IBAction func nextPushed(sender: AnyObject) {
         
@@ -28,23 +30,52 @@ class AddDocumentViewController: UIViewController, UIPickerViewDelegate{
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if ( segue.identifier == DocType.CreditCard.rawValue ){
+        
+        let userID = LoggedInuser.getUserID()
+        
+        let newDoc = Document(creatorID: userID)
+        
+        
+        newDoc.docName = docTitle.text
+        
+        newDoc.docDiscription = descTextView.text
+        
+        
+        if ( segue.identifier == DocumentType.CreditCard.rawValue ){
         
             let vc = segue.destinationViewController as CreditCardViewController
             
-            vc.docTitle = docTitle.text
+            //Propograte the document
+            vc.document = newDoc
             
             //vc.delegate = self
-            
         }
-        
+        else if (segue.identifier == DocumentType.None.rawValue)
+        {
+            let vc = segue.destinationViewController as
+            DocPhotoViewController
+            
+            vc.document = newDoc
+        }
+        else if ( segue.identifier ==  DocumentType.Certificate.rawValue)
+        {
+            let vc = segue.destinationViewController as BirthCertificateViewController
+            
+            vc.document = newDoc
+        }
+        else if ( segue.identifier == DocumentType.License.rawValue)
+        {
+            let vc = segue.destinationViewController as DriverLicenseViewController
+            
+            vc.document = newDoc
+        }
 
         
     }
     
     
     
-    var doctype = [ DocType.None.rawValue, DocType.CreditCard.rawValue, DocType.Certificate.rawValue, DocType.License.rawValue, DocType.Other.rawValue]
+    var doctype = [ DocumentType.None.rawValue, DocumentType.CreditCard.rawValue, DocumentType.Certificate.rawValue, DocumentType.License.rawValue, DocumentType.Other.rawValue]
 
     override func viewDidLoad() {
         super.viewDidLoad()

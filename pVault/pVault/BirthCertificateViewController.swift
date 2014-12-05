@@ -10,6 +10,16 @@ import UIKit
 
 class BirthCertificateViewController: UIViewController {
 
+    var document : Document!
+    
+    @IBOutlet weak var certName: UITextField!
+    @IBOutlet weak var certDOB: UITextField!
+    @IBOutlet weak var certPOB: UITextField!
+    @IBOutlet weak var certParentsName: UITextField!
+    @IBOutlet weak var certNumber: UITextField!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,14 +32,27 @@ class BirthCertificateViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        var fieldDictionary = [String:String]()
+        
+        fieldDictionary["CertificateName"] = certName.text
+        fieldDictionary["Date of Birth"] = certDOB.text
+        fieldDictionary["Place of Birth"] = certDOB.text
+        fieldDictionary["Parents Name"] = certParentsName.text
+        fieldDictionary["Number"] = certNumber.text
+        
+        document.docField = fieldDictionary
+        
+        let vc = segue.destinationViewController as DocPhotoViewController
+        
+        vc.document = document
+        
     }
-    */
+
 
 }

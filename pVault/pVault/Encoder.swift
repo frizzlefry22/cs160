@@ -25,7 +25,7 @@ struct Encoder {
         var rotatedImage = UIImage(CGImage: decodedImage?.CGImage, scale: 1, orientation: UIImageOrientation.Right)
         
         //Return the new properly rotated image
-        return rotatedImage
+        return decodedImage
     }
     
     //function that encodes an image into a  base64string

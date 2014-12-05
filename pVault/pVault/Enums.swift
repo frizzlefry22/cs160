@@ -9,13 +9,13 @@
 import Foundation
 
 
-enum DocType : String {
+enum DocumentType : String {
 
     case CreditCard = "Credit Card"
 
-    case License = "Drivers License"
+    case License = "License"
     
-    case Certificate = "Birth Certificate"
+    case Certificate = "Certificate"
     
     case Other = "Other"
     

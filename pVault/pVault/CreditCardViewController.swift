@@ -12,6 +12,8 @@ class CreditCardViewController: UIViewController {
 
     var docTitle : String!
     
+    var document : Document!
+    
     @IBOutlet weak var DocName: UITextField!
     
     
@@ -27,7 +29,7 @@ class CreditCardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        DocName.text = docTitle
+        DocName.text = self.document.docName
         
         // Do any additional setup after loading the view.
     }
@@ -43,11 +45,27 @@ class CreditCardViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
+       
+    //Make the dicitonary
         
+        var fieldDictionary = [String : String] ()
         
+        fieldDictionary["CardHolderName"] = cardHolderName.text
         
-        // Pass the selected object to the new view controller.
+        fieldDictionary["CreditCardNumber"] = creditCardNumber.text
+        
+        fieldDictionary["ExpirationDate"] = expirationDate.text
+        
+        fieldDictionary["CVC"] = cvc.text
+        
+        //set the dictionary in the document
+        
+        document.docField = fieldDictionary
+        
+        let vc = segue.destinationViewController as DocPhotoViewController
+        
+        vc.document = document
+        
     }
 
 
