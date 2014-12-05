@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DocumentConfirmCreateViewController: UIViewController {
+class DocumentConfirmCreateViewController: UIViewController, DocumentView {
 
     
     

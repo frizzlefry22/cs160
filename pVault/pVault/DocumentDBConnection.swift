@@ -67,7 +67,7 @@ public class DocumentDBConnection: DBConnectionProtocol{
             //debuging prints
             if(image == nil)
             {
-                println(someDoc.docNAme)
+                //println(someDoc.docNAme)
                 println("image is empty")
             }
         }

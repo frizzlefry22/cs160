@@ -164,6 +164,7 @@
                     <connections>
                         <outlet property="descTextView" destination="eFB-UG-Vcr" id="U5t-fX-kIO"/>
                         <outlet property="docTitle" destination="lXC-DE-E7o" id="ovj-jo-QZN"/>
+                        <outlet property="thePickerView" destination="ope-F3-7yO" id="qp1-bf-xpN"/>
                         <segue destination="JDt-xG-Ogq" kind="show" identifier="Credit Card" id="mrE-hO-EHR"/>
                         <segue destination="L4N-qE-dKr" kind="show" identifier="Certificate" id="iTn-PM-GhE"/>
                         <segue destination="CZL-TO-0tS" kind="show" identifier="License" id="UKJ-my-ids"/>
@@ -517,6 +518,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="8Hh-EG-d0b"/>
+        <segue reference="LqR-GM-fOm"/>
     </inferredMetricsTieBreakers>
 </document>

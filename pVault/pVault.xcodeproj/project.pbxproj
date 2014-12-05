@@ -30,7 +30,6 @@
 		2414C7B81A2B8A6A003EA080 /* CreditCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2414C7B71A2B8A6A003EA080 /* CreditCardViewController.swift */; };
 		2414C7BA1A2B8AA4003EA080 /* BirthCertificateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2414C7B91A2B8AA4003EA080 /* BirthCertificateViewController.swift */; };
 		2414C7BC1A2B8AC3003EA080 /* DriverLicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2414C7BB1A2B8AC3003EA080 /* DriverLicenseViewController.swift */; };
-		2414C7BE1A2B8AE1003EA080 /* OtherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2414C7BD1A2B8AE1003EA080 /* OtherViewController.swift */; };
 		2414C7C61A2B96E4003EA080 /* DocumentListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2414C7C51A2B96E4003EA080 /* DocumentListTableViewController.swift */; };
 		247385C31A1DC806005235C6 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299FA8511A1DBE3A00D26744 /* ParseUI.framework */; };
 		247385C41A1DC80A005235C6 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299FA8501A1DBE3A00D26744 /* ParseFacebookUtils.framework */; };
@@ -52,6 +51,7 @@
 		291E83BC1A27B0ED0037DEE0 /* DocPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291E83BB1A27B0ED0037DEE0 /* DocPhotoViewController.swift */; };
 		291E83BE1A294FFC0037DEE0 /* Encryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291E83BD1A294FFC0037DEE0 /* Encryption.swift */; };
 		2922C05D1A26DFDE00A31962 /* SecurityQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2946417A1A21DA5A0025AECC /* SecurityQuestions.swift */; };
+		292791FF1A326CAD0068493E /* DocumentViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292791FE1A326CAD0068493E /* DocumentViewProtocol.swift */; };
 		294566B91A2B048B00DD7A3A /* Encoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294566B81A2B048B00DD7A3A /* Encoder.swift */; };
 		2946417B1A21DA5A0025AECC /* SecurityQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2946417A1A21DA5A0025AECC /* SecurityQuestions.swift */; };
 		2950E7371A317A90009B29B5 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2950E7361A317A90009B29B5 /* Enums.swift */; };
@@ -104,7 +104,6 @@
 		2414C7B71A2B8A6A003EA080 /* CreditCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCardViewController.swift; sourceTree = "<group>"; };
 		2414C7B91A2B8AA4003EA080 /* BirthCertificateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirthCertificateViewController.swift; sourceTree = "<group>"; };
 		2414C7BB1A2B8AC3003EA080 /* DriverLicenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverLicenseViewController.swift; sourceTree = "<group>"; };
-		2414C7BD1A2B8AE1003EA080 /* OtherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherViewController.swift; sourceTree = "<group>"; };
 		2414C7C51A2B96E4003EA080 /* DocumentListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentListTableViewController.swift; sourceTree = "<group>"; };
 		29104E971A1F1F2A0058F475 /* SecurityQuestionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityQuestionsViewController.swift; sourceTree = "<group>"; };
 		29152BB41A1971C100A88FEA /* pVault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pVault.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +123,7 @@
 		2919302B1A246C8900E34A27 /* ConfirmRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmRegisterViewController.swift; sourceTree = "<group>"; };
 		291E83BB1A27B0ED0037DEE0 /* DocPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocPhotoViewController.swift; sourceTree = "<group>"; };
 		291E83BD1A294FFC0037DEE0 /* Encryption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encryption.swift; sourceTree = "<group>"; };
+		292791FE1A326CAD0068493E /* DocumentViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentViewProtocol.swift; sourceTree = "<group>"; };
 		294566B81A2B048B00DD7A3A /* Encoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encoder.swift; sourceTree = "<group>"; };
 		2946417A1A21DA5A0025AECC /* SecurityQuestions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityQuestions.swift; sourceTree = "<group>"; };
 		2950E7361A317A90009B29B5 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
@@ -287,6 +287,7 @@
 			children = (
 				299FA8561A1DBE6800D26744 /* DBConnectionProtocol.swift */,
 				29833EDB1A2ABB0400E30CCD /* AcceptDataDelegate.swift */,
+				292791FE1A326CAD0068493E /* DocumentViewProtocol.swift */,
 			);
 			name = protocols;
 			sourceTree = "<group>";
@@ -309,7 +310,6 @@
 				2950E7381A317AB3009B29B5 /* DocumentConfirmCreateViewController.swift */,
 				2414C7C51A2B96E4003EA080 /* DocumentListTableViewController.swift */,
 				2414C7BB1A2B8AC3003EA080 /* DriverLicenseViewController.swift */,
-				2414C7BD1A2B8AE1003EA080 /* OtherViewController.swift */,
 				2414C7B91A2B8AA4003EA080 /* BirthCertificateViewController.swift */,
 				107797D11A2FFFD8008E54AB /* UserTestViewController.swift */,
 				2414C7B71A2B8A6A003EA080 /* CreditCardViewController.swift */,
@@ -456,13 +456,13 @@
 				65BDBAF91A318D7700E52DE5 /* KevinTestViewController.swift in Sources */,
 				2414C7C61A2B96E4003EA080 /* DocumentListTableViewController.swift in Sources */,
 				29833EDA1A2ABAA900E30CCD /* TempViewController.swift in Sources */,
+				292791FF1A326CAD0068493E /* DocumentViewProtocol.swift in Sources */,
 				2950E7391A317AB3009B29B5 /* DocumentConfirmCreateViewController.swift in Sources */,
 				2950E7371A317A90009B29B5 /* Enums.swift in Sources */,
 				10B4DD5F1A203DDA0008565C /* UserDatabaseConnection.swift in Sources */,
 				107797D21A2FFFD8008E54AB /* UserTestViewController.swift in Sources */,
 				299FA8571A1DBE6800D26744 /* DBConnectionProtocol.swift in Sources */,
 				65BDBAF41A30326800E52DE5 /* Document.swift in Sources */,
-				2414C7BE1A2B8AE1003EA080 /* OtherViewController.swift in Sources */,
 				2414C7BC1A2B8AC3003EA080 /* DriverLicenseViewController.swift in Sources */,
 				2919302C1A246C8900E34A27 /* ConfirmRegisterViewController.swift in Sources */,
 			);

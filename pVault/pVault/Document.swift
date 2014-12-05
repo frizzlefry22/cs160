@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Document{
+@objc class Document{
 
     init(creatorID: String){
         self.userID = creatorID

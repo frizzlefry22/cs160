@@ -4,7 +4,7 @@ import UIKit
 import MobileCoreServices
 
 class DocPhotoViewController: UIViewController,
-UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+UINavigationControllerDelegate, UIImagePickerControllerDelegate , DocumentView {
     
     var delegate : AcceptDataDelegate!
     

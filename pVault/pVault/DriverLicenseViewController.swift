@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DriverLicenseViewController: UIViewController {
+class DriverLicenseViewController: UIViewController, DocumentView {
 
     @IBOutlet weak var licenseName: UITextField!
     

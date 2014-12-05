@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreditCardViewController: UIViewController {
+class CreditCardViewController: UIViewController , DocumentView{
 
     var docTitle : String!
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BirthCertificateViewController: UIViewController {
+class BirthCertificateViewController: UIViewController, DocumentView {
 
     var document : Document!
     
