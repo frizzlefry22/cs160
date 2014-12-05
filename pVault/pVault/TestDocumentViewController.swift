@@ -8,6 +8,7 @@
 
 import UIKit
 
+//this test controller is pretty messed up now sooo ignore it for now :D
 class TestDocumentViewController: UIViewController {
 
     let testDoc = Document(creatorID: "Kevin")
@@ -28,7 +29,7 @@ class TestDocumentViewController: UIViewController {
         testDoc.docType = DocumentType.CreditCard
         testDoc.docField = ["Card Holder": "Kevin Tran", "Credit Card Number": "1111222233334444", "Security Pin": "911", "Expiration Date": "12/15"]
         testDoc.docDiscription = "BOA master card 1.5% cash back"
-        testDoc.docImage = "CreditCardImage"
+        //testDoc.docImage = "CreditCardImage"
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,7 +51,7 @@ class TestDocumentViewController: UIViewController {
         print("Doc Name: " + readDoc.docName + "\n")
         print("Doc Type: " + num + "\n")
         print("Doc Description: " + readDoc.docDiscription + "\n")
-        print("Doc Image: " + readDoc.docImage + "\n")
+        //print("Doc Image: " + readDoc.docImage + "\n")
         
         var diction: Dictionary = readDoc.docField
         for (myKey,myValue) in diction{
@@ -81,7 +82,7 @@ class TestDocumentViewController: UIViewController {
         editDoc.docName = "doc2"
         editDoc.docDiscription = "This is my new BOA  mastercard with 5% back on everything?!!!!"
         editDoc.docField = ["Card Holder": "Kevin H Tran", "Credit Card Number": "1122334455667788", "Security Pin": "411", "Expiration Date": "12/18"]
-        editDoc.docImage = "newCCImage"
+        //editDoc.docImage = "newCCImage"
         DocumentDBConnection.edit(readDoc, updated: editDoc)
     }
     

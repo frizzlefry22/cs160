@@ -36,7 +36,8 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         {
             let encodedImage = Encoder.encodeImage(docIMage!)
         
-            document.docImage = encodedImage
+//---   takes the uiimage
+            document.docImage = docIMage//encodedImage
         }
         
         let vc = segue.destinationViewController as DocumentConfirmCreateViewController

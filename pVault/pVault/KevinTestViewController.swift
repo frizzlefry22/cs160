@@ -22,9 +22,9 @@ class KevinTestViewController: UIViewController {
     }
     
     @IBAction func getImage(sender: AnyObject) {
-        var temp : Document = DocumentDBConnection.read(DocumentDBConnection.readObject("Ht2UUd2gtC")) as Document
+        var temp : Document = DocumentDBConnection.read(DocumentDBConnection.readObject("omUlEE5C07")) as Document
         
-        imagePreview.image = Encoder.decodeImage(temp.docImage)
+        imagePreview.image = temp.docImage//Encoder.decodeImage(temp.docImage)
     }
 
     @IBOutlet weak var imagePreview: UIImageView!

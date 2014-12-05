@@ -35,8 +35,8 @@ class DocumentConfirmCreateViewController: UIViewController {
         
         
         docName.text = document.docName
-        
-        imagePreview.image = Encoder.decodeImage(document.docImage)
+//---   takes a uiimage instead of encoded string 
+        imagePreview.image = document.docImage//Encoder.decodeImage(document.docImage)
 
         // Do any additional setup after loading the view.
     }

@@ -77,7 +77,7 @@ class Document{
     var docField = Dictionary<String, String>()
     
     
-    var docImage: String = ""
+    var docImage: UIImage?
     
     
     //Param takes in a DocumentType enum

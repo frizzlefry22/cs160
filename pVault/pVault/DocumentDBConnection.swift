@@ -42,13 +42,18 @@ public class DocumentDBConnection: DBConnectionProtocol{
         if(docObject != nil){
             
             //get the image string data
-            var file = docObject["docImage"] as PFFile
-            var data =  file.getData()
-            var imageString: String! = NSString(data: data, encoding: NSUTF8StringEncoding) //data.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.allZeros)
-            if(!imageString.isEmpty){
-                println("not emmpty")
-            }
+//            var file = docObject["docImage"] as PFFile
+//            var data =  file.getData()
+//            var imageString: String! = NSString(data: data, encoding: NSUTF8StringEncoding)
+//            if(!imageString.isEmpty){
+//                println("not emmpty")
+//            }
             
+            //get the uiimage back
+            var file = docObject["docImage"] as PFFile
+            var imageData = file.getData()
+            var image  = UIImage(data:imageData)
+
             //fills in the document data
             someDoc.objectID = docObject.objectId as String
             someDoc.docID = docObject["docID"] as String
@@ -57,7 +62,14 @@ public class DocumentDBConnection: DBConnectionProtocol{
             someDoc.docType = self.getType(docObject["docType"] as Int)
             someDoc.docDiscription = docObject["docDesc"] as String
             someDoc.docField = docObject["docField"] as Dictionary
-            someDoc.docImage = imageString
+            someDoc.docImage = image
+            
+            //debuging prints
+            if(image == nil)
+            {
+                println(someDoc.docNAme)
+                println("image is empty")
+            }
         }
         return someDoc
     }
@@ -87,10 +99,15 @@ public class DocumentDBConnection: DBConnectionProtocol{
             if error != nil {
                 NSLog("%@", error)
             } else {
+                var image = editDoc.docImage
+                var name = editDoc.docName + ".png"
+                let data = UIImagePNGRepresentation(image)
+                let file = PFFile(name: name, data: data)
+                
                 document["docName"] = editDoc.docName
                 document["docDesc"] = editDoc.docDiscription
                 document["docField"] = editDoc.docField
-                document["docImage"] = editDoc.docImage
+                document["docImage"] = file
                 document.saveInBackgroundWithBlock({(succeeded: Bool!, error: NSError!) -> Void in
                     //success block
                     if(succeeded!){
@@ -153,22 +170,30 @@ public class DocumentDBConnection: DBConnectionProtocol{
     class func createDocumentPFObject(doc: Document) -> PFObject{
         var document = PFObject(className:"Document")
         
-        
+//-----
         //upload image string as a PFFile
+//        var image = doc.docImage
+//        var name = doc.docName + ".txt"
+//        var data = image.dataUsingEncoding(NSUTF8StringEncoding)
+//        var file = PFFile(name: name, data: data)
+//        file.saveInBackgroundWithBlock({(succeeded: Bool!, error: NSError!) -> Void in
+//            //success block
+//            if(succeeded!){
+//                println("Successfuly uploaded file")
+//            }
+//                //fail block
+//            else{
+//                println("File not saved, will be saved when connection to DB is establed")
+//            }
+//        })
+
+        //upload the uiimage
         var image = doc.docImage
-        var name = doc.docName + ".txt"
-        var data = image.dataUsingEncoding(NSUTF8StringEncoding)
-        var file = PFFile(name: name, data: data)
-        file.saveInBackgroundWithBlock({(succeeded: Bool!, error: NSError!) -> Void in
-            //success block
-            if(succeeded!){
-                println("Successfuly uploaded file")
-            }
-                //fail block
-            else{
-                println("File not saved, will be saved when connection to DB is establed")
-            }
-        })
+        var name = doc.docName + ".png"
+        let data = UIImagePNGRepresentation(image)
+        let file = PFFile(name: name, data: data)
+
+        
         //will be using parse object id for document object
         //document ID will be an empty string, will use it for document history        
         document["docID"] = doc.docID
@@ -186,23 +211,29 @@ public class DocumentDBConnection: DBConnectionProtocol{
     //creates a copy of the document and uploads to document table 
     //this is used for history, this document would have a document id which inidicated that it's a previous version of a current document. the latest version would have the no docID but the original object id
     class func createHistoryDocucment(doc: Document){
-        
+
+//-----
         //creates a PFFile
-        var image = doc.docImage
-        var name = doc.docName + ".txt"
-        var data = image.dataUsingEncoding(NSUTF8StringEncoding)
-        var file = PFFile(name: name, data: data)
-        file.saveInBackgroundWithBlock({(succeeded: Bool!, error: NSError!) -> Void in
-            //success block
-            if(succeeded!){
-                println("Successfuly uploaded file")
-            }
-                //fail block
-            else{
-                println("File not saved, will be saved when connection to DB is establed")
-            }
-        })
+//        var image = doc.docImage
+//        var name = doc.docName + ".txt"
+//        var data = image.dataUsingEncoding(NSUTF8StringEncoding)
+//        var file = PFFile(name: name, data: data)
+//        file.saveInBackgroundWithBlock({(succeeded: Bool!, error: NSError!) -> Void in
+//            //success block
+//            if(succeeded!){
+//                println("Successfuly uploaded file")
+//            }
+//                //fail block
+//            else{
+//                println("File not saved, will be saved when connection to DB is establed")
+//            }
+//        })
         
+        //create a PFFile for a UIImage
+        var image = doc.docImage
+        var name = doc.docName + ".png"
+        let data = UIImagePNGRepresentation(image)
+        let file = PFFile(name: name, data: data)
         
         var document = PFObject(className:"Document")
         document["docID"] = doc.objectID
