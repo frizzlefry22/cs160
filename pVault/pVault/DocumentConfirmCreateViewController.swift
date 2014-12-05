@@ -23,8 +23,9 @@ class DocumentConfirmCreateViewController: UIViewController {
         
         println("Debug")
         
-        var pfOb = DocumentDBConnecion.createDocumentPFObject(self.document)
-        DocumentDBConnecion.create(pfOb);
+        
+        var pfOb = DocumentDBConnection.createDocumentPFObject(self.document)
+        DocumentDBConnection.create(pfOb);
         
         
         
