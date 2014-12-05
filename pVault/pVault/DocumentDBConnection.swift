@@ -249,11 +249,11 @@ public class DocumentDBConnecion{//: DBConnectionProtocol{
     class func getType(anInt: Int) -> DocumentType{
         switch anInt{
         case 0:
-            return .Creditcard;
+            return .CreditCard;
         case 1:
-            return .BirthCertificate;
+            return .Certificate;
         case 2:
-            return .DriverLicense;
+            return .License;
         case 3:
             return .Other;
         default:

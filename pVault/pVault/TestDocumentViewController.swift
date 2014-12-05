@@ -25,7 +25,7 @@ class TestDocumentViewController: UIViewController {
         testDoc.docID = ""
         testDoc.userID = "Kevin"
         testDoc.docName = "Doc1"
-        testDoc.docType = DocumentType.Creditcard
+        testDoc.docType = DocumentType.CreditCard
         testDoc.docField = ["Card Holder": "Kevin Tran", "Credit Card Number": "1111222233334444", "Security Pin": "911", "Expiration Date": "12/15"]
         testDoc.docDiscription = "BOA master card 1.5% cash back"
         testDoc.docImage = "CreditCardImage"

@@ -94,15 +94,18 @@ class Document{
     //returns the document type as an int for use in the db
     func getDocType(type: DocumentType) -> Int{
         switch type{
-        case .Creditcard:
+        case .CreditCard:
             return 0;
-        case .BirthCertificate:
+        case .Certificate:
             return 1;
-        case .DriverLicense:
+        case .License:
             return 2;
         case .Other:
             return 3;
+        default:
+            return -1
         }
+        
     }
     
     //Param this takes in a document type 
@@ -112,16 +115,18 @@ class Document{
     //docField.updateValue("Joe", forKey: "Card Holder")
     func setDocField(type: DocumentType){
         switch type{
-        case .Creditcard:
+        case .CreditCard:
             self.docField = ["Card Holder": "", "Credit Card Number": "", "Security Pin": "", "Expiration Date": ""]
             break
-        case .BirthCertificate:
+        case .Certificate:
             self.docField = ["Name": "", "Date of Birth": "", "Place of Birth": "", "Parent's name": "", "Certificate Number": ""]
             break
-        case .DriverLicense:
+        case .License:
             self.docField = ["First Name": "", "Last Name": "", "Driver License Number": "", "Expiration Date": "", "Class": "", "Date of Birth": "", "Address": ""]
             break
         case .Other:
+            break
+        default:
             break
         }
     }

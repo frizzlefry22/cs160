@@ -54,6 +54,8 @@
 		2922C05D1A26DFDE00A31962 /* SecurityQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2946417A1A21DA5A0025AECC /* SecurityQuestions.swift */; };
 		294566B91A2B048B00DD7A3A /* Encoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294566B81A2B048B00DD7A3A /* Encoder.swift */; };
 		2946417B1A21DA5A0025AECC /* SecurityQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2946417A1A21DA5A0025AECC /* SecurityQuestions.swift */; };
+		2950E7371A317A90009B29B5 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2950E7361A317A90009B29B5 /* Enums.swift */; };
+		2950E7391A317AB3009B29B5 /* DocumentConfirmCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2950E7381A317AB3009B29B5 /* DocumentConfirmCreateViewController.swift */; };
 		29833EDA1A2ABAA900E30CCD /* TempViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29833ED91A2ABAA900E30CCD /* TempViewController.swift */; };
 		29833EDC1A2ABB0400E30CCD /* AcceptDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29833EDB1A2ABB0400E30CCD /* AcceptDataDelegate.swift */; };
 		299FA8571A1DBE6800D26744 /* DBConnectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299FA8561A1DBE6800D26744 /* DBConnectionProtocol.swift */; };
@@ -63,7 +65,6 @@
 		29A4513C1A1C846700B7CB53 /* CreatePasswordPINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A4513B1A1C846700B7CB53 /* CreatePasswordPINViewController.swift */; };
 		65BDBAF41A30326800E52DE5 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BDBAF01A30326800E52DE5 /* Document.swift */; };
 		65BDBAF51A30326800E52DE5 /* DocumentDBConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BDBAF11A30326800E52DE5 /* DocumentDBConnection.swift */; };
-		65BDBAF61A30326800E52DE5 /* documentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BDBAF21A30326800E52DE5 /* documentType.swift */; };
 		65BDBAF71A30326800E52DE5 /* TestDocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BDBAF31A30326800E52DE5 /* TestDocumentViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -124,6 +125,8 @@
 		291E83BD1A294FFC0037DEE0 /* Encryption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encryption.swift; sourceTree = "<group>"; };
 		294566B81A2B048B00DD7A3A /* Encoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encoder.swift; sourceTree = "<group>"; };
 		2946417A1A21DA5A0025AECC /* SecurityQuestions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityQuestions.swift; sourceTree = "<group>"; };
+		2950E7361A317A90009B29B5 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		2950E7381A317AB3009B29B5 /* DocumentConfirmCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentConfirmCreateViewController.swift; sourceTree = "<group>"; };
 		29833ED91A2ABAA900E30CCD /* TempViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempViewController.swift; sourceTree = "<group>"; };
 		29833EDB1A2ABB0400E30CCD /* AcceptDataDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcceptDataDelegate.swift; sourceTree = "<group>"; };
 		299FA84E1A1DBE3A00D26744 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../ParseStuff/Bolts.framework; sourceTree = "<group>"; };
@@ -137,7 +140,6 @@
 		29A4513B1A1C846700B7CB53 /* CreatePasswordPINViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePasswordPINViewController.swift; sourceTree = "<group>"; };
 		65BDBAF01A30326800E52DE5 /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		65BDBAF11A30326800E52DE5 /* DocumentDBConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentDBConnection.swift; sourceTree = "<group>"; };
-		65BDBAF21A30326800E52DE5 /* documentType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = documentType.swift; sourceTree = "<group>"; };
 		65BDBAF31A30326800E52DE5 /* TestDocumentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestDocumentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -220,7 +222,6 @@
 				65BDBAF11A30326800E52DE5 /* DocumentDBConnection.swift */,
 				10B4DD5E1A203DDA0008565C /* UserDatabaseConnection.swift */,
 				1092DA8A1A2AE29B00820594 /* User.swift */,
-				65BDBAF21A30326800E52DE5 /* documentType.swift */,
 				1092DA8C1A2AE4B700820594 /* SessionData.swift */,
 				65BDBAF31A30326800E52DE5 /* TestDocumentViewController.swift */,
 				294566B71A2B044700DD7A3A /* Utils */,
@@ -291,6 +292,7 @@
 		294566B71A2B044700DD7A3A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				2950E7361A317A90009B29B5 /* Enums.swift */,
 				291E83BD1A294FFC0037DEE0 /* Encryption.swift */,
 				29A451321A1C42E800B7CB53 /* Validator.swift */,
 				2919301E1A242B3C00E34A27 /* Utils.swift */,
@@ -302,6 +304,7 @@
 		29A451381A1C4EB700B7CB53 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2950E7381A317AB3009B29B5 /* DocumentConfirmCreateViewController.swift */,
 				2414C7C51A2B96E4003EA080 /* DocumentListTableViewController.swift */,
 				2414C7BB1A2B8AC3003EA080 /* DriverLicenseViewController.swift */,
 				2414C7BD1A2B8AE1003EA080 /* OtherViewController.swift */,
@@ -446,10 +449,11 @@
 				2946417B1A21DA5A0025AECC /* SecurityQuestions.swift in Sources */,
 				2414C7BA1A2B8AA4003EA080 /* BirthCertificateViewController.swift in Sources */,
 				29A4513A1A1C526000B7CB53 /* RegisterViewController.swift in Sources */,
-				65BDBAF61A30326800E52DE5 /* documentType.swift in Sources */,
 				2414C7B61A2AE4D2003EA080 /* AddDocumentViewController.swift in Sources */,
 				2414C7C61A2B96E4003EA080 /* DocumentListTableViewController.swift in Sources */,
 				29833EDA1A2ABAA900E30CCD /* TempViewController.swift in Sources */,
+				2950E7391A317AB3009B29B5 /* DocumentConfirmCreateViewController.swift in Sources */,
+				2950E7371A317A90009B29B5 /* Enums.swift in Sources */,
 				10B4DD5F1A203DDA0008565C /* UserDatabaseConnection.swift in Sources */,
 				107797D21A2FFFD8008E54AB /* UserTestViewController.swift in Sources */,
 				299FA8571A1DBE6800D26744 /* DBConnectionProtocol.swift in Sources */,
