@@ -11,7 +11,7 @@ import Foundation
 protocol DBConnectionProtocol{
 
     class func create(pfObj: PFObject)
-    class func read(query: PFQuery)
-    class func edit(query: PFQuery)
+    class func read(query: PFQuery) ->AnyObject
+    class func edit(previous: AnyObject, updated: AnyObject)
     class func delete(query: PFQuery)
 }

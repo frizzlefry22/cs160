@@ -2,29 +2,26 @@
 //  UserTestViewController.swift
 //  pVault
 //
-//  Created by Arjay Nguyen on 11/23/14.
+//  Created by Arjay Nguyen on 12/3/14.
 //  Copyright (c) 2014 Pvault2. All rights reserved.
 //
 
 import UIKit
 
-//Used to test UserDatabaseConnection
 class UserTestViewController: UIViewController {
 
-    @IBAction func testDelete(sender: AnyObject) {
-        UserDatabaseConnection.delete(UserDatabaseConnection.createTestQuery())
+    @IBAction func testEmails(sender: AnyObject) {
+        var emails = UserDatabaseConnection.getEmails()
     }
-    //var userDB = UserDatabaseConnection()
     
-    @IBAction func testRead(sender: AnyObject) {
-        let storyboard = UIStoryboard(name: "Main", bundle:nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("HomeView") as UIViewController
-        //self.showViewController(vc as UIViewController, sender: vc)
-        self.presentViewController(vc, animated: false, completion: nil)
-        //UserDatabaseConnection.read(UserDatabaseConnection.createTestQuery())
-    }
     @IBAction func testCreate(sender: AnyObject) {
         UserDatabaseConnection.create(UserDatabaseConnection.testCreate())
+        
+    }
+    @IBAction func testRead(sender: AnyObject) {
+        var query = UserDatabaseConnection.createTestQuery()
+        sessionUser = UserDatabaseConnection.read(query) as User
+        println(sessionUser.getPIN())
         
     }
     override func viewDidLoad() {
@@ -33,6 +30,16 @@ class UserTestViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func testEdit(sender: AnyObject) {
+        
+        
+        
+    var user1 = sessionUser
+    var user2 = sessionUser
+        
+        UserDatabaseConnection.edit(user1, updated: user2)
+    
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
