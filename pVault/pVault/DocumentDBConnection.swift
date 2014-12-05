@@ -41,15 +41,20 @@ public class DocumentDBConnection: DBConnectionProtocol{
         //if doc found, add fields
         if(docObject != nil){
             
-        //fills in the document data
-        someDoc.objectID = docObject.objectId as String
-        someDoc.docID = docObject["docID"] as String
-        someDoc.userID = docObject["userID"] as String
-        someDoc.docName = docObject["docName"] as String
-        someDoc.docType = self.getType(docObject["docType"] as Int)
-        someDoc.docDiscription = docObject["docDesc"] as String
-        someDoc.docField = docObject["docField"] as Dictionary
-        someDoc.docImage = docObject["docImage"] as String
+            //get the image string data
+            var file = docObject["docImage"] as PFFile
+            var data =  file.getData()
+            var imageString: String = data.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.allZeros)
+            
+            //fills in the document data
+            someDoc.objectID = docObject.objectId as String
+            someDoc.docID = docObject["docID"] as String
+            someDoc.userID = docObject["userID"] as String
+            someDoc.docName = docObject["docName"] as String
+            someDoc.docType = self.getType(docObject["docType"] as Int)
+            someDoc.docDiscription = docObject["docDesc"] as String
+            someDoc.docField = docObject["docField"] as Dictionary
+            someDoc.docImage = imageString
         }
         return someDoc
     }
@@ -119,17 +124,6 @@ public class DocumentDBConnection: DBConnectionProtocol{
             }
         }
             println("Deleted document")
-            //------------
-//        aQuery.getObjectInBackgroundWithId(objectID) {
-//            (document: PFObject!, error: NSError!) -> Void in
-//            if error == nil {
-//                document.delete()
-//                NSLog("%@", document)
-//            } else {
-//                NSLog("%@", error)
-//            }
-//        }
-//        println("Deleted document")
     }
     
     //Param: takes in a document's object id
@@ -139,25 +133,13 @@ public class DocumentDBConnection: DBConnectionProtocol{
         query.whereKey("objectId", equalTo: objectID)
         return query
     }
+    
+    //Param: takes in a document's object id
+    //return: returns a PFQuery
+    //used to remove document history (if there exist one)
     class func deleteHistory(objectID: String) -> PFQuery{
         var query = PFQuery(className:"Document")
         query.whereKey("docID", equalTo: objectID)
-        return query
-    }
-    
-    //Param takes in a user ID
-    //Return a PFQuery
-    //Used to query a all documents from one user ID used to populate a list
-    //will be removing these two methods
-    class func getDocumentList(userID: String) -> PFQuery{
-        var query = PFQuery(className:"Document")
-        query.whereKey("userID", equalTo: userID)
-        return query
-    }
-    
-    class func getSingleDocument(docID: String) -> PFQuery{
-        var query = PFQuery(className:"Document")
-        query.whereKey("docID", equalTo: docID)
         return query
     }
     
@@ -168,15 +150,31 @@ public class DocumentDBConnection: DBConnectionProtocol{
     class func createDocumentPFObject(doc: Document) -> PFObject{
         var document = PFObject(className:"Document")
         
+        
+        //upload image string as a PFFile
+        var image = doc.docImage
+        var name = doc.docName + ".txt"
+        var data = image.dataUsingEncoding(NSUTF8StringEncoding)
+        var file = PFFile(name: name, data: data)
+        file.saveInBackgroundWithBlock({(succeeded: Bool!, error: NSError!) -> Void in
+            //success block
+            if(succeeded!){
+                println("Successfuly uploaded file")
+            }
+                //fail block
+            else{
+                println("File not saved, will be saved when connection to DB is establed")
+            }
+        })
         //will be using parse object id for document object
-        //document ID will be same as object id
+        //document ID will be an empty string, will use it for document history        
         document["docID"] = doc.docID
         document["userID"] = doc.userID
         document["docName"] = doc.docName
         document["docType"] = doc.getDocType(doc.docType)
         document["docDesc"] = doc.docDiscription
         document["docField"] = doc.docField
-        document["docImage"] = doc.docImage
+        document["docImage"] = file
         return document
     }
     
@@ -185,6 +183,24 @@ public class DocumentDBConnection: DBConnectionProtocol{
     //creates a copy of the document and uploads to document table 
     //this is used for history, this document would have a document id which inidicated that it's a previous version of a current document. the latest version would have the no docID but the original object id
     class func createHistoryDocucment(doc: Document){
+        
+        //creates a PFFile
+        var image = doc.docImage
+        var name = doc.docName + ".txt"
+        var data = image.dataUsingEncoding(NSUTF8StringEncoding)
+        var file = PFFile(name: name, data: data)
+        file.saveInBackgroundWithBlock({(succeeded: Bool!, error: NSError!) -> Void in
+            //success block
+            if(succeeded!){
+                println("Successfuly uploaded file")
+            }
+                //fail block
+            else{
+                println("File not saved, will be saved when connection to DB is establed")
+            }
+        })
+        
+        
         var document = PFObject(className:"Document")
         document["docID"] = doc.objectID
         document["userID"] = doc.userID
@@ -192,7 +208,7 @@ public class DocumentDBConnection: DBConnectionProtocol{
         document["docType"] = doc.getDocType(doc.docType)
         document["docDesc"] = doc.docDiscription
         document["docField"] = doc.docField
-        document["docImage"] = doc.docImage
+        document["docImage"] = file
         document.saveInBackgroundWithBlock({(succeeded: Bool!, error: NSError!) -> Void in
             //success block
             if(succeeded!){
