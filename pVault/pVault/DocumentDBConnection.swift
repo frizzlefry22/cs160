@@ -44,7 +44,10 @@ public class DocumentDBConnection: DBConnectionProtocol{
             //get the image string data
             var file = docObject["docImage"] as PFFile
             var data =  file.getData()
-            var imageString: String = data.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.allZeros)
+            var imageString: String! = NSString(data: data, encoding: NSUTF8StringEncoding) //data.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.allZeros)
+            if(!imageString.isEmpty){
+                println("not emmpty")
+            }
             
             //fills in the document data
             someDoc.objectID = docObject.objectId as String
