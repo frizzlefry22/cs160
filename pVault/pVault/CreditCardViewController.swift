@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreditCardViewController: UIViewController , DocumentView{
+class CreditCardViewController: UIViewController , DocumentView {
 
     var docTitle : String!
     
@@ -30,6 +30,10 @@ class CreditCardViewController: UIViewController , DocumentView{
         super.viewDidLoad()
 
         DocName.text = self.document.docName
+
+        if ( document.editEnabled!  ) {
+            populateFields(document.docField)
+        }
         
         // Do any additional setup after loading the view.
     }
@@ -39,6 +43,14 @@ class CreditCardViewController: UIViewController , DocumentView{
         // Dispose of any resources that can be recreated.
     }
     
+    func populateFields( fields : [String:String]) {
+        
+        cardHolderName.text =  fields["CardHolderNmae"]
+        creditCardNumber.text = fields["CreditCardNumber"]
+        expirationDate.text = fields["ExpirationDate"]
+        cvc.text = fields["CVC"]
+        
+    }
 
     
     // MARK: - Navigation

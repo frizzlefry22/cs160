@@ -79,6 +79,8 @@ import Foundation
     
     var docImage: UIImage?
     
+    var editEnabled : Bool!
+    
     
     //Param takes in a DocumentType enum
     //returns the document type as an int for use in the db

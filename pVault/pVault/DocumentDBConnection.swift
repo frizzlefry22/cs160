@@ -190,7 +190,7 @@ public class DocumentDBConnection: DBConnectionProtocol{
         //upload the uiimage
         var image = doc.docImage
         var name = doc.docName + ".png"
-        let data = UIImagePNGRepresentation(image)
+        let data =  UIImagePNGRepresentation(image)
         let file = PFFile(name: name, data: data)
 
         

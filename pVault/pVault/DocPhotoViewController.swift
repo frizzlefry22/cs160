@@ -6,9 +6,10 @@ import MobileCoreServices
 class DocPhotoViewController: UIViewController,
 UINavigationControllerDelegate, UIImagePickerControllerDelegate , DocumentView {
     
+    @IBOutlet weak var docNameTextField: UITextField!
+    
     var delegate : AcceptDataDelegate!
-    
-    
+  
     var document : Document!
     
     var controller: UIImagePickerController?
@@ -28,6 +29,20 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate , DocumentView {
         openPhotos()
     }
 
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        docNameTextField.text = document.docName
+        
+        if ( document.editEnabled! ) {
+            
+            //TODO fix this
+            //docIMage = document.docImage
+            
+        }
+        
+    }
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

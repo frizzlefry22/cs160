@@ -41,11 +41,17 @@ class AddDocumentViewController: UIViewController, UIPickerViewDelegate,UIPicker
         
         //Checks to make sure the destination viewController is a DocumentView
         if let vc = segue.destinationViewController as? DocumentView {
+            
+            //NewDoc Editing should be turned off since its in creation mode
+            newDoc.editEnabled = false
+            
             vc.document = newDoc
+            
         }
         else {
             println("Error")
         }
+        
     }
     
     

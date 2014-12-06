@@ -9,5 +9,9 @@
 import Foundation
 
 @objc protocol DocumentView {
+    
+    //The Document that will passed around
     var document : Document! {get set}
+    
+    
 }

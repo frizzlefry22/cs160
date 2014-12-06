@@ -10,6 +10,7 @@ import UIKit
 
 class BirthCertificateViewController: UIViewController, DocumentView {
 
+    //Protocol stuff
     var document : Document!
     
     @IBOutlet weak var certName: UITextField!
@@ -18,11 +19,18 @@ class BirthCertificateViewController: UIViewController, DocumentView {
     @IBOutlet weak var certParentsName: UITextField!
     @IBOutlet weak var certNumber: UITextField!
     
-    
+    @IBOutlet weak var docNameTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        docNameTextField.text = document.docName
+        
+        if ( document.editEnabled! ) {
+            populateFields(document.docField)
+        }
+        
         // Do any additional setup after loading the view.
     }
 
@@ -31,6 +39,17 @@ class BirthCertificateViewController: UIViewController, DocumentView {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    //Sets the UI to the previous fields
+    func populateFields( fields : [String:String]) {
+        
+        certName.text =  fields["CertificateName"]
+        certDOB.text =  fields["Date of Birth"]
+        certPOB.text =  fields["Place of Birth"]
+        certParentsName.text =  fields["Parents Name"]
+        certNumber.text =  fields["Number"]
+        
+    }
 
     
     // MARK: - Navigation
@@ -42,7 +61,7 @@ class BirthCertificateViewController: UIViewController, DocumentView {
         
         fieldDictionary["CertificateName"] = certName.text
         fieldDictionary["Date of Birth"] = certDOB.text
-        fieldDictionary["Place of Birth"] = certDOB.text
+        fieldDictionary["Place of Birth"] = certPOB.text
         fieldDictionary["Parents Name"] = certParentsName.text
         fieldDictionary["Number"] = certNumber.text
         

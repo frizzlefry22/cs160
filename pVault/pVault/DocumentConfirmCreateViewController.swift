@@ -10,11 +10,11 @@ import UIKit
 
 class DocumentConfirmCreateViewController: UIViewController, DocumentView {
 
-    
-    
     var document : Document!
     
     @IBOutlet weak var docName: UITextField!
+    
+    @IBOutlet weak var docType: UITextField!
     
     @IBOutlet weak var imagePreview: UIImageView!
     
@@ -34,10 +34,19 @@ class DocumentConfirmCreateViewController: UIViewController, DocumentView {
         super.viewDidLoad()
         
         
+        
         docName.text = document.docName
+        docType.text = document.docType.rawValue
+        
 //---   takes a uiimage instead of encoded string 
-        imagePreview.image = document.docImage//Encoder.decodeImage(document.docImage)
+        //imagePreview.image = document.docImage//Encoder.decodeImage(document.docImage)
 
+        var tempImage = document.docImage;
+        
+        
+        
+        
+        
         // Do any additional setup after loading the view.
     }
 
