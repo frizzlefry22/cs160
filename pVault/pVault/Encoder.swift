@@ -32,7 +32,7 @@ struct Encoder {
     //@return the base64 string
     static func encodeImage( img : UIImage)  -> String {
         
-        var imageData = UIImagePNGRepresentation(img)
+        var imageData = UIImageJPEGRepresentation(img,0.6)//UIImagePNGRepresentation(img)
         
         let base64 = imageData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.allZeros)
         
