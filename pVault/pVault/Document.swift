@@ -77,7 +77,8 @@ import Foundation
     var docField = Dictionary<String, String>()
     
     
-    var docImage: UIImage?
+    var docImage: String!
+    
     
     var editEnabled : Bool!
     
@@ -123,5 +124,14 @@ import Foundation
         }
     }
     
+    func getHalves() -> (imageA: String, imageB: String){
+        var str = self.docImage
+        var length = countElements(str)
+        var half = length/2
+        var stringA = str.substringToIndex(advance(str.startIndex, half))
+        var stringB = str.substringFromIndex(advance(str.startIndex,half))
+        var tuple = (imageA: stringA, imageB: stringB)
+        return tuple
+    }
     
 }

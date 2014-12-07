@@ -41,7 +41,7 @@ class DocumentConfirmCreateViewController: UIViewController, DocumentView {
 //---   takes a uiimage instead of encoded string 
         //imagePreview.image = document.docImage//Encoder.decodeImage(document.docImage)
 
-        var tempImage = document.docImage;
+        var tempImage = Encoder.decodeImage(document.docImage)//document.docImage;
         
         
         
