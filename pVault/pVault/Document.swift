@@ -51,7 +51,7 @@ import Foundation
     }
     
     //document type this is an enum
-    var _docType = DocumentType.Other
+    var _docType = DocumentType.None
     var docType: DocumentType{
         set(setDocType){
             self._docType = setDocType
@@ -85,18 +85,20 @@ import Foundation
     
     //Param takes in a DocumentType enum
     //returns the document type as an int for use in the db
-    func getDocType(type: DocumentType) -> Int{
+    func getDocType(type: DocumentType) -> String{
         switch type{
         case .CreditCard:
-            return 0;
+            return type.rawValue
         case .Certificate:
-            return 1;
+            return type.rawValue
         case .License:
-            return 2;
+            return type.rawValue
         case .Other:
-            return 3;
+            return type.rawValue
+        case .None:
+            return type.rawValue
         default:
-            return -1
+            return DocumentType.None.rawValue
         }
         
     }

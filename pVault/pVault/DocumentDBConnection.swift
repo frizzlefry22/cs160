@@ -51,7 +51,7 @@ public class DocumentDBConnection: DBConnectionProtocol{
             someDoc.docID = docObject["docID"] as String
             someDoc.userID = docObject["userID"] as String
             someDoc.docName = docObject["docName"] as String
-            someDoc.docType = self.getType(docObject["docType"] as Int)
+            someDoc.docType = self.getType(docObject["docType"] as String)
             someDoc.docDiscription = docObject["docDesc"] as String
             someDoc.docField = docObject["docField"] as Dictionary
             someDoc.docImage = imageString
@@ -232,8 +232,8 @@ public class DocumentDBConnection: DBConnectionProtocol{
     //Param takes in a user id
     //Return returns a tuple that consists of doc pbject id, doc name, and doc type
     //this func returns an array of tuples which will be used to populate the document list
-    class func getDocList(userID: String) -> [(objectID: String, docName: String, docType: Int)]{
-        var docList:[(objectID: String, docName: String, docType: Int)] = []
+    class func getDocList(userID: String) -> [(objectID: String, docName: String, docType: String)]{
+        var docList:[(objectID: String, docName: String, docType: String)] = []
         var query = PFQuery(className:"Document")
         query.whereKey("userID", equalTo: userID)
         query.whereKey("docID", equalTo: "")
@@ -243,7 +243,7 @@ public class DocumentDBConnection: DBConnectionProtocol{
         for object in objectArray{
             var someID = object.objectId as String
             var someName = object["docName"] as String
-            var someType = object["docType"] as Int
+            var someType = object["docType"] as String
             var tuple = (objectID: someID, docName: someName, docType: someType)
             docList += [tuple]
         }
@@ -281,15 +281,17 @@ public class DocumentDBConnection: DBConnectionProtocol{
     
     //Param takes in an int which is the int for document type on parse db
     //Return returns the document type
-    class func getType(anInt: Int) -> DocumentType{
-        switch anInt{
-        case 0:
+    class func getType(type: String) -> DocumentType{
+        switch type{
+        case "Credit Card":
             return .CreditCard;
-        case 1:
+        case "Certificate":
             return .Certificate;
-        case 2:
+        case "License":
             return .License;
-        case 3:
+        case "Other":
+            return .Other;
+        case "None":
             return .None;
         default:
             return .None;
