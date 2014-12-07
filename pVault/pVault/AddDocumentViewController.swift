@@ -23,6 +23,12 @@ class AddDocumentViewController: UIViewController, UIPickerViewDelegate,UIPicker
     
     @IBAction func nextPushed(sender: AnyObject) {
         
+        //Fix bug of None not being selected unless you move picker
+        if (currentSelected == nil)
+        {
+            currentSelected = DocumentType.None.rawValue
+        }
+        
         //Performs Segue based on the UIPicker Selecetd
         performSegueWithIdentifier( currentSelected , sender : sender)
         
