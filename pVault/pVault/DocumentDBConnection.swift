@@ -42,17 +42,10 @@ public class DocumentDBConnection: DBConnectionProtocol{
         if(docObject != nil){
             
             //get the image A half of string data
-            var fileA = docObject["docImageA"] as PFFile
-            var dataA =  fileA.getData()
-            var imageStringA: String! = NSString(data: dataA, encoding: NSUTF8StringEncoding)
+            var file = docObject["docImage"] as PFFile
+            var data =  file.getData()
+            var imageString: String! = NSString(data: data, encoding: NSUTF8StringEncoding)
             
-            
-            var fileB = docObject["docImageB"] as PFFile
-            var dataB =  fileB.getData()
-            var imageStringB: String! = NSString(data: dataB, encoding: NSUTF8StringEncoding)
-            
-            var fullImage = imageStringA + imageStringB
-
             //fills in the document data
             someDoc.objectID = docObject.objectId as String
             someDoc.docID = docObject["docID"] as String
@@ -61,8 +54,7 @@ public class DocumentDBConnection: DBConnectionProtocol{
             someDoc.docType = self.getType(docObject["docType"] as Int)
             someDoc.docDiscription = docObject["docDesc"] as String
             someDoc.docField = docObject["docField"] as Dictionary
-            someDoc.docImage = fullImage
-            
+            someDoc.docImage = imageString
         }
         return someDoc
     }
@@ -92,29 +84,17 @@ public class DocumentDBConnection: DBConnectionProtocol{
             if error != nil {
                 NSLog("%@", error)
             } else {
-//                var image = editDoc.docImage
-//                var name = editDoc.docName + ".png"
-//                let data = UIImagePNGRepresentation(image)
-//                let file = PFFile(name: name, data: data)
                 
-                var tuple = editDoc.getHalves()
-                
-                // upload the base64 string in two halves
-                var imageA = tuple.imageA
-                var nameA = editDoc.docName + ".txt"
-                var dataA = imageA.dataUsingEncoding(NSUTF8StringEncoding)
-                var fileA = PFFile(name: nameA, data: dataA)
-                
-                var imageB = tuple.imageA
-                var nameB = editDoc.docName + ".txt"
-                var dataB = imageB.dataUsingEncoding(NSUTF8StringEncoding)
-                var fileB = PFFile(name: nameB, data: dataB)
+                // upload the base64 string image string
+                var image = editDoc.docImage
+                var name = editDoc.docName + ".txt"
+                var data = image.dataUsingEncoding(NSUTF8StringEncoding)
+                var file = PFFile(name: name, data: data)
                 
                 document["docName"] = editDoc.docName
                 document["docDesc"] = editDoc.docDiscription
                 document["docField"] = editDoc.docField
-                document["docImageA"] = fileA
-                document["docImageB"] = fileB
+                document["docImage"] = file
                 document.saveInBackgroundWithBlock({(succeeded: Bool!, error: NSError!) -> Void in
                     //success block
                     if(succeeded!){
@@ -177,18 +157,11 @@ public class DocumentDBConnection: DBConnectionProtocol{
     class func createDocumentPFObject(doc: Document) -> PFObject{
         var document = PFObject(className:"Document")
         
-        var tuple = doc.getHalves()
-        
-        // upload the base64 string in two halves
-        var imageA = tuple.imageA
-        var nameA = doc.docName + "A.txt"
-        var dataA = imageA.dataUsingEncoding(NSUTF8StringEncoding)
-        var fileA = PFFile(name: nameA, data: dataA)
-        
-        var imageB = tuple.imageB
-        var nameB = doc.docName + "B.txt"
-        var dataB = imageB.dataUsingEncoding(NSUTF8StringEncoding)
-        var fileB = PFFile(name: nameB, data: dataB)
+        // upload the base64 string for image
+        var image = doc.docImage
+        var name = doc.docName + ".txt"
+        var data = image.dataUsingEncoding(NSUTF8StringEncoding)
+        var file = PFFile(name: name, data: data)
 
         
         //will be using parse object id for document object
@@ -199,8 +172,8 @@ public class DocumentDBConnection: DBConnectionProtocol{
         document["docType"] = doc.getDocType(doc.docType)
         document["docDesc"] = doc.docDiscription
         document["docField"] = doc.docField
-        document["docImageA"] = fileA
-        document["docImageB"] = fileB
+        document["docImage"] = file
+        
         return document
     }
     
@@ -209,20 +182,12 @@ public class DocumentDBConnection: DBConnectionProtocol{
     //creates a copy of the document and uploads to document table 
     //this is used for history, this document would have a document id which inidicated that it's a previous version of a current document. the latest version would have the no docID but the original object id
     class func createHistoryDocucment(doc: Document){
-
-        //gets a tuple of both halves of the image string
-        var tuple = doc.getHalves()
         
-        //creates 2 PFFiles for each half of the image
-        var imageA = tuple.imageA
-        var nameA = doc.docName + ".txt"
-        var dataA = imageA.dataUsingEncoding(NSUTF8StringEncoding)
-        var fileA = PFFile(name: nameA, data: dataA)
-        
-        var imageB = tuple.imageB
-        var nameB = doc.docName + ".txt"
-        var dataB = imageB.dataUsingEncoding(NSUTF8StringEncoding)
-        var fileB = PFFile(name: nameB, data: dataB)
+        //creates PFFiles for the image
+        var image = doc.docImage
+        var name = doc.docName + ".txt"
+        var data = image.dataUsingEncoding(NSUTF8StringEncoding)
+        var file = PFFile(name: name, data: data)
 
         
         var document = PFObject(className:"Document")
@@ -232,8 +197,7 @@ public class DocumentDBConnection: DBConnectionProtocol{
         document["docType"] = doc.getDocType(doc.docType)
         document["docDesc"] = doc.docDiscription
         document["docField"] = doc.docField
-        document["docImageA"] = fileA
-        document["docImageB"] = fileB
+        document["docImage"] = file
         document.saveInBackgroundWithBlock({(succeeded: Bool!, error: NSError!) -> Void in
             //success block
             if(succeeded!){
