@@ -87,7 +87,7 @@ public class DocumentDBConnection: DBConnectionProtocol{
                 
                 // upload the base64 string image string
                 var image = editDoc.docImage
-                var name = editDoc.docName + ".txt"
+                var name = self.cleanName(editDoc.docName) + ".txt"
                 var data = image.dataUsingEncoding(NSUTF8StringEncoding)
                 var file = PFFile(name: name, data: data)
                 
@@ -159,7 +159,7 @@ public class DocumentDBConnection: DBConnectionProtocol{
         
         // upload the base64 string for image
         var image = doc.docImage
-        var name = doc.docName + ".txt"
+        var name = self.cleanName(doc.docName) + ".txt"
         var data = image.dataUsingEncoding(NSUTF8StringEncoding)
         var file = PFFile(name: name, data: data)
 
@@ -185,7 +185,7 @@ public class DocumentDBConnection: DBConnectionProtocol{
         
         //creates PFFiles for the image
         var image = doc.docImage
-        var name = doc.docName + ".txt"
+        var name = self.cleanName(doc.docName) + ".txt"
         var data = image.dataUsingEncoding(NSUTF8StringEncoding)
         var file = PFFile(name: name, data: data)
 
@@ -290,9 +290,9 @@ public class DocumentDBConnection: DBConnectionProtocol{
         case 2:
             return .License;
         case 3:
-            return .Other;
+            return .None;
         default:
-            return .Other;
+            return .None;
         }
     }
     
@@ -306,6 +306,17 @@ public class DocumentDBConnection: DBConnectionProtocol{
         for (myKey,myValue) in temp{
             println("\(myKey) \t \(myValue)")
         }
+        return temp
+    }
+    
+    class func cleanName(name: String) -> String{
+        var temp = name
+        //trim white space on outer edges
+        temp = temp.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        //removes "
+        temp = temp.stringByReplacingOccurrencesOfString("\"", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+        //removes '
+        temp = temp.stringByReplacingOccurrencesOfString("\'", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
         return temp
     }
 }
