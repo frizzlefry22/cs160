@@ -21,9 +21,8 @@ class DocumentConfirmCreateViewController: UIViewController, DocumentView {
     
     @IBAction func createPushed(sender: AnyObject) {
         
-        println("Debug")
         
-        
+        //Display the image
         var pfOb = DocumentDBConnection.createDocumentPFObject(self.document)
         DocumentDBConnection.create(pfOb);
         
@@ -38,13 +37,8 @@ class DocumentConfirmCreateViewController: UIViewController, DocumentView {
         docName.text = document.docName
         docType.text = document.docType.rawValue
         
-//---   takes a uiimage instead of encoded string 
-        //imagePreview.image = document.docImage//Encoder.decodeImage(document.docImage)
-
-        var tempImage = Encoder.decodeImage(document.docImage)//document.docImage;
         
-        
-        
+        imagePreview.image = Encoder.decodeImage(document.docImage)
         
         
         // Do any additional setup after loading the view.
