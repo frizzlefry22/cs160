@@ -169,7 +169,7 @@ public class DocumentDBConnection: DBConnectionProtocol{
         document["docID"] = doc.docID
         document["userID"] = doc.userID
         document["docName"] = doc.docName
-        document["docType"] = doc.getDocType(doc.docType)
+        document["docType"] = doc.docType.rawValue
         document["docDesc"] = doc.docDiscription
         document["docField"] = doc.docField
         document["docImage"] = file
@@ -194,7 +194,7 @@ public class DocumentDBConnection: DBConnectionProtocol{
         document["docID"] = doc.objectID
         document["userID"] = doc.userID
         document["docName"] = doc.docName
-        document["docType"] = doc.getDocType(doc.docType)
+        document["docType"] = doc.docType.rawValue
         document["docDesc"] = doc.docDiscription
         document["docField"] = doc.docField
         document["docImage"] = file
