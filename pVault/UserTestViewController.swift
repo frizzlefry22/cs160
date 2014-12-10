@@ -10,6 +10,31 @@ import UIKit
 
 class UserTestViewController: UIViewController {
 
+    @IBAction func testAddDocument(sender: AnyObject) {
+        var doc = Document(creatorID: "125")
+        doc.docID = "321"
+        doc.docName = "documentName"
+        doc.docType = DocumentType.Creditcard
+        doc.setDocField(DocumentType.Creditcard)
+        doc.docDiscription = "description here"
+        doc.docImage = "image string"
+        
+        LocalFileManager.addDocument(doc, userID: "125")
+        
+        
+        
+        
+        
+    }
+    @IBAction func testCreateUserDirectory(sender: AnyObject) {
+        LocalFileManager.createUserDirectory(sessionUser.getUserID())
+    }
+    
+    
+    @IBAction func testCheckUserDirectory(sender: AnyObject) {
+        LocalFileManager.checkUserDirectory("123")
+    }
+    
     @IBAction func testEmails(sender: AnyObject) {
         var emails = UserDatabaseConnection.getEmails()
     }

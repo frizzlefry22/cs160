@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		106F2F821A369EBD008B7482 /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106F2F811A369EBD008B7482 /* LocalFileManager.swift */; };
 		107797D21A2FFFD8008E54AB /* UserTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107797D11A2FFFD8008E54AB /* UserTestViewController.swift */; };
 		1092DA8B1A2AE29B00820594 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1092DA8A1A2AE29B00820594 /* User.swift */; };
 		1092DA8D1A2AE4B700820594 /* SessionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1092DA8C1A2AE4B700820594 /* SessionData.swift */; };
@@ -78,6 +79,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		106F2F811A369EBD008B7482 /* LocalFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
 		107797D11A2FFFD8008E54AB /* UserTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserTestViewController.swift; path = ../UserTestViewController.swift; sourceTree = "<group>"; };
 		1092DA8A1A2AE29B00820594 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1092DA8C1A2AE4B700820594 /* SessionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionData.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				65BDBAF21A30326800E52DE5 /* documentType.swift */,
 				1092DA8C1A2AE4B700820594 /* SessionData.swift */,
 				65BDBAF31A30326800E52DE5 /* TestDocumentViewController.swift */,
+				106F2F811A369EBD008B7482 /* LocalFileManager.swift */,
 				294566B71A2B044700DD7A3A /* Utils */,
 				294566B61A2B043800DD7A3A /* protocols */,
 				291930231A24625800E34A27 /* Registeration */,
@@ -431,6 +434,7 @@
 				29A451351A1C4B9E00B7CB53 /* LoginViewController.swift in Sources */,
 				1092DA8D1A2AE4B700820594 /* SessionData.swift in Sources */,
 				29A4513C1A1C846700B7CB53 /* CreatePasswordPINViewController.swift in Sources */,
+				106F2F821A369EBD008B7482 /* LocalFileManager.swift in Sources */,
 				291930281A24674000E34A27 /* RegisterInfo.swift in Sources */,
 				65BDBAF71A30326800E52DE5 /* TestDocumentViewController.swift in Sources */,
 				2919301F1A242B3C00E34A27 /* Utils.swift in Sources */,
