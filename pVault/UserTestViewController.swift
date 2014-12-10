@@ -10,6 +10,8 @@ import UIKit
 
 class UserTestViewController: UIViewController {
 
+    var sessionUser : User!
+    
     @IBAction func testEmails(sender: AnyObject) {
         var emails = UserDatabaseConnection.getEmails()
     }

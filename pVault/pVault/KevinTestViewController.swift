@@ -1,14 +1,14 @@
 //
-//  OtherViewController.swift
+//  KevinTestViewController.swift
 //  pVault
 //
-//  Created by Lashkar Singh on 11/30/14.
+//  Created by Kevin Tran on 12/4/14.
 //  Copyright (c) 2014 Pvault2. All rights reserved.
 //
 
 import UIKit
 
-class OtherViewController: UIViewController {
+class KevinTestViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,13 @@ class OtherViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func getImage(sender: AnyObject) {
+        var temp : Document = DocumentDBConnection.read(DocumentDBConnection.readObject("z5MfCXikMC")) as Document
+        
+        imagePreview.image = Encoder.decodeImage(temp.docImage) //temp.docImage//
+    }
 
+    @IBOutlet weak var imagePreview: UIImageView!
     /*
     // MARK: - Navigation
 

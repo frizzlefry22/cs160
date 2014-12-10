@@ -10,5 +10,8 @@
 
 import Foundation
 
+var test = [String : String]()
 
-var sessionUser = User(userID: "125", email: "ar", password: "123", PIN: "123", secQA: ["string": "string"])
+var LoggedInuser = User(userID: "test", email: "test@example.com", password: "pass!1", PIN: "1234", secQA: test)
+
+//Need to get rid of 

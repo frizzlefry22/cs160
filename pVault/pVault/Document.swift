@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Document{
+@objc class Document{
 
     init(creatorID: String){
         self.userID = creatorID
@@ -18,6 +18,7 @@ class Document{
     var objectID = ""
     
     var _docID = ""
+    
     var docID: String{
         set(setDocID){
             self._docID = setDocID
@@ -50,7 +51,7 @@ class Document{
     }
     
     //document type this is an enum
-    var _docType = DocumentType.Other
+    var _docType = DocumentType.None
     var docType: DocumentType{
         set(setDocType){
             self._docType = setDocType
@@ -72,37 +73,35 @@ class Document{
     }
     
     
-    //what goes in these two arrays
+    //dictionary for the fields
     var docField = Dictionary<String, String>()
     
     
-    var docImage: String = ""
-//    var docImage: UIImage{
-//        set(setUIImage){
-//            self._docImage = setUIImage
-//        }
-//        get{
-//            return self._docImage
-//        }
-//    }
-
-    //docID generator?
-    //takes the current user's id who is creating the document
+    
+    var docImage : String =  ""
+    
+    
+    var editEnabled : Bool!
     
     
     //Param takes in a DocumentType enum
     //returns the document type as an int for use in the db
-    func getDocType(type: DocumentType) -> Int{
+    func getDocType(type: DocumentType) -> String{
         switch type{
-        case .Creditcard:
-            return 0;
-        case .BirthCertificate:
-            return 1;
-        case .DriverLicense:
-            return 2;
+        case .CreditCard:
+            return type.rawValue
+        case .Certificate:
+            return type.rawValue
+        case .License:
+            return type.rawValue
         case .Other:
-            return 3;
+            return type.rawValue
+        case .None:
+            return type.rawValue
+        default:
+            return DocumentType.None.rawValue
         }
+        
     }
     
     //Param this takes in a document type 
@@ -112,22 +111,30 @@ class Document{
     //docField.updateValue("Joe", forKey: "Card Holder")
     func setDocField(type: DocumentType){
         switch type{
-        case .Creditcard:
+        case .CreditCard:
             self.docField = ["Card Holder": "", "Credit Card Number": "", "Security Pin": "", "Expiration Date": ""]
             break
-        case .BirthCertificate:
+        case .Certificate:
             self.docField = ["Name": "", "Date of Birth": "", "Place of Birth": "", "Parent's name": "", "Certificate Number": ""]
             break
-        case .DriverLicense:
+        case .License:
             self.docField = ["First Name": "", "Last Name": "", "Driver License Number": "", "Expiration Date": "", "Class": "", "Date of Birth": "", "Address": ""]
             break
         case .Other:
             break
+        default:
+            break
         }
     }
     
+    func getHalves() -> (imageA: String, imageB: String){
+        var str = self.docImage
+        var length = countElements(str)
+        var half = length/2
+        var stringA = str.substringToIndex(advance(str.startIndex, half))
+        var stringB = str.substringFromIndex(advance(str.startIndex,half))
+        var tuple = (imageA: stringA, imageB: stringB)
+        return tuple
+    }
     
-//    func setUserID(uID: String){
-//               self.userID = uID;
-//    }
 }
