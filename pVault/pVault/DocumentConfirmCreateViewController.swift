@@ -51,8 +51,8 @@ class DocumentConfirmCreateViewController: UIViewController, DocumentView , Aler
         // Dispose of any resources that can be recreated.
     }
     
-    func AlertUser() {
-        let alertController = UIAlertController(title: "Document Upload", message: "Successful", preferredStyle: .Alert)
+    func AlertUser(message : String) {
+        let alertController = UIAlertController(title: "Document Upload", message: message, preferredStyle: .Alert)
         
         let okAction = UIAlertAction(title: "Ok", style: .Default) {
             (action) in

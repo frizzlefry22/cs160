@@ -10,6 +10,6 @@ import Foundation
 
 protocol Alertable {
     
-    func AlertUser()
+    func AlertUser(message :String)
     
 }

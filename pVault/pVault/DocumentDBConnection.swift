@@ -26,13 +26,13 @@ public class DocumentDBConnection: DBConnectionProtocol{
             if(succeeded!){
                 println("File Saved")
                 
-                AlertDelStuct.alertDelegate.AlertUser()
+                AlertDelStuct.alertDelegate.AlertUser("Success")
                 
             }
                 //fail block
             else{
                 println("File not saved, will be saved when connection to DB is establed")
-                AlertDelStuct.alertDelegate.AlertUser()
+                AlertDelStuct.alertDelegate.AlertUser("File Did not Upload")
             }
         })
         

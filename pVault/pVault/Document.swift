@@ -77,7 +77,8 @@ import Foundation
     var docField = Dictionary<String, String>()
     
     
-    var docImage: String!
+    
+    var docImage : String =  ""
     
     
     var editEnabled : Bool!
