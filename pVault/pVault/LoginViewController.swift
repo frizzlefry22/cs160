@@ -17,6 +17,21 @@ class LoginViewController: UIViewController {
         self.navigationController?.pushViewController(vc,animated : true);
     }
     
+    @IBAction func aslert(sender: AnyObject) {
+        
+        let alertController = UIAlertController(title: "Document Upload", message: "Successful", preferredStyle: .Alert)
+        
+        let okAction = UIAlertAction(title: "Ok", style: .Default) {
+            (action) in
+        }
+        
+        alertController.addAction(okAction)
+
+        self.presentViewController(alertController,animated:true) {
+            
+        }
+        
+    }
     @IBAction func moveToArjayTest(sender: AnyObject) {
         
         let storyboard : UIStoryboard = UIStoryboard(name: "CoolTesting", bundle: nil);

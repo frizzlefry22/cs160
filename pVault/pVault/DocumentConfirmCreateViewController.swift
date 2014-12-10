@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DocumentConfirmCreateViewController: UIViewController, DocumentView {
+class DocumentConfirmCreateViewController: UIViewController, DocumentView , Alertable{
 
     var document : Document!
     
@@ -21,6 +21,8 @@ class DocumentConfirmCreateViewController: UIViewController, DocumentView {
     
     @IBAction func createPushed(sender: AnyObject) {
         
+        
+        DocumentDBConnection.AlertDelStuct.alertDelegate = self
         
         //Display the image
         var pfOb = DocumentDBConnection.createDocumentPFObject(self.document)
@@ -47,6 +49,21 @@ class DocumentConfirmCreateViewController: UIViewController, DocumentView {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func AlertUser() {
+        let alertController = UIAlertController(title: "Document Upload", message: "Successful", preferredStyle: .Alert)
+        
+        let okAction = UIAlertAction(title: "Ok", style: .Default) {
+            (action) in
+        }
+        
+        alertController.addAction(okAction)
+        
+        self.presentViewController(alertController,animated:true) {
+            
+        }
+
     }
     
 

@@ -10,7 +10,10 @@ import Foundation
 
 public class DocumentDBConnection: DBConnectionProtocol{
     
-    
+    //Have to do this since class var is not implemneted by Apple
+    struct AlertDelStuct {
+        static var alertDelegate : Alertable!
+    }
     
     
     //Param takes in a PFObject
@@ -22,10 +25,14 @@ public class DocumentDBConnection: DBConnectionProtocol{
             //success block
             if(succeeded!){
                 println("File Saved")
+                
+                AlertDelStuct.alertDelegate.AlertUser()
+                
             }
                 //fail block
             else{
                 println("File not saved, will be saved when connection to DB is establed")
+                AlertDelStuct.alertDelegate.AlertUser()
             }
         })
         
