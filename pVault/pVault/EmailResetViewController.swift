@@ -13,12 +13,32 @@ class EmailResetViewController: UIViewController {
     @IBOutlet weak var emailInput: UITextField!
     
     
+    @IBOutlet weak var continueButton: UIButton!
     
+    @IBAction func editingChanged(sender: AnyObject) {
+        
+        
+        if ( Validator.emailExists(emailInput.text)) {
+            
+            continueButton.alpha = 1
+            continueButton.enabled = true
+            
+        }
+        else {
+            continueButton.enabled = false
+            continueButton.alpha = 0.4
+
+        }
+        
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        continueButton.enabled = false
+        continueButton.alpha = 0.4
+        
         // Do any additional setup after loading the view.
     }
 
@@ -32,6 +52,8 @@ class EmailResetViewController: UIViewController {
         
         
         let vc = segue.destinationViewController as SecurityQuestionAnswerViewController
+        
+        vc.securityQuestions = UserDatabaseConnection.getSecQA(emailInput.text)
         
     }
     

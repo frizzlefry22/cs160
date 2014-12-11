@@ -38,6 +38,7 @@
 		29104E981A1F1F2A0058F475 /* SecurityQuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29104E971A1F1F2A0058F475 /* SecurityQuestionsViewController.swift */; };
 		291481681A3961F8005FD3BB /* EmailResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291481671A3961F8005FD3BB /* EmailResetViewController.swift */; };
 		2914816A1A396256005FD3BB /* SecurityQuestionAnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291481691A396256005FD3BB /* SecurityQuestionAnswerViewController.swift */; };
+		2914816C1A39854B005FD3BB /* ConfirmResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2914816B1A39854B005FD3BB /* ConfirmResetViewController.swift */; };
 		29152BBA1A1971C100A88FEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29152BB91A1971C100A88FEA /* AppDelegate.swift */; };
 		29152BBF1A1971C100A88FEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29152BBD1A1971C100A88FEA /* Main.storyboard */; };
 		29152BC11A1971C100A88FEA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29152BC01A1971C100A88FEA /* Images.xcassets */; };
@@ -111,6 +112,7 @@
 		29104E971A1F1F2A0058F475 /* SecurityQuestionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityQuestionsViewController.swift; sourceTree = "<group>"; };
 		291481671A3961F8005FD3BB /* EmailResetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailResetViewController.swift; sourceTree = "<group>"; };
 		291481691A396256005FD3BB /* SecurityQuestionAnswerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityQuestionAnswerViewController.swift; sourceTree = "<group>"; };
+		2914816B1A39854B005FD3BB /* ConfirmResetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmResetViewController.swift; sourceTree = "<group>"; };
 		29152BB41A1971C100A88FEA /* pVault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pVault.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29152BB81A1971C100A88FEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		29152BB91A1971C100A88FEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 				65BDBAF81A318D7700E52DE5 /* KevinTestViewController.swift */,
 				291481671A3961F8005FD3BB /* EmailResetViewController.swift */,
 				291481691A396256005FD3BB /* SecurityQuestionAnswerViewController.swift */,
+				2914816B1A39854B005FD3BB /* ConfirmResetViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -460,6 +463,7 @@
 				2914816A1A396256005FD3BB /* SecurityQuestionAnswerViewController.swift in Sources */,
 				29A451331A1C42E800B7CB53 /* Validator.swift in Sources */,
 				29833EDC1A2ABB0400E30CCD /* AcceptDataDelegate.swift in Sources */,
+				2914816C1A39854B005FD3BB /* ConfirmResetViewController.swift in Sources */,
 				29152BBA1A1971C100A88FEA /* AppDelegate.swift in Sources */,
 				2946417B1A21DA5A0025AECC /* SecurityQuestions.swift in Sources */,
 				2414C7BA1A2B8AA4003EA080 /* BirthCertificateViewController.swift in Sources */,
