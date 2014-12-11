@@ -53,10 +53,21 @@ public class UserDatabaseConnection: DBConnectionProtocol{
             if (error == nil){
                 //object found
                 if(object != nil){
-                    object["PIN"] = newUser.getPIN()
-                    object["secQA"] = newUser.getSecQA()
+                    
+                    //object["PIN"] = newUser.getPIN()
+                    //object["secQA"] = newUser.getSecQA()
                     object["password"] = newUser.getPassword()
-                    object.saveEventually()
+                    object.saveInBackgroundWithBlock({(succeeded: Bool!, error: NSError!) -> Void in
+                        //success block
+                        if(succeeded!){
+                            println("File Saved")
+                        }
+                            //fail block
+                        else{
+                            println("File not saved, will be saved when connection to DB is establed")
+                        }
+                    })
+                    
                 }
             }
             //error
@@ -137,6 +148,20 @@ public class UserDatabaseConnection: DBConnectionProtocol{
         return user
     }
     
+    /*  getUserByEmail
+    
+        Intent:
+        Param:
+        Return:
+    */
+    class func getUserByEmail(email: String)->User{
+        
+        var query = PFQuery(className: "User")
+        query.whereKey("email", equalTo: email)
+        
+        return read(query) as User
+    }
+    
     /*  getEmails
     
         Intent: get all emails, return as string in array
@@ -193,4 +218,9 @@ public class UserDatabaseConnection: DBConnectionProtocol{
         
         return secQA
     }
+    
+    
+    
+    
+    
 }

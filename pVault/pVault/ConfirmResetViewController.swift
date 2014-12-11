@@ -37,9 +37,17 @@ class ConfirmResetViewController: UIViewController {
     
     @IBAction func resetClicked(sender: AnyObject) {
         
-        //Arjay update the DB with password from
-        //newPassword.text
+        //create copy of LoggedInuser
+        var newUser = LoggedInuser.copy()
+        newUser.setPassword(newPassword.text)
         
+        //edit user in DB
+        //*** FOR SOME REASON, when you try to step over this, xcode crashes, works if you just hit continue, dunno why ***
+        UserDatabaseConnection.edit(LoggedInuser, updated: newUser)
+        
+        //here is where I should save locally, leave it like this for now for testing
+        LoggedInuser.setPassword(newPassword.text)
+        //println(LoggedInuser.getPassword())
     }
     
     
