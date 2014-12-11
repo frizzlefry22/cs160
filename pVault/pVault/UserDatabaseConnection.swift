@@ -182,5 +182,15 @@ public class UserDatabaseConnection: DBConnectionProtocol{
         return query
     }
     
-    
+    //get security question answers, take in email, return dictionary, will comment more later
+    class func getSecQA(userEmail: String)->[String:String]{
+        var query = PFQuery(className: "User")
+        query.whereKey("email", equalTo: userEmail)
+        
+        var result = query.getFirstObject()
+        
+        var secQA = result["secAnswers"] as [String:String]
+        
+        return secQA
+    }
 }

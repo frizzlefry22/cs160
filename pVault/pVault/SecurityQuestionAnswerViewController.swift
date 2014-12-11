@@ -11,7 +11,8 @@ import UIKit
 class SecurityQuestionAnswerViewController: UIViewController {
 
     
-    var securityQuestions = [String:String]!
+    var securityQuestions: [String:String]!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
