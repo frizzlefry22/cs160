@@ -1,19 +1,27 @@
 //
-//  KevinTestViewController.swift
+//  ViewDocumentViewController.swift
 //  pVault
 //
-//  Created by Kevin Tran on 12/4/14.
+//  Created by Kevin Tran on 12/11/14.
 //  Copyright (c) 2014 Pvault2. All rights reserved.
 //
 
 import UIKit
 
-class KevinTestViewController: UIViewController {
-
+class ViewDocumentViewController: UIViewController {
+    
+    var objectId: String!
+    var document: Document!
+    
+    @IBOutlet weak var testLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        document = DocumentDBConnection.read(DocumentDBConnection.readObject(objectId)) as Document
+        
+        testLabel.text = document.docName
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,13 +29,7 @@ class KevinTestViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func getImage(sender: AnyObject) {
-        var temp : Document = DocumentDBConnection.read(DocumentDBConnection.readObject("Yj0hKO132i")) as Document
-        
-        imagePreview.image = Encoder.decodeImage(temp.docImage) //temp.docImage//
-    }
 
-    @IBOutlet weak var imagePreview: UIImageView!
     /*
     // MARK: - Navigation
 

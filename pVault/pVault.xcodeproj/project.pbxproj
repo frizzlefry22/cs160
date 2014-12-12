@@ -64,6 +64,8 @@
 		29A4513A1A1C526000B7CB53 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A451391A1C526000B7CB53 /* RegisterViewController.swift */; };
 		29A4513C1A1C846700B7CB53 /* CreatePasswordPINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A4513B1A1C846700B7CB53 /* CreatePasswordPINViewController.swift */; };
 		29B7FC081A38137A005679E2 /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B7FC071A38137A005679E2 /* Alertable.swift */; };
+		651C28511A3A768700B0CC08 /* docListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C28501A3A768700B0CC08 /* docListCell.swift */; };
+		651C28531A3AAF1D00B0CC08 /* ViewDocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C28521A3AAF1D00B0CC08 /* ViewDocumentViewController.swift */; };
 		65BDBAF41A30326800E52DE5 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BDBAF01A30326800E52DE5 /* Document.swift */; };
 		65BDBAF51A30326800E52DE5 /* DocumentDBConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BDBAF11A30326800E52DE5 /* DocumentDBConnection.swift */; };
 		65BDBAF71A30326800E52DE5 /* TestDocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BDBAF31A30326800E52DE5 /* TestDocumentViewController.swift */; };
@@ -141,6 +143,8 @@
 		29A451391A1C526000B7CB53 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewController.swift; path = ../RegisterViewController.swift; sourceTree = "<group>"; };
 		29A4513B1A1C846700B7CB53 /* CreatePasswordPINViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePasswordPINViewController.swift; sourceTree = "<group>"; };
 		29B7FC071A38137A005679E2 /* Alertable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
+		651C28501A3A768700B0CC08 /* docListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = docListCell.swift; sourceTree = "<group>"; };
+		651C28521A3AAF1D00B0CC08 /* ViewDocumentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewDocumentViewController.swift; sourceTree = "<group>"; };
 		65BDBAF01A30326800E52DE5 /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		65BDBAF11A30326800E52DE5 /* DocumentDBConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentDBConnection.swift; sourceTree = "<group>"; };
 		65BDBAF31A30326800E52DE5 /* TestDocumentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestDocumentViewController.swift; sourceTree = "<group>"; };
@@ -243,6 +247,7 @@
 				29152BC01A1971C100A88FEA /* Images.xcassets */,
 				29152BC21A1971C100A88FEA /* LaunchScreen.xib */,
 				29152BB71A1971C100A88FEA /* Supporting Files */,
+				651C28501A3A768700B0CC08 /* docListCell.swift */,
 			);
 			path = pVault;
 			sourceTree = "<group>";
@@ -325,6 +330,7 @@
 				291E83BB1A27B0ED0037DEE0 /* DocPhotoViewController.swift */,
 				29833ED91A2ABAA900E30CCD /* TempViewController.swift */,
 				65BDBAF81A318D7700E52DE5 /* KevinTestViewController.swift */,
+				651C28521A3AAF1D00B0CC08 /* ViewDocumentViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -442,6 +448,8 @@
 				29A4513C1A1C846700B7CB53 /* CreatePasswordPINViewController.swift in Sources */,
 				291930281A24674000E34A27 /* RegisterInfo.swift in Sources */,
 				65BDBAF71A30326800E52DE5 /* TestDocumentViewController.swift in Sources */,
+				651C28511A3A768700B0CC08 /* docListCell.swift in Sources */,
+				651C28531A3AAF1D00B0CC08 /* ViewDocumentViewController.swift in Sources */,
 				2919301F1A242B3C00E34A27 /* Utils.swift in Sources */,
 				291E83BC1A27B0ED0037DEE0 /* DocPhotoViewController.swift in Sources */,
 				29104E981A1F1F2A0058F475 /* SecurityQuestionsViewController.swift in Sources */,
