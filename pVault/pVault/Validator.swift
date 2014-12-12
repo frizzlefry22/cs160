@@ -77,14 +77,20 @@ struct Validator {
         return (countElements(pin) == 4)
     }
     
+    //Made this static so it is called once then the data is cached
+    static var emails : [String]!
+    
     /*
     Function to check if email already exists
     @return true if email exists
     */
     static func emailExists ( em : String )-> Bool {
         
+        if (emails == nil) {
+            emails = UserDatabaseConnection.getEmails()
+        }
         
-        var emails = UserDatabaseConnection.getEmails()
+        //var emails = UserDatabaseConnection.getEmails()
         
         for email in emails{
             if(em == email){
@@ -93,8 +99,6 @@ struct Validator {
         }
         return false
     }
-
-    
     
 }
 
