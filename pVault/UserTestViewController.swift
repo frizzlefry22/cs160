@@ -10,6 +10,15 @@ import UIKit
 
 class UserTestViewController: UIViewController {
 
+    
+    @IBAction func testDeleteUser(sender: AnyObject) {
+        LocalFileManager.deleteUser(sessionUser)
+    }
+    
+    @IBAction func testDeleteDocument(sender: AnyObject) {
+        LocalFileManager.deleteDocument("321", user: sessionUser)
+    }
+    
     @IBAction func testAddDocument(sender: AnyObject) {
         var doc = Document(creatorID: "125")
         doc.docID = "321"
@@ -19,20 +28,20 @@ class UserTestViewController: UIViewController {
         doc.docDiscription = "description here"
         doc.docImage = "image string"
         
-        LocalFileManager.addDocument(doc, userID: "125")
-        
-        
-        
-        
-        
+        LocalFileManager.addDocument(doc, userEmail: "ar")
     }
+    
+    @IBAction func testAddUser(sender: AnyObject) {
+        LocalFileManager.addUser(sessionUser)
+    }
+    
     @IBAction func testCreateUserDirectory(sender: AnyObject) {
-        LocalFileManager.createUserDirectory(sessionUser.getUserID())
+        LocalFileManager.createUserDirectory(sessionUser.getEmail())
     }
     
     
     @IBAction func testCheckUserDirectory(sender: AnyObject) {
-        LocalFileManager.checkUserDirectory("123")
+        LocalFileManager.checkUserDirectory("ar")
     }
     
     @IBAction func testEmails(sender: AnyObject) {

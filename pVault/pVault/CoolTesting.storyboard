@@ -85,6 +85,42 @@
                                     <action selector="testAddDocument:" destination="VWj-sA-p42" eventType="touchUpInside" id="DqW-H3-PXt"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9AZ-XM-zxY">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="addUser">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="66" y="504" width="59" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="testAddUser:" destination="VWj-sA-p42" eventType="touchUpInside" id="UoF-Na-ts0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="na1-xz-O5k">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="deleteUser">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="277" y="360" width="74" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="testDeleteUser:" destination="VWj-sA-p42" eventType="touchUpInside" id="WaO-gi-rvf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SOm-Sk-THd">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="deteleDoc">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="277" y="408" width="70" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="testDeleteDocument:" destination="VWj-sA-p42" eventType="touchUpInside" id="iSY-Kp-KB3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -124,25 +160,28 @@
                                 <exclude reference="2ny-Ju-PYU"/>
                                 <exclude reference="ehs-XW-jHj"/>
                                 <exclude reference="yCu-i6-4QE"/>
+                                <exclude reference="9AZ-XM-zxY"/>
+                                <exclude reference="na1-xz-O5k"/>
+                                <exclude reference="SOm-Sk-THd"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="6h3-eg-Kfw"/>
+                                <exclude reference="kqA-gg-T0G"/>
+                                <exclude reference="AOW-Of-yAF"/>
+                                <exclude reference="JmY-jc-9Rw"/>
+                                <exclude reference="tZM-gM-4lJ"/>
+                                <exclude reference="6o3-R8-Ber"/>
                                 <exclude reference="3Vv-kS-R4P"/>
                                 <exclude reference="gxT-9r-thV"/>
+                                <exclude reference="mOi-xw-eza"/>
+                                <exclude reference="mrr-Hp-M4I"/>
                                 <exclude reference="PUV-pR-6FH"/>
                                 <exclude reference="yO3-Eb-SCM"/>
                                 <exclude reference="RGb-RK-gK5"/>
                                 <exclude reference="j0R-LD-KjN"/>
                                 <exclude reference="v02-Qi-64f"/>
-                                <exclude reference="AOW-Of-yAF"/>
-                                <exclude reference="JmY-jc-9Rw"/>
-                                <exclude reference="tZM-gM-4lJ"/>
-                                <exclude reference="6o3-R8-Ber"/>
-                                <exclude reference="mOi-xw-eza"/>
-                                <exclude reference="mrr-Hp-M4I"/>
                                 <exclude reference="Da4-Sa-vyQ"/>
                                 <exclude reference="rFc-lT-mHY"/>
-                                <exclude reference="6h3-eg-Kfw"/>
-                                <exclude reference="kqA-gg-T0G"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -155,25 +194,28 @@
                                 <include reference="2ny-Ju-PYU"/>
                                 <include reference="ehs-XW-jHj"/>
                                 <include reference="yCu-i6-4QE"/>
+                                <include reference="9AZ-XM-zxY"/>
+                                <include reference="na1-xz-O5k"/>
+                                <include reference="SOm-Sk-THd"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="6h3-eg-Kfw"/>
+                                <include reference="kqA-gg-T0G"/>
+                                <include reference="AOW-Of-yAF"/>
+                                <include reference="JmY-jc-9Rw"/>
+                                <include reference="tZM-gM-4lJ"/>
+                                <include reference="6o3-R8-Ber"/>
                                 <include reference="3Vv-kS-R4P"/>
                                 <include reference="gxT-9r-thV"/>
+                                <include reference="mOi-xw-eza"/>
+                                <include reference="mrr-Hp-M4I"/>
                                 <include reference="PUV-pR-6FH"/>
                                 <include reference="yO3-Eb-SCM"/>
                                 <include reference="RGb-RK-gK5"/>
                                 <include reference="j0R-LD-KjN"/>
                                 <include reference="v02-Qi-64f"/>
-                                <include reference="AOW-Of-yAF"/>
-                                <include reference="JmY-jc-9Rw"/>
-                                <include reference="tZM-gM-4lJ"/>
-                                <include reference="6o3-R8-Ber"/>
-                                <include reference="mOi-xw-eza"/>
-                                <include reference="mrr-Hp-M4I"/>
                                 <include reference="Da4-Sa-vyQ"/>
                                 <include reference="rFc-lT-mHY"/>
-                                <include reference="6h3-eg-Kfw"/>
-                                <include reference="kqA-gg-T0G"/>
                             </mask>
                         </variation>
                     </view>

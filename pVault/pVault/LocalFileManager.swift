@@ -18,12 +18,12 @@ class LocalFileManager{
         Post:
         Return:
     */
-    class func createUserDirectory(userID: String)->Bool{
+    class func createUserDirectory(userEmail: String)->Bool{
         //get path to documents folder
         let documentsPath: AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
         
         //append userID to documents path to create specific folder for user
-        let userPath = documentsPath.stringByAppendingPathComponent(userID+"/")
+        let userPath = documentsPath.stringByAppendingPathComponent(userEmail+"/")
         
         var error:NSError?
         
@@ -47,7 +47,7 @@ class LocalFileManager{
     Post:
     Return:
     */
-    class func checkUserDirectory(userID: String)->Bool{
+    class func checkUserDirectory(userEmail: String)->Bool{
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask) as [NSURL]
         
         if urls.count <= 0{
@@ -56,7 +56,7 @@ class LocalFileManager{
         }
         
         let documentsFolder = urls[0]
-        let userURL = documentsFolder.URLByAppendingPathComponent(userID+"/")
+        let userURL = documentsFolder.URLByAppendingPathComponent(userEmail+"/")
         
         if NSFileManager.defaultManager().fileExistsAtPath(userURL.path!){
             println("user directory exists")
@@ -65,11 +65,18 @@ class LocalFileManager{
         
         return false
     }
+
+    /*  addDocument
     
-    class func addDocument(newDoc: Document, userID: String)->Bool{
+    Intent:
+    Pre:
+    Post:
+    Return:
+    */
+    class func addDocument(newDoc: Document, userEmail: String)->Bool{
         let documentsPath: AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
         
-        let userPath = documentsPath.stringByAppendingPathComponent(userID+"/")
+        let userPath = documentsPath.stringByAppendingPathComponent(userEmail+"/")
         let filePath = userPath + "/" + newDoc.docID
         
         //create dictionary
@@ -77,7 +84,7 @@ class LocalFileManager{
             "docID": newDoc.docID,
             "userID": newDoc.userID,
             "docName": newDoc.docName,
-            "docType": newDoc.docType.description,
+            //"docType": newDoc.docType.description,
             "docDiscription": newDoc.docDiscription,
         ]
         for (key, value) in newDoc.docField{
@@ -96,6 +103,73 @@ class LocalFileManager{
             println("Failed to write the dictionary to disk")
         }
 
+        return true
+    }
+    
+    /*  addUser
+    Intent:
+    Pre:
+    Post:
+    Return:
+    */
+    class func addUser(user: User)->Bool{
+        let documentsPath: AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+        
+        let userPath = documentsPath.stringByAppendingPathComponent(user.getEmail() + "/")
+        let filePath = userPath + "/userInfo"
+        
+        var userDict: NSMutableDictionary = [
+        "userID": user.getUserID(),
+        "email": user.getEmail(),
+        "password": user.getPassword(),
+        "PIN": user.getPIN()
+        ]
+        
+        for(key, value) in user.getSecQA(){
+            userDict[key] = value
+        }
+        
+        if userDict.writeToFile(filePath, atomically: true){
+            let readDict:NSDictionary? = NSDictionary(contentsOfFile: filePath)
+            if let dict = readDict{
+                println("Read the dictionary back from disk = \(dict)")
+            }else{
+                println("Failed to read the dictionary back from disk")
+            }
+        }else{
+            println("Failed to write the dictionary to disk")
+        }
+        
+        return true
+    }
+    
+    class func deleteUser(user: User)->Bool{
+        let documentsPath: AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+        
+        let userPath = documentsPath.stringByAppendingPathComponent(user.getEmail() + "/")
+        
+        if NSFileManager.defaultManager().removeItemAtPath(userPath, error: nil){
+            println("user removed")
+        }
+        else{
+            println("user not removed")
+        }
+        
+        return true
+    }
+    
+    class func deleteDocument(docID: String, user: User)->Bool{
+        let documentsPath: AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+        
+        let userPath = documentsPath.stringByAppendingPathComponent(user.getEmail() + "/")
+        let filePath = userPath + "/" + docID
+        
+        if NSFileManager.defaultManager().removeItemAtPath(filePath, error: nil){
+            println("doc removed")
+        }
+        else{
+            println("doc not removed")
+        }
         
         return true
     }
