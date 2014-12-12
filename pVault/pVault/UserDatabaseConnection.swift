@@ -10,6 +10,11 @@ import Foundation
 
 public class UserDatabaseConnection: DBConnectionProtocol{
     
+    //Have to do this since class var is not implemneted by Apple
+    struct AlertDelStuct {
+        static var alertDelegate : Alertable!
+    }
+    
     /*  create
     
         Intent: Receives a PFObject of a User object ready to be saved. Saves
@@ -23,10 +28,12 @@ public class UserDatabaseConnection: DBConnectionProtocol{
         
         if(succeeded){
             println("User created")
+            AlertDelStuct.alertDelegate.AlertUser("Success")
         }
             //fail block
         else{
             println("User not created")
+            AlertDelStuct.alertDelegate.AlertUser("Failed")
         }
     }
     

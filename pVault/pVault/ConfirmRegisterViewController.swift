@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConfirmRegisterViewController: UIViewController {
+class ConfirmRegisterViewController: UIViewController, Alertable {
 
     
     
@@ -17,11 +17,35 @@ class ConfirmRegisterViewController: UIViewController {
     
     
     @IBAction func debugButtonForNow(sender: AnyObject) {
+
+
+        //Set this so can alert user
+        UserDatabaseConnection.AlertDelStuct.alertDelegate = self
+        
         
         RegisterInfo.createUser()
         
-    }
     
+        
+
+    }
+
+    func AlertUser ( message : String ) {
+        
+        let alertController = UIAlertController(title: "User Registered", message: message, preferredStyle: .Alert)
+        
+        let okAction = UIAlertAction(title: "Ok", style: .Default) {
+            (action) in
+        }
+        
+        alertController.addAction(okAction)
+        
+        self.presentViewController(alertController,animated:true) {
+            
+        }
+
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
