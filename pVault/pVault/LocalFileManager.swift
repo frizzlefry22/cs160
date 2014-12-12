@@ -173,4 +173,46 @@ class LocalFileManager{
         
         return true
     }
+    
+    class func getDocument(docID: String, user: User)->Document{
+        let documentsPath: AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+        
+        let userPath = documentsPath.stringByAppendingPathComponent(user.getEmail() + "/")
+        let filePath = userPath + "/" + docID
+        
+        //let contents = NSFileManager.defaultManager().contentsAtPath(filePath)
+        let readDict: NSMutableDictionary? = NSMutableDictionary(contentsOfFile: filePath)
+        
+        //create document function here
+        
+        return createDocumentFromFile(readDict, user: user)
+    }
+    
+    class func createDocumentFromFile(docDict: NSMutableDictionary!, user: User)->Document{
+        
+        var doc = Document(creatorID: user.getUserID())
+        var secQA = [String: String]()
+        
+        for(key, value) in docDict{
+            switch key as String{
+            case "docID":
+                doc.docID = value as String
+            case "userID":
+                doc.userID = value as String
+            case "docName":
+                doc.docName = value as String
+            case "docDiscription":
+                doc.docDiscription = value as String
+            case "docImage":
+                doc.docImage = value as String
+            //case "docType":
+                //doc.docType = value as DocumentType
+            default:
+                secQA[key as String] = value as? String
+            }
+        }
+        doc.docField = secQA
+        
+        return doc
+    }
 }

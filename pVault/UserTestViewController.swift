@@ -11,6 +11,9 @@ import UIKit
 class UserTestViewController: UIViewController {
 
     
+    @IBAction func testGetDoc(sender: AnyObject) {
+        LocalFileManager.getDocument("321", user: sessionUser)
+    }
     @IBAction func testDeleteUser(sender: AnyObject) {
         LocalFileManager.deleteUser(sessionUser)
     }
