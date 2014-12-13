@@ -81,10 +81,11 @@ class LocalFileManager{
         
         //create dictionary
         var docDict:NSMutableDictionary = [
+            "objectID": newDoc.objectID,
             "docID": newDoc.docID,
             "userID": newDoc.userID,
             "docName": newDoc.docName,
-            //"docType": newDoc.docType.description,
+            "docType": newDoc.getDocType(newDoc.docType),
             "docDiscription": newDoc.docDiscription,
         ]
         for (key, value) in newDoc.docField{
@@ -225,7 +226,6 @@ class LocalFileManager{
     }
     
     
-    
     class func createDocumentFromFile(docDict: NSMutableDictionary!, user: User)->Document{
         
         var doc = Document(creatorID: user.getUserID())
@@ -233,6 +233,8 @@ class LocalFileManager{
         
         for(key, value) in docDict{
             switch key as String{
+            case "objectID":
+                doc.objectID = value as String
             case "docID":
                 doc.docID = value as String
             case "userID":
@@ -243,8 +245,8 @@ class LocalFileManager{
                 doc.docDiscription = value as String
             case "docImage":
                 doc.docImage = value as String
-            //case "docType":
-                //doc.docType = value as DocumentType
+            case "docType":
+                doc.docType = DocTypeFromString(value as String)
             default:
                 fields[key as String] = value as? String
             }
@@ -256,12 +258,32 @@ class LocalFileManager{
     
     class func returnDocTuples(user: User)->[(objectID: String, docName: String, docType: DocumentType)]{
         
+        //grab all files from user folder
+        let documentsPath: AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+        let userPath = documentsPath.stringByAppendingPathComponent(user.getEmail() + "/")
+        let contents = NSFileManager.defaultManager().contentsOfDirectoryAtPath(userPath, error: nil)!
         
-        //default return
-        return [("","",DocumentType.Other)]
+        //init empty tuples array
+        var tuples:[(objectID: String, docName: String, docType: DocumentType)] = []
+
+        //get doc tuples for every document
+        for file in contents{
+            
+            //get file name as string
+            var fileName: String? = file as? String
+            //check if document file
+            if(fileName != "userInfo"){
+                let filePath = userPath + "/" + fileName!
+                let docDict: NSDictionary! = NSDictionary(contentsOfFile: filePath)
+                
+                tuples.append(objectID: docDict["objectID"] as String,
+                    docName: docDict["docName"] as String,
+                    docType: DocTypeFromString(docDict["docType"] as String))
+            }
+        }
+        
+        //return tuples array
+        return tuples
     }
     
-    class func createDocTupleFromDict(docDict: NSMutableDictionary)->(objectID: String, docName: String, docType: DocumentType){
-        
-    }
 }

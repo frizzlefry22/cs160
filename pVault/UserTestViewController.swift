@@ -10,36 +10,40 @@ import UIKit
 
 class UserTestViewController: UIViewController {
 
+    var sessionUser : User!
     
     @IBAction func testGetDoc(sender: AnyObject) {
-        LocalFileManager.getDocument("321", user: sessionUser)
+        LocalFileManager.getDocument("321", user: LoggedInuser)
     }
     @IBAction func testDeleteUser(sender: AnyObject) {
-        LocalFileManager.deleteUser(sessionUser)
+        LocalFileManager.deleteUser(LoggedInuser)
     }
     
     @IBAction func testDeleteDocument(sender: AnyObject) {
-        LocalFileManager.deleteDocument("321", user: sessionUser)
+        LocalFileManager.deleteDocument("321", user: LoggedInuser)
     }
     
+    @IBAction func testReturnTuples(sender: AnyObject) {
+        LocalFileManager.returnDocTuples(LoggedInuser)
+    }
     @IBAction func testAddDocument(sender: AnyObject) {
         var doc = Document(creatorID: "125")
         doc.docID = "321"
         doc.docName = "documentName"
-        doc.docType = DocumentType.Creditcard
-        doc.setDocField(DocumentType.Creditcard)
+        doc.docType = DocumentType.CreditCard
+        doc.setDocField(DocumentType.CreditCard)
         doc.docDiscription = "description here"
         doc.docImage = "image string"
         
-        LocalFileManager.addDocument(doc, userEmail: "ar")
+        LocalFileManager.addDocument(doc, userEmail: "test@example.com")
     }
     
     @IBAction func testAddUser(sender: AnyObject) {
-        LocalFileManager.addUser(sessionUser)
+        LocalFileManager.addUser(LoggedInuser)
     }
     
     @IBAction func testCreateUserDirectory(sender: AnyObject) {
-        LocalFileManager.createUserDirectory(sessionUser.getEmail())
+        LocalFileManager.createUserDirectory(LoggedInuser.getEmail())
     }
     
     
