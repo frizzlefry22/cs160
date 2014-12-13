@@ -143,6 +143,42 @@ class LocalFileManager{
         return true
     }
     
+    class func getUser(userEmail: String)->User{
+        let documentsPath: AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+        
+        let userPath = documentsPath.stringByAppendingPathComponent(userEmail + "/")
+        let filePath = userPath + "/userInfo"
+        
+        //let contents = NSFileManager.defaultManager().contentsAtPath(filePath)
+        let readDict: NSMutableDictionary? = NSMutableDictionary(contentsOfFile: filePath)
+        
+        return createUserFromFile(readDict)
+    }
+    
+    
+    class func createUserFromFile(userDict: NSMutableDictionary!)->User{
+        var user = User()
+        var secQA = [String: String]()
+        
+        for(key, value) in userDict{
+            switch key as String{
+            case "userID":
+                user.setUserID(value as String)
+            case "email":
+                user.setEmail(value as String)
+            case "password":
+                user.setPassword(value as String)
+            case "PIN":
+                user.setPIN(value as String)
+            default:
+                secQA[key as String] = value as? String
+            }
+        }
+        user.setSecQA(secQA)
+        
+        return user
+    }
+    
     class func deleteUser(user: User)->Bool{
         let documentsPath: AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
         
@@ -188,10 +224,12 @@ class LocalFileManager{
         return createDocumentFromFile(readDict, user: user)
     }
     
+    
+    
     class func createDocumentFromFile(docDict: NSMutableDictionary!, user: User)->Document{
         
         var doc = Document(creatorID: user.getUserID())
-        var secQA = [String: String]()
+        var fields = [String: String]()
         
         for(key, value) in docDict{
             switch key as String{
@@ -208,11 +246,22 @@ class LocalFileManager{
             //case "docType":
                 //doc.docType = value as DocumentType
             default:
-                secQA[key as String] = value as? String
+                fields[key as String] = value as? String
             }
         }
-        doc.docField = secQA
+        doc.docField = fields
         
         return doc
+    }
+    
+    class func returnDocTuples(user: User)->[(objectID: String, docName: String, docType: DocumentType)]{
+        
+        
+        //default return
+        return [("","",DocumentType.Other)]
+    }
+    
+    class func createDocTupleFromDict(docDict: NSMutableDictionary)->(objectID: String, docName: String, docType: DocumentType){
+        
     }
 }
