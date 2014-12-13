@@ -49,7 +49,7 @@ class LoginViewController: UIViewController {
         let storyboard : UIStoryboard = UIStoryboard(name: "Document", bundle: nil);
         let vc : UIViewController = storyboard.instantiateViewControllerWithIdentifier("list") as UIViewController;
 //        let storyboard : UIStoryboard = UIStoryboard(name: "KevinTesting", bundle: nil);
-//        let vc : UIViewController = storyboard.instantiateViewControllerWithIdentifier("kevinStoryboard") as UIViewController;
+//        let vc : UIViewController = storyboard.instantiateViewControllerWithIdentifier("testEdit") as UIViewController;
         //self.presentViewController(vc, animated: true, completion: nil);
         self.navigationController?.pushViewController(vc,animated : true);
     }

@@ -18,22 +18,36 @@ class DocumentConfirmCreateViewController: UIViewController, DocumentView , Aler
     
     @IBOutlet weak var imagePreview: UIImageView!
     
+    @IBOutlet weak var createButton: UIButton!
     
+    @IBOutlet weak var ConfirmLabel: UILabel!
     @IBAction func createPushed(sender: AnyObject) {
         
         
         DocumentDBConnection.AlertDelStuct.alertDelegate = self
         
         //Display the image
+        if(document.editEnabled == false){
         var pfOb = DocumentDBConnection.createDocumentPFObject(self.document)
         DocumentDBConnection.create(pfOb);
-        
-        
-        
+        }
+        else{
+            println("current: " + CurrentDocument.currentDoc.docName + " " + CurrentDocument.currentDoc.docDiscription)
+            println("edited: " + document.docName + " " + document.docDiscription)
+            
+            DocumentDBConnection.edit(CurrentDocument.currentDoc , updated: self.document)
+            
+            println("after current: " + CurrentDocument.currentDoc.docName + " " + CurrentDocument.currentDoc.docDiscription)
+            println("after edited: " + document.docName + " " + document.docDiscription)
+        }
+
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if(document.editEnabled == true){
+            ConfirmLabel.text = "Confirm Edit"
+            createButton.setTitle("Update", forState: .Normal)
+        }
         
         
         docName.text = document.docName

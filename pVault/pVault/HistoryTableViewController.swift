@@ -60,7 +60,7 @@ class HistoryTableViewController: UIViewController, UITableViewDataSource, UITab
         // Configure the cell...
         
         var doc = hisList[indexPath.row]
-        cell.textLabel.text = doc.docName
+        cell.textLabel?.text = doc.docName
         
         return cell
     }

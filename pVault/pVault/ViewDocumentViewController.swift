@@ -10,9 +10,7 @@ import UIKit
 
 class ViewDocumentViewController: UIViewController {
     
-    var objectId: String!
     var document: Document!
-    
     var segueString: String!
     
     @IBOutlet weak var testLabel: UILabel!
@@ -35,9 +33,31 @@ class ViewDocumentViewController: UIViewController {
     
     //view doc history list
     @IBAction func viewDocHistory(sender: AnyObject) {
+        var temp = DocumentDBConnection.getHistory(document.objectID)
         segueString = "viewHistory"
-        //will add an alert here
+        //if there is history move to screen
+        if(!isEmpty(temp)){
             self.performSegueWithIdentifier(segueString, sender: self)
+        }
+            //else, alert no history
+        else{
+            let alertController = UIAlertController(title: "No History", message: "Document: " + document.docName + "has no history.", preferredStyle: .Alert)
+            
+            //add confirm action
+            let okAction = UIAlertAction(title: "Ok", style: .Default) { (action) in
+            }
+            alertController.addAction(okAction)
+            
+            self.presentViewController(alertController,animated:true) {}
+        }
+    }
+    
+    //edit button goes to edit view
+    @IBAction func editDocument(sender: AnyObject) {
+        segueString = "editView"
+        CurrentDocument.currentDoc = self.document
+        document.editEnabled = true
+        self.performSegueWithIdentifier(segueString, sender: self)
     }
     
     //load the document on load
@@ -48,9 +68,6 @@ class ViewDocumentViewController: UIViewController {
         
         //doc fields
         var docFieldString = ""
-        
-        //get document from db
-        document = DocumentDBConnection.read(DocumentDBConnection.readObject(objectId)) as Document
         
         //doc name
         testLabel.text = document.docName

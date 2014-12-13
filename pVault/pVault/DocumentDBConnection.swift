@@ -80,8 +80,8 @@ public class DocumentDBConnection: DBConnectionProtocol{
     //Calls removeHistory to remove previous versions if there are more than 2 previous version
     //only allowed to change document name, description, fields, and image
     class func edit(previous: AnyObject, updated: AnyObject) {//-> PFQuery{
-        var currentDoc = updated as Document
-        var editDoc = previous as Document
+        var currentDoc = previous as Document
+        var editDoc = updated as Document
 
         self.createHistoryDocucment(currentDoc)
         self.removeHistory(currentDoc.objectID)
@@ -227,9 +227,9 @@ public class DocumentDBConnection: DBConnectionProtocol{
         query.orderByDescending("createdAt")
         var objectArray = query.findObjects()
         var count = objectArray.count
-        while(count >= 3)
+        while(count >= 2)
         {
-            var index = objectArray.count-1
+            var index = count - 1
             objectArray[index].delete()
             objectArray.removeAtIndex(index)
             count--

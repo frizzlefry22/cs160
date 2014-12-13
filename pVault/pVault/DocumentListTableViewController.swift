@@ -11,6 +11,8 @@ import UIKit
 class DocumentListTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     var selectedItem: String!
+    
+    var selectedDocument: Document!
 
     var docList:[(objectID: String, docName: String, docType: String)] = []
     
@@ -68,7 +70,7 @@ class DocumentListTableViewController: UIViewController, UITableViewDataSource, 
     {
         //object id that will be used to read document
         selectedItem = docList[indexPath.row].objectID
-        
+        selectedDocument = DocumentDBConnection.read(DocumentDBConnection.readObject(selectedItem)) as Document
         //asked to enter your pin
         let alertController = UIAlertController(title: "Enter Your", message: "4-digit pin", preferredStyle: .Alert)
         
@@ -161,7 +163,7 @@ class DocumentListTableViewController: UIViewController, UITableViewDataSource, 
         
         //sets the object id of ViewDocumentViewController
         var vc = segue.destinationViewController as ViewDocumentViewController
-        vc.objectId = selectedItem
+        vc.document = self.selectedDocument
     }
     
 }
