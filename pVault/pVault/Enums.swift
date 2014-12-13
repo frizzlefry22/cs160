@@ -21,4 +21,18 @@ enum DocumentType : String {
     
     case None = "None"
 
+    
+    static let allValues = [None,CreditCard,License,Certificate]
+    
+}
+
+func DocTypeFromString(str : String) -> DocumentType {
+    
+   for type in DocumentType.allValues{
+        if (str == type.rawValue){
+            return type;
+        }
+    }
+    //Eler return None
+    return DocumentType.None
 }

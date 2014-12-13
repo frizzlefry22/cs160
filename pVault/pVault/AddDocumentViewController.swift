@@ -51,6 +51,7 @@ class AddDocumentViewController: UIViewController, UIPickerViewDelegate,UIPicker
             //NewDoc Editing should be turned off since its in creation mode
             newDoc.editEnabled = false
             
+            newDoc.docType = DocTypeFromString(currentSelected)
             vc.document = newDoc
             
         }

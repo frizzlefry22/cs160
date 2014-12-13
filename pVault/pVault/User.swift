@@ -43,5 +43,8 @@ class User{
     func getPIN()->String{return self.PIN!}
     func getSecQA()->[String:String]{return self.secQA!}
     
+    func copy()->User{
+        return User(userID: userID!, email: email!, password: password!, PIN: PIN!, secQA: secQA!)
+    }
     
 }
