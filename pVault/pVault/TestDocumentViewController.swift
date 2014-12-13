@@ -8,6 +8,7 @@
 
 import UIKit
 
+//this test controller is pretty messed up now sooo ignore it for now :D
 class TestDocumentViewController: UIViewController {
 
     let testDoc = Document(creatorID: "Kevin")
@@ -25,10 +26,10 @@ class TestDocumentViewController: UIViewController {
         testDoc.docID = ""
         testDoc.userID = "Kevin"
         testDoc.docName = "Doc1"
-        testDoc.docType = DocumentType.Creditcard
+        testDoc.docType = DocumentType.CreditCard
         testDoc.docField = ["Card Holder": "Kevin Tran", "Credit Card Number": "1111222233334444", "Security Pin": "911", "Expiration Date": "12/15"]
         testDoc.docDiscription = "BOA master card 1.5% cash back"
-        testDoc.docImage = "CreditCardImage"
+        //testDoc.docImage = "CreditCardImage"
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,11 +38,12 @@ class TestDocumentViewController: UIViewController {
     }
     
     @IBAction func testCreate(sender: AnyObject) {
-        DocumentDBConnecion.create(DocumentDBConnecion.createDocumentPFObject(testDoc))
+        DocumentDBConnection.create(DocumentDBConnection.createDocumentPFObject(testDoc))
     }
     
     @IBAction func testRead(sender: AnyObject) {
-        readDoc = DocumentDBConnecion.read(testDoc.objectID)
+        var query = DocumentDBConnection.readObject(testDoc.objectID)
+        readDoc = DocumentDBConnection.read(query) as Document
         var num = String(readDoc.getDocType(readDoc.docType))
         print("Object id: " + readDoc.objectID + "\n")
         print("Doc id: " + readDoc.docID + "\n")
@@ -49,7 +51,7 @@ class TestDocumentViewController: UIViewController {
         print("Doc Name: " + readDoc.docName + "\n")
         print("Doc Type: " + num + "\n")
         print("Doc Description: " + readDoc.docDiscription + "\n")
-        print("Doc Image: " + readDoc.docImage + "\n")
+        //print("Doc Image: " + readDoc.docImage + "\n")
         
         var diction: Dictionary = readDoc.docField
         for (myKey,myValue) in diction{
@@ -58,7 +60,7 @@ class TestDocumentViewController: UIViewController {
     }
     
     @IBAction func testList(sender: AnyObject) {
-        var temp =  DocumentDBConnecion.getDocList("Kevin")
+        var temp =  DocumentDBConnection.getDocList("Kevin")
         for tuple in temp{
             var type: String = String(tuple.docType)
             print("id: " + tuple.objectID )
@@ -72,7 +74,7 @@ class TestDocumentViewController: UIViewController {
         //DocumentDBConnecion.testDictionary()
         
         //test getting dictionary
-        DocumentDBConnecion.testGetDictionary(testDoc.objectID)
+        DocumentDBConnection.testGetDictionary(testDoc.objectID)
     }
     
     @IBAction func testEdit(sender: AnyObject) {
@@ -80,12 +82,12 @@ class TestDocumentViewController: UIViewController {
         editDoc.docName = "doc2"
         editDoc.docDiscription = "This is my new BOA  mastercard with 5% back on everything?!!!!"
         editDoc.docField = ["Card Holder": "Kevin H Tran", "Credit Card Number": "1122334455667788", "Security Pin": "411", "Expiration Date": "12/18"]
-        editDoc.docImage = "newCCImage"
-        DocumentDBConnecion.editSomething(readDoc, editDoc: editDoc)
+        //editDoc.docImage = "newCCImage"
+        DocumentDBConnection.edit(readDoc, updated: editDoc)
     }
     
     @IBAction func testHistory(sender: AnyObject) {
-        var temp = DocumentDBConnecion.getHistory(readDoc.objectID)
+        var temp = DocumentDBConnection.getHistory(readDoc.objectID)
         for thing in temp{
             print("id: " + thing.objectID)
             print(" name: " + thing.docName)

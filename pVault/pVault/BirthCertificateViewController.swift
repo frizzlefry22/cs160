@@ -8,11 +8,29 @@
 
 import UIKit
 
-class BirthCertificateViewController: UIViewController {
+class BirthCertificateViewController: UIViewController, DocumentView {
 
+    //Protocol stuff
+    var document : Document!
+    
+    @IBOutlet weak var certName: UITextField!
+    @IBOutlet weak var certDOB: UITextField!
+    @IBOutlet weak var certPOB: UITextField!
+    @IBOutlet weak var certParentsName: UITextField!
+    @IBOutlet weak var certNumber: UITextField!
+    
+    @IBOutlet weak var docNameTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        docNameTextField.text = document.docName
+        
+        if ( document.editEnabled! ) {
+            populateFields(document.docField)
+        }
+        
         // Do any additional setup after loading the view.
     }
 
@@ -21,15 +39,39 @@ class BirthCertificateViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    //Sets the UI to the previous fields
+    func populateFields( fields : [String:String]) {
+        
+        certName.text =  fields["CertificateName"]
+        certDOB.text =  fields["Date of Birth"]
+        certPOB.text =  fields["Place of Birth"]
+        certParentsName.text =  fields["Parents Name"]
+        certNumber.text =  fields["Number"]
+        
+    }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        var fieldDictionary = [String:String]()
+        
+        fieldDictionary["CertificateName"] = certName.text
+        fieldDictionary["Date of Birth"] = certDOB.text
+        fieldDictionary["Place of Birth"] = certPOB.text
+        fieldDictionary["Parents Name"] = certParentsName.text
+        fieldDictionary["Number"] = certNumber.text
+        
+        document.docField = fieldDictionary
+        
+        let vc = segue.destinationViewController as DocPhotoViewController
+        
+        vc.document = document
+        
     }
-    */
+
 
 }

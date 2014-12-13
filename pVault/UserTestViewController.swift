@@ -71,8 +71,8 @@ class UserTestViewController: UIViewController {
         
         
         
-    var user1 = sessionUser
-    var user2 = sessionUser
+    var user1 = LoggedInuser
+    var user2 = LoggedInuser
         
         UserDatabaseConnection.edit(user1, updated: user2)
     

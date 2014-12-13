@@ -4,38 +4,62 @@ import UIKit
 import MobileCoreServices
 
 class DocPhotoViewController: UIViewController,
-UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+UINavigationControllerDelegate, UIImagePickerControllerDelegate , DocumentView {
+    
+    @IBOutlet weak var docNameTextField: UITextField!
     
     var delegate : AcceptDataDelegate!
+  
+    var document : Document!
     
     var controller: UIImagePickerController?
     
     //The image that is returned form the Camera or Photos
     var docIMage : UIImage?
     
+    @IBOutlet weak var imagePreview: UIImageView!
     
-    @IBOutlet weak var uiSelector: UISegmentedControl!
-
-    @IBAction func accepted(sender: AnyObject) {
-        delegate.pictureChosen(docIMage!)
-    }
     
-    //Called when Selectors value is changed
-    @IBAction func selectorChanged(sender: UISegmentedControl) {
+    @IBAction func captureClicked(sender: AnyObject) {
         
-        if  ( sender.selectedSegmentIndex == 0)
-        {
-            openCamera()
-            println("Get Picture")
+        openCamera()
+        
+    }
+    @IBAction func photoLibraryClicked(sender: AnyObject) {
+        openPhotos()
+    }
+
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        docNameTextField.text = document.docName
+        
+        if ( document.editEnabled! ) {
+            
+            //TODO fix this
+            //docIMage = document.docImage
+            
         }
-        else {
-            openPhotos()
-            println("Get photo")
-        }
+        
     }
     
-
-    @IBOutlet weak var imageDisplay: UIImageView!
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if ( docIMage != nil)
+        {
+            let encodedImage = Encoder.encodeImage(docIMage!)
+        
+//---   takes the uiimage
+            document.docImage = encodedImage //docIMage
+        }
+        
+        let vc = segue.destinationViewController as DocumentConfirmCreateViewController
+        
+        vc.document = document
+        
+    }
     
     
     //Opens up IOS Photo picker/ requests promission from Phone
@@ -99,7 +123,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
                                 as? UIImage
                             if let theImage = image{
                                 
-                                imageDisplay.image = theImage
+                                imagePreview.image = theImage
                                 docIMage = theImage
                             }
                         }
@@ -109,7 +133,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
                                 as? UIImage
 
                             if let appImage = image{
-                                imageDisplay.image = appImage
+                                imagePreview.image = appImage
                                 docIMage = appImage
                             }
                         }

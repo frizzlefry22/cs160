@@ -25,14 +25,14 @@ struct Encoder {
         var rotatedImage = UIImage(CGImage: decodedImage?.CGImage, scale: 1, orientation: UIImageOrientation.Right)
         
         //Return the new properly rotated image
-        return rotatedImage
+        return decodedImage
     }
     
     //function that encodes an image into a  base64string
     //@return the base64 string
     static func encodeImage( img : UIImage)  -> String {
         
-        var imageData = UIImagePNGRepresentation(img)
+        var imageData = UIImageJPEGRepresentation(img,0.6)//UIImagePNGRepresentation(img)
         
         let base64 = imageData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.allZeros)
         

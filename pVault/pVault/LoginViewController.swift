@@ -11,11 +11,27 @@ import UIKit
 class LoginViewController: UIViewController {
 
     @IBAction func moveToDocument(sender: AnyObject) {
-        //let storyboard : UIStoryboard = UIStoryboard(name: "Document", bundle: nil);
-        //let vc : UIViewController = storyboard.instantiateViewControllerWithIdentifier("SETIDHERE") as UIViewController;
+        let storyboard : UIStoryboard = UIStoryboard(name: "Document", bundle: nil);
+        let vc : UIViewController = storyboard.instantiateViewControllerWithIdentifier("DocStoryBoard") as UIViewController;
         //self.presentViewController(vc, animated: true, completion: nil);
+        self.navigationController?.pushViewController(vc,animated : true);
     }
     
+    @IBAction func aslert(sender: AnyObject) {
+        
+        let alertController = UIAlertController(title: "Document Upload", message: "Successful", preferredStyle: .Alert)
+        
+        let okAction = UIAlertAction(title: "Ok", style: .Default) {
+            (action) in
+        }
+        
+        alertController.addAction(okAction)
+
+        self.presentViewController(alertController,animated:true) {
+            
+        }
+        
+    }
     @IBAction func moveToArjayTest(sender: AnyObject) {
         
         let storyboard : UIStoryboard = UIStoryboard(name: "CoolTesting", bundle: nil);
@@ -30,9 +46,9 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func moveToKevinTest(sender: AnyObject) {
-        //let storyboard : UIStoryboard = UIStoryboard(name: "KevinTesting", bundle: nil);
-        //let vc : UIViewController = storyboard.instantiateViewControllerWithIdentifier("SETIDHERE") as UIViewController;
-        //self.presentViewController(vc, animated: true, completion: nil);
+        let storyboard : UIStoryboard = UIStoryboard(name: "KevinTesting", bundle: nil);
+        let vc : UIViewController = storyboard.instantiateViewControllerWithIdentifier("kevinStoryboard") as UIViewController;
+        self.presentViewController(vc, animated: true, completion: nil);
     }
     
     @IBOutlet weak var loginEmail: UITextField!
