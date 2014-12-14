@@ -39,11 +39,8 @@ class ViewDocumentViewController: UIViewController {
         var temp = DocumentDBConnection.getHistory(document.objectID)
         
         //checks if its temp
-        let strT: String = self.document.objectID
-        let rangeOfTemp = Range(start: strT.startIndex,
-            end: advance(strT.startIndex, 4))
-        let tempStr = strT.substringWithRange(rangeOfTemp)
-        if(tempStr == "temp"){
+        
+        if(self.checkTemp(document.objectID)){
             historyButton.enabled = false
         }
         
@@ -124,12 +121,18 @@ class ViewDocumentViewController: UIViewController {
         //add confirm action
         let confirmAction = UIAlertAction(title: "Confirm", style: .Default) { (action) in
             //deletes this document
-            DocumentDBConnection.delete(DocumentDBConnection.deleteObject(self.document.objectID))
-            
-            //if there is history, delete them
-            if(!isEmpty(DocumentDBConnection.getHistory(self.document.objectID))){
-                DocumentDBConnection.delete(DocumentDBConnection.deleteHistory(self.document.objectID))
+            //if its not temp file
+            if(!self.checkTemp(document.objectID)){
+                DocumentDBConnection.delete(DocumentDBConnection.deleteObject(self.document.objectID))
+                //if there is history, delete them
+                if(!isEmpty(DocumentDBConnection.getHistory(self.document.objectID))){
+                    DocumentDBConnection.delete(DocumentDBConnection.deleteHistory(self.document.objectID))
+                }
+            } else{
+                //it's a temp file, use local file removal 
             }
+            
+            
             //move back home
             let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController];
             self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true);
@@ -155,6 +158,17 @@ class ViewDocumentViewController: UIViewController {
         // Pass the selected object to the new view controller.
         var vc = segue.destinationViewController as DocumentView
         vc.document = self.document
+    }
+    
+    func checkTemp(temp: String) -> bool{
+        let strT: String = temp
+        let rangeOfTemp = Range(start: strT.startIndex,
+            end: advance(strT.startIndex, 4))
+        let tempStr = strT.substringWithRange(rangeOfTemp)
+        if(tempStr == "temp"){
+            return true
+        }
+        else{ return false}
     }
 
 
