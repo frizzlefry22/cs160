@@ -28,7 +28,7 @@ struct RegisterInfo {
     //Maybed create User here ?
     static func createUser(){
         
-        
+        //var newUser = User(userID: "", email: email, password: passWord, PIN: pinCode, secQA: <#[String : String]#>)
         println("Debug")
         
     }

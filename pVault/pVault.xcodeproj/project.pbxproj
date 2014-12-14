@@ -27,6 +27,7 @@
 		10D33CA41A1D998C00E17563 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D33C9A1A1D998C00E17563 /* Security.framework */; };
 		10D33CA51A1D998C00E17563 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D33C9B1A1D998C00E17563 /* StoreKit.framework */; };
 		10D33CA61A1D998C00E17563 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D33C9C1A1D998C00E17563 /* SystemConfiguration.framework */; };
+		10FFA0F71A3DF738006C8536 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FFA0F61A3DF738006C8536 /* Reachability.swift */; };
 		2414C7B61A2AE4D2003EA080 /* AddDocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2414C7B51A2AE4D2003EA080 /* AddDocumentViewController.swift */; };
 		2414C7B81A2B8A6A003EA080 /* CreditCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2414C7B71A2B8A6A003EA080 /* CreditCardViewController.swift */; };
 		2414C7BA1A2B8AA4003EA080 /* BirthCertificateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2414C7B91A2B8AA4003EA080 /* BirthCertificateViewController.swift */; };
@@ -106,6 +107,7 @@
 		10D33C9B1A1D998C00E17563 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		10D33C9C1A1D998C00E17563 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		10D33CA71A1D9B7500E17563 /* pVault-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "pVault-Bridging-Header.h"; sourceTree = "<group>"; };
+		10FFA0F61A3DF738006C8536 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		2414C7B51A2AE4D2003EA080 /* AddDocumentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDocumentViewController.swift; sourceTree = "<group>"; };
 		2414C7B71A2B8A6A003EA080 /* CreditCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCardViewController.swift; sourceTree = "<group>"; };
 		2414C7B91A2B8AA4003EA080 /* BirthCertificateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirthCertificateViewController.swift; sourceTree = "<group>"; };
@@ -311,6 +313,7 @@
 				291E83BD1A294FFC0037DEE0 /* Encryption.swift */,
 				29A451321A1C42E800B7CB53 /* Validator.swift */,
 				2919301E1A242B3C00E34A27 /* Utils.swift */,
+				10FFA0F61A3DF738006C8536 /* Reachability.swift */,
 				294566B81A2B048B00DD7A3A /* Encoder.swift */,
 			);
 			name = Utils;
@@ -450,6 +453,7 @@
 			files = (
 				1092DA8B1A2AE29B00820594 /* User.swift in Sources */,
 				29A451351A1C4B9E00B7CB53 /* LoginViewController.swift in Sources */,
+				10FFA0F71A3DF738006C8536 /* Reachability.swift in Sources */,
 				1092DA8D1A2AE4B700820594 /* SessionData.swift in Sources */,
 				29A4513C1A1C846700B7CB53 /* CreatePasswordPINViewController.swift in Sources */,
 				106F2F821A369EBD008B7482 /* LocalFileManager.swift in Sources */,

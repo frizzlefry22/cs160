@@ -77,7 +77,7 @@ class LocalFileManager{
         let documentsPath: AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
         
         let userPath = documentsPath.stringByAppendingPathComponent(userEmail+"/")
-        let filePath = userPath + "/" + newDoc.docID
+        let filePath = userPath + "/" + newDoc.objectID
         
         //create dictionary
         var docDict:NSMutableDictionary = [
@@ -211,11 +211,11 @@ class LocalFileManager{
         return true
     }
     
-    class func getDocument(docID: String, user: User)->Document{
+    class func getDocument(objectID: String, user: User)->Document{
         let documentsPath: AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
         
         let userPath = documentsPath.stringByAppendingPathComponent(user.getEmail() + "/")
-        let filePath = userPath + "/" + docID
+        let filePath = userPath + "/" + objectID
         
         //let contents = NSFileManager.defaultManager().contentsAtPath(filePath)
         let readDict: NSMutableDictionary? = NSMutableDictionary(contentsOfFile: filePath)

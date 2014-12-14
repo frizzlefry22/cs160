@@ -23,6 +23,7 @@ public class UserDatabaseConnection: DBConnectionProtocol{
         
         if(succeeded){
             println("User created")
+            println(pfObj.objectId)
         }
             //fail block
         else{
@@ -54,8 +55,7 @@ public class UserDatabaseConnection: DBConnectionProtocol{
                 //object found
                 if(object != nil){
                     
-                    //object["PIN"] = newUser.getPIN()
-                    //object["secQA"] = newUser.getSecQA()
+                    object["PIN"] = newUser.getPIN()
                     object["password"] = newUser.getPassword()
                     object.saveInBackgroundWithBlock({(succeeded: Bool!, error: NSError!) -> Void in
                         //success block
@@ -116,7 +116,6 @@ public class UserDatabaseConnection: DBConnectionProtocol{
                 
             }
         }
-
     }
     
     /*  read
