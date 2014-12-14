@@ -51,6 +51,7 @@ struct RegisterInfo {
             //else, create user, save locally under unsynced files directory
             LoggedInuser = newUser.copy()
             
+            LocalFileManager.createUserDirectory(LoggedInuser.getEmail())
             LocalFileManager.addUser(LoggedInuser, temp: true)
         }
     }

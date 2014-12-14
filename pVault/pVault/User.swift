@@ -27,7 +27,14 @@ class User{
     }
     
     //empty user init
-    init(){}
+    init(){
+        userID = ""
+        email = ""
+        password = ""
+        PIN = ""
+        secQA = ["":""]
+    }
+    
     
     //setters
     func setUserID(userID: String){self.userID = userID}

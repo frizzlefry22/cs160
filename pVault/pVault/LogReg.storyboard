@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qqK-Fc-yGS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qqK-Fc-yGS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -250,38 +251,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XsM-cx-fmk">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XsM-cx-fmk">
                                 <rect key="frame" x="58" y="248" width="259" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qcG-gU-npF">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qcG-gU-npF">
                                 <rect key="frame" x="58" y="296" width="259" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uy3-Ft-iE0">
-                                <rect key="frame" x="143" y="349" width="89" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="89" id="8vc-0c-5zR"/>
-                                </constraints>
-                                <state key="normal" title="Log in">
-                                    <color key="titleColor" red="1" green="0.97787825129999995" blue="0.97791751650000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="8vc-0c-5zR"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="8vc-0c-5zR"/>
-                                    </mask>
-                                </variation>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XDt-C1-kq5">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XDt-C1-kq5">
                                 <rect key="frame" x="101" y="539" width="173" height="30"/>
                                 <state key="normal" title="New User? Register Now">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -290,7 +270,7 @@
                                     <segue destination="elh-25-4G6" kind="show" id="lOF-8o-ho1"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sign in to continue to pVault" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2i-uD-YeK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Sign in to continue to pVault" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2i-uD-YeK">
                                 <rect key="frame" x="79" y="211" width="216" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="UQY-V8-kgF"/>
@@ -372,6 +352,30 @@
                                     <action selector="moveToKevinTest:" destination="7vb-xh-5f1" eventType="touchUpInside" id="uN1-Ih-5qv"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uy3-Ft-iE0">
+                                <rect key="frame" x="143" y="349" width="89" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="89" id="8vc-0c-5zR"/>
+                                </constraints>
+                                <state key="normal" title="Log in">
+                                    <color key="titleColor" red="1" green="0.97787825129999995" blue="0.97791751650000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="8vc-0c-5zR"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="8vc-0c-5zR"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="checkLogin:" destination="7vb-xh-5f1" eventType="touchUpInside" id="jQ0-iP-gGX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.98832370920000001" green="0.98832370920000001" blue="0.98832370920000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -405,17 +409,17 @@
                                 <exclude reference="Pem-Fo-ePD"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="S4B-YU-x9u"/>
+                                <exclude reference="Ee0-Is-dnF"/>
+                                <exclude reference="HKu-U0-Cdx"/>
                                 <exclude reference="1ZB-OV-sSl"/>
                                 <exclude reference="Jux-jL-tRV"/>
                                 <exclude reference="YMh-sp-Lxw"/>
                                 <exclude reference="jLN-pZ-f0B"/>
                                 <exclude reference="vYA-5L-pBP"/>
-                                <exclude reference="Ee0-Is-dnF"/>
-                                <exclude reference="HKu-U0-Cdx"/>
                                 <exclude reference="1lm-Db-Dcg"/>
                                 <exclude reference="WNJ-Bo-DgK"/>
                                 <exclude reference="hew-nD-Fyo"/>
-                                <exclude reference="S4B-YU-x9u"/>
                                 <exclude reference="Gow-4F-ita"/>
                                 <exclude reference="YX4-Cv-QSa"/>
                                 <exclude reference="d4e-L9-f59"/>
@@ -436,17 +440,17 @@
                                 <include reference="Pem-Fo-ePD"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="S4B-YU-x9u"/>
+                                <include reference="Ee0-Is-dnF"/>
+                                <include reference="HKu-U0-Cdx"/>
                                 <include reference="1ZB-OV-sSl"/>
                                 <include reference="Jux-jL-tRV"/>
                                 <include reference="YMh-sp-Lxw"/>
                                 <include reference="jLN-pZ-f0B"/>
                                 <include reference="vYA-5L-pBP"/>
-                                <include reference="Ee0-Is-dnF"/>
-                                <include reference="HKu-U0-Cdx"/>
                                 <include reference="1lm-Db-Dcg"/>
                                 <include reference="WNJ-Bo-DgK"/>
                                 <include reference="hew-nD-Fyo"/>
-                                <include reference="S4B-YU-x9u"/>
                                 <include reference="Gow-4F-ita"/>
                                 <include reference="YX4-Cv-QSa"/>
                                 <include reference="d4e-L9-f59"/>

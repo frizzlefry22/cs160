@@ -57,6 +57,25 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginPassword: UITextField!
     
     @IBAction func checkLogin(sender: AnyObject) {
+        var checkUser = User()
+        if Reachability.isConnectedToNetwork(){
+            checkUser = UserDatabaseConnection.getUserByEmail(loginEmail.text!)
+        }else{
+            checkUser = LocalFileManager.getUser(loginEmail.text!)
+        }
+        
+        if(loginEmail.text! != "") && (loginEmail.text! == checkUser.getEmail()) && (loginPassword.text! == checkUser.getPassword()){
+            println("login success")
+            
+            if !LocalFileManager.checkUserDirectory(checkUser.getEmail()){
+                LocalFileManager.createUserDirectory(checkUser.getEmail())
+            }
+            
+            LocalFileManager.addUser(checkUser, temp: false)
+            
+        }else{
+            println("login fail")
+        }
     }
     
     
