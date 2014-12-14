@@ -28,18 +28,20 @@ class UserTestViewController: UIViewController {
     }
     @IBAction func testAddDocument(sender: AnyObject) {
         var doc = Document(creatorID: "125")
-        doc.docID = "321"
+        doc.objectID = "321"
         doc.docName = "documentName"
         doc.docType = DocumentType.CreditCard
         doc.setDocField(DocumentType.CreditCard)
         doc.docDiscription = "description here"
         doc.docImage = "image string"
         
-        LocalFileManager.addDocument(doc, userEmail: "test@example.com")
+        LocalFileManager.addDocument(doc, userEmail: "test@example.com", temp: false)
+        doc.objectID = "temp1"
+        LocalFileManager.addDocument(doc, userEmail: "test@example.com", temp: true)
     }
     
     @IBAction func testAddUser(sender: AnyObject) {
-        LocalFileManager.addUser(LoggedInuser)
+        LocalFileManager.addUser(LoggedInuser, temp: false)
     }
     
     @IBAction func testCreateUserDirectory(sender: AnyObject) {

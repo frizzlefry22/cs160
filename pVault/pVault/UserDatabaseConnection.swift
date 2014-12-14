@@ -16,19 +16,37 @@ public class UserDatabaseConnection: DBConnectionProtocol{
         Param: pfObj: PFObject - PFObject ready to saved, should contain all User fields necessary
         Return: none
     */
-    class func create(pfObj: PFObject){
+    class func create(pfObj: PFObject)->String{
         
         //save pfObj in background, will use callback block to handle success/fail of save
         var succeeded = pfObj.save()
-        
+        var objectID = ""
         if(succeeded){
             println("User created")
-            println(pfObj.objectId)
+            objectID = pfObj.objectId
         }
             //fail block
         else{
             println("User not created")
         }
+        
+        return objectID
+    }
+    
+    /* create function called by outside classes*/
+    class func createUser(user: User)->User{
+        
+        var pfObj = PFObject(className: "User")
+        var userObj = PFObject(className: "User")
+        userObj["userID"] = user.getUserID()
+        userObj["email"] = user.getEmail()
+        userObj["password"] = user.getPassword()
+        userObj["PIN"] = user.getPIN()
+        userObj["secAnswers"] = user.getSecQA()
+        
+        user.setUserID(create(pfObj))
+        
+        return user
     }
     
     /*  edit

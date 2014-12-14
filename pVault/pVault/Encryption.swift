@@ -8,7 +8,6 @@
 
 import Foundation
 import MobileCoreServices
-//import CryptoSwift
 
 //Using code form https://gist.github.com/alskipp/016c8ba96352e5c74bf2
 extension Character {

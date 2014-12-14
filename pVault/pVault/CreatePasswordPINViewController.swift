@@ -133,7 +133,7 @@ class CreatePasswordPINViewController: UIViewController {
         RegisterInfo.passWord = pass.text!
         
         //
-        RegisterInfo.pinCode = pinCode.text.toInt()!
+        RegisterInfo.pinCode = pinCode.text!
         
     }
     

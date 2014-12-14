@@ -19,7 +19,7 @@ public class DocumentDBConnection: DBConnectionProtocol{
     //Param takes in a PFObject
     //PFObject is saved into parse database
     //mostly done just need to get the two array and file and then test
-    class func create(pfObj: PFObject){
+    class func create(pfObj: PFObject)->String{
         
         pfObj.saveInBackgroundWithBlock({(succeeded: Bool!, error: NSError!) -> Void in
             //success block
@@ -35,7 +35,7 @@ public class DocumentDBConnection: DBConnectionProtocol{
                 AlertDelStuct.alertDelegate.AlertUser("File Did not Upload")
             }
         })
-        
+        return ""
     }
     
     //Param takes in a PFQuery

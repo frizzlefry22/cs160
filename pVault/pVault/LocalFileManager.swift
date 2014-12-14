@@ -11,6 +11,7 @@ import Foundation
 class LocalFileManager{
     
     
+    
     /*  createUserDirectory
     
         Intent:
@@ -24,16 +25,22 @@ class LocalFileManager{
         
         //append userID to documents path to create specific folder for user
         let userPath = documentsPath.stringByAppendingPathComponent(userEmail+"/")
-        
+        let syncPath = userPath + "/Synced/"
+        let unsyncPath = userPath + "/Unsynced/"
         var error:NSError?
         
         //attempt to create user directory in Documents path
-        if NSFileManager.defaultManager().createDirectoryAtPath(userPath,
+        if NSFileManager.defaultManager().createDirectoryAtPath(syncPath,
             withIntermediateDirectories: true,
-            attributes: nil, error: nil){
+            attributes: nil, error: nil)
+            && NSFileManager.defaultManager().createDirectoryAtPath(unsyncPath,
+                withIntermediateDirectories: true, attributes: nil, error: nil){
+                    
                 println("Directory created")
                 return true
         }
+        
+        
         
         println("Directory not created")
         return false
@@ -73,11 +80,19 @@ class LocalFileManager{
     Post:
     Return:
     */
-    class func addDocument(newDoc: Document, userEmail: String)->Bool{
+    class func addDocument(newDoc: Document, userEmail: String, temp: Bool)->Bool{
         let documentsPath: AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
-        
+        var syncPath = ""
         let userPath = documentsPath.stringByAppendingPathComponent(userEmail+"/")
-        let filePath = userPath + "/" + newDoc.objectID
+        if temp{
+            syncPath = userPath + "/Unsynced"
+            var tempID = getNextTempNum(userEmail)
+            newDoc.objectID = "temp" + String(tempID)
+        }else{
+            syncPath = userPath + "/Synced"
+        }
+        
+        let filePath = syncPath + "/" + newDoc.objectID
         
         //create dictionary
         var docDict:NSMutableDictionary = [
@@ -107,17 +122,43 @@ class LocalFileManager{
         return true
     }
     
+    class func getNextTempNum(userEmail: String)->Int{
+        var next = 1
+        
+        let documentsPath: AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+        let userPath = documentsPath.stringByAppendingPathComponent(userEmail+"/")
+        let syncPath = userPath + "/Unsynced/"
+        
+        
+        var syncContents = NSFileManager.defaultManager().contentsOfDirectoryAtPath(syncPath, error: nil)!
+        
+        for file in syncContents{
+            var fileName = file as String
+            var lastNum = fileName.substringWithRange(Range<String.Index>(start: advance(fileName.startIndex, 4), end: fileName.endIndex)) //"Hello, playground"
+            if lastNum.toInt() >= next{
+                next = lastNum.toInt()! + 1
+            }
+        }
+        
+        return next
+    }
+    
     /*  addUser
     Intent:
     Pre:
     Post:
     Return:
     */
-    class func addUser(user: User)->Bool{
+    class func addUser(user: User, temp: Bool)->Bool{
         let documentsPath: AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
-        
+        var syncPath = ""
         let userPath = documentsPath.stringByAppendingPathComponent(user.getEmail() + "/")
-        let filePath = userPath + "/userInfo"
+        if temp {
+            syncPath = userPath + "/Unsynced"
+        }else{
+            syncPath = userPath + "/Synced"
+        }
+        let filePath = syncPath + "/userInfo"
         
         var userDict: NSMutableDictionary = [
         "userID": user.getUserID(),
@@ -148,10 +189,18 @@ class LocalFileManager{
         let documentsPath: AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
         
         let userPath = documentsPath.stringByAppendingPathComponent(userEmail + "/")
-        let filePath = userPath + "/userInfo"
+        let syncPath = userPath + "/Synced/userInfo"
+        let unsyncPath = userPath + "/Unsynced/userInfo"
+        var readDict: NSMutableDictionary!
         
-        //let contents = NSFileManager.defaultManager().contentsAtPath(filePath)
-        let readDict: NSMutableDictionary? = NSMutableDictionary(contentsOfFile: filePath)
+        if NSFileManager.defaultManager().fileExistsAtPath(syncPath){
+            readDict = NSMutableDictionary(contentsOfFile: syncPath)
+        }else{
+            readDict = NSMutableDictionary(contentsOfFile: unsyncPath)
+        }
+        
+        
+        
         
         return createUserFromFile(readDict)
     }
@@ -184,7 +233,10 @@ class LocalFileManager{
         let documentsPath: AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
         
         let userPath = documentsPath.stringByAppendingPathComponent(user.getEmail() + "/")
+        //let syncPath = userPath + "Synced/userInfo"
+        //let unsyncPath = userPath + "Unsynced/userInfo"
         
+
         if NSFileManager.defaultManager().removeItemAtPath(userPath, error: nil){
             println("user removed")
         }
@@ -195,17 +247,20 @@ class LocalFileManager{
         return true
     }
     
-    class func deleteDocument(docID: String, user: User)->Bool{
+    class func deleteDocument(objectID: String, user: User)->Bool{
         let documentsPath: AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
         
         let userPath = documentsPath.stringByAppendingPathComponent(user.getEmail() + "/")
-        let filePath = userPath + "/" + docID
+        let syncPath = userPath + "/Synced/" + objectID
+        let unsyncPath = userPath + "/Unsynced/" + objectID
         
-        if NSFileManager.defaultManager().removeItemAtPath(filePath, error: nil){
-            println("doc removed")
+        
+        if NSFileManager.defaultManager().removeItemAtPath(syncPath, error: nil) ||
+            NSFileManager.defaultManager().removeItemAtPath(unsyncPath, error: nil){
+                println("Document removed")
         }
         else{
-            println("doc not removed")
+            println("Document not removed")
         }
         
         return true
@@ -215,10 +270,17 @@ class LocalFileManager{
         let documentsPath: AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
         
         let userPath = documentsPath.stringByAppendingPathComponent(user.getEmail() + "/")
-        let filePath = userPath + "/" + objectID
+        let syncPath = userPath + "/Synced/" + objectID
+        let unsyncPath = userPath + "/Unsynced/" + objectID
         
         //let contents = NSFileManager.defaultManager().contentsAtPath(filePath)
-        let readDict: NSMutableDictionary? = NSMutableDictionary(contentsOfFile: filePath)
+        var readDict: NSMutableDictionary!
+        
+        if NSFileManager.defaultManager().fileExistsAtPath(syncPath){
+            readDict = NSMutableDictionary(contentsOfFile: syncPath)
+        }else{
+            readDict = NSMutableDictionary(contentsOfFile: unsyncPath)
+        }
         
         //create document function here
         
@@ -261,25 +323,44 @@ class LocalFileManager{
         //grab all files from user folder
         let documentsPath: AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
         let userPath = documentsPath.stringByAppendingPathComponent(user.getEmail() + "/")
-        let contents = NSFileManager.defaultManager().contentsOfDirectoryAtPath(userPath, error: nil)!
+        let syncPath = userPath + "/Synced/"
+        let unsyncPath = userPath + "/Unsynced/"
+        var syncContents = NSFileManager.defaultManager().contentsOfDirectoryAtPath(syncPath, error: nil)!
         
         //init empty tuples array
         var tuples:[(objectID: String, docName: String, docType: DocumentType)] = []
 
         //get doc tuples for every document
-        for file in contents{
+        for file in syncContents{
             
             //get file name as string
             var fileName: String? = file as? String
             //check if document file
             if(fileName != "userInfo"){
-                let filePath = userPath + "/" + fileName!
-                let docDict: NSDictionary! = NSDictionary(contentsOfFile: filePath)
+                let filePath = syncPath + "/" + fileName!
+                var docDict: NSDictionary! = NSDictionary(contentsOfFile: filePath)
                 
                 tuples.append(objectID: docDict["objectID"] as String,
                     docName: docDict["docName"] as String,
                     docType: DocTypeFromString(docDict["docType"] as String))
             }
+        }
+        var unsyncContents = NSFileManager.defaultManager().contentsOfDirectoryAtPath(unsyncPath, error: nil)!
+        
+        for file in unsyncContents{
+            
+            //get file name as string
+            var fileName: String? = file as? String
+            //check if document file
+            if(fileName != "userInfo"){
+                let filePath = unsyncPath + "/" + fileName!
+                var docDict: NSDictionary! = NSDictionary(contentsOfFile: filePath)
+                
+                tuples.append(objectID: docDict["objectID"] as String,
+                    docName: docDict["docName"] as String,
+                    docType: DocTypeFromString(docDict["docType"] as String))
+            }
+
         }
         
         //return tuples array

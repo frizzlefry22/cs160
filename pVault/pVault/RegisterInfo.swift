@@ -17,7 +17,7 @@ struct RegisterInfo {
     static var passWord = ""
     
     //
-    static var pinCode  = -1
+    static var pinCode  = "-1"
     
     //
     static var questions  = [String]()
@@ -28,9 +28,26 @@ struct RegisterInfo {
     //Maybed create User here ?
     static func createUser(){
         
-        //var newUser = User(userID: "", email: email, password: passWord, PIN: pinCode, secQA: <#[String : String]#>)
-        println("Debug")
+        //create dictionary from questions, answers
+        var secQA = [String:String]()
+        for var index = 0; index < questions.count; ++index {
+            secQA[questions[index]] = answers[index]
+        }
         
+        //create user
+        var newUser = User(userID: "", email: email as String, password: passWord, PIN: pinCode as String, secQA: secQA)
+        
+        //check if connected to internet/3g
+        if(Reachability.isConnectedToNetwork()){
+            
+            //if connected, create user, save to db and locally
+            LoggedInuser = UserDatabaseConnection.createUser(newUser)
+            
+            println("Debug")
+        }else{
+            //else, create user, save locally under unsynced files directory
+            
+        }
     }
     
 }
