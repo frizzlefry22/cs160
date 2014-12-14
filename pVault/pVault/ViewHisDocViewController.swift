@@ -24,8 +24,9 @@ class ViewHisDocViewController: UIViewController {
     @IBOutlet weak var docImage: UIImageView!
     
     @IBAction func EnlargeImage(sender: AnyObject) {
-        
-        self.performSegueWithIdentifier("viewHistoryImage", sender: self)
+        if(!isEmpty(document.docImage)){
+             self.performSegueWithIdentifier("viewHistoryImage", sender: self)
+        }
         
     }
     override func viewDidLoad() {

@@ -22,9 +22,12 @@ class ViewDocumentViewController: UIViewController {
     @IBOutlet weak var docDesc: UITextView!
     
     @IBOutlet weak var docImage: UIImageView!
+    
+    @IBOutlet weak var historyButton: UIButton!
+    
     //view enlarged image
-
     @IBAction func enlargeImage(sender: AnyObject) {
+        
         segueString = "viewImage"
         if(!isEmpty(document.docImage)){
             self.performSegueWithIdentifier(segueString, sender: self)
@@ -34,6 +37,16 @@ class ViewDocumentViewController: UIViewController {
     //view doc history list
     @IBAction func viewDocHistory(sender: AnyObject) {
         var temp = DocumentDBConnection.getHistory(document.objectID)
+        
+        //checks if its temp
+        let strT: String = self.document.objectID
+        let rangeOfTemp = Range(start: strT.startIndex,
+            end: advance(strT.startIndex, 4))
+        let tempStr = strT.substringWithRange(rangeOfTemp)
+        if(tempStr == "temp"){
+            historyButton.enabled = false
+        }
+        
         segueString = "viewHistory"
         //if there is history move to screen
         if(!isEmpty(temp)){
@@ -41,13 +54,10 @@ class ViewDocumentViewController: UIViewController {
         }
             //else, alert no history
         else{
-            let alertController = UIAlertController(title: "No History", message: "Document: " + document.docName + "has no history.", preferredStyle: .Alert)
-            
-            //add confirm action
+            let alertController = UIAlertController(title: "No History", message: "Document: " + document.docName + " has no history.", preferredStyle: .Alert)
             let okAction = UIAlertAction(title: "Ok", style: .Default) { (action) in
             }
             alertController.addAction(okAction)
-            
             self.presentViewController(alertController,animated:true) {}
         }
     }
@@ -55,7 +65,7 @@ class ViewDocumentViewController: UIViewController {
     //edit button goes to edit view
     @IBAction func editDocument(sender: AnyObject) {
         segueString = "editView"
-        CurrentDocument.currentDoc = self.document
+        CurrentDocument.currentDoc = self.document.clone(self.document)
         document.editEnabled = true
         self.performSegueWithIdentifier(segueString, sender: self)
     }
@@ -68,7 +78,7 @@ class ViewDocumentViewController: UIViewController {
         
         //doc fields
         var docFieldString = ""
-        
+
         //doc name
         testLabel.text = document.docName
         docType.text = "Document Type: " + document.docType.rawValue
@@ -94,7 +104,12 @@ class ViewDocumentViewController: UIViewController {
         }
         
         //document image
+        if(document.docImage == ""){
+            
+        }
+        else{
         docImage.image = Encoder.decodeImage(document.docImage)
+        }
     }
     
     @IBAction func deleteDocument(sender: AnyObject) {
@@ -108,7 +123,16 @@ class ViewDocumentViewController: UIViewController {
         
         //add confirm action
         let confirmAction = UIAlertAction(title: "Confirm", style: .Default) { (action) in
-            println("delete something here")
+            //deletes this document
+            DocumentDBConnection.delete(DocumentDBConnection.deleteObject(self.document.objectID))
+            
+            //if there is history, delete them
+            if(!isEmpty(DocumentDBConnection.getHistory(self.document.objectID))){
+                DocumentDBConnection.delete(DocumentDBConnection.deleteHistory(self.document.objectID))
+            }
+            //move back home
+            let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController];
+            self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true);
         }
         alertController.addAction(confirmAction)
         
