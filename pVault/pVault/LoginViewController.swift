@@ -40,9 +40,10 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func moveToSettings(sender: AnyObject) {
-        //let storyboard : UIStoryboard = UIStoryboard(name: "Settings", bundle: nil);
-        //let vc : UIViewController = storyboard.instantiateViewControllerWithIdentifier("SETIDHERE") as UIViewController;
+        let storyboard : UIStoryboard = UIStoryboard(name: "Settings", bundle: nil);
+        let vc : UIViewController = storyboard.instantiateViewControllerWithIdentifier("Settings") as UIViewController;
         //self.presentViewController(vc, animated: true, completion: nil);
+        self.navigationController?.pushViewController(vc, animated: true);
     }
     
     @IBAction func moveToKevinTest(sender: AnyObject) {
