@@ -31,6 +31,11 @@
 		2414C7BA1A2B8AA4003EA080 /* BirthCertificateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2414C7B91A2B8AA4003EA080 /* BirthCertificateViewController.swift */; };
 		2414C7BC1A2B8AC3003EA080 /* DriverLicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2414C7BB1A2B8AC3003EA080 /* DriverLicenseViewController.swift */; };
 		2414C7C61A2B96E4003EA080 /* DocumentListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2414C7C51A2B96E4003EA080 /* DocumentListTableViewController.swift */; };
+		2414C7CA1A3BD813003EA080 /* CurrentPassNewPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2414C7C91A3BD813003EA080 /* CurrentPassNewPassViewController.swift */; };
+		2414C7CC1A3BD853003EA080 /* CurrentPassNewPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2414C7CB1A3BD853003EA080 /* CurrentPassNewPinViewController.swift */; };
+		2414C7CE1A3BD8B6003EA080 /* ConfirmNewPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2414C7CD1A3BD8B6003EA080 /* ConfirmNewPassViewController.swift */; };
+		2414C7D01A3BD8D6003EA080 /* ConfirmNewPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2414C7CF1A3BD8D6003EA080 /* ConfirmNewPinViewController.swift */; };
+		2414C7D21A3BD906003EA080 /* DeleteAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2414C7D11A3BD906003EA080 /* DeleteAccountViewController.swift */; };
 		247385C31A1DC806005235C6 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299FA8511A1DBE3A00D26744 /* ParseUI.framework */; };
 		247385C41A1DC80A005235C6 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299FA8501A1DBE3A00D26744 /* ParseFacebookUtils.framework */; };
 		247385C51A1DC80D005235C6 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299FA84F1A1DBE3A00D26744 /* Parse.framework */; };
@@ -116,6 +121,11 @@
 		2414C7B91A2B8AA4003EA080 /* BirthCertificateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BirthCertificateViewController.swift; sourceTree = "<group>"; };
 		2414C7BB1A2B8AC3003EA080 /* DriverLicenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverLicenseViewController.swift; sourceTree = "<group>"; };
 		2414C7C51A2B96E4003EA080 /* DocumentListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentListTableViewController.swift; sourceTree = "<group>"; };
+		2414C7C91A3BD813003EA080 /* CurrentPassNewPassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentPassNewPassViewController.swift; sourceTree = "<group>"; };
+		2414C7CB1A3BD853003EA080 /* CurrentPassNewPinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrentPassNewPinViewController.swift; path = ../CurrentPassNewPinViewController.swift; sourceTree = "<group>"; };
+		2414C7CD1A3BD8B6003EA080 /* ConfirmNewPassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmNewPassViewController.swift; sourceTree = "<group>"; };
+		2414C7CF1A3BD8D6003EA080 /* ConfirmNewPinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmNewPinViewController.swift; path = ../ConfirmNewPinViewController.swift; sourceTree = "<group>"; };
+		2414C7D11A3BD906003EA080 /* DeleteAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteAccountViewController.swift; sourceTree = "<group>"; };
 		29104E971A1F1F2A0058F475 /* SecurityQuestionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityQuestionsViewController.swift; sourceTree = "<group>"; };
 		291481671A3961F8005FD3BB /* EmailResetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailResetViewController.swift; sourceTree = "<group>"; };
 		291481691A396256005FD3BB /* SecurityQuestionAnswerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityQuestionAnswerViewController.swift; sourceTree = "<group>"; };
@@ -351,6 +361,11 @@
 				291481671A3961F8005FD3BB /* EmailResetViewController.swift */,
 				291481691A396256005FD3BB /* SecurityQuestionAnswerViewController.swift */,
 				2914816B1A39854B005FD3BB /* ConfirmResetViewController.swift */,
+				2414C7C91A3BD813003EA080 /* CurrentPassNewPassViewController.swift */,
+				2414C7CD1A3BD8B6003EA080 /* ConfirmNewPassViewController.swift */,
+				2414C7CB1A3BD853003EA080 /* CurrentPassNewPinViewController.swift */,
+				2414C7CF1A3BD8D6003EA080 /* ConfirmNewPinViewController.swift */,
+				2414C7D11A3BD906003EA080 /* DeleteAccountViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -486,6 +501,8 @@
 				652795671A3BC0CD00902C56 /* ViewHisDocViewController.swift in Sources */,
 				29A451351A1C4B9E00B7CB53 /* LoginViewController.swift in Sources */,
 				1092DA8D1A2AE4B700820594 /* SessionData.swift in Sources */,
+				2414C7D21A3BD906003EA080 /* DeleteAccountViewController.swift in Sources */,
+				2414C7CE1A3BD8B6003EA080 /* ConfirmNewPassViewController.swift in Sources */,
 				29A4513C1A1C846700B7CB53 /* CreatePasswordPINViewController.swift in Sources */,
 				291930281A24674000E34A27 /* RegisterInfo.swift in Sources */,
 				291481681A3961F8005FD3BB /* EmailResetViewController.swift in Sources */,
@@ -494,6 +511,7 @@
 				651C28511A3A768700B0CC08 /* docListCell.swift in Sources */,
 				651C28531A3AAF1D00B0CC08 /* ViewDocumentViewController.swift in Sources */,
 				2919301F1A242B3C00E34A27 /* Utils.swift in Sources */,
+				2414C7CA1A3BD813003EA080 /* CurrentPassNewPassViewController.swift in Sources */,
 				291E83BC1A27B0ED0037DEE0 /* DocPhotoViewController.swift in Sources */,
 				29104E981A1F1F2A0058F475 /* SecurityQuestionsViewController.swift in Sources */,
 				65BDBAF51A30326800E52DE5 /* DocumentDBConnection.swift in Sources */,
@@ -521,6 +539,7 @@
 				10B4DD5F1A203DDA0008565C /* UserDatabaseConnection.swift in Sources */,
 				107797D21A2FFFD8008E54AB /* UserTestViewController.swift in Sources */,
 				299FA8571A1DBE6800D26744 /* DBConnectionProtocol.swift in Sources */,
+				2414C7CC1A3BD853003EA080 /* CurrentPassNewPinViewController.swift in Sources */,
 				65BDBAF41A30326800E52DE5 /* Document.swift in Sources */,
 				2414C7BC1A2B8AC3003EA080 /* DriverLicenseViewController.swift in Sources */,
 				6527956A1A3C3C0F00902C56 /* EditDocumnetViewController.swift in Sources */,
