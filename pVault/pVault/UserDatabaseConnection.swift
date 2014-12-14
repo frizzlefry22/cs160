@@ -36,7 +36,7 @@ public class UserDatabaseConnection: DBConnectionProtocol{
     /* create function called by outside classes*/
     class func createUser(user: User)->User{
         
-        var pfObj = PFObject(className: "User")
+        
         var userObj = PFObject(className: "User")
         userObj["userID"] = user.getUserID()
         userObj["email"] = user.getEmail()
@@ -44,7 +44,7 @@ public class UserDatabaseConnection: DBConnectionProtocol{
         userObj["PIN"] = user.getPIN()
         userObj["secAnswers"] = user.getSecQA()
         
-        user.setUserID(create(pfObj))
+        user.setUserID(create(userObj))
         
         return user
     }

@@ -56,6 +56,10 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var loginPassword: UITextField!
     
+    @IBAction func checkLogin(sender: AnyObject) {
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

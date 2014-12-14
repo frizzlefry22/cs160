@@ -43,10 +43,15 @@ struct RegisterInfo {
             //if connected, create user, save to db and locally
             LoggedInuser = UserDatabaseConnection.createUser(newUser)
             
+            LocalFileManager.createUserDirectory(LoggedInuser.getEmail())
+            LocalFileManager.addUser(LoggedInuser, temp: false)
+            
             println("Debug")
         }else{
             //else, create user, save locally under unsynced files directory
+            LoggedInuser = newUser.copy()
             
+            LocalFileManager.addUser(LoggedInuser, temp: true)
         }
     }
     
