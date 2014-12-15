@@ -313,6 +313,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="docTableView" destination="j8O-od-G7k" id="EEE-Ey-f2K"/>
                         <segue destination="HvQ-J7-hpl" kind="show" identifier="ViewLocal" id="BHZ-mN-rIS"/>
                     </connections>
                 </viewController>
