@@ -40,7 +40,7 @@ class ViewDocumentViewController: UIViewController {
         
         //checks if its temp
         
-        if(self.checkTemp(document.objectID)){
+        if(self.checkTemp(self.document.objectID)){
             historyButton.enabled = false
         }
         
@@ -122,7 +122,7 @@ class ViewDocumentViewController: UIViewController {
         let confirmAction = UIAlertAction(title: "Confirm", style: .Default) { (action) in
             //deletes this document
             //if its not temp file
-            if(!self.checkTemp(document.objectID)){
+            if(!self.checkTemp(self.document.objectID)){
                 DocumentDBConnection.delete(DocumentDBConnection.deleteObject(self.document.objectID))
                 //if there is history, delete them
                 if(!isEmpty(DocumentDBConnection.getHistory(self.document.objectID))){
@@ -160,7 +160,7 @@ class ViewDocumentViewController: UIViewController {
         vc.document = self.document
     }
     
-    func checkTemp(temp: String) -> bool{
+    func checkTemp(temp: String) -> Bool{
         let strT: String = temp
         let rangeOfTemp = Range(start: strT.startIndex,
             end: advance(strT.startIndex, 4))
@@ -168,7 +168,7 @@ class ViewDocumentViewController: UIViewController {
         if(tempStr == "temp"){
             return true
         }
-        else{ return false}
+        return false
     }
 
 

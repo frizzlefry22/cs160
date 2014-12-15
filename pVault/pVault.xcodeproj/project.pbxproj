@@ -525,6 +525,7 @@
 				2914816C1A39854B005FD3BB /* ConfirmResetViewController.swift in Sources */,
 				29152BBA1A1971C100A88FEA /* AppDelegate.swift in Sources */,
 				652795651A3BBD6F00902C56 /* HistoryTableViewController.swift in Sources */,
+				2414C7D01A3BD8D6003EA080 /* ConfirmNewPinViewController.swift in Sources */,
 				2946417B1A21DA5A0025AECC /* SecurityQuestions.swift in Sources */,
 				2414C7BA1A2B8AA4003EA080 /* BirthCertificateViewController.swift in Sources */,
 				652795621A3BA0C700902C56 /* ViewImageViewController.swift in Sources */,
