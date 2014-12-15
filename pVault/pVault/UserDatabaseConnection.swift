@@ -16,7 +16,7 @@ public class UserDatabaseConnection: DBConnectionProtocol{
         Param: pfObj: PFObject - PFObject ready to saved, should contain all User fields necessary
         Return: none
     */
-    class func create(pfObj: PFObject)->String{
+    class func create(pfObj: PFObject, obj: AnyObject)->String{
         
         //save pfObj in background, will use callback block to handle success/fail of save
         var succeeded = pfObj.save()
@@ -44,7 +44,7 @@ public class UserDatabaseConnection: DBConnectionProtocol{
         userObj["PIN"] = user.getPIN()
         userObj["secAnswers"] = user.getSecQA()
         
-        user.setUserID(create(userObj))
+        user.setUserID(create(userObj, obj: ""))
         
         return user
     }

@@ -30,7 +30,14 @@ class DocumentConfirmCreateViewController: UIViewController, DocumentView , Aler
         //create document
         if(document.editEnabled == false){
         var pfOb = DocumentDBConnection.createDocumentPFObject(self.document)
-        DocumentDBConnection.create(pfOb);
+            if Reachability.isConnectedToNetwork(){
+                DocumentDBConnection.create(pfOb, obj: self.document);
+                
+                //LocalFileManager.addDocument(self.document, userEmail: LoggedInuser.getEmail(), temp: false)
+            }
+            else{
+                LocalFileManager.addDocument(self.document, userEmail: LoggedInuser.getEmail(), temp: true)
+            }
         }//edit document
         else{
             //edit document on db

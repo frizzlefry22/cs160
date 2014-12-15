@@ -97,6 +97,7 @@ class LocalFileManager{
         //create dictionary
         var docDict:NSMutableDictionary = [
             "objectID": newDoc.objectID,
+            "docImage": newDoc.docImage,
             "docID": newDoc.docID,
             "userID": newDoc.userID,
             "docName": newDoc.docName,
@@ -318,7 +319,7 @@ class LocalFileManager{
         return doc
     }
     
-    class func returnDocTuples(user: User)->[(objectID: String, docName: String, docType: DocumentType)]{
+    class func returnDocTuples(user: User)->[(objectID: String, docName: String, docType: String)]{
         
         //grab all files from user folder
         let documentsPath: AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
@@ -328,7 +329,7 @@ class LocalFileManager{
         var syncContents = NSFileManager.defaultManager().contentsOfDirectoryAtPath(syncPath, error: nil)!
         
         //init empty tuples array
-        var tuples:[(objectID: String, docName: String, docType: DocumentType)] = []
+        var tuples:[(objectID: String, docName: String, docType: String)] = []
 
         //get doc tuples for every document
         for file in syncContents{
@@ -342,7 +343,7 @@ class LocalFileManager{
                 
                 tuples.append(objectID: docDict["objectID"] as String,
                     docName: docDict["docName"] as String,
-                    docType: DocTypeFromString(docDict["docType"] as String))
+                    docType: docDict["docType"] as String)
             }
         }
         var unsyncContents = NSFileManager.defaultManager().contentsOfDirectoryAtPath(unsyncPath, error: nil)!
@@ -358,7 +359,7 @@ class LocalFileManager{
                 
                 tuples.append(objectID: docDict["objectID"] as String,
                     docName: docDict["docName"] as String,
-                    docType: DocTypeFromString(docDict["docType"] as String))
+                    docType: docDict["docType"] as String)
             }
 
         }

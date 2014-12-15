@@ -19,14 +19,18 @@ public class DocumentDBConnection: DBConnectionProtocol{
     //Param takes in a PFObject
     //PFObject is saved into parse database
     //mostly done just need to get the two array and file and then test
-    class func create(pfObj: PFObject)->String{
-        
+    class func create(pfObj: PFObject, obj: AnyObject)->String{
+        var objID = ""
         pfObj.saveInBackgroundWithBlock({(succeeded: Bool!, error: NSError!) -> Void in
             //success block
             if(succeeded!){
                 println("File Saved")
                 
                 AlertDelStuct.alertDelegate.AlertUser("Success")
+                var doc = obj as Document
+                objID = pfObj.objectId
+                doc.objectID = objID
+                LocalFileManager.addDocument(doc, userEmail: LoggedInuser.getEmail(), temp: false)
                 
             }
                 //fail block

@@ -33,8 +33,8 @@ class LocalDocListViewController: UIViewController, UITableViewDataSource, UITab
         //sets local = true for local document
         CurrentDocument.local = true
         
-//get the local tuples
-        //docList = [here]
+        //get the local tuples
+        docList = LocalFileManager.returnDocTuples(LoggedInuser)
     }
     
     override func didReceiveMemoryWarning() {
@@ -76,7 +76,7 @@ class LocalDocListViewController: UIViewController, UITableViewDataSource, UITab
         selectedItem = docList[indexPath.row].objectID
         
 //read local document
-        //selectedDocument = [here] as Document
+        selectedDocument = LocalFileManager.getDocument(selectedItem, user: LoggedInuser) 
         //asked to enter your pin
         let alertController = UIAlertController(title: "Enter Your", message: "4-digit pin", preferredStyle: .Alert)
         

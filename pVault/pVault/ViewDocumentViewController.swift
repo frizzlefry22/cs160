@@ -65,7 +65,7 @@ class ViewDocumentViewController: UIViewController {
         document.editEnabled = true
         self.performSegueWithIdentifier(segueString, sender: self)
     }
-    
+
     //load the document on load
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -38,7 +38,7 @@ class TestDocumentViewController: UIViewController {
     }
     
     @IBAction func testCreate(sender: AnyObject) {
-        DocumentDBConnection.create(DocumentDBConnection.createDocumentPFObject(testDoc))
+        DocumentDBConnection.create(DocumentDBConnection.createDocumentPFObject(testDoc), obj: "")
     }
     
     @IBAction func testRead(sender: AnyObject) {

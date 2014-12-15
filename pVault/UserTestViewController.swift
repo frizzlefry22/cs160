@@ -12,6 +12,15 @@ class UserTestViewController: UIViewController {
 
     var sessionUser : User!
     
+    
+    
+    @IBAction func moveToArjayTest(sender: AnyObject) {
+        
+        let storyboard : UIStoryboard = UIStoryboard(name: "LogReg", bundle: nil);
+        let vc : UIViewController = storyboard.instantiateViewControllerWithIdentifier("LoginView") as UIViewController;
+        self.presentViewController(vc, animated: true, completion: nil);
+    }
+    
     @IBAction func testGetDoc(sender: AnyObject) {
         LocalFileManager.getDocument("321", user: LoggedInuser)
     }
@@ -58,7 +67,7 @@ class UserTestViewController: UIViewController {
     }
     
     @IBAction func testCreate(sender: AnyObject) {
-        UserDatabaseConnection.create(UserDatabaseConnection.testCreate())
+        UserDatabaseConnection.create(UserDatabaseConnection.testCreate(), obj: "")
         
     }
     @IBAction func testRead(sender: AnyObject) {

@@ -132,6 +132,18 @@
                                     <action selector="testReturnTuples:" destination="VWj-sA-p42" eventType="touchUpInside" id="pCW-D9-dup"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hr4-Zt-ZyL">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="return">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="197" y="261" width="41" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="moveToArjayTest:" destination="VWj-sA-p42" eventType="touchUpInside" id="CkH-VQ-QZa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -186,6 +198,7 @@
                                 <exclude reference="SOm-Sk-THd"/>
                                 <exclude reference="28E-K1-pOZ"/>
                                 <exclude reference="QQq-gb-DJA"/>
+                                <exclude reference="hr4-Zt-ZyL"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="6h3-eg-Kfw"/>
@@ -232,6 +245,7 @@
                                 <include reference="SOm-Sk-THd"/>
                                 <include reference="28E-K1-pOZ"/>
                                 <include reference="QQq-gb-DJA"/>
+                                <include reference="hr4-Zt-ZyL"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="6h3-eg-Kfw"/>
