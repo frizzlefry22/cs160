@@ -54,6 +54,7 @@ class EmailResetViewController: UIViewController {
         let vc = segue.destinationViewController as SecurityQuestionAnswerViewController
         
         vc.securityQuestions = UserDatabaseConnection.getSecQA(emailInput.text)
+        vc.usersEmail = emailInput.text
         
     }
     

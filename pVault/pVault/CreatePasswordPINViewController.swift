@@ -142,6 +142,7 @@ class CreatePasswordPINViewController: UIViewController {
         super.viewDidLoad()
 
         continueButton.alpha = 0.4
+        continueButton.enabled = false
         
         // Do any additional setup after loading the view.
     }

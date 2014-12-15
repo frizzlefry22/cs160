@@ -112,7 +112,7 @@ class LocalFileManager{
         if docDict.writeToFile(filePath, atomically: true){
             let readDict:NSDictionary? = NSDictionary(contentsOfFile: filePath)
             if let dict = readDict{
-                println("Read the dictionary back from disk = \(dict)")
+                //println("Read the dictionary back from disk = \(dict)")
             }else{
                 println("Failed to read the dictionary back from disk")
             }

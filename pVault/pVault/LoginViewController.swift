@@ -10,6 +10,8 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    var user : User!
+    
     @IBAction func moveToDocument(sender: AnyObject) {
         let storyboard : UIStoryboard = UIStoryboard(name: "Document", bundle: nil);
         let vc : UIViewController = storyboard.instantiateViewControllerWithIdentifier("DocStoryBoard") as UIViewController;
@@ -67,6 +69,9 @@ class LoginViewController: UIViewController {
             checkUser = LocalFileManager.getUser(loginEmail.text!)
         }
         
+        //if user is empty empty strings
+        
+        
         if(loginEmail.text! != "") && (loginEmail.text! == checkUser.getEmail()) && (loginPassword.text! == checkUser.getPassword()){
             println("login success")
             
@@ -75,6 +80,13 @@ class LoginViewController: UIViewController {
             }
             
             LocalFileManager.addUser(checkUser, temp: false)
+            
+            self.user = checkUser.copy()
+            LoggedInuser = self.user.copy()
+            
+            //Goes to the Home screen
+            performSegueWithIdentifier("Home", sender: sender)
+            
             
         }else{
             println("login fail")
@@ -94,15 +106,22 @@ class LoginViewController: UIViewController {
     }
     
     
-    
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+        if ( segue.identifier == "Home" )
+        {
+            
+            let vc = segue.destinationViewController as HomeViewController
+            
+            vc.user = self.user
+        }
+     
+        
     }
-    */
+    
 
 }

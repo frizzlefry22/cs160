@@ -10,6 +10,10 @@ import UIKit
 
 class SecurityQuestionAnswerViewController: UIViewController {
 
+    //This is to pass email
+    var usersEmail : String!
+    
+    
     @IBOutlet weak var questionLabelOne: UILabel!
     @IBOutlet weak var questionLabel2: UILabel!
     @IBOutlet weak var questionLabel3: UILabel!
@@ -158,14 +162,16 @@ class SecurityQuestionAnswerViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        let vc = segue.destinationViewController as ConfirmResetViewController
+        vc.userEmail = self.usersEmail
+        
     }
-    */
+    
 
 }

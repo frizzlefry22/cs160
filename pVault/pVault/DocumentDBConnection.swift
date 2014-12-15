@@ -113,7 +113,9 @@ public class DocumentDBConnection: DBConnectionProtocol{
                 document["docName"] = editDoc.docName
                 document["docDesc"] = editDoc.docDiscription
                 document["docField"] = editDoc.docField
-                document["docImage"] = file
+                if(editDoc.docImage != ""){
+                    document["docImage"] = file
+                }
                 document.saveInBackgroundWithBlock({(succeeded: Bool!, error: NSError!) -> Void in
                     //success block
                     if(succeeded!){

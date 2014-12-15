@@ -10,6 +10,7 @@ import UIKit
 
 class ConfirmResetViewController: UIViewController {
 
+    var userEmail : String!
     
     @IBOutlet weak var warningPassword: UILabel!
     
@@ -38,7 +39,7 @@ class ConfirmResetViewController: UIViewController {
     @IBAction func resetClicked(sender: AnyObject) {
         
         //create copy of LoggedInuser
-        var newUser = LoggedInuser.copy()
+        var newUser = UserDatabaseConnection.getUserByEmail(self.userEmail)
         newUser.setPassword(newPassword.text)
         
         //edit user in DB
