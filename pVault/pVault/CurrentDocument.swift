@@ -10,4 +10,5 @@ import Foundation
 
 struct CurrentDocument{
     static var currentDoc: Document!
+    static var local: Bool!
 }

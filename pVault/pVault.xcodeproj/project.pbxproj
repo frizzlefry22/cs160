@@ -83,6 +83,8 @@
 		65BDBAF51A30326800E52DE5 /* DocumentDBConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BDBAF11A30326800E52DE5 /* DocumentDBConnection.swift */; };
 		65BDBAF71A30326800E52DE5 /* TestDocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BDBAF31A30326800E52DE5 /* TestDocumentViewController.swift */; };
 		65BDBAF91A318D7700E52DE5 /* KevinTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BDBAF81A318D7700E52DE5 /* KevinTestViewController.swift */; };
+		65FDD52A1A3E63620005399B /* LocalDocListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FDD5291A3E63620005399B /* LocalDocListViewController.swift */; };
+		65FDD52C1A3E64B30005399B /* localTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FDD52B1A3E64B30005399B /* localTableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,6 +177,8 @@
 		65BDBAF11A30326800E52DE5 /* DocumentDBConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentDBConnection.swift; sourceTree = "<group>"; };
 		65BDBAF31A30326800E52DE5 /* TestDocumentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestDocumentViewController.swift; sourceTree = "<group>"; };
 		65BDBAF81A318D7700E52DE5 /* KevinTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KevinTestViewController.swift; sourceTree = "<group>"; };
+		65FDD5291A3E63620005399B /* LocalDocListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalDocListViewController.swift; sourceTree = "<group>"; };
+		65FDD52B1A3E64B30005399B /* localTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = localTableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,7 +277,6 @@
 				29152BC01A1971C100A88FEA /* Images.xcassets */,
 				29152BC21A1971C100A88FEA /* LaunchScreen.xib */,
 				29152BB71A1971C100A88FEA /* Supporting Files */,
-				651C28501A3A768700B0CC08 /* docListCell.swift */,
 			);
 			path = pVault;
 			sourceTree = "<group>";
@@ -281,6 +284,8 @@
 		29152BB71A1971C100A88FEA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				651C28501A3A768700B0CC08 /* docListCell.swift */,
+				65FDD52B1A3E64B30005399B /* localTableCell.swift */,
 				29152BB81A1971C100A88FEA /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -379,6 +384,7 @@
 				652795641A3BBD6F00902C56 /* HistoryTableViewController.swift */,
 				652795661A3BC0CD00902C56 /* ViewHisDocViewController.swift */,
 				652795691A3C3C0F00902C56 /* EditDocumnetViewController.swift */,
+				65FDD5291A3E63620005399B /* LocalDocListViewController.swift */,
 			);
 			name = ViewDocument;
 			sourceTree = "<group>";
@@ -519,6 +525,7 @@
 				294566B91A2B048B00DD7A3A /* Encoder.swift in Sources */,
 				29B7FC081A38137A005679E2 /* Alertable.swift in Sources */,
 				291E83BE1A294FFC0037DEE0 /* Encryption.swift in Sources */,
+				65FDD52A1A3E63620005399B /* LocalDocListViewController.swift in Sources */,
 				2914816A1A396256005FD3BB /* SecurityQuestionAnswerViewController.swift in Sources */,
 				29A451331A1C42E800B7CB53 /* Validator.swift in Sources */,
 				29833EDC1A2ABB0400E30CCD /* AcceptDataDelegate.swift in Sources */,
@@ -526,6 +533,7 @@
 				29152BBA1A1971C100A88FEA /* AppDelegate.swift in Sources */,
 				652795651A3BBD6F00902C56 /* HistoryTableViewController.swift in Sources */,
 				2414C7D01A3BD8D6003EA080 /* ConfirmNewPinViewController.swift in Sources */,
+				65FDD52C1A3E64B30005399B /* localTableCell.swift in Sources */,
 				2946417B1A21DA5A0025AECC /* SecurityQuestions.swift in Sources */,
 				2414C7BA1A2B8AA4003EA080 /* BirthCertificateViewController.swift in Sources */,
 				652795621A3BA0C700902C56 /* ViewImageViewController.swift in Sources */,

@@ -38,9 +38,8 @@ class ViewDocumentViewController: UIViewController {
     @IBAction func viewDocHistory(sender: AnyObject) {
         var temp = DocumentDBConnection.getHistory(document.objectID)
         
-        //checks if its temp
-        
-        if(self.checkTemp(self.document.objectID)){
+        //checks if its local and displays history
+        if(CurrentDocument.local == true){
             historyButton.enabled = false
         }
         
@@ -101,6 +100,7 @@ class ViewDocumentViewController: UIViewController {
         }
         
         //document image
+        //checks if the image is empty, if its empty dont display it
         if(document.docImage == ""){
             
         }
@@ -121,15 +121,15 @@ class ViewDocumentViewController: UIViewController {
         //add confirm action
         let confirmAction = UIAlertAction(title: "Confirm", style: .Default) { (action) in
             //deletes this document
-            //if its not temp file
-            if(!self.checkTemp(self.document.objectID)){
+            //if its not a local
+            if(!CurrentDocument.local){
                 DocumentDBConnection.delete(DocumentDBConnection.deleteObject(self.document.objectID))
                 //if there is history, delete them
                 if(!isEmpty(DocumentDBConnection.getHistory(self.document.objectID))){
                     DocumentDBConnection.delete(DocumentDBConnection.deleteHistory(self.document.objectID))
                 }
             } else{
-                //it's a temp file, use local file removal 
+//local document removal here
             }
             
             
@@ -159,17 +159,7 @@ class ViewDocumentViewController: UIViewController {
         var vc = segue.destinationViewController as DocumentView
         vc.document = self.document
     }
-    
-    func checkTemp(temp: String) -> Bool{
-        let strT: String = temp
-        let rangeOfTemp = Range(start: strT.startIndex,
-            end: advance(strT.startIndex, 4))
-        let tempStr = strT.substringWithRange(rangeOfTemp)
-        if(tempStr == "temp"){
-            return true
-        }
-        return false
-    }
+
 
 
 }
