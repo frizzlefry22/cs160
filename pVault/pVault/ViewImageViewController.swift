@@ -1,18 +1,23 @@
 //
-//  KevinTestViewController.swift
+//  ViewImageViewController.swift
 //  pVault
 //
-//  Created by Kevin Tran on 12/4/14.
+//  Created by Kevin Tran on 12/12/14.
 //  Copyright (c) 2014 Pvault2. All rights reserved.
 //
 
 import UIKit
 
-class KevinTestViewController: UIViewController {
+class ViewImageViewController: UIViewController, DocumentView {
 
+    //documentView protocol
+    var document: Document!
+    
+    @IBOutlet weak var image: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        image.image = Encoder.decodeImage(document.docImage)
         // Do any additional setup after loading the view.
     }
 
@@ -21,13 +26,7 @@ class KevinTestViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func getImage(sender: AnyObject) {
-        var temp : Document = DocumentDBConnection.read(DocumentDBConnection.readObject("Yj0hKO132i")) as Document
-        
-        imagePreview.image = Encoder.decodeImage(temp.docImage) //temp.docImage//
-    }
 
-    @IBOutlet weak var imagePreview: UIImageView!
     /*
     // MARK: - Navigation
 

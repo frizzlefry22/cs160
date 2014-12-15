@@ -38,7 +38,8 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate , DocumentView {
         if ( document.editEnabled! ) {
             
             //TODO fix this
-            //docIMage = document.docImage
+            docIMage = Encoder.decodeImage(document.docImage)
+            imagePreview.image = docIMage
             
         }
         

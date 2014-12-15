@@ -41,6 +41,7 @@ public class DocumentDBConnection: DBConnectionProtocol{
     //Param takes in a PFQuery
     //returns the results of a PFQuery in this case a document
     class func read(query: PFQuery) -> AnyObject{
+        var imageString: String!
         //creates an empty document
         var someDoc = Document(creatorID: "")
         var docObject = query.getFirstObject()
@@ -48,10 +49,12 @@ public class DocumentDBConnection: DBConnectionProtocol{
         //if doc found, add fields
         if(docObject != nil){
             
-            //get the image A half of string data
+            if(docObject["docImage"] != nil){
+            //get the image
             var file = docObject["docImage"] as PFFile
             var data =  file.getData()
-            var imageString: String! = NSString(data: data, encoding: NSUTF8StringEncoding)
+            imageString = NSString(data: data, encoding: NSUTF8StringEncoding)
+            }
             
             //fills in the document data
             someDoc.objectID = docObject.objectId as String
@@ -61,7 +64,12 @@ public class DocumentDBConnection: DBConnectionProtocol{
             someDoc.docType = self.getType(docObject["docType"] as String)
             someDoc.docDiscription = docObject["docDesc"] as String
             someDoc.docField = docObject["docField"] as Dictionary
+            if(docObject["docImage"] == nil){
+                someDoc.docImage = ""
+            }
+            else{
             someDoc.docImage = imageString
+            }
         }
         return someDoc
     }
@@ -80,8 +88,8 @@ public class DocumentDBConnection: DBConnectionProtocol{
     //Calls removeHistory to remove previous versions if there are more than 2 previous version
     //only allowed to change document name, description, fields, and image
     class func edit(previous: AnyObject, updated: AnyObject) {//-> PFQuery{
-        var currentDoc = updated as Document
-        var editDoc = previous as Document
+        var currentDoc = previous as Document
+        var editDoc = updated as Document
 
         self.createHistoryDocucment(currentDoc)
         self.removeHistory(currentDoc.objectID)
@@ -106,10 +114,12 @@ public class DocumentDBConnection: DBConnectionProtocol{
                     //success block
                     if(succeeded!){
                         println("File Saved")
+                        AlertDelStuct.alertDelegate.AlertUser("Success")
                     }
                         //fail block
                     else{
                         println("File not saved, will be saved when connection to DB is establed")
+                        AlertDelStuct.alertDelegate.AlertUser("File Did not update")
                     }
                 })
             }
@@ -165,6 +175,7 @@ public class DocumentDBConnection: DBConnectionProtocol{
         var document = PFObject(className:"Document")
         
         // upload the base64 string for image
+
         var image = doc.docImage
         var name = self.cleanName(doc.docName) + ".txt"
         var data = image.dataUsingEncoding(NSUTF8StringEncoding)
@@ -179,7 +190,9 @@ public class DocumentDBConnection: DBConnectionProtocol{
         document["docType"] = doc.docType.rawValue
         document["docDesc"] = doc.docDiscription
         document["docField"] = doc.docField
+        if(doc.docImage != ""){
         document["docImage"] = file
+        }
         
         return document
     }
@@ -204,7 +217,9 @@ public class DocumentDBConnection: DBConnectionProtocol{
         document["docType"] = doc.docType.rawValue
         document["docDesc"] = doc.docDiscription
         document["docField"] = doc.docField
+        if(doc.docImage != ""){
         document["docImage"] = file
+        }
         document.saveInBackgroundWithBlock({(succeeded: Bool!, error: NSError!) -> Void in
             //success block
             if(succeeded!){
@@ -227,9 +242,9 @@ public class DocumentDBConnection: DBConnectionProtocol{
         query.orderByDescending("createdAt")
         var objectArray = query.findObjects()
         var count = objectArray.count
-        while(count >= 3)
+        while(count >= 2)
         {
-            var index = objectArray.count-1
+            var index = count - 1
             objectArray[index].delete()
             objectArray.removeAtIndex(index)
             count--
