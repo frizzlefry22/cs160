@@ -21,20 +21,25 @@ class DocumentConfirmCreateViewController: UIViewController, DocumentView , Aler
     @IBOutlet weak var createButton: UIButton!
     
     @IBOutlet weak var ConfirmLabel: UILabel!
+    
     @IBAction func createPushed(sender: AnyObject) {
         
         
         DocumentDBConnection.AlertDelStuct.alertDelegate = self
         
-        //Display the image
+        //create document
         if(document.editEnabled == false){
         var pfOb = DocumentDBConnection.createDocumentPFObject(self.document)
         DocumentDBConnection.create(pfOb);
-            //segue to home page
-        }
+        }//edit document
         else{
+            //edit document on db
+            if(CurrentDocument.local == false){
             DocumentDBConnection.edit(CurrentDocument.currentDoc , updated: self.document)
-            //segue to document table
+            }
+            else{
+//add local edit here?
+            }
         }
 
     }
@@ -61,6 +66,8 @@ class DocumentConfirmCreateViewController: UIViewController, DocumentView , Aler
         // Dispose of any resources that can be recreated.
     }
     
+    //param: message to be displayed
+    //the alert message
     func AlertUser(message : String) {
         var messageA: String!
         if(document.editEnabled == true){
@@ -74,10 +81,12 @@ class DocumentConfirmCreateViewController: UIViewController, DocumentView , Aler
         
         let okAction = UIAlertAction(title: "Ok", style: .Default) {
             (action) in
-            //can peform action here 
+            
+            //if this is document editing
             if(self.document.editEnabled == true){
-                //go to document table
+                //go back to home screen on success
                 if(message == "Success"){
+                    //if doctype = none move back one less than other types
                     if(self.document.docType == .None ){
                         self.moveBack(6)
                     }
@@ -85,10 +94,13 @@ class DocumentConfirmCreateViewController: UIViewController, DocumentView , Aler
                         self.moveBack(7)
                     }
                 }
+                    //if fail to save edit stay here and does nothing
                 else{}
             }
+                //else this document creation
             else{
                 if(message == "Success"){
+                    //if doctype = none move back one less than other types
                     if(self.document.docType == .None ){
                         self.moveBack(4)
                     }
@@ -96,6 +108,7 @@ class DocumentConfirmCreateViewController: UIViewController, DocumentView , Aler
                         self.moveBack(5)
                     }
                 }
+                    //if fail to create stay here and does nothing
                 else{}
             }
         }
@@ -108,6 +121,8 @@ class DocumentConfirmCreateViewController: UIViewController, DocumentView , Aler
 
     }
     
+    //param: takes in number of screens to move back
+    //to move from confirm screen back to home
     func moveBack(num : Int)
     {
         let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController];
