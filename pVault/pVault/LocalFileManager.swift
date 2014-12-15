@@ -266,6 +266,62 @@ class LocalFileManager{
         
         return true
     }
+    class func editDocument(objectID: String, newDoc: Document, user: User){
+        //let oldDoc = getDocument(objectID, user: user)
+        
+        let documentsPath: AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+        
+        let userPath = documentsPath.stringByAppendingPathComponent(user.getEmail() + "/")
+        let syncPath = userPath + getDocStatus(objectID, user: user)
+        let filePath = syncPath + "/" + objectID
+        
+        var docDict:NSMutableDictionary = [
+            "objectID": objectID,
+            "docImage": newDoc.docImage,
+            "docID": newDoc.docID,
+            "userID": newDoc.userID,
+            "docName": newDoc.docName,
+            "docType": newDoc.getDocType(newDoc.docType),
+            "docDiscription": newDoc.docDiscription,
+        ]
+        
+        for (key, value) in newDoc.docField{
+            docDict[key] = value
+        }
+        
+        docDict["docImage"] = newDoc.docImage
+        
+        if docDict.writeToFile(filePath, atomically: true){
+            let readDict:NSDictionary? = NSDictionary(contentsOfFile: filePath)
+            if let dict = readDict{
+                println("Read the dictionary back from disk = \(dict)")
+            }else{
+                println("Failed to read the dictionary back from disk")
+            }
+        }else{
+            println("Failed to write the dictionary to disk")
+        }
+        
+        
+    }
+    
+    class func getDocStatus(objectID: String, user: User)->String{
+        let documentsPath: AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+        
+        let userPath = documentsPath.stringByAppendingPathComponent(user.getEmail() + "/")
+        let syncPath = userPath + "/Synced/" + objectID
+        let unsyncPath = userPath + "/Unsynced/" + objectID
+        
+        if NSFileManager.defaultManager().fileExistsAtPath(syncPath){
+            return "/Synced"
+        }
+        
+        if NSFileManager.defaultManager().fileExistsAtPath(unsyncPath){
+            return "/Unsynced"
+        }
+        
+        return ""
+    }
     
     class func getDocument(objectID: String, user: User)->Document{
         let documentsPath: AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]

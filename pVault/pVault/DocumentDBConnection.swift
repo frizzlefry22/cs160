@@ -121,6 +121,8 @@ public class DocumentDBConnection: DBConnectionProtocol{
                     if(succeeded!){
                         println("File Saved")
                         AlertDelStuct.alertDelegate.AlertUser("Success")
+                        editDoc.objectID = document.objectId
+                        LocalFileManager.editDocument(currentDoc.objectID, newDoc: editDoc, user: LoggedInuser)
                     }
                         //fail block
                     else{
@@ -128,6 +130,7 @@ public class DocumentDBConnection: DBConnectionProtocol{
                         AlertDelStuct.alertDelegate.AlertUser("File Did not update")
                     }
                 })
+                
             }
         }
     }

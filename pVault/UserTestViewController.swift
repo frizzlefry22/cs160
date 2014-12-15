@@ -21,6 +21,26 @@ class UserTestViewController: UIViewController {
         self.presentViewController(vc, animated: true, completion: nil);
     }
     
+    @IBAction func testEditLocal(sender: AnyObject){
+        
+        
+        var doc = Document(creatorID: "125")
+        doc.objectID = "temp1"
+        doc.docName = "documentName"
+        doc.docType = DocumentType.CreditCard
+        doc.setDocField(DocumentType.CreditCard)
+        doc.docDiscription = "description here"
+        doc.docImage = "image string"
+        
+        LocalFileManager.addDocument(doc, userEmail: "test@example.com", temp: false)
+        
+        var newDoc = doc.clone(doc)
+        newDoc.docImage = "changedvalues"
+        
+        LocalFileManager.editDocument(doc.objectID, newDoc: newDoc, user: LoggedInuser)
+
+    }
+    
     @IBAction func testGetDoc(sender: AnyObject) {
         LocalFileManager.getDocument("321", user: LoggedInuser)
     }
