@@ -137,4 +137,17 @@ import Foundation
         return tuple
     }
     
+    func clone(document: Document) -> Document{
+        var doc = document
+        var clone: Document = Document(creatorID: doc.userID)
+        clone.objectID = doc.objectID
+        clone.docName = doc.docName
+        clone.docID = doc.docID
+        clone.docField = doc.docField
+        clone.docDiscription = doc.docDiscription
+        clone.docType = doc.docType
+        clone.docImage = doc.docImage
+        return clone
+    }
+    
 }

@@ -18,22 +18,37 @@ class DocumentConfirmCreateViewController: UIViewController, DocumentView , Aler
     
     @IBOutlet weak var imagePreview: UIImageView!
     
+    @IBOutlet weak var createButton: UIButton!
+    
+    @IBOutlet weak var ConfirmLabel: UILabel!
     
     @IBAction func createPushed(sender: AnyObject) {
         
         
         DocumentDBConnection.AlertDelStuct.alertDelegate = self
         
-        //Display the image
+        //create document
+        if(document.editEnabled == false){
         var pfOb = DocumentDBConnection.createDocumentPFObject(self.document)
         DocumentDBConnection.create(pfOb);
-        
-        
-        
+        }//edit document
+        else{
+            //edit document on db
+            if(CurrentDocument.local == false){
+            DocumentDBConnection.edit(CurrentDocument.currentDoc , updated: self.document)
+            }
+            else{
+//add local edit here?
+            }
+        }
+
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if(document.editEnabled == true){
+            ConfirmLabel.text = "Confirm Edit"
+            createButton.setTitle("Update", forState: .Normal)
+        }
         
         
         docName.text = document.docName
@@ -51,11 +66,51 @@ class DocumentConfirmCreateViewController: UIViewController, DocumentView , Aler
         // Dispose of any resources that can be recreated.
     }
     
+    //param: message to be displayed
+    //the alert message
     func AlertUser(message : String) {
-        let alertController = UIAlertController(title: "Document Upload", message: message, preferredStyle: .Alert)
+        var messageA: String!
+        if(document.editEnabled == true){
+            messageA = "Document Edit"
+        }
+        else{
+            messageA = "Document Upload"
+        }
+        
+        let alertController = UIAlertController(title: messageA, message: message, preferredStyle: .Alert)
         
         let okAction = UIAlertAction(title: "Ok", style: .Default) {
             (action) in
+            
+            //if this is document editing
+            if(self.document.editEnabled == true){
+                //go back to home screen on success
+                if(message == "Success"){
+                    //if doctype = none move back one less than other types
+                    if(self.document.docType == .None ){
+                        self.moveBack(6)
+                    }
+                    else{
+                        self.moveBack(7)
+                    }
+                }
+                    //if fail to save edit stay here and does nothing
+                else{}
+            }
+                //else this document creation
+            else{
+                if(message == "Success"){
+                    //if doctype = none move back one less than other types
+                    if(self.document.docType == .None ){
+                        self.moveBack(4)
+                    }
+                    else{
+                        self.moveBack(5)
+                    }
+                }
+                    //if fail to create stay here and does nothing
+                else{}
+            }
         }
         
         alertController.addAction(okAction)
@@ -66,6 +121,13 @@ class DocumentConfirmCreateViewController: UIViewController, DocumentView , Aler
 
     }
     
+    //param: takes in number of screens to move back
+    //to move from confirm screen back to home
+    func moveBack(num : Int)
+    {
+        let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController];
+        self.navigationController!.popToViewController(viewControllers[viewControllers.count - num], animated: true);
+    }
 
     /*
     // MARK: - Navigation

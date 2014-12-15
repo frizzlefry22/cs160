@@ -74,10 +74,19 @@
 		29A4513A1A1C526000B7CB53 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A451391A1C526000B7CB53 /* RegisterViewController.swift */; };
 		29A4513C1A1C846700B7CB53 /* CreatePasswordPINViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A4513B1A1C846700B7CB53 /* CreatePasswordPINViewController.swift */; };
 		29B7FC081A38137A005679E2 /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B7FC071A38137A005679E2 /* Alertable.swift */; };
+		651C28511A3A768700B0CC08 /* docListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C28501A3A768700B0CC08 /* docListCell.swift */; };
+		651C28531A3AAF1D00B0CC08 /* ViewDocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651C28521A3AAF1D00B0CC08 /* ViewDocumentViewController.swift */; };
+		652795621A3BA0C700902C56 /* ViewImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652795611A3BA0C700902C56 /* ViewImageViewController.swift */; };
+		652795651A3BBD6F00902C56 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652795641A3BBD6F00902C56 /* HistoryTableViewController.swift */; };
+		652795671A3BC0CD00902C56 /* ViewHisDocViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652795661A3BC0CD00902C56 /* ViewHisDocViewController.swift */; };
+		6527956A1A3C3C0F00902C56 /* EditDocumnetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652795691A3C3C0F00902C56 /* EditDocumnetViewController.swift */; };
+		65B334881A3CDBE7004BBB53 /* CurrentDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B334871A3CDBE7004BBB53 /* CurrentDocument.swift */; };
 		65BDBAF41A30326800E52DE5 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BDBAF01A30326800E52DE5 /* Document.swift */; };
 		65BDBAF51A30326800E52DE5 /* DocumentDBConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BDBAF11A30326800E52DE5 /* DocumentDBConnection.swift */; };
 		65BDBAF71A30326800E52DE5 /* TestDocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BDBAF31A30326800E52DE5 /* TestDocumentViewController.swift */; };
 		65BDBAF91A318D7700E52DE5 /* KevinTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BDBAF81A318D7700E52DE5 /* KevinTestViewController.swift */; };
+		65FDD52A1A3E63620005399B /* LocalDocListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FDD5291A3E63620005399B /* LocalDocListViewController.swift */; };
+		65FDD52C1A3E64B30005399B /* localTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FDD52B1A3E64B30005399B /* localTableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,10 +170,19 @@
 		29A451391A1C526000B7CB53 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewController.swift; path = ../RegisterViewController.swift; sourceTree = "<group>"; };
 		29A4513B1A1C846700B7CB53 /* CreatePasswordPINViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePasswordPINViewController.swift; sourceTree = "<group>"; };
 		29B7FC071A38137A005679E2 /* Alertable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
+		651C28501A3A768700B0CC08 /* docListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = docListCell.swift; sourceTree = "<group>"; };
+		651C28521A3AAF1D00B0CC08 /* ViewDocumentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewDocumentViewController.swift; sourceTree = "<group>"; };
+		652795611A3BA0C700902C56 /* ViewImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewImageViewController.swift; sourceTree = "<group>"; };
+		652795641A3BBD6F00902C56 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
+		652795661A3BC0CD00902C56 /* ViewHisDocViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewHisDocViewController.swift; sourceTree = "<group>"; };
+		652795691A3C3C0F00902C56 /* EditDocumnetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditDocumnetViewController.swift; sourceTree = "<group>"; };
+		65B334871A3CDBE7004BBB53 /* CurrentDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentDocument.swift; sourceTree = "<group>"; };
 		65BDBAF01A30326800E52DE5 /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		65BDBAF11A30326800E52DE5 /* DocumentDBConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentDBConnection.swift; sourceTree = "<group>"; };
 		65BDBAF31A30326800E52DE5 /* TestDocumentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestDocumentViewController.swift; sourceTree = "<group>"; };
 		65BDBAF81A318D7700E52DE5 /* KevinTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KevinTestViewController.swift; sourceTree = "<group>"; };
+		65FDD5291A3E63620005399B /* LocalDocListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalDocListViewController.swift; sourceTree = "<group>"; };
+		65FDD52B1A3E64B30005399B /* localTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = localTableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,6 +289,8 @@
 		29152BB71A1971C100A88FEA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				651C28501A3A768700B0CC08 /* docListCell.swift */,
+				65FDD52B1A3E64B30005399B /* localTableCell.swift */,
 				29152BB81A1971C100A88FEA /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -325,6 +345,7 @@
 				2919301E1A242B3C00E34A27 /* Utils.swift */,
 				10FFA0F61A3DF738006C8536 /* Reachability.swift */,
 				294566B81A2B048B00DD7A3A /* Encoder.swift */,
+				65B334871A3CDBE7004BBB53 /* CurrentDocument.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -332,8 +353,9 @@
 		29A451381A1C4EB700B7CB53 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				652795681A3C324B00902C56 /* documentCreation */,
+				652795631A3BBD3700902C56 /* ViewDocument */,
 				2950E7381A317AB3009B29B5 /* DocumentConfirmCreateViewController.swift */,
-				2414C7C51A2B96E4003EA080 /* DocumentListTableViewController.swift */,
 				2414C7BB1A2B8AC3003EA080 /* DriverLicenseViewController.swift */,
 				2414C7B91A2B8AA4003EA080 /* BirthCertificateViewController.swift */,
 				107797D11A2FFFD8008E54AB /* UserTestViewController.swift */,
@@ -357,6 +379,27 @@
 				2414C7D11A3BD906003EA080 /* DeleteAccountViewController.swift */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		652795631A3BBD3700902C56 /* ViewDocument */ = {
+			isa = PBXGroup;
+			children = (
+				652795611A3BA0C700902C56 /* ViewImageViewController.swift */,
+				651C28521A3AAF1D00B0CC08 /* ViewDocumentViewController.swift */,
+				2414C7C51A2B96E4003EA080 /* DocumentListTableViewController.swift */,
+				652795641A3BBD6F00902C56 /* HistoryTableViewController.swift */,
+				652795661A3BC0CD00902C56 /* ViewHisDocViewController.swift */,
+				652795691A3C3C0F00902C56 /* EditDocumnetViewController.swift */,
+				65FDD5291A3E63620005399B /* LocalDocListViewController.swift */,
+			);
+			name = ViewDocument;
+			sourceTree = "<group>";
+		};
+		652795681A3C324B00902C56 /* documentCreation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = documentCreation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -467,6 +510,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1092DA8B1A2AE29B00820594 /* User.swift in Sources */,
+				652795671A3BC0CD00902C56 /* ViewHisDocViewController.swift in Sources */,
 				29A451351A1C4B9E00B7CB53 /* LoginViewController.swift in Sources */,
 				10FFA0F71A3DF738006C8536 /* Reachability.swift in Sources */,
 				1092DA8D1A2AE4B700820594 /* SessionData.swift in Sources */,
@@ -476,7 +520,10 @@
 				106F2F821A369EBD008B7482 /* LocalFileManager.swift in Sources */,
 				291930281A24674000E34A27 /* RegisterInfo.swift in Sources */,
 				291481681A3961F8005FD3BB /* EmailResetViewController.swift in Sources */,
+				65B334881A3CDBE7004BBB53 /* CurrentDocument.swift in Sources */,
 				65BDBAF71A30326800E52DE5 /* TestDocumentViewController.swift in Sources */,
+				651C28511A3A768700B0CC08 /* docListCell.swift in Sources */,
+				651C28531A3AAF1D00B0CC08 /* ViewDocumentViewController.swift in Sources */,
 				2919301F1A242B3C00E34A27 /* Utils.swift in Sources */,
 				2414C7CA1A3BD813003EA080 /* CurrentPassNewPassViewController.swift in Sources */,
 				291E83BC1A27B0ED0037DEE0 /* DocPhotoViewController.swift in Sources */,
@@ -486,14 +533,18 @@
 				294566B91A2B048B00DD7A3A /* Encoder.swift in Sources */,
 				29B7FC081A38137A005679E2 /* Alertable.swift in Sources */,
 				291E83BE1A294FFC0037DEE0 /* Encryption.swift in Sources */,
+				65FDD52A1A3E63620005399B /* LocalDocListViewController.swift in Sources */,
 				2914816A1A396256005FD3BB /* SecurityQuestionAnswerViewController.swift in Sources */,
 				29A451331A1C42E800B7CB53 /* Validator.swift in Sources */,
 				29833EDC1A2ABB0400E30CCD /* AcceptDataDelegate.swift in Sources */,
 				2914816C1A39854B005FD3BB /* ConfirmResetViewController.swift in Sources */,
 				29152BBA1A1971C100A88FEA /* AppDelegate.swift in Sources */,
+				652795651A3BBD6F00902C56 /* HistoryTableViewController.swift in Sources */,
 				2414C7D01A3BD8D6003EA080 /* ConfirmNewPinViewController.swift in Sources */,
+				65FDD52C1A3E64B30005399B /* localTableCell.swift in Sources */,
 				2946417B1A21DA5A0025AECC /* SecurityQuestions.swift in Sources */,
 				2414C7BA1A2B8AA4003EA080 /* BirthCertificateViewController.swift in Sources */,
+				652795621A3BA0C700902C56 /* ViewImageViewController.swift in Sources */,
 				29A4513A1A1C526000B7CB53 /* RegisterViewController.swift in Sources */,
 				2414C7B61A2AE4D2003EA080 /* AddDocumentViewController.swift in Sources */,
 				65BDBAF91A318D7700E52DE5 /* KevinTestViewController.swift in Sources */,
@@ -508,6 +559,7 @@
 				2414C7CC1A3BD853003EA080 /* CurrentPassNewPinViewController.swift in Sources */,
 				65BDBAF41A30326800E52DE5 /* Document.swift in Sources */,
 				2414C7BC1A2B8AC3003EA080 /* DriverLicenseViewController.swift in Sources */,
+				6527956A1A3C3C0F00902C56 /* EditDocumnetViewController.swift in Sources */,
 				2919302C1A246C8900E34A27 /* ConfirmRegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
