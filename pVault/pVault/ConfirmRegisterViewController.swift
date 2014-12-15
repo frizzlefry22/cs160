@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConfirmRegisterViewController: UIViewController {
+class ConfirmRegisterViewController: UIViewController, Alertable{
 
     
     
@@ -18,8 +18,29 @@ class ConfirmRegisterViewController: UIViewController {
     
     @IBAction func debugButtonForNow(sender: AnyObject) {
         
+        //Sets Delegate needed for Alert
+        UserDatabaseConnection.AlertDelStuct.alertDelegate = self
+        
         RegisterInfo.createUser()
         
+        
+    }
+    
+    func AlertUser(message: String) {
+        let alertController = UIAlertController(title: "Document Upload", message: "Successful", preferredStyle: .Alert)
+        
+        let okAction = UIAlertAction(title: "Ok", style: .Default) {
+            (action) in
+            
+            self.moveBack(7)
+            
+        }
+        
+        alertController.addAction(okAction)
+        
+        self.presentViewController(alertController,animated:true) {
+            
+        }
     }
     
     
@@ -36,6 +57,14 @@ class ConfirmRegisterViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //param: takes in number of screens to move back
+    //to move from confirm screen back to home
+    func moveBack(num : Int)
+    {
+        let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController];
+        self.navigationController!.popToViewController(viewControllers[viewControllers.count - num], animated: true);
     }
     
 

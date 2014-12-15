@@ -34,7 +34,7 @@ class DocumentListTableViewController: UIViewController, UITableViewDataSource, 
         CurrentDocument.local = false
         
         //gets list of document tuples
-        docList = DocumentDBConnection.getDocList("test")
+        docList = DocumentDBConnection.getDocList(LoggedInuser.getUserID())
     }
 
     override func didReceiveMemoryWarning() {

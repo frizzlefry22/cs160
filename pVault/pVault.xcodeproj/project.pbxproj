@@ -62,6 +62,7 @@
 		291E83BE1A294FFC0037DEE0 /* Encryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291E83BD1A294FFC0037DEE0 /* Encryption.swift */; };
 		2922C05D1A26DFDE00A31962 /* SecurityQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2946417A1A21DA5A0025AECC /* SecurityQuestions.swift */; };
 		292791FF1A326CAD0068493E /* DocumentViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292791FE1A326CAD0068493E /* DocumentViewProtocol.swift */; };
+		293B2ACB1A3EA372007288BD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293B2ACA1A3EA372007288BD /* HomeViewController.swift */; };
 		294566B91A2B048B00DD7A3A /* Encoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294566B81A2B048B00DD7A3A /* Encoder.swift */; };
 		2946417B1A21DA5A0025AECC /* SecurityQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2946417A1A21DA5A0025AECC /* SecurityQuestions.swift */; };
 		2950E7371A317A90009B29B5 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2950E7361A317A90009B29B5 /* Enums.swift */; };
@@ -154,6 +155,7 @@
 		291E83BB1A27B0ED0037DEE0 /* DocPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocPhotoViewController.swift; sourceTree = "<group>"; };
 		291E83BD1A294FFC0037DEE0 /* Encryption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encryption.swift; sourceTree = "<group>"; };
 		292791FE1A326CAD0068493E /* DocumentViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentViewProtocol.swift; sourceTree = "<group>"; };
+		293B2ACA1A3EA372007288BD /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		294566B81A2B048B00DD7A3A /* Encoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encoder.swift; sourceTree = "<group>"; };
 		2946417A1A21DA5A0025AECC /* SecurityQuestions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityQuestions.swift; sourceTree = "<group>"; };
 		2950E7361A317A90009B29B5 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
@@ -353,32 +355,43 @@
 		29A451381A1C4EB700B7CB53 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				29CB419C1A3EBFB6006CA2C4 /* ResetPassword */,
+				29CB419B1A3EBFA1006CA2C4 /* RegisterUser */,
 				652795681A3C324B00902C56 /* documentCreation */,
 				652795631A3BBD3700902C56 /* ViewDocument */,
-				2950E7381A317AB3009B29B5 /* DocumentConfirmCreateViewController.swift */,
-				2414C7BB1A2B8AC3003EA080 /* DriverLicenseViewController.swift */,
-				2414C7B91A2B8AA4003EA080 /* BirthCertificateViewController.swift */,
 				107797D11A2FFFD8008E54AB /* UserTestViewController.swift */,
-				2414C7B71A2B8A6A003EA080 /* CreditCardViewController.swift */,
-				2414C7B51A2AE4D2003EA080 /* AddDocumentViewController.swift */,
-				29A451391A1C526000B7CB53 /* RegisterViewController.swift */,
-				29A451341A1C4B9E00B7CB53 /* LoginViewController.swift */,
-				29A4513B1A1C846700B7CB53 /* CreatePasswordPINViewController.swift */,
-				29104E971A1F1F2A0058F475 /* SecurityQuestionsViewController.swift */,
-				2919302B1A246C8900E34A27 /* ConfirmRegisterViewController.swift */,
-				291E83BB1A27B0ED0037DEE0 /* DocPhotoViewController.swift */,
 				29833ED91A2ABAA900E30CCD /* TempViewController.swift */,
 				65BDBAF81A318D7700E52DE5 /* KevinTestViewController.swift */,
-				291481671A3961F8005FD3BB /* EmailResetViewController.swift */,
-				291481691A396256005FD3BB /* SecurityQuestionAnswerViewController.swift */,
-				2914816B1A39854B005FD3BB /* ConfirmResetViewController.swift */,
 				2414C7C91A3BD813003EA080 /* CurrentPassNewPassViewController.swift */,
 				2414C7CD1A3BD8B6003EA080 /* ConfirmNewPassViewController.swift */,
 				2414C7CB1A3BD853003EA080 /* CurrentPassNewPinViewController.swift */,
 				2414C7CF1A3BD8D6003EA080 /* ConfirmNewPinViewController.swift */,
 				2414C7D11A3BD906003EA080 /* DeleteAccountViewController.swift */,
+				293B2ACA1A3EA372007288BD /* HomeViewController.swift */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		29CB419B1A3EBFA1006CA2C4 /* RegisterUser */ = {
+			isa = PBXGroup;
+			children = (
+				29A451391A1C526000B7CB53 /* RegisterViewController.swift */,
+				2919302B1A246C8900E34A27 /* ConfirmRegisterViewController.swift */,
+				29A4513B1A1C846700B7CB53 /* CreatePasswordPINViewController.swift */,
+				29A451341A1C4B9E00B7CB53 /* LoginViewController.swift */,
+				29104E971A1F1F2A0058F475 /* SecurityQuestionsViewController.swift */,
+			);
+			name = RegisterUser;
+			sourceTree = "<group>";
+		};
+		29CB419C1A3EBFB6006CA2C4 /* ResetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				291481691A396256005FD3BB /* SecurityQuestionAnswerViewController.swift */,
+				2914816B1A39854B005FD3BB /* ConfirmResetViewController.swift */,
+				291481671A3961F8005FD3BB /* EmailResetViewController.swift */,
+			);
+			name = ResetPassword;
 			sourceTree = "<group>";
 		};
 		652795631A3BBD3700902C56 /* ViewDocument */ = {
@@ -398,6 +411,12 @@
 		652795681A3C324B00902C56 /* documentCreation */ = {
 			isa = PBXGroup;
 			children = (
+				2414C7B51A2AE4D2003EA080 /* AddDocumentViewController.swift */,
+				291E83BB1A27B0ED0037DEE0 /* DocPhotoViewController.swift */,
+				2414C7B71A2B8A6A003EA080 /* CreditCardViewController.swift */,
+				2414C7BB1A2B8AC3003EA080 /* DriverLicenseViewController.swift */,
+				2414C7B91A2B8AA4003EA080 /* BirthCertificateViewController.swift */,
+				2950E7381A317AB3009B29B5 /* DocumentConfirmCreateViewController.swift */,
 			);
 			name = documentCreation;
 			sourceTree = "<group>";
@@ -529,6 +548,7 @@
 				291E83BC1A27B0ED0037DEE0 /* DocPhotoViewController.swift in Sources */,
 				29104E981A1F1F2A0058F475 /* SecurityQuestionsViewController.swift in Sources */,
 				65BDBAF51A30326800E52DE5 /* DocumentDBConnection.swift in Sources */,
+				293B2ACB1A3EA372007288BD /* HomeViewController.swift in Sources */,
 				2414C7B81A2B8A6A003EA080 /* CreditCardViewController.swift in Sources */,
 				294566B91A2B048B00DD7A3A /* Encoder.swift in Sources */,
 				29B7FC081A38137A005679E2 /* Alertable.swift in Sources */,
