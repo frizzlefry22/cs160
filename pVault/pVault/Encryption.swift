@@ -17,31 +17,34 @@ extension Character {
     }
 }
 
-//Using code form https://gist.github.com/alskipp/016c8ba96352e5c74bf2
 struct Encryptor {
     
-    //Can change this to the users password ? K
-    let secretKey = "(:.,?P!9@PAz"
-    
-    func _encrypt(c:Character, key:Character) -> String {
-        let byte = [c.utf8() ^ key.utf8()]
-        return String(bytes: byte, encoding: NSUTF8StringEncoding)!
+    static func encrypt( text : String ) -> String {
+        
+        
+        var encryptedString = ""
+        
+        for char in text {
+            let mask  = Character(UnicodeScalar( char.utf8() ^ 7 ))
+            
+            encryptedString.append(mask)
+        }
+        
+        return encryptedString
     }
     
-    func _encrypt(message:String, key:String) -> String {
-        return reduce(Zip2(message, key), "") { $0 + self._encrypt($1) }
-    }
-    
-    func encrypt( text : String ) -> String {
+    static func decrypt( encryptedString : String ) -> String {
         
-        let encryptedText = _encrypt(text, key: secretKey)
-        return encryptedText
-    }
-    
-    func decrypt( encryptedString : String ) -> String {
+       var decryptedString = ""
         
-        return _encrypt(encryptedString, key: secretKey)
+        for char in encryptedString {
+            let mask = Character(UnicodeScalar( char.utf8()  ^ 7))
+            
+            
+            decryptedString.append(mask)
+        }
         
+        return decryptedString
     }
     
 }
