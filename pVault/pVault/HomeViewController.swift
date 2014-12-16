@@ -48,6 +48,10 @@ class HomeViewController: UIViewController {
         self.navigationController?.pushViewController(vc,animated : true);
     }
     
+    @IBAction func syncLocalDocsPressed(sender: AnyObject) {
+        
+        LocalFileManager.syncDocuments(LoggedInuser)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

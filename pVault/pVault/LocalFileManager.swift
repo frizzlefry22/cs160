@@ -97,7 +97,7 @@ class LocalFileManager{
         //create dictionary
         var docDict:NSMutableDictionary = [
             "objectID": newDoc.objectID,
-            "docImage": newDoc.docImage,
+            "docImage": "image string",// newDoc.docImage,
             "docID": newDoc.docID,
             "userID": newDoc.userID,
             "docName": newDoc.docName,
@@ -112,7 +112,7 @@ class LocalFileManager{
         if docDict.writeToFile(filePath, atomically: true){
             let readDict:NSDictionary? = NSDictionary(contentsOfFile: filePath)
             if let dict = readDict{
-                //println("Read the dictionary back from disk = \(dict)")
+                println("Read the dictionary back from disk = \(dict)")
             }else{
                 println("Failed to read the dictionary back from disk")
             }
@@ -266,13 +266,52 @@ class LocalFileManager{
         
         return true
     }
-    class func editDocument(objectID: String, newDoc: Document, user: User){
+    
+    class func syncDocuments(user: User){
+        let documentsPath: AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+        
+        let userPath = documentsPath.stringByAppendingPathComponent(user.getEmail() + "/")
+        let syncPath = userPath + "/Unsynced"
+        var doc = Document(creatorID: user.getUserID())
+        
+        var unsyncContents = NSFileManager.defaultManager().contentsOfDirectoryAtPath(syncPath, error: nil)!
+        
+        for file in unsyncContents{
+            //get file name as string
+            var fileName: String? = file as? String
+            //check if document file
+            if(fileName != "userInfo"){
+                let filePath = syncPath + "/" + fileName!
+                var docDict: NSMutableDictionary! = NSMutableDictionary(contentsOfFile: filePath)
+                
+                //create document from file
+                var doc = createDocumentFromFile(docDict, user: user)
+                
+                
+                
+                if doc.objectID.rangeOfString("temp") != nil{
+                    //add
+                    var pfObj = DocumentDBConnection.createDocumentPFObject(doc)
+                    //delete temp doc
+                    deleteDocument(doc.objectID, user: LoggedInuser)
+                    DocumentDBConnection.create(pfObj, obj: doc)
+                }else{
+                    //edit
+                    DocumentDBConnection.edit(doc, updated: doc)
+                }
+            }
+            
+        }
+        
+    }
+    class func editDocument(objectID: String, newDoc: Document, user: User, temp: Bool){
         //let oldDoc = getDocument(objectID, user: user)
         
         let documentsPath: AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
         
         let userPath = documentsPath.stringByAppendingPathComponent(user.getEmail() + "/")
         let syncPath = userPath + getDocStatus(objectID, user: user)
+        let unsyncPath = userPath + "/Unsynced/" + objectID
         let filePath = syncPath + "/" + objectID
         
         var docDict:NSMutableDictionary = [
@@ -291,15 +330,31 @@ class LocalFileManager{
         
         docDict["docImage"] = newDoc.docImage
         
-        if docDict.writeToFile(filePath, atomically: true){
-            let readDict:NSDictionary? = NSDictionary(contentsOfFile: filePath)
-            if let dict = readDict{
-                println("Read the dictionary back from disk = \(dict)")
+        if(temp){
+            //delete from sync documents
+            deleteDocument(objectID, user: LoggedInuser)
+            //add to unsync documents
+            if docDict.writeToFile(unsyncPath, atomically: true){
+                let readDict:NSDictionary? = NSDictionary(contentsOfFile: filePath)
+                if let dict = readDict{
+                    println("Read the dictionary back from disk = \(dict)")
+                }else{
+                    println("Failed to read the dictionary back from disk")
+                }
             }else{
-                println("Failed to read the dictionary back from disk")
+                println("Failed to write the dictionary to disk")
             }
         }else{
-            println("Failed to write the dictionary to disk")
+            if docDict.writeToFile(filePath, atomically: true){
+                let readDict:NSDictionary? = NSDictionary(contentsOfFile: filePath)
+                if let dict = readDict{
+                    println("Read the dictionary back from disk = \(dict)")
+                }else{
+                    println("Failed to read the dictionary back from disk")
+                }
+            }else{
+                println("Failed to write the dictionary to disk")
+                }
         }
         
         

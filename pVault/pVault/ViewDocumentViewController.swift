@@ -124,12 +124,16 @@ class ViewDocumentViewController: UIViewController {
             //if its not a local
             if(!CurrentDocument.local){
                 DocumentDBConnection.delete(DocumentDBConnection.deleteObject(self.document.objectID))
+                
+                LocalFileManager.deleteDocument(self.document.objectID, user: LoggedInuser)
                 //if there is history, delete them
                 if(!isEmpty(DocumentDBConnection.getHistory(self.document.objectID))){
                     DocumentDBConnection.delete(DocumentDBConnection.deleteHistory(self.document.objectID))
+                    
                 }
             } else{
 //local document removal here
+                LocalFileManager.deleteDocument(self.document.objectID, user: LoggedInuser)
             }
             
             

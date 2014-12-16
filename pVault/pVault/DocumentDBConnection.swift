@@ -122,7 +122,7 @@ public class DocumentDBConnection: DBConnectionProtocol{
                         println("File Saved")
                         AlertDelStuct.alertDelegate.AlertUser("Success")
                         editDoc.objectID = document.objectId
-                        LocalFileManager.editDocument(currentDoc.objectID, newDoc: editDoc, user: LoggedInuser)
+                        LocalFileManager.editDocument(currentDoc.objectID, newDoc: editDoc, user: LoggedInuser, temp: false)
                     }
                         //fail block
                     else{

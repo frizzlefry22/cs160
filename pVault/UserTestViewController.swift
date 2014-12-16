@@ -37,7 +37,7 @@ class UserTestViewController: UIViewController {
         var newDoc = doc.clone(doc)
         newDoc.docImage = "changedvalues"
         
-        LocalFileManager.editDocument(doc.objectID, newDoc: newDoc, user: LoggedInuser)
+        //LocalFileManager.editDocument(doc.objectID, newDoc: newDoc, user: LoggedInuser)
 
     }
     
