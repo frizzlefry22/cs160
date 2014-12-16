@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConfirmNewPinViewController: UIViewController, UITextFieldDelegate {
+class ConfirmNewPinViewController: UIViewController, UITextFieldDelegate , Alertable{
 
     @IBOutlet weak var pinField:UITextField!;
     @IBOutlet weak var confirmPINField:UITextField!;
@@ -57,6 +57,8 @@ class ConfirmNewPinViewController: UIViewController, UITextFieldDelegate {
         var newUser = LoggedInuser.copy()
         newUser.setPIN(pinField.text)
         
+        UserDatabaseConnection.AlertDelStuct.alertDelegate = self 
+        
         //edit user in DB
         //*** FOR SOME REASON, when you try to step over this, xcode crashes, works if you just hit continue, dunno why ***
         UserDatabaseConnection.edit(LoggedInuser, updated: newUser)
@@ -65,8 +67,27 @@ class ConfirmNewPinViewController: UIViewController, UITextFieldDelegate {
         LoggedInuser.setPIN(pinField.text)
         //println(LoggedInuser.getPassword())
         
-        returnToSettings();
+        
     }
+    
+    func AlertUser(message: String) {
+        
+        let alertController = UIAlertController(title: "PIN changed", message: message, preferredStyle: .Alert)
+        
+        let okAction = UIAlertAction(title: "Ok", style: .Default) {
+            (action) in
+            
+            self.returnToSettings();
+            
+        }
+        
+        alertController.addAction(okAction)
+        
+        self.presentViewController(alertController,animated:true) {
+            
+        }
+    }
+    
     
     func checkForMatching() {
         
