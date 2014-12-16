@@ -13,7 +13,9 @@ class ConfirmNewPinViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var pinField:UITextField!;
     @IBOutlet weak var confirmPINField:UITextField!;
     
-    @IBOutlet weak var pinsDontMatchLabel:UILabel!;
+    @IBOutlet weak var warningConfirmPINLabel:UILabel!;
+    
+    @IBOutlet weak var confirmButton:UIButton!;
     
     //var user:PFObject!;
     
@@ -35,37 +37,75 @@ class ConfirmNewPinViewController: UIViewController, UITextFieldDelegate {
         returnToSettings();
     }
     
-    @IBAction func confirm()
-    {
-        if (pinsMatch())
-        {
-            var PIN = pinField.text;
-            
-            var userQuery = PFQuery(className:"User");
-            userQuery.whereKey("email", equalTo:LoggedInuser.getEmail());
-            var searchResults:NSArray = userQuery.findObjects();
-            var parseUser:PFObject = searchResults.firstObject as PFObject;
-            
-            parseUser["PIN"] = PIN;
-            parseUser.save();
-            
-            returnToSettings();
-        }
-        else
-        {
-            clearFields();
-            pinsDontMatchLabel.hidden = false;
-        }
-    }
-    
-    func pinsMatch() -> Bool
-    {
-        var PIN = pinField.text;
-        var confirmPIN = confirmPINField.text;
+    @IBAction func pinChanged(sender: AnyObject) {
         
-        return PIN == confirmPIN;
+        if ( Validator.validPin(pinField.text)) {
+            warningConfirmPINLabel.text = "Valid"
+            warningConfirmPINLabel.textColor = UIColor.greenColor()
+        }
+        else {
+            warningConfirmPINLabel.text = "Invalid"
+            warningConfirmPINLabel.textColor = UIColor.redColor()
+        }
+        
+        checkForMatching()
     }
     
+    @IBAction func confirm(sender: AnyObject) {
+        
+        //create copy of LoggedInuser
+        var newUser = LoggedInuser.copy()
+        newUser.setPIN(pinField.text)
+        
+        //edit user in DB
+        //*** FOR SOME REASON, when you try to step over this, xcode crashes, works if you just hit continue, dunno why ***
+        UserDatabaseConnection.edit(LoggedInuser, updated: newUser)
+        
+        //here is where I should save locally, leave it like this for now for testing
+        LoggedInuser.setPIN(pinField.text)
+        //println(LoggedInuser.getPassword())
+        
+        returnToSettings();
+    }
+    
+    func checkForMatching() {
+        
+        var match = Validator.matches(pinField.text, s2 : confirmPINField.text)
+        
+        if (pinField.text.isEmpty)
+        {
+            warningConfirmPINLabel.text = ""
+        }
+        else if (!pinField.text.isEmpty && !confirmPINField.text.isEmpty)
+        {
+            if ( match ) {
+                warningConfirmPINLabel.text = "Matches"
+                warningConfirmPINLabel.textColor = UIColor.greenColor()
+            }
+            else {
+                warningConfirmPINLabel.text = "Does not match"
+                warningConfirmPINLabel.textColor = UIColor.redColor()
+            }
+        }
+        
+        updateConfirmButton(match)
+    }
+    
+    @IBAction func confirmPINChanged(sender: AnyObject) {
+        checkForMatching()
+    }
+    
+    func updateConfirmButton( cont : Bool) {
+        if (cont) {
+            confirmButton.enabled = true
+            confirmButton.alpha = 1
+        }
+        else {
+            confirmButton.enabled = false
+            confirmButton.alpha = 0.4
+        }
+    }
+        
     func clearFields()
     {
         pinField.text = "";

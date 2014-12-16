@@ -11,7 +11,7 @@ import UIKit
 class CurrentPassNewPinViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var passwordField: UITextField!
-    
+    @IBOutlet weak var passwordWarningLabel: UILabel!;
     
     @IBAction func validatePass(sender: AnyObject)
     {
@@ -23,13 +23,21 @@ class CurrentPassNewPinViewController: UIViewController, UITextFieldDelegate {
         }
         else
         {
-            println("Wrong password!");
+            passwordWarningLabel.text = "Incorrect password";
         }
     }
     
     @IBAction func cancel(sender: AnyObject)
     {
         self.navigationController?.popViewControllerAnimated(true);
+    }
+    
+    @IBAction func passwordEditChanged(sender: AnyObject)
+    {
+        if (passwordField.text.isEmpty)
+        {
+            passwordWarningLabel.text = "";
+        }
     }
     
     override func viewDidLoad() {
