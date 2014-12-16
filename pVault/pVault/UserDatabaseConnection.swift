@@ -72,7 +72,7 @@ public class UserDatabaseConnection: DBConnectionProtocol{
         var prevUser = previous as User
         
         var query = PFQuery(className: "User")
-        query.whereKey("userID", equalTo:prevUser.getUserID())
+        query.whereKey("email", equalTo:prevUser.getEmail())
         
         query.getFirstObjectInBackgroundWithBlock{
             (PFObject object, error: NSError!) -> Void in

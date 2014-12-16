@@ -19,12 +19,13 @@ class CurrentPassNewPassViewController: UIViewController {
     {
         if (passwordField.text == LoggedInuser.getPassword())
         {
-            var changeConfirmPassViewController = self.storyboard?.instantiateViewControllerWithIdentifier("ChangeConfirmPassword");
-            self.navigationController?.pushViewController(changeConfirmPassViewController, animated: true);
+            var changeConfirmPassViewController = self.storyboard?.instantiateViewControllerWithIdentifier("ChangeConfirmPassword")  as ConfirmNewPassViewController
+
+            self.navigationController?.pushViewController(changeConfirmPassViewController, animated: true)
         }
         else
         {
-            passwordWarningLabel.text = "Incorrect password";
+            passwordWarningLabel.text = "Incorrect password"
         }
     }
     
