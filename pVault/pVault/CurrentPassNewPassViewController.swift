@@ -2,13 +2,13 @@
 //  CurrentPassNewPassViewController.swift
 //  pVault
 //
-//  Created by Lashkar Singh on 12/12/14.
+//  Created by !Lashkar Singh on 12/12/14.
 //  Copyright (c) 2014 Pvault2. All rights reserved.
 //
 
 import UIKit
 
-class CurrentPassNewPassViewController: UIViewController {
+class CurrentPassNewPassViewController: UIViewController, UITextFieldDelegate  {
 
     
     
@@ -36,6 +36,8 @@ class CurrentPassNewPassViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.passwordField.delegate = self;
+        
         // Do any additional setup after loading the view.
     }
 
@@ -44,7 +46,13 @@ class CurrentPassNewPassViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    //hides the keyboard when you hit return
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        
+        self.view.endEditing(true);
+        return false;
+    }
+    
     /*
     // MARK: - Navigation
 

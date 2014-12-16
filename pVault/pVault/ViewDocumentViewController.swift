@@ -38,10 +38,6 @@ class ViewDocumentViewController: UIViewController {
     @IBAction func viewDocHistory(sender: AnyObject) {
         var temp = DocumentDBConnection.getHistory(document.objectID)
         
-        //checks if its local and displays history
-        if(CurrentDocument.local == true){
-            historyButton.enabled = false
-        }
         
         segueString = "viewHistory"
         //if there is history move to screen
@@ -71,6 +67,12 @@ class ViewDocumentViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        //checks if its local and displays history
+        if(CurrentDocument.local == true){
+            historyButton.enabled = false
+            historyButton.hidden = true
+        }
         
         //doc fields
         var docFieldString = ""

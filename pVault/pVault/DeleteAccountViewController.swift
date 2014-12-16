@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DeleteAccountViewController: UIViewController {
+class DeleteAccountViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var pinTextField:UITextField!;
     @IBOutlet weak var wrongPINLabel:UILabel!;
@@ -16,6 +16,7 @@ class DeleteAccountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.pinTextField.delegate = self;
         // Do any additional setup after loading the view.
     }
 
@@ -48,6 +49,13 @@ class DeleteAccountViewController: UIViewController {
    
     }
 
+    //hides the keyboard when you hit return
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        
+        self.view.endEditing(true);
+        return false;
+    }
+    
     /*
     // MARK: - Navigation
 

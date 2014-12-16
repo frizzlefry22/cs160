@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreatePasswordPINViewController: UIViewController {
+class CreatePasswordPINViewController: UIViewController, UITextFieldDelegate {
     
     
     //Bools that decide if can proceed
@@ -141,6 +141,11 @@ class CreatePasswordPINViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.passConfirm.delegate = self;
+        self.pass.delegate = self;
+        self.pinCode.delegate = self;
+        self.pinCodeConfirmed.delegate = self;
+        
         continueButton.alpha = 0.4
         continueButton.enabled = false
         
@@ -152,7 +157,13 @@ class CreatePasswordPINViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    //hides the keyboard when you hit return
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        
+        self.view.endEditing(true);
+        return false;
+    }
+    
     /*
     // MARK: - Navigation
 

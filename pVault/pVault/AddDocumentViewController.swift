@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddDocumentViewController: UIViewController, UIPickerViewDelegate,UIPickerViewDataSource{
+class AddDocumentViewController: UIViewController, UIPickerViewDelegate,UIPickerViewDataSource, UITextFieldDelegate {
     
     var currentSelected : String!
     
@@ -68,6 +68,8 @@ class AddDocumentViewController: UIViewController, UIPickerViewDelegate,UIPicker
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.docTitle.delegate = self;
+        //descTextView.inputView = UIView(frame: CGRectZero)
         //navigation
         
         thePickerView.delegate = self
@@ -82,7 +84,12 @@ class AddDocumentViewController: UIViewController, UIPickerViewDelegate,UIPicker
         // Dispose of any resources that can be recreated.
     }
     
-    
+    //hides the keyboard when you hit return
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        
+        self.view.endEditing(true);
+        return false;
+    }
 
     //Stuff for the UIPicker
     

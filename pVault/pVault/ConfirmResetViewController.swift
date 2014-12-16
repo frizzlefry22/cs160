@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConfirmResetViewController: UIViewController {
+class ConfirmResetViewController: UIViewController, UITextFieldDelegate  {
 
     var userEmail : String!
     
@@ -96,7 +96,9 @@ class ConfirmResetViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.newPassword.delegate = self;
+        self.confirmPassword.delegate = self;
         resetPasswordButton.alpha = 0.4
         resetPasswordButton.enabled = false
         
@@ -108,7 +110,13 @@ class ConfirmResetViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    //hides the keyboard when you hit return
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        
+        self.view.endEditing(true);
+        return false;
+    }
+    
     /*
     // MARK: - Navigation
 

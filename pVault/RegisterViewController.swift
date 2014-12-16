@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController, UITextFieldDelegate  {
 
     @IBOutlet weak var email: UITextField!
 
@@ -53,6 +53,10 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.email.delegate = self;
+        //self.emailEdited.delegate = self;
+
+        
         //This makes the button look unclickable
         continueButton.alpha = 0.4
         
@@ -64,6 +68,13 @@ class RegisterViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //hides the keyboard when you hit return
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        
+        self.view.endEditing(true);
+        return false;
+    }
+
 
     /*
     // MARK: - Navigation

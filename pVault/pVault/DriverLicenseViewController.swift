@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DriverLicenseViewController: UIViewController, DocumentView {
+class DriverLicenseViewController: UIViewController, DocumentView, UITextFieldDelegate  {
 
     @IBOutlet weak var docNameTextField: UITextField!
     
@@ -29,6 +29,15 @@ class DriverLicenseViewController: UIViewController, DocumentView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.licenseName.delegate = self;
+        self.licenseDOB.delegate = self;
+        self.licenseNum.delegate = self;
+        self.licenseExp.delegate = self;
+        self.licenseClass.delegate = self;
+        self.docNameTextField.delegate = self;
+        
+        //licenseAddress.inputView = UIView(frame: CGRectZero)
 
         docNameTextField.text = document.docName
         
@@ -56,6 +65,13 @@ class DriverLicenseViewController: UIViewController, DocumentView {
         
     }
 
+    //hides the keyboard when you hit return
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        
+        self.view.endEditing(true);
+        return false;
+    }
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.

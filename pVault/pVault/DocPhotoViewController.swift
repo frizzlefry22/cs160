@@ -4,7 +4,7 @@ import UIKit
 import MobileCoreServices
 
 class DocPhotoViewController: UIViewController,
-UINavigationControllerDelegate, UIImagePickerControllerDelegate , DocumentView {
+UINavigationControllerDelegate, UIImagePickerControllerDelegate , DocumentView, UITextFieldDelegate  {
     
     @IBOutlet weak var docNameTextField: UITextField!
     
@@ -33,6 +33,8 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate , DocumentView {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.docNameTextField.delegate = self;
+        
         docNameTextField.text = document.docName
         
         if ( document.editEnabled! ) {
@@ -45,6 +47,12 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate , DocumentView {
         
     }
     
+    //hides the keyboard when you hit return
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        
+        self.view.endEditing(true);
+        return false;
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         

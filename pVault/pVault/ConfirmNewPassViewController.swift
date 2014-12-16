@@ -2,13 +2,13 @@
 //  ConfirmNewPassViewController.swift
 //  pVault
 //
-//  Created by Lashkar Singh on 12/12/14.
+//  Created by !Lashkar Singh on 12/12/14.
 //  Copyright (c) 2014 Pvault2. All rights reserved.
 //
 
 import UIKit
 
-class ConfirmNewPassViewController: UIViewController {
+class ConfirmNewPassViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var passwordField:UITextField!;
     @IBOutlet weak var confirmPasswordField:UITextField!;
@@ -18,6 +18,9 @@ class ConfirmNewPassViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.passwordField.delegate = self;
+        self.confirmPasswordField.delegate = self;
 
         // Do any additional setup after loading the view.
     }
@@ -80,6 +83,13 @@ class ConfirmNewPassViewController: UIViewController {
         self.navigationController?.setViewControllers(newNavStack, animated: true);
     }
 
+    //hides the keyboard when you hit return
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        
+        self.view.endEditing(true);
+        return false;
+    }
+    
     /*
     // MARK: - Navigation
 

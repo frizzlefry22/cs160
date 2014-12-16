@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EmailResetViewController: UIViewController {
+class EmailResetViewController: UIViewController, UITextFieldDelegate  {
 
     @IBOutlet weak var emailInput: UITextField!
     
@@ -36,6 +36,7 @@ class EmailResetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.emailInput.delegate = self;
         continueButton.enabled = false
         continueButton.alpha = 0.4
         
@@ -47,6 +48,12 @@ class EmailResetViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //hides the keyboard when you hit return
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        
+        self.view.endEditing(true);
+        return false;
+    }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         

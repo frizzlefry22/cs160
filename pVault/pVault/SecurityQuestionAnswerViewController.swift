@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecurityQuestionAnswerViewController: UIViewController {
+class SecurityQuestionAnswerViewController: UIViewController, UITextFieldDelegate {
 
     //This is to pass email
     var usersEmail : String!
@@ -124,6 +124,11 @@ class SecurityQuestionAnswerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.answer1.delegate = self;
+        self.answer2.delegate = self;
+        self.answer3.delegate = self;
+
+
         
         continueButton.enabled = false
         continueButton.alpha = 0.4
@@ -161,7 +166,11 @@ class SecurityQuestionAnswerViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    //hides the keyboard when you hit return
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        self.view.endEditing(true);
+        return false;
+    }
     
     // MARK: - Navigation
 

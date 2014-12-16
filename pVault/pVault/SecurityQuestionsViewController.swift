@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecurityQuestionsViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate {
+class SecurityQuestionsViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate, UITextFieldDelegate  {
 
     //VIEW STUFF
     
@@ -77,6 +77,8 @@ class SecurityQuestionsViewController: UIViewController,UIPickerViewDataSource,U
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.answer.delegate = self;
         
         myPicker.delegate = self
         myPicker.dataSource = self
@@ -108,7 +110,12 @@ class SecurityQuestionsViewController: UIViewController,UIPickerViewDataSource,U
     }
 
     
-    
+    //hides the keyboard when you hit return
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        
+        self.view.endEditing(true);
+        return false;
+    }
 
     /*
     // MARK: - Navigation

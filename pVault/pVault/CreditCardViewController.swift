@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreditCardViewController: UIViewController , DocumentView {
+class CreditCardViewController: UIViewController , DocumentView, UITextFieldDelegate  {
 
     var docTitle : String!
     
@@ -28,6 +28,12 @@ class CreditCardViewController: UIViewController , DocumentView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.DocName.delegate = self;
+        self.cardHolderName.delegate = self;
+        self.creditCardNumber.delegate = self;
+        self.expirationDate.delegate = self;
+        self.cvc.delegate = self;
 
         DocName.text = self.document.docName
 
@@ -41,6 +47,13 @@ class CreditCardViewController: UIViewController , DocumentView {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //hides the keyboard when you hit return
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        
+        self.view.endEditing(true);
+        return false;
     }
     
     func populateFields( fields : [String:String]) {

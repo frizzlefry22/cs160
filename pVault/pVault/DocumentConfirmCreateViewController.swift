@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DocumentConfirmCreateViewController: UIViewController, DocumentView , Alertable{
+class DocumentConfirmCreateViewController: UIViewController, DocumentView , Alertable, UITextFieldDelegate {
 
     var document : Document!
     
@@ -52,6 +52,10 @@ class DocumentConfirmCreateViewController: UIViewController, DocumentView , Aler
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.docName.delegate = self;
+        self.docType.delegate = self;
+        
         if(document.editEnabled == true){
             ConfirmLabel.text = "Confirm Edit"
             createButton.setTitle("Update", forState: .Normal)
@@ -68,6 +72,13 @@ class DocumentConfirmCreateViewController: UIViewController, DocumentView , Aler
         // Do any additional setup after loading the view.
     }
 
+    //hides the keyboard when you hit return
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        
+        self.view.endEditing(true);
+        return false;
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

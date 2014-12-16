@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate  {
 
     var user : User!
     
@@ -96,7 +96,8 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.loginEmail.delegate = self;
+        self.loginPassword.delegate = self;
         // Do any additional setup after loading the view.
     }
 
@@ -105,7 +106,12 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
+    //hides the keyboard when you hit return
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        
+        self.view.endEditing(true);
+        return false;
+    }
 
     // MARK: - Navigation
 

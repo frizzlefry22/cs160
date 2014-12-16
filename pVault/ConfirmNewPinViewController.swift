@@ -2,13 +2,13 @@
 //  ConfirmNewPinViewController.swift
 //  pVault
 //
-//  Created by Lashkar Singh on 12/12/14.
+//  Created by !Lashkar Singh on 12/12/14.
 //  Copyright (c) 2014 Pvault2. All rights reserved.
 //
 
 import UIKit
 
-class ConfirmNewPinViewController: UIViewController {
+class ConfirmNewPinViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var pinField:UITextField!;
     @IBOutlet weak var confirmPINField:UITextField!;
@@ -20,6 +20,8 @@ class ConfirmNewPinViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.pinField.delegate = self;
+        self.confirmPINField.delegate = self;
         // Do any additional setup after loading the view.
     }
 
@@ -83,6 +85,13 @@ class ConfirmNewPinViewController: UIViewController {
         self.navigationController?.setViewControllers(newNavStack, animated: true);
     }
 
+    //hides the keyboard when you hit return
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        
+        self.view.endEditing(true);
+        return false;
+    }
+    
     /*
     // MARK: - Navigation
 

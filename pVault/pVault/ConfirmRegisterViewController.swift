@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConfirmRegisterViewController: UIViewController, Alertable{
+class ConfirmRegisterViewController: UIViewController, UITextFieldDelegate, Alertable{
 
     
     
@@ -47,6 +47,7 @@ class ConfirmRegisterViewController: UIViewController, Alertable{
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.emailTextBox.delegate = self
         emailTextBox.text = RegisterInfo.email
         emailTextBox.enabled = false
         
@@ -58,6 +59,14 @@ class ConfirmRegisterViewController: UIViewController, Alertable{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //hides the keyboard when you hit return
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        
+        self.view.endEditing(true);
+        return false;
+    }
+
     
     //param: takes in number of screens to move back
     //to move from confirm screen back to home
