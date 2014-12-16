@@ -10,7 +10,9 @@ import Foundation
 
 class LocalFileManager{
     
-    
+    struct AlertDelStuct {
+        static var alertDelegate : Alertable!
+    }
     
     /*  createUserDirectory
     
@@ -29,6 +31,7 @@ class LocalFileManager{
         let unsyncPath = userPath + "/Unsynced/"
         var error:NSError?
         
+        //AlertDelStuct.alertDelegate.AlertUser("")
         //attempt to create user directory in Documents path
         if NSFileManager.defaultManager().createDirectoryAtPath(syncPath,
             withIntermediateDirectories: true,
@@ -97,7 +100,7 @@ class LocalFileManager{
         //create dictionary
         var docDict:NSMutableDictionary = [
             "objectID": newDoc.objectID,
-            "docImage": "image string",// newDoc.docImage,
+            "docImage":  newDoc.docImage,
             "docID": newDoc.docID,
             "userID": newDoc.userID,
             "docName": newDoc.docName,
@@ -113,6 +116,7 @@ class LocalFileManager{
             let readDict:NSDictionary? = NSDictionary(contentsOfFile: filePath)
             if let dict = readDict{
                 println("Read the dictionary back from disk = \(dict)")
+                
             }else{
                 println("Failed to read the dictionary back from disk")
             }
@@ -304,7 +308,7 @@ class LocalFileManager{
         }
         
     }
-    class func editDocument(objectID: String, newDoc: Document, user: User, temp: Bool){
+    class func editDocument(objectID: String, newDoc: Document, user: User, temp: Bool)->Bool{
         //let oldDoc = getDocument(objectID, user: user)
         
         let documentsPath: AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
@@ -337,7 +341,9 @@ class LocalFileManager{
             if docDict.writeToFile(unsyncPath, atomically: true){
                 let readDict:NSDictionary? = NSDictionary(contentsOfFile: filePath)
                 if let dict = readDict{
-                    println("Read the dictionary back from disk = \(dict)")
+                    //println("Read the dictionary back from disk = \(dict)")
+                    // AlertDelStuct.alertDelegate.AlertUser("Success")
+                    return true
                 }else{
                     println("Failed to read the dictionary back from disk")
                 }
@@ -357,7 +363,7 @@ class LocalFileManager{
                 }
         }
         
-        
+        return true
     }
     
     class func getDocStatus(objectID: String, user: User)->String{

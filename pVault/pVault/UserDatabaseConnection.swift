@@ -36,7 +36,7 @@ public class UserDatabaseConnection: DBConnectionProtocol{
             //fail block
         else{
             println("User not created")
-            AlertDelStuct.alertDelegate.AlertUser("Fail")
+            AlertDelStuct.alertDelegate.AlertUser("Created Locally")
         }
         
         return objectID

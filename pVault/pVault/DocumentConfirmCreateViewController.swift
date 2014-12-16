@@ -45,7 +45,12 @@ class DocumentConfirmCreateViewController: UIViewController, DocumentView , Aler
             DocumentDBConnection.edit(CurrentDocument.currentDoc , updated: self.document)
             }
             else{
-                LocalFileManager.editDocument(CurrentDocument.currentDoc.objectID, newDoc: self.document, user: LoggedInuser, temp: true)
+                if(LocalFileManager.editDocument(CurrentDocument.currentDoc.objectID, newDoc: self.document, user: LoggedInuser, temp: true)){
+                    AlertUser("Success")
+                }else{
+                    AlertUser("Failed")
+                }
+                
             }
         }
 
