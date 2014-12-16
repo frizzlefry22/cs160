@@ -146,11 +146,19 @@ class ConfirmNewPinViewController: UIViewController, UITextFieldDelegate , Alert
         self.navigationController?.setViewControllers(newNavStack, animated: true);
     }
 
+    
     //hides the keyboard when you hit return
     func textFieldShouldReturn(textField: UITextField!) -> Bool {
         
         self.view.endEditing(true);
         return false;
+    }
+    
+    //remove keyboard
+    override func touchesBegan(touches: NSSet?, withEvent event: UIEvent?) {
+        
+        self.view.endEditing(true)
+        
     }
     
     /*
