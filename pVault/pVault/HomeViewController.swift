@@ -49,9 +49,15 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func syncLocalDocsPressed(sender: AnyObject) {
-        
         LocalFileManager.syncDocuments(LoggedInuser)
     }
+    
+    @IBAction func settingsPressed(sender: AnyObject) {
+        let storyboard : UIStoryboard = UIStoryboard(name: "Settings", bundle: nil);
+        let vc : UIViewController = storyboard.instantiateViewControllerWithIdentifier("Settings") as UIViewController;
+        self.navigationController?.pushViewController(vc, animated: true);
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
