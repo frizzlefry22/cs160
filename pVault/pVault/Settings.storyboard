@@ -68,6 +68,9 @@
                                 <rect key="frame" x="87" y="238" width="200" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <connections>
+                                    <action selector="passwordEditChanged:" destination="2OS-wM-Imj" eventType="editingChanged" id="hjF-fC-LAs"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6gJ-ww-sQM">
                                 <rect key="frame" x="241" y="496" width="39" height="30"/>
@@ -89,12 +92,19 @@
                                     <action selector="cancel:" destination="2OS-wM-Imj" eventType="touchUpInside" id="hqW-26-yce"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q4O-Jx-siU">
+                                <rect key="frame" x="77" y="293" width="220" height="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" red="1" green="0.033922689489999998" blue="0.034040485090000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="passwordField" destination="VbL-K4-5sr" id="F0e-T3-sBH"/>
+                        <outlet property="passwordWarningLabel" destination="q4O-Jx-siU" id="H7x-1U-Pn8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tje-ew-Hhm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -135,13 +145,23 @@
                                 <rect key="frame" x="87" y="216" width="200" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <connections>
+                                    <action selector="passwordEditChanged:" destination="pOV-0i-473" eventType="editingChanged" id="I8z-i2-LJI"/>
+                                </connections>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XE9-nh-GYw">
+                                <rect key="frame" x="77" y="271" width="220" height="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" red="1" green="0.033922689489999998" blue="0.034040485090000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="passwordField" destination="I9C-hs-C2Q" id="1WR-Kl-eBv"/>
+                        <outlet property="passwordWarningLabel" destination="XE9-nh-GYw" id="AlR-9E-fJW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a1W-Lb-maF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -220,15 +240,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New PIN" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Ls-6T-AiI">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New PIN" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Ls-6T-AiI">
                                 <rect key="frame" x="133" y="188" width="108" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
+                                <connections>
+                                    <action selector="pinChanged:" destination="TFA-uz-uLj" eventType="editingChanged" id="ddn-aZ-pkf"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New PIN" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yVz-b2-Dpe">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm PIN" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yVz-b2-Dpe">
                                 <rect key="frame" x="133" y="262" width="108" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
+                                <connections>
+                                    <action selector="confirmPINChanged:" destination="TFA-uz-uLj" eventType="editingChanged" id="I01-o6-nLV"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8o2-0a-qRv">
                                 <rect key="frame" x="79" y="501" width="61" height="30"/>
@@ -245,11 +271,11 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="confirm" destination="TFA-uz-uLj" eventType="touchUpInside" id="0uJ-gy-Gua"/>
+                                    <action selector="confirm:" destination="TFA-uz-uLj" eventType="touchUpInside" id="Xgn-CR-ju8"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PINs don't match" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9og-Kg-JxP">
-                                <rect key="frame" x="142" y="319" width="90" height="14"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9og-Kg-JxP">
+                                <rect key="frame" x="95" y="317" width="185" height="14"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" red="1" green="0.033922689489999998" blue="0.034040485090000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -259,9 +285,10 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="confirmButton" destination="iwU-hb-gTg" id="4MQ-qV-dpg"/>
                         <outlet property="confirmPINField" destination="yVz-b2-Dpe" id="gmI-pV-p3r"/>
                         <outlet property="pinField" destination="8Ls-6T-AiI" id="n2z-Ld-WuC"/>
-                        <outlet property="pinsDontMatchLabel" destination="9og-Kg-JxP" id="wJ1-Oz-MxL"/>
+                        <outlet property="warningConfirmPINLabel" destination="9og-Kg-JxP" id="o7L-Ug-uFe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1pb-j9-M7M" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -281,14 +308,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hca-30-l2M">
-                                <rect key="frame" x="100" y="220" width="174" height="30"/>
+                                <rect key="frame" x="77" y="220" width="220" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <connections>
+                                    <action selector="passwordChanged:" destination="P0N-lr-X7k" eventType="editingChanged" id="BU9-Bn-zXE"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SfD-Jd-QHW">
-                                <rect key="frame" x="100" y="282" width="174" height="30"/>
+                                <rect key="frame" x="77" y="282" width="220" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <connections>
+                                    <action selector="confirmPasswordChanged:" destination="P0N-lr-X7k" eventType="editingChanged" id="mPx-O2-I0P"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E8w-p8-fwV">
                                 <rect key="frame" x="106" y="497" width="61" height="30"/>
@@ -305,11 +338,11 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="confirm" destination="P0N-lr-X7k" eventType="touchUpInside" id="XFe-EB-n0N"/>
+                                    <action selector="confirm:" destination="P0N-lr-X7k" eventType="touchUpInside" id="Tz1-I9-WFK"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Passwords don't match" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QrK-Je-TKR">
-                                <rect key="frame" x="126" y="336" width="122" height="14"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QrK-Je-TKR">
+                                <rect key="frame" x="77" y="337" width="220" height="14"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" red="1" green="0.033922689493005254" blue="0.034040485092653339" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -319,9 +352,10 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="confirmButton" destination="H3T-e4-ugE" id="C8z-hV-g7w"/>
                         <outlet property="confirmPasswordField" destination="SfD-Jd-QHW" id="1Y2-Lo-Cze"/>
                         <outlet property="passwordField" destination="hca-30-l2M" id="1nD-Db-rRc"/>
-                        <outlet property="passwordsDontMatchLabel" destination="QrK-Je-TKR" id="kHp-pM-EU2"/>
+                        <outlet property="warningConfirmPasswordLabel" destination="QrK-Je-TKR" id="UDE-Jp-fek"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MQV-gJ-fvg" userLabel="First Responder" sceneMemberID="firstResponder"/>

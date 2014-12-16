@@ -35,10 +35,8 @@ class DeleteAccountViewController: UIViewController {
         {
             var userQuery = PFQuery(className:"User");
             userQuery.whereKey("email", equalTo:LoggedInuser.getEmail());
-            var searchResults:NSArray = userQuery.findObjects();
-            var parseUser:PFObject = searchResults.firstObject as PFObject;
+            UserDatabaseConnection.delete(userQuery);
             
-            parseUser.delete();
             self.navigationController?.popToRootViewControllerAnimated(true);
         }
         else

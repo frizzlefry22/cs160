@@ -11,20 +11,28 @@ import UIKit
 class CurrentPassNewPassViewController: UIViewController {
 
     
-    
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var passwordWarningLabel: UILabel!;
     
     
     @IBAction func validatePass(sender: AnyObject)
     {
         if (passwordField.text == LoggedInuser.getPassword())
         {
-            var changeConfirmPassViewController = self.storyboard?.instantiateViewControllerWithIdentifier("ChangeConfirmPassword") as ConfirmNewPassViewController;
+            var changeConfirmPassViewController = self.storyboard?.instantiateViewControllerWithIdentifier("ChangeConfirmPassword");
             self.navigationController?.pushViewController(changeConfirmPassViewController, animated: true);
         }
         else
         {
-            println("Wrong password!");
+            passwordWarningLabel.text = "Incorrect password";
+        }
+    }
+    
+    @IBAction func passwordEditChanged(sender: AnyObject)
+    {
+        if (passwordField.text.isEmpty)
+        {
+            passwordWarningLabel.text = "";
         }
     }
     
