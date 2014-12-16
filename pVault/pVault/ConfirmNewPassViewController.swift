@@ -13,7 +13,9 @@ class ConfirmNewPassViewController: UIViewController {
     @IBOutlet weak var passwordField:UITextField!;
     @IBOutlet weak var confirmPasswordField:UITextField!;
     
-    @IBOutlet weak var passwordsDontMatchLabel:UILabel!;
+    @IBOutlet weak var warningConfirmPasswordLabel:UILabel!;
+    
+    @IBOutlet weak var confirmButton:UIButton!;
     
     
     override func viewDidLoad() {
@@ -32,33 +34,74 @@ class ConfirmNewPassViewController: UIViewController {
         returnToSettings();
     }
     
-    @IBAction func confirm()
-    {        
-        if (passwordsMatch())
-        {
-            var password = passwordField.text;
-            LoggedInuser.setPassword(password);   //update pass of logged user
-                        
-            var userQuery = PFQuery(className:"User");          //running query on parse
-            userQuery.whereKey("email", equalTo:LoggedInuser.getEmail());
-            var searchResults:NSArray = userQuery.findObjects();
-            var parseUser:PFObject = searchResults.firstObject as PFObject;
-            
-            parseUser["password"] = password;
-            parseUser.save();
-            
-            returnToSettings();
+    @IBAction func passwordChanged(sender: AnyObject) {
+        
+        if ( Validator.isValidPassword(passwordField.text)) {      //decide which one we using
+            warningConfirmPasswordLabel.text = "Valid"
+            warningConfirmPasswordLabel.textColor = UIColor.greenColor()
         }
-        else
-        {
-            clearFields();
-            passwordsDontMatchLabel.hidden = false;
+        else {
+            warningConfirmPasswordLabel.text = "Invalid"
+            warningConfirmPasswordLabel.textColor = UIColor.redColor()
         }
+        
+        checkForMatching()
     }
     
-    func passwordsMatch() -> Bool
-    {        
-        return passwordField.text == confirmPasswordField.text;
+    
+    @IBAction func confirm(sender: AnyObject) {
+        
+        //create copy of LoggedInuser
+        var newUser = LoggedInuser.copy()
+        newUser.setPassword(passwordField.text)
+        
+        //edit user in DB
+        //*** FOR SOME REASON, when you try to step over this, xcode crashes, works if you just hit continue, dunno why ***
+        UserDatabaseConnection.edit(LoggedInuser, updated: newUser)
+        
+        //here is where I should save locally, leave it like this for now for testing
+        LoggedInuser.setPassword(passwordField.text)
+        //println(LoggedInuser.getPassword())
+        
+        returnToSettings();
+    }
+    
+    func checkForMatching() {
+        
+        var match = Validator.matches(passwordField.text, s2 : confirmPasswordField.text)
+        
+        if (passwordField.text.isEmpty)
+        {
+            warningConfirmPasswordLabel.text = ""
+        }
+        else if (!passwordField.text.isEmpty && !confirmPasswordField.text.isEmpty)
+        {
+            if ( match ) {
+                warningConfirmPasswordLabel.text = "Matches"
+                warningConfirmPasswordLabel.textColor = UIColor.greenColor()
+            }
+            else {
+                warningConfirmPasswordLabel.text = "Does not match"
+                warningConfirmPasswordLabel.textColor = UIColor.redColor()
+            }
+        }
+        
+        updateConfirmButton(match)
+    }
+    
+    @IBAction func confirmPasswordChanged(sender: AnyObject) {
+        checkForMatching()
+    }
+    
+    func updateConfirmButton( cont : Bool) {
+        if (cont) {
+            confirmButton.enabled = true
+            confirmButton.alpha = 1
+        }
+        else {
+            confirmButton.enabled = false
+            confirmButton.alpha = 0.4
+        }
     }
     
     func clearFields()
@@ -66,7 +109,7 @@ class ConfirmNewPassViewController: UIViewController {
         passwordField.text = "";
         confirmPasswordField.text = "";
         
-        passwordField.becomeFirstResponder(); // <-- Moves cursor back to password field
+        passwordField.becomeFirstResponder(); 
     }
     
     func returnToSettings()
