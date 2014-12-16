@@ -133,6 +133,12 @@ class ConfirmNewPassViewController: UIViewController, UITextFieldDelegate {
         return false;
     }
     
+    override func touchesBegan(touches: NSSet?, withEvent event: UIEvent?) {
+        
+        self.view.endEditing(true)
+        
+    }
+    
     /*
     // MARK: - Navigation
 

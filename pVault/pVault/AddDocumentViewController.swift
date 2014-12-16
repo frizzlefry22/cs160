@@ -91,6 +91,13 @@ class AddDocumentViewController: UIViewController, UIPickerViewDelegate,UIPicker
         return false;
     }
 
+    //
+    override func touchesBegan(touches: NSSet?, withEvent event: UIEvent?) {
+        
+        self.view.endEditing(true)
+        
+    }
+    
     //Stuff for the UIPicker
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int{

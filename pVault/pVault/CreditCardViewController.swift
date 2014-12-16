@@ -65,6 +65,10 @@ class CreditCardViewController: UIViewController , DocumentView, UITextFieldDele
         
     }
 
+    //removes keyboard
+    override func touchesBegan(touches: NSSet?, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
     // MARK: - Navigation
 
