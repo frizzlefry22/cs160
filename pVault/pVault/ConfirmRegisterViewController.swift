@@ -27,7 +27,7 @@ class ConfirmRegisterViewController: UIViewController, UITextFieldDelegate, Aler
     }
     
     func AlertUser(message: String) {
-        let alertController = UIAlertController(title: "Document Upload", message: "Successful", preferredStyle: .Alert)
+        let alertController = UIAlertController(title: "Create User", message: "Successful", preferredStyle: .Alert)
         
         let okAction = UIAlertAction(title: "Ok", style: .Default) {
             (action) in
