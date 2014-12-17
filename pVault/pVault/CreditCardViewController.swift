@@ -58,7 +58,7 @@ class CreditCardViewController: UIViewController , DocumentView, UITextFieldDele
     
     func populateFields( fields : [String:String]) {
         
-        cardHolderName.text =  fields["CardHolderNmae"]
+        cardHolderName.text =  fields["CardHolderName"]
         creditCardNumber.text = fields["CreditCardNumber"]
         expirationDate.text = fields["ExpirationDate"]
         cvc.text = fields["CVC"]

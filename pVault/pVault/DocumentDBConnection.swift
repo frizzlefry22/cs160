@@ -52,6 +52,13 @@ public class DocumentDBConnection: DBConnectionProtocol{
         
         //if doc found, add fields
         if(docObject != nil){
+            var fields : [String:String] = docObject["docField"] as Dictionary
+            //decrypt the dictionary
+            if(!isEmpty(fields)){
+                for (myKey,myValue) in fields {
+                    fields.updateValue(Encryptor.decrypt(myValue), forKey: myKey)
+                }
+            }
             
             if(docObject["docImage"] != nil){
             //get the image
@@ -60,19 +67,19 @@ public class DocumentDBConnection: DBConnectionProtocol{
             imageString = NSString(data: data, encoding: NSUTF8StringEncoding)
             }
             
-            //fills in the document data
+            //fills in the document data and decrypts
             someDoc.objectID = docObject.objectId as String
             someDoc.docID = docObject["docID"] as String
             someDoc.userID = docObject["userID"] as String
-            someDoc.docName = docObject["docName"] as String
-            someDoc.docType = self.getType(docObject["docType"] as String)
-            someDoc.docDiscription = docObject["docDesc"] as String
-            someDoc.docField = docObject["docField"] as Dictionary
+            someDoc.docName = Encryptor.decrypt(docObject["docName"] as String)
+            someDoc.docType = self.getType(Encryptor.decrypt(docObject["docType"] as String))
+            someDoc.docDiscription = Encryptor.decrypt(docObject["docDesc"] as String)
+            someDoc.docField = fields
             if(docObject["docImage"] == nil){
                 someDoc.docImage = ""
             }
             else{
-            someDoc.docImage = imageString
+            someDoc.docImage = Encryptor.decrypt(imageString)
             }
         }
         return someDoc
@@ -95,6 +102,13 @@ public class DocumentDBConnection: DBConnectionProtocol{
         var currentDoc = previous as Document
         var editDoc = updated as Document
 
+        //encrypt the doc of edit fields
+        if(!isEmpty(editDoc.docField)){
+            for (myKey,myValue) in editDoc.docField {
+                editDoc.docField.updateValue(Encryptor.encrypt(myValue), forKey: myKey)
+            }
+        }
+        
         self.createHistoryDocucment(currentDoc)
         self.removeHistory(currentDoc.objectID)
         var query = PFQuery(className:"Document")
@@ -105,13 +119,13 @@ public class DocumentDBConnection: DBConnectionProtocol{
             } else {
                 
                 // upload the base64 string image string
-                var image = editDoc.docImage
+                var image = Encryptor.encrypt(editDoc.docImage)
                 var name = self.cleanName(editDoc.docName) + ".txt"
                 var data = image.dataUsingEncoding(NSUTF8StringEncoding)
                 var file = PFFile(name: name, data: data)
                 
-                document["docName"] = editDoc.docName
-                document["docDesc"] = editDoc.docDiscription
+                document["docName"] = Encryptor.encrypt(editDoc.docName)
+                document["docDesc"] = Encryptor.encrypt(editDoc.docDiscription)
                 document["docField"] = editDoc.docField
                 if(editDoc.docImage != ""){
                     document["docImage"] = file
@@ -183,9 +197,15 @@ public class DocumentDBConnection: DBConnectionProtocol{
     class func createDocumentPFObject(doc: Document) -> PFObject{
         var document = PFObject(className:"Document")
         
+        if(!isEmpty(doc.docField)){
+            for (myKey,myValue) in doc.docField {
+                doc.docField.updateValue(Encryptor.encrypt(myValue), forKey: myKey)
+            }
+        }
+        
         // upload the base64 string for image
 
-        var image = doc.docImage
+        var image = Encryptor.encrypt(doc.docImage)
         var name = self.cleanName(doc.docName) + ".txt"
         var data = image.dataUsingEncoding(NSUTF8StringEncoding)
         var file = PFFile(name: name, data: data)
@@ -195,9 +215,9 @@ public class DocumentDBConnection: DBConnectionProtocol{
         //document ID will be an empty string, will use it for document history        
         document["docID"] = doc.docID
         document["userID"] = doc.userID
-        document["docName"] = doc.docName
-        document["docType"] = doc.docType.rawValue
-        document["docDesc"] = doc.docDiscription
+        document["docName"] = Encryptor.encrypt(doc.docName)
+        document["docType"] = Encryptor.encrypt(doc.docType.rawValue)
+        document["docDesc"] = Encryptor.encrypt(doc.docDiscription)
         document["docField"] = doc.docField
         if(doc.docImage != ""){
         document["docImage"] = file
@@ -212,8 +232,14 @@ public class DocumentDBConnection: DBConnectionProtocol{
     //this is used for history, this document would have a document id which inidicated that it's a previous version of a current document. the latest version would have the no docID but the original object id
     class func createHistoryDocucment(doc: Document){
         
+        if(!isEmpty(doc.docField)){
+            for (myKey,myValue) in doc.docField {
+                doc.docField.updateValue(Encryptor.encrypt(myValue), forKey: myKey)
+            }
+        }
+        
         //creates PFFiles for the image
-        var image = doc.docImage
+        var image = Encryptor.encrypt(doc.docImage)
         var name = self.cleanName(doc.docName) + ".txt"
         var data = image.dataUsingEncoding(NSUTF8StringEncoding)
         var file = PFFile(name: name, data: data)
@@ -222,9 +248,9 @@ public class DocumentDBConnection: DBConnectionProtocol{
         var document = PFObject(className:"Document")
         document["docID"] = doc.objectID
         document["userID"] = doc.userID
-        document["docName"] = doc.docName
-        document["docType"] = doc.docType.rawValue
-        document["docDesc"] = doc.docDiscription
+        document["docName"] = Encryptor.encrypt(doc.docName)
+        document["docType"] = Encryptor.encrypt(doc.docType.rawValue)
+        document["docDesc"] = Encryptor.encrypt(doc.docDiscription)
         document["docField"] = doc.docField
         if(doc.docImage != ""){
         document["docImage"] = file
@@ -273,8 +299,8 @@ public class DocumentDBConnection: DBConnectionProtocol{
         
         for object in objectArray{
             var someID = object.objectId as String
-            var someName = object["docName"] as String
-            var someType = object["docType"] as String
+            var someName = Encryptor.decrypt(object["docName"] as String)
+            var someType = Encryptor.decrypt(object["docType"] as String)
             var tuple = (objectID: someID, docName: someName, docType: someType)
             docList += [tuple]
         }
@@ -294,7 +320,7 @@ public class DocumentDBConnection: DBConnectionProtocol{
         var objectArray = query.findObjects()
         for object in objectArray{
             var someID = object.objectId as String
-            var someName = object["docName"] as String
+            var someName = Encryptor.decrypt(object["docName"] as String)
             var tuple = (objectID: someID, docName: someName)
             historyList += [tuple]
         }

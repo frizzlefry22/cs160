@@ -34,9 +34,16 @@ class DeleteAccountViewController: UIViewController, UITextFieldDelegate {
     {
         if (pinTextField.text == LoggedInuser.getPIN())
         {
+            //delete user
             var userQuery = PFQuery(className:"User");
             userQuery.whereKey("email", equalTo:LoggedInuser.getEmail());
             UserDatabaseConnection.delete(userQuery);
+            
+            //delete all of user's documents
+            var query = PFQuery(className:"Document")
+            query.whereKey("userID", equalTo: LoggedInuser.getUserID())
+            DocumentDBConnection.delete(query)
+            
             
             self.navigationController?.popToRootViewControllerAnimated(true);
         }
