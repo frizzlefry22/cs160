@@ -47,7 +47,6 @@
 		2914816A1A396256005FD3BB /* SecurityQuestionAnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291481691A396256005FD3BB /* SecurityQuestionAnswerViewController.swift */; };
 		2914816C1A39854B005FD3BB /* ConfirmResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2914816B1A39854B005FD3BB /* ConfirmResetViewController.swift */; };
 		29152BBA1A1971C100A88FEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29152BB91A1971C100A88FEA /* AppDelegate.swift */; };
-		29152BBF1A1971C100A88FEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29152BBD1A1971C100A88FEA /* Main.storyboard */; };
 		29152BC11A1971C100A88FEA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29152BC01A1971C100A88FEA /* Images.xcassets */; };
 		29152BC41A1971C100A88FEA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29152BC21A1971C100A88FEA /* LaunchScreen.xib */; };
 		29152BD01A1971C100A88FEA /* pVaultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29152BCF1A1971C100A88FEA /* pVaultTests.swift */; };
@@ -140,7 +139,6 @@
 		29152BB41A1971C100A88FEA /* pVault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pVault.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29152BB81A1971C100A88FEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		29152BB91A1971C100A88FEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		29152BBE1A1971C100A88FEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		29152BC01A1971C100A88FEA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		29152BC31A1971C100A88FEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		29152BC91A1971C100A88FEA /* pVaultTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pVaultTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -273,7 +271,6 @@
 				294566B61A2B043800DD7A3A /* protocols */,
 				291930231A24625800E34A27 /* Registeration */,
 				29A451381A1C4EB700B7CB53 /* ViewControllers */,
-				29152BBD1A1971C100A88FEA /* Main.storyboard */,
 				10B88A5C1A2ADA7100B6F35B /* LogReg.storyboard */,
 				10B88A5E1A2ADA7C00B6F35B /* Document.storyboard */,
 				10B88A601A2ADA8800B6F35B /* Settings.storyboard */,
@@ -505,7 +502,6 @@
 			files = (
 				10B88A5D1A2ADA7100B6F35B /* LogReg.storyboard in Resources */,
 				10B88A651A2ADC0100B6F35B /* KevinTesting.storyboard in Resources */,
-				29152BBF1A1971C100A88FEA /* Main.storyboard in Resources */,
 				10B88A631A2ADB5D00B6F35B /* CoolTesting.storyboard in Resources */,
 				29152BC41A1971C100A88FEA /* LaunchScreen.xib in Resources */,
 				10B88A611A2ADA8800B6F35B /* Settings.storyboard in Resources */,
@@ -608,14 +604,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		29152BBD1A1971C100A88FEA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				29152BBE1A1971C100A88FEA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		29152BC21A1971C100A88FEA /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
