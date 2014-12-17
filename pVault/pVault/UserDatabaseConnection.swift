@@ -94,7 +94,8 @@ public class UserDatabaseConnection: DBConnectionProtocol{
                         if(succeeded!){
                             println("File Saved")
                             LocalFileManager.addUser(newUser, temp: false)
-                            AlertDelStuct.alertDelegate.AlertUser("Succes")
+// I AM HERE
+                            //AlertDelStuct.alertDelegate.AlertUser("Succes")
                             
                         }
                             //fail block
@@ -104,6 +105,8 @@ public class UserDatabaseConnection: DBConnectionProtocol{
                         }
                     })
                     
+                }else{
+                    println("Edit Not found******")
                 }
             }
             //error

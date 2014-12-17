@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConfirmResetViewController: UIViewController, UITextFieldDelegate  {
+class ConfirmResetViewController: UIViewController, UITextFieldDelegate, Alertable  {
 
     var userEmail : String!
     
@@ -38,8 +38,11 @@ class ConfirmResetViewController: UIViewController, UITextFieldDelegate  {
     
     @IBAction func resetClicked(sender: AnyObject) {
         
+        UserDatabaseConnection.AlertDelStuct.alertDelegate = self
+        
         //create copy of LoggedInuser
-        var newUser = UserDatabaseConnection.getUserByEmail(Encryptor.encrypt(self.userEmail))
+        var newUser = UserDatabaseConnection.getUserByEmail(self.userEmail)
+        LoggedInuser = newUser.copy()
         newUser.setPassword(newPassword.text)
         
         //edit user in DB

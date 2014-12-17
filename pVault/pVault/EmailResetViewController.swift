@@ -60,7 +60,7 @@ class EmailResetViewController: UIViewController, UITextFieldDelegate  {
         
         let vc = segue.destinationViewController as SecurityQuestionAnswerViewController
         
-        vc.securityQuestions = UserDatabaseConnection.getSecQA(emailInput.text)
+        vc.securityQuestions = UserDatabaseConnection.getSecQA(Encryptor.encrypt(emailInput.text))
         vc.usersEmail = emailInput.text
         
     }
