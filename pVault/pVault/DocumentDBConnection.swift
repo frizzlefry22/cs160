@@ -79,7 +79,7 @@ public class DocumentDBConnection: DBConnectionProtocol{
                 someDoc.docImage = ""
             }
             else{
-            someDoc.docImage = Encryptor.decrypt(imageString)
+            someDoc.docImage = imageString
             }
         }
         return someDoc
@@ -119,7 +119,7 @@ public class DocumentDBConnection: DBConnectionProtocol{
             } else {
                 
                 // upload the base64 string image string
-                var image = Encryptor.encrypt(editDoc.docImage)
+                var image = editDoc.docImage
                 var name = self.cleanName(editDoc.docName) + ".txt"
                 var data = image.dataUsingEncoding(NSUTF8StringEncoding)
                 var file = PFFile(name: name, data: data)
@@ -205,7 +205,7 @@ public class DocumentDBConnection: DBConnectionProtocol{
         
         // upload the base64 string for image
 
-        var image = Encryptor.encrypt(doc.docImage)
+        var image = doc.docImage
         var name = self.cleanName(doc.docName) + ".txt"
         var data = image.dataUsingEncoding(NSUTF8StringEncoding)
         var file = PFFile(name: name, data: data)
@@ -239,7 +239,7 @@ public class DocumentDBConnection: DBConnectionProtocol{
         }
         
         //creates PFFiles for the image
-        var image = Encryptor.encrypt(doc.docImage)
+        var image = doc.docImage
         var name = self.cleanName(doc.docName) + ".txt"
         var data = image.dataUsingEncoding(NSUTF8StringEncoding)
         var file = PFFile(name: name, data: data)

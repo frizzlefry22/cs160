@@ -53,9 +53,25 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func settingsPressed(sender: AnyObject) {
-        let storyboard : UIStoryboard = UIStoryboard(name: "Settings", bundle: nil);
-        let vc : UIViewController = storyboard.instantiateViewControllerWithIdentifier("Settings") as UIViewController;
-        self.navigationController?.pushViewController(vc, animated: true);
+//        let storyboard : UIStoryboard = UIStoryboard(name: "Settings", bundle: nil);
+//        let vc : UIViewController = storyboard.instantiateViewControllerWithIdentifier("Settings") as UIViewController;
+//        self.navigationController?.pushViewController(vc, animated: true);
+
+        if(!Reachability.isConnectedToNetwork()){
+            let alertController = UIAlertController(title: "No Internet Connection", message: "Can't accesses settings without internet", preferredStyle: .Alert)
+            
+            //add confirm action
+            let confirmAction = UIAlertAction(title: "Ok", style: .Default) { (action) in}
+            alertController.addAction(confirmAction)
+            
+            self.presentViewController(alertController,animated:true) {}
+        }
+        else{
+            let storyboard : UIStoryboard = UIStoryboard(name: "Settings", bundle: nil);
+            let vc : UIViewController = storyboard.instantiateViewControllerWithIdentifier("Settings") as UIViewController;
+            self.navigationController?.pushViewController(vc, animated: true);
+        }
+
     }
 
     override func didReceiveMemoryWarning() {

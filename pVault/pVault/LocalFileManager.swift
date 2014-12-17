@@ -100,7 +100,7 @@ class LocalFileManager{
         //create dictionary
         var docDict:NSMutableDictionary = [
             "objectID": Encryptor.encrypt(newDoc.objectID),
-            "docImage":  Encryptor.encrypt(newDoc.docImage),
+            "docImage":  newDoc.docImage,
             "docID": Encryptor.encrypt(newDoc.docID),
             "userID": newDoc.userID,
             "docName": Encryptor.encrypt(newDoc.docName),
@@ -110,7 +110,7 @@ class LocalFileManager{
         for (key, value) in newDoc.docField{
             docDict[Encryptor.encrypt(key)] = Encryptor.encrypt(value)
         }
-        docDict["docImage"] = Encryptor.encrypt(newDoc.docImage)
+        docDict["docImage"] = newDoc.docImage
         
         if docDict.writeToFile(filePath, atomically: true){
             let readDict:NSDictionary? = NSDictionary(contentsOfFile: filePath)
@@ -320,7 +320,7 @@ class LocalFileManager{
         
         var docDict:NSMutableDictionary = [
             "objectID": objectID,
-            "docImage": Encryptor.encrypt(newDoc.docImage),
+            "docImage": newDoc.docImage,
             "docID": Encryptor.encrypt(newDoc.docID),
             "userID": newDoc.userID,
             "docName": Encryptor.encrypt(newDoc.docName),
@@ -332,7 +332,7 @@ class LocalFileManager{
             docDict[Encryptor.encrypt(key)] = Encryptor.encrypt(value)
         }
         
-        docDict["docImage"] = Encryptor.encrypt(newDoc.docImage)
+        docDict["docImage"] = newDoc.docImage
         
         if(temp){
             //delete from sync documents
@@ -424,7 +424,7 @@ class LocalFileManager{
             case "docDiscription":
                 doc.docDiscription = Encryptor.decrypt(value as String)
             case "docImage":
-                doc.docImage = Encryptor.decrypt(value as String)
+                doc.docImage = value as String
             case "docType":
                 doc.docType = DocTypeFromString(Encryptor.decrypt(value as String))
             default:
