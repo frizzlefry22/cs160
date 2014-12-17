@@ -34,22 +34,24 @@ class DeleteAccountViewController: UIViewController, UITextFieldDelegate {
     {
         if (pinTextField.text == LoggedInuser.getPIN())
         {
-            //delete user
-            var userQuery = PFQuery(className:"User");
-            userQuery.whereKey("email", equalTo: Encryptor.encrypt(LoggedInuser.getEmail()));
-            UserDatabaseConnection.delete(userQuery);
             
-            //delete all of user's documents
-            var query = PFQuery(className:"Document")
-            query.whereKey("userID", equalTo: Encryptor.encrypt(LoggedInuser.getUserID()))
-            DocumentDBConnection.delete(query)
+
+            let alertController = UIAlertController(title: "Confirm Deletion", message: "Deleting account", preferredStyle: .Alert)
+            
+            //add cancel action
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+                println(action)
+            }
+            alertController.addAction(cancelAction)
+            
             
             //add confirm action
             let confirmAction = UIAlertAction(title: "Confirm", style: .Default) { (action) in
                 //deletes user
                 //delete user
+                
                 var userQuery = PFQuery(className:"User");
-                userQuery.whereKey("email", equalTo:LoggedInuser.getEmail());
+                userQuery.whereKey("email", equalTo:Encryptor.encrypt(LoggedInuser.getEmail()));
                 UserDatabaseConnection.delete(userQuery);
                 
                 //delete all of user's documents
