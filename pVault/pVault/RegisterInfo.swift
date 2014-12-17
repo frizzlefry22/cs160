@@ -48,11 +48,15 @@ struct RegisterInfo {
             
             println("Debug")
         }else{
-            //else, create user, save locally under unsynced files directory
-            LoggedInuser = newUser.copy()
+            //tell user they can't register offline!!!
             
-            LocalFileManager.createUserDirectory(LoggedInuser.getEmail())
-            LocalFileManager.addUser(LoggedInuser, temp: true)
+            
+            
+            //else, create user, save locally under unsynced files directory
+            //LoggedInuser = newUser.copy()
+            
+            //LocalFileManager.createUserDirectory(LoggedInuser.getEmail())
+            //LocalFileManager.addUser(LoggedInuser, temp: true)
         }
     }
     
