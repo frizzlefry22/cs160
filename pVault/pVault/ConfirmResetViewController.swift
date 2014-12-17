@@ -39,7 +39,7 @@ class ConfirmResetViewController: UIViewController, UITextFieldDelegate  {
     @IBAction func resetClicked(sender: AnyObject) {
         
         //create copy of LoggedInuser
-        var newUser = UserDatabaseConnection.getUserByEmail(self.userEmail)
+        var newUser = UserDatabaseConnection.getUserByEmail(Encryptor.encrypt(self.userEmail))
         newUser.setPassword(newPassword.text)
         
         //edit user in DB
@@ -47,7 +47,7 @@ class ConfirmResetViewController: UIViewController, UITextFieldDelegate  {
         UserDatabaseConnection.edit(LoggedInuser, updated: newUser)
         
         //here is where I should save locally, leave it like this for now for testing
-        LoggedInuser.setPassword(newPassword.text)
+        //LoggedInuser.setPassword(newPassword.text)
         //println(LoggedInuser.getPassword())
     }
     
