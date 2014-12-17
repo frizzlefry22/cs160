@@ -99,18 +99,18 @@ class LocalFileManager{
         
         //create dictionary
         var docDict:NSMutableDictionary = [
-            "objectID": newDoc.objectID,
-            "docImage":  newDoc.docImage,
-            "docID": newDoc.docID,
+            "objectID": Encryptor.encrypt(newDoc.objectID),
+            "docImage":  Encryptor.encrypt(newDoc.docImage),
+            "docID": Encryptor.encrypt(newDoc.docID),
             "userID": newDoc.userID,
-            "docName": newDoc.docName,
-            "docType": newDoc.getDocType(newDoc.docType),
-            "docDiscription": newDoc.docDiscription,
+            "docName": Encryptor.encrypt(newDoc.docName),
+            "docType": Encryptor.encrypt(newDoc.getDocType(newDoc.docType)),
+            "docDiscription": Encryptor.encrypt(newDoc.docDiscription),
         ]
         for (key, value) in newDoc.docField{
-            docDict[key] = value
+            docDict[Encryptor.encrypt(key)] = Encryptor.encrypt(value)
         }
-        docDict["docImage"] = newDoc.docImage
+        docDict["docImage"] = Encryptor.encrypt(newDoc.docImage)
         
         if docDict.writeToFile(filePath, atomically: true){
             let readDict:NSDictionary? = NSDictionary(contentsOfFile: filePath)
@@ -166,14 +166,14 @@ class LocalFileManager{
         let filePath = syncPath + "/userInfo"
         
         var userDict: NSMutableDictionary = [
-        "userID": user.getUserID(),
-        "email": user.getEmail(),
-        "password": user.getPassword(),
-        "PIN": user.getPIN()
+        "userID": Encryptor.encrypt(user.getUserID()),
+        "email": Encryptor.encrypt(user.getEmail()),
+        "password": Encryptor.encrypt(user.getPassword()),
+        "PIN": Encryptor.encrypt(user.getPIN())
         ]
         
         for(key, value) in user.getSecQA(){
-            userDict[key] = value
+            userDict[Encryptor.encrypt(key)] = Encryptor.encrypt(value)
         }
         
         if userDict.writeToFile(filePath, atomically: true){
@@ -218,15 +218,15 @@ class LocalFileManager{
         for(key, value) in userDict{
             switch key as String{
             case "userID":
-                user.setUserID(value as String)
+                user.setUserID(Encryptor.decrypt(value as String))
             case "email":
-                user.setEmail(value as String)
+                user.setEmail(Encryptor.decrypt(value as String))
             case "password":
-                user.setPassword(value as String)
+                user.setPassword(Encryptor.decrypt(value as String))
             case "PIN":
-                user.setPIN(value as String)
+                user.setPIN(Encryptor.decrypt(value as String))
             default:
-                secQA[key as String] = value as? String
+                secQA[Encryptor.decrypt(key as String)] = Encryptor.decrypt(value as String)
             }
         }
         user.setSecQA(secQA)
@@ -320,19 +320,19 @@ class LocalFileManager{
         
         var docDict:NSMutableDictionary = [
             "objectID": objectID,
-            "docImage": newDoc.docImage,
-            "docID": newDoc.docID,
+            "docImage": Encryptor.encrypt(newDoc.docImage),
+            "docID": Encryptor.encrypt(newDoc.docID),
             "userID": newDoc.userID,
-            "docName": newDoc.docName,
-            "docType": newDoc.getDocType(newDoc.docType),
-            "docDiscription": newDoc.docDiscription,
+            "docName": Encryptor.encrypt(newDoc.docName),
+            "docType": Encryptor.encrypt(newDoc.getDocType(newDoc.docType)),
+            "docDiscription": Encryptor.encrypt(newDoc.docDiscription),
         ]
         
         for (key, value) in newDoc.docField{
-            docDict[key] = value
+            docDict[Encryptor.encrypt(key)] = Encryptor.encrypt(value)
         }
         
-        docDict["docImage"] = newDoc.docImage
+        docDict["docImage"] = Encryptor.encrypt(newDoc.docImage)
         
         if(temp){
             //delete from sync documents
@@ -414,21 +414,21 @@ class LocalFileManager{
         for(key, value) in docDict{
             switch key as String{
             case "objectID":
-                doc.objectID = value as String
+                doc.objectID = Encryptor.decrypt(value as String)
             case "docID":
-                doc.docID = value as String
+                doc.docID = Encryptor.decrypt(value as String)
             case "userID":
                 doc.userID = value as String
             case "docName":
-                doc.docName = value as String
+                doc.docName = Encryptor.decrypt(value as String)
             case "docDiscription":
-                doc.docDiscription = value as String
+                doc.docDiscription = Encryptor.decrypt(value as String)
             case "docImage":
-                doc.docImage = value as String
+                doc.docImage = Encryptor.decrypt(value as String)
             case "docType":
-                doc.docType = DocTypeFromString(value as String)
+                doc.docType = DocTypeFromString(Encryptor.decrypt(value as String))
             default:
-                fields[key as String] = value as? String
+                fields[Encryptor.decrypt(key as String)] = Encryptor.decrypt(value as String)
             }
         }
         doc.docField = fields
@@ -458,9 +458,9 @@ class LocalFileManager{
                 let filePath = syncPath + "/" + fileName!
                 var docDict: NSDictionary! = NSDictionary(contentsOfFile: filePath)
                 
-                tuples.append(objectID: docDict["objectID"] as String,
-                    docName: docDict["docName"] as String,
-                    docType: docDict["docType"] as String)
+                tuples.append(objectID: Encryptor.decrypt(docDict["objectID"] as String),
+                    docName: Encryptor.decrypt(docDict["docName"] as String),
+                    docType: Encryptor.decrypt(docDict["docType"] as String))
             }
         }
         var unsyncContents = NSFileManager.defaultManager().contentsOfDirectoryAtPath(unsyncPath, error: nil)!
@@ -474,9 +474,9 @@ class LocalFileManager{
                 let filePath = unsyncPath + "/" + fileName!
                 var docDict: NSDictionary! = NSDictionary(contentsOfFile: filePath)
                 
-                tuples.append(objectID: docDict["objectID"] as String,
-                    docName: docDict["docName"] as String,
-                    docType: docDict["docType"] as String)
+                tuples.append(objectID: Encryptor.decrypt(docDict["objectID"] as String),
+                    docName: Encryptor.decrypt(docDict["docName"] as String),
+                    docType: Encryptor.decrypt(docDict["docType"] as String))
             }
 
         }

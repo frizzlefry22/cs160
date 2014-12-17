@@ -45,13 +45,18 @@ public class UserDatabaseConnection: DBConnectionProtocol{
     /* create function called by outside classes*/
     class func createUser(user: User)->User{
         
+        var secQA = user.getSecQA()
+        var encryptedSecQA = [String: String]()
         
+        for(key, value) in secQA{
+            encryptedSecQA[Encryptor.encrypt(key)] = Encryptor.encrypt(value)
+        }
         var userObj = PFObject(className: "User")
-        userObj["userID"] = user.getUserID()
-        userObj["email"] = user.getEmail()
-        userObj["password"] = user.getPassword()
-        userObj["PIN"] = user.getPIN()
-        userObj["secAnswers"] = user.getSecQA()
+        //userObj["userID"] = Encryptor.encrypt(user.getUserID())
+        userObj["email"] = Encryptor.encrypt(user.getEmail())
+        userObj["password"] = Encryptor.encrypt(user.getPassword())
+        userObj["PIN"] = Encryptor.encrypt(user.getPIN())
+        userObj["secAnswers"] = encryptedSecQA
         
         user.setUserID(create(userObj, obj: ""))
         
@@ -82,8 +87,8 @@ public class UserDatabaseConnection: DBConnectionProtocol{
                 //object found
                 if(object != nil){
                     
-                    object["PIN"] = newUser.getPIN()
-                    object["password"] = newUser.getPassword()
+                    object["PIN"] = Encryptor.encrypt(newUser.getPIN())
+                    object["password"] = Encryptor.encrypt(newUser.getPassword())
                     object.saveInBackgroundWithBlock({(succeeded: Bool!, error: NSError!) -> Void in
                         //success block
                         if(succeeded!){
@@ -161,11 +166,16 @@ public class UserDatabaseConnection: DBConnectionProtocol{
         if(result != nil){
             
             var id = result.objectId as String
-            var emailAd = result["email"] as String
-            var pw = result["password"] as String
-            var pinNum = result["PIN"] as String
+            var emailAd = Encryptor.decrypt(result["email"] as String)
+            var pw = Encryptor.decrypt(result["password"] as String)
+            var pinNum = Encryptor.decrypt(result["PIN"] as String)
             var secAnswers = result["secAnswers"] as [String: String]
             
+            var decryptedSecQA = [String: String]()
+            
+            for(key, value) in secAnswers{
+                decryptedSecQA[Encryptor.decrypt(key)] = Encryptor.decrypt(value)
+            }
             user.setUserID(id)
             user.setEmail(emailAd)
             user.setPassword(pw)
@@ -185,7 +195,7 @@ public class UserDatabaseConnection: DBConnectionProtocol{
     class func getUserByEmail(email: String)->User{
         
         var query = PFQuery(className: "User")
-        query.whereKey("email", equalTo: email)
+        query.whereKey("email", equalTo: Encryptor.encrypt(email))
         
         return read(query) as User
     }
@@ -203,7 +213,7 @@ public class UserDatabaseConnection: DBConnectionProtocol{
         var emails = [String]()
         
         for row in result{
-            emails.append(row["email"] as String)
+            emails.append(Encryptor.decrypt(row["email"] as String))
         }
         
         return emails
@@ -243,8 +253,12 @@ public class UserDatabaseConnection: DBConnectionProtocol{
         var result = query.getFirstObject()
         
         var secQA = result["secAnswers"] as [String:String]
+        var decryptedSecQA = [String: String]()
         
-        return secQA
+        for(key, value) in secQA{
+            decryptedSecQA[Encryptor.decrypt(key)] = Encryptor.decrypt(value)
+        }
+        return decryptedSecQA
     }
     
     
