@@ -111,7 +111,19 @@ class SecurityQuestionAnswerViewController: UIViewController, UITextFieldDelegat
     }
     
     func updateContinue() {
-        if (checkQ1() && checkQ2() && checkQ3())
+        
+        //Only 2 need to be correct
+        if (checkQ1() && checkQ2())
+        {
+            continueButton.enabled = true
+            continueButton.alpha = 1
+        }
+        else if (checkQ1() && checkQ3())
+        {
+            continueButton.enabled = true
+            continueButton.alpha = 1
+        }
+        else if (checkQ2() && checkQ3())
         {
             continueButton.enabled = true
             continueButton.alpha = 1

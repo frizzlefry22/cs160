@@ -34,6 +34,23 @@ class ConfirmResetViewController: UIViewController, UITextFieldDelegate, Alertab
         
         checkForMatching()
     }
+    
+    func AlertUser(message: String) {
+        let alertController = UIAlertController(title: "Password Reset", message: message, preferredStyle: .Alert)
+        
+        let okAction = UIAlertAction(title: "Ok", style: .Default) {
+            (action) in
+            
+            self.moveBack(4)
+            
+        }
+        
+        alertController.addAction(okAction)
+        
+        self.presentViewController(alertController,animated:true) {
+            
+        }
+    }
 
     
     @IBAction func resetClicked(sender: AnyObject) {
@@ -119,6 +136,15 @@ class ConfirmResetViewController: UIViewController, UITextFieldDelegate, Alertab
         self.view.endEditing(true);
         return false;
     }
+    
+    //param: takes in number of screens to move back
+    //to move from confirm screen back to home
+    func moveBack(num : Int)
+    {
+        let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController];
+        self.navigationController!.popToViewController(viewControllers[viewControllers.count - num], animated: true);
+    }
+    
     
     /*
     // MARK: - Navigation
