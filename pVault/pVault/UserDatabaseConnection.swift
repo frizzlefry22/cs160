@@ -94,8 +94,9 @@ public class UserDatabaseConnection: DBConnectionProtocol{
                         if(succeeded!){
                             println("File Saved")
                             LocalFileManager.addUser(newUser, temp: false)
-// I AM HERE
-                            //AlertDelStuct.alertDelegate.AlertUser("Succes")
+                            
+                            
+                            AlertDelStuct.alertDelegate.AlertUser("Success")
                             
                         }
                             //fail block

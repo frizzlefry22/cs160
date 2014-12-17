@@ -36,6 +36,8 @@ class EmailResetViewController: UIViewController, UITextFieldDelegate  {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        Validator.requeryEmails()
+        
         self.emailInput.delegate = self;
         continueButton.enabled = false
         continueButton.alpha = 0.4

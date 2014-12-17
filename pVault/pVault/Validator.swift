@@ -79,6 +79,10 @@ struct Validator {
     
     //Made this static so it is called once then the data is cached
     static var emails : [String]!
+
+    static func requeryEmails() {
+        emails = UserDatabaseConnection.getEmails()
+    }
     
     /*
     Function to check if email already exists
@@ -87,7 +91,7 @@ struct Validator {
     static func emailExists ( em : String )-> Bool {
         
         if (emails == nil) {
-            emails = UserDatabaseConnection.getEmails()
+            requeryEmails()
         }
         
         //var emails = UserDatabaseConnection.getEmails()
