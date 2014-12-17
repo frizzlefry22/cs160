@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditDocumnetViewController: UIViewController, DocumentView {
+class EditDocumnetViewController: UIViewController, DocumentView, UITextFieldDelegate  {
 
     var document : Document!
 
@@ -22,6 +22,8 @@ class EditDocumnetViewController: UIViewController, DocumentView {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.docName.delegate = self;
+        
         if(document.editEnabled == true)
         {
             docName.text = document.docName
@@ -47,6 +49,19 @@ class EditDocumnetViewController: UIViewController, DocumentView {
         
     }
     
+    //removes keyboard
+    override func touchesBegan(touches: NSSet?, withEvent event: UIEvent?) {
+        
+        self.view.endEditing(true)
+        
+    }
+    
+    //hides the keyboard when you hit return
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        
+        self.view.endEditing(true);
+        return false;
+    }
     
     // MARK: - Navigation
 

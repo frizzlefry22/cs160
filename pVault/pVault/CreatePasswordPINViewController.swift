@@ -157,6 +157,11 @@ class CreatePasswordPINViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    //removes keyboard
+    override func touchesBegan(touches: NSSet?, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+
     //hides the keyboard when you hit return
     func textFieldShouldReturn(textField: UITextField!) -> Bool {
         

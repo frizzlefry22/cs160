@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConfirmNewPassViewController: UIViewController, UITextFieldDelegate {
+class ConfirmNewPassViewController: UIViewController, UITextFieldDelegate , Alertable {
     
     @IBOutlet weak var passwordField:UITextField!;
     @IBOutlet weak var confirmPasswordField:UITextField!;
@@ -54,6 +54,8 @@ class ConfirmNewPassViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func confirm(sender: AnyObject) {
         
+        UserDatabaseConnection.AlertDelStuct.alertDelegate = self
+        
         //create copy of LoggedInuser
         var newUser = LoggedInuser.copy()
         newUser.setPassword(passwordField.text)
@@ -66,8 +68,25 @@ class ConfirmNewPassViewController: UIViewController, UITextFieldDelegate {
         LoggedInuser.setPassword(passwordField.text)
         //println(LoggedInuser.getPassword())
         
-        returnToSettings();
     }
+    
+    func AlertUser(message: String) {
+        let alertController = UIAlertController(title: "Password Changed", message: message, preferredStyle: .Alert)
+        
+        let okAction = UIAlertAction(title: "Ok", style: .Default) {
+            (action) in
+            
+            self.returnToSettings();
+            
+        }
+        
+        alertController.addAction(okAction)
+        
+        self.presentViewController(alertController,animated:true) {
+            
+        }
+    }
+    
     
     func checkForMatching() {
         
@@ -131,6 +150,12 @@ class ConfirmNewPassViewController: UIViewController, UITextFieldDelegate {
         
         self.view.endEditing(true);
         return false;
+    }
+    
+    override func touchesBegan(touches: NSSet?, withEvent event: UIEvent?) {
+        
+        self.view.endEditing(true)
+        
     }
     
     /*

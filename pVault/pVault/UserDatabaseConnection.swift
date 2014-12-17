@@ -88,9 +88,11 @@ public class UserDatabaseConnection: DBConnectionProtocol{
                         //success block
                         if(succeeded!){
                             println("File Saved")
+                            AlertDelStuct.alertDelegate.AlertUser("Succes")
                         }
                             //fail block
                         else{
+                            AlertDelStuct.alertDelegate.AlertUser("File Not Saved to the DB")
                             println("File not saved, will be saved when connection to DB is establed")
                         }
                     })

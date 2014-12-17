@@ -57,6 +57,11 @@ class BirthCertificateViewController: UIViewController, DocumentView, UITextFiel
         
     }
 
+    //removes keyboard
+    override func touchesBegan(touches: NSSet?, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     //hides the keyboard when you hit return
     func textFieldShouldReturn(textField: UITextField!) -> Bool {
         

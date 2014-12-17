@@ -33,6 +33,13 @@ class SecurityQuestionAnswerViewController: UIViewController, UITextFieldDelegat
         case Empty
     }
     
+    //remove keyboard
+    override func touchesBegan(touches: NSSet?, withEvent event: UIEvent?) {
+        
+        self.view.endEditing(true)
+        
+    }
+    
     func updateWarningLabel( label : UILabel , status : LabelStatus) {
         
         switch(status) {

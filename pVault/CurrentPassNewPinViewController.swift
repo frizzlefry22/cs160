@@ -59,6 +59,13 @@ class CurrentPassNewPinViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true);
         return false;
     }
+    
+    //remove keyboard
+    override func touchesBegan(touches: NSSet?, withEvent event: UIEvent?) {
+        
+        self.view.endEditing(true)
+        
+    }
 
     /*
     // MARK: - Navigation
