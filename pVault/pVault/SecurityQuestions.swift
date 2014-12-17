@@ -13,7 +13,7 @@ import Foundation
 //Now you access stuff with SecurityQuestions.property or function
 struct SecurityQuestions {
     
-    static var questionBank = ["Question 1", "Question 2", "Question 3", "Question 4", "Question 5"]
+    static var questionBank = ["What city were you born?", "Who is your favorite  Professor?", "Your first Pets name?", "Favorite Sport?", "First car"]
     
     
     static var selectedQuestions = [String]()

@@ -25,6 +25,8 @@ class CreatePasswordPINViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var pinCode: UITextField!
     
+    @IBOutlet weak var pinCodeWarning: UILabel!
+    
     @IBOutlet weak var pinCodeConfirmed: UITextField!
     
     @IBOutlet weak var pinMatchWarning: UILabel!
