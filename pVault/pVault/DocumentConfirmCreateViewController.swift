@@ -36,7 +36,11 @@ class DocumentConfirmCreateViewController: UIViewController, DocumentView , Aler
                 //LocalFileManager.addDocument(self.document, userEmail: LoggedInuser.getEmail(), temp: false)
             }
             else{
-                LocalFileManager.addDocument(self.document, userEmail: LoggedInuser.getEmail(), temp: true)
+                if (LocalFileManager.addDocument(self.document, userEmail: LoggedInuser.getEmail(), temp: true)){
+                    AlertUser("Success")
+                }else{
+                    AlertUser("Failed")
+                }
             }
         }//edit document
         else{

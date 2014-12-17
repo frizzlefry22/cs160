@@ -48,6 +48,7 @@ struct RegisterInfo {
             
             println("Debug")
         }else{
+            
             //tell user they can't register offline!!!
             
             
