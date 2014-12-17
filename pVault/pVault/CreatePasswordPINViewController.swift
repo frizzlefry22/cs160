@@ -137,6 +137,10 @@ class CreatePasswordPINViewController: UIViewController, UITextFieldDelegate {
         //
         RegisterInfo.pinCode = pinCode.text!
         
+        //Resets the Security Question Bank for hte next screen
+        SecurityQuestions.resetQuestionBank()
+        
+        
     }
     
     

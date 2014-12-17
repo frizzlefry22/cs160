@@ -13,7 +13,13 @@ import Foundation
 //Now you access stuff with SecurityQuestions.property or function
 struct SecurityQuestions {
     
-    static var questionBank = ["What city were you born?", "Who is your favorite  Professor?", "Your first Pets name?", "Favorite Sport?", "First car"]
+    static var questionBank : [String]!
+    
+    static let questionSource = ["What city were you born?", "Who is your favorite  Professor?", "Your first Pets name?", "Favorite Sport?", "First car"]
+    
+    static func resetQuestionBank() {
+        questionBank = questionSource
+    }
     
     
     static var selectedQuestions = [String]()
@@ -30,7 +36,7 @@ struct SecurityQuestions {
     Removes it from Bank and adds to selected array
     */
     static func selectQuestion(str : String) {
-        let removed = removeString(str,  &SecurityQuestions.questionBank)
+        let removed = removeString(str,  &SecurityQuestions.questionBank!)
         selectedQuestions.append(removed)
         previousQuestion.append(str)
     }
@@ -40,7 +46,7 @@ struct SecurityQuestions {
     Removes form selected and adds back to bank
     */
     static func unselectQuestion( str : String ) {
-        addString(str,  &SecurityQuestions.questionBank)
+        addString(str,  &SecurityQuestions.questionBank!)
         
         //Sorts them so that they match the UIPicker
         SecurityQuestions.questionBank = sorted(SecurityQuestions.questionBank)

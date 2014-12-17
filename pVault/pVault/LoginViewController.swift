@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, UITextFieldDelegate  {
+class LoginViewController: UIViewController, UITextFieldDelegate , Alertable {
 
     var user : User!
     
@@ -34,6 +34,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
         }
         
     }
+    
+    
+    func AlertUser(message: String) {
+        let alertController = UIAlertController(title: "Login Failed", message: message, preferredStyle: .Alert)
+        
+        let okAction = UIAlertAction(title: "Ok", style: .Default) {
+            (action) in
+        }
+        
+        alertController.addAction(okAction)
+        
+        self.presentViewController(alertController,animated:true) {
+            
+        }
+    }
+    
     @IBAction func moveToArjayTest(sender: AnyObject) {
         
         let storyboard : UIStoryboard = UIStoryboard(name: "CoolTesting", bundle: nil);
@@ -69,10 +85,24 @@ class LoginViewController: UIViewController, UITextFieldDelegate  {
             checkUser = LocalFileManager.getUser(loginEmail.text!)
         }
         
-        //if user is empty empty strings
+        //Alert User that email doesnt exist
+        if ( checkUser.getEmail() == "" )
+        {
+            AlertUser("User does not exist:")
+            return
+        }
         
+        let passWordCorrect = loginPassword.text! == checkUser.getPassword()
         
-        if(loginEmail.text! != "") && (loginEmail.text! == checkUser.getEmail()) && (loginPassword.text! == checkUser.getPassword()){
+        // Aert User that Password is incorrect
+        if ( !passWordCorrect )
+        {
+            AlertUser("Password inccorect")
+            return
+        }
+    
+        
+        if(loginEmail.text! != "") && (loginEmail.text! == checkUser.getEmail()){
             println("login success")
             
             if !LocalFileManager.checkUserDirectory(checkUser.getEmail()){
