@@ -25,6 +25,8 @@ class CreatePasswordPINViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var pinCode: UITextField!
     
+    @IBOutlet weak var pinCodeWarning: UILabel!
+    
     @IBOutlet weak var pinCodeConfirmed: UITextField!
     
     @IBOutlet weak var pinMatchWarning: UILabel!
@@ -134,6 +136,10 @@ class CreatePasswordPINViewController: UIViewController, UITextFieldDelegate {
         
         //
         RegisterInfo.pinCode = pinCode.text!
+        
+        //Resets the Security Question Bank for hte next screen
+        SecurityQuestions.resetQuestionBank()
+        
         
     }
     
