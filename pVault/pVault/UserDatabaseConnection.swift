@@ -77,7 +77,7 @@ public class UserDatabaseConnection: DBConnectionProtocol{
         var prevUser = previous as User
         
         var query = PFQuery(className: "User")
-        query.whereKey("email", equalTo:prevUser.getEmail())
+        query.whereKey("email", equalTo: Encryptor.encrypt(prevUser.getEmail()))
         
         query.getFirstObjectInBackgroundWithBlock{
             (PFObject object, error: NSError!) -> Void in

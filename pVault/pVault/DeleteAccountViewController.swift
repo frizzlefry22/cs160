@@ -36,12 +36,12 @@ class DeleteAccountViewController: UIViewController, UITextFieldDelegate {
         {
             //delete user
             var userQuery = PFQuery(className:"User");
-            userQuery.whereKey("email", equalTo:LoggedInuser.getEmail());
+            userQuery.whereKey("email", equalTo: Encryptor.encrypt(LoggedInuser.getEmail()));
             UserDatabaseConnection.delete(userQuery);
             
             //delete all of user's documents
             var query = PFQuery(className:"Document")
-            query.whereKey("userID", equalTo: LoggedInuser.getUserID())
+            query.whereKey("userID", equalTo: Encryptor.encrypt(LoggedInuser.getUserID()))
             DocumentDBConnection.delete(query)
             
             
