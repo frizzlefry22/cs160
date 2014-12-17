@@ -12,29 +12,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate , Alertable {
 
     var user : User!
     
-    @IBAction func moveToDocument(sender: AnyObject) {
-        let storyboard : UIStoryboard = UIStoryboard(name: "Document", bundle: nil);
-        let vc : UIViewController = storyboard.instantiateViewControllerWithIdentifier("DocStoryBoard") as UIViewController;
-        //self.presentViewController(vc, animated: true, completion: nil);
-        self.navigationController?.pushViewController(vc,animated : true);
-    }
-    
-    @IBAction func aslert(sender: AnyObject) {
-        
-        let alertController = UIAlertController(title: "Document Upload", message: "Successful", preferredStyle: .Alert)
-        
-        let okAction = UIAlertAction(title: "Ok", style: .Default) {
-            (action) in
-        }
-        
-        alertController.addAction(okAction)
-
-        self.presentViewController(alertController,animated:true) {
-            
-        }
-        
-    }
-    
     
     func AlertUser(message: String) {
         let alertController = UIAlertController(title: "Login Failed", message: message, preferredStyle: .Alert)
@@ -50,19 +27,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate , Alertable {
         }
     }
     
-    @IBAction func moveToArjayTest(sender: AnyObject) {
-        
-        let storyboard : UIStoryboard = UIStoryboard(name: "CoolTesting", bundle: nil);
-        let vc : UIViewController = storyboard.instantiateViewControllerWithIdentifier("ArjayTestView") as UIViewController;
-        self.presentViewController(vc, animated: true, completion: nil);
-    }
-    
-    @IBAction func moveToSettings(sender: AnyObject) {
-        let storyboard : UIStoryboard = UIStoryboard(name: "Settings", bundle: nil);
-        let vc : UIViewController = storyboard.instantiateViewControllerWithIdentifier("Settings") as UIViewController;
-        //self.presentViewController(vc, animated: true, completion: nil);
-        self.navigationController?.pushViewController(vc, animated: true);
-    }
+
     
     @IBAction func moveToKevinTest(sender: AnyObject) {
         let storyboard : UIStoryboard = UIStoryboard(name: "Document", bundle: nil);
