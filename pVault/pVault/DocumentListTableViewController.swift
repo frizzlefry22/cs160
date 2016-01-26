@@ -14,7 +14,7 @@ class DocumentListTableViewController: UIViewController, UITableViewDataSource, 
     
     var selectedDocument: Document!
 
-    var docList:[(objectID: String, docName: String, docType: String)] = []
+    
     
     //for search
     //var filteredDocList:[(objectID: String, docName: String, docType: String)] = []
@@ -33,8 +33,7 @@ class DocumentListTableViewController: UIViewController, UITableViewDataSource, 
         //documents are not local
         CurrentDocument.local = false
         
-        //gets list of document tuples
-        docList = DocumentDBConnection.getDocList(LoggedInuser.getUserID())
+        //docList = DocumentDBConnection.getDocList(LoggedInuser.getUserID())
     }
 
     override func didReceiveMemoryWarning() {

@@ -26,6 +26,7 @@ public class DocumentDBConnection: DBConnectionProtocol{
             if(succeeded!){
                 println("File Saved")
                 
+                    
                 AlertDelStuct.alertDelegate.AlertUser("Success")
                 var doc = obj as Document
                 objID = pfObj.objectId
@@ -39,7 +40,7 @@ public class DocumentDBConnection: DBConnectionProtocol{
                 AlertDelStuct.alertDelegate.AlertUser("File Did not Upload")
             }
         })
-        return ""
+        return "Success"
     }
     
     //Param takes in a PFQuery

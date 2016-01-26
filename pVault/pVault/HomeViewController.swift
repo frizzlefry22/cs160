@@ -8,11 +8,56 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, Alertable {
 
     
     var user : User!
     
+    
+    
+    func AlertUser(message : String) {
+        /*var messageA: String!
+        
+        
+        let alertController = UIAlertController(title: "Status", message: message, preferredStyle: .Alert)
+        
+        
+        
+        let okAction = UIAlertAction(title: "Ok", style: .Default) {
+            (action) in
+            
+        }
+        
+        //dispatch_async(dispatch_get_main_queue(), {
+            alertController.addAction(okAction)
+            self.navigationController?.topViewController.presentViewController(alertController, animated: true, completion: {})
+        //})*/
+        DocumentDBConnection.AlertDelStuct.alertDelegate = self
+        println("I'm here")
+        let actionSheetController: UIAlertController = UIAlertController(title: "Action Sheet", message: "Swiftly Now! Choose an option!", preferredStyle: .ActionSheet)
+        
+        //Create and add the Cancel action
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
+            //Just dismiss the action sheet
+        }
+        actionSheetController.addAction(cancelAction)
+        //Create and add first option action
+        let takePictureAction: UIAlertAction = UIAlertAction(title: "Take Picture", style: .Default) { action -> Void in
+            //Code for launching the camera goes here
+        }
+        actionSheetController.addAction(takePictureAction)
+        //Create and add a second option action
+        let choosePictureAction: UIAlertAction = UIAlertAction(title: "Choose From Camera Roll", style: .Default) { action -> Void in
+            //Code for picking from camera roll goes here
+        }
+        actionSheetController.addAction(choosePictureAction)
+        
+        //We need to provide a popover sourceView when using it on iPad
+        //actionSheetController.popoverPresentationController?.sourceView
+        
+        //Present the AlertController
+        self.presentViewController(actionSheetController, animated: true, completion: nil)
+    }
     @IBOutlet weak var userNameTextUI: UILabel!
     
     override func viewDidLoad() {
@@ -20,6 +65,12 @@ class HomeViewController: UIViewController {
 
         
         userNameTextUI.text = user.getEmail()
+        //gets list of document tuples
+        
+        let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+        dispatch_async(queue, {
+            docList = DocumentDBConnection.getDocList(LoggedInuser.getUserID())
+        })
         
         
         // Do any additional setup after loading the view.

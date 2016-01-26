@@ -467,11 +467,11 @@
 				TargetAttributes = {
 					29152BB31A1971C100A88FEA = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = N9545MW4RW;
+						DevelopmentTeam = 5RD4LZ7X2V;
 					};
 					29152BC81A1971C100A88FEA = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = N9545MW4RW;
+						DevelopmentTeam = 5RD4LZ7X2V;
 						TestTargetID = 29152BB31A1971C100A88FEA;
 					};
 				};
@@ -700,6 +700,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					../ParseStuff,
@@ -707,6 +709,7 @@
 				INFOPLIST_FILE = pVault/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "pVault/pVault-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -718,6 +721,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					../ParseStuff,
@@ -725,6 +730,7 @@
 				INFOPLIST_FILE = pVault/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "pVault/pVault-Bridging-Header.h";
 			};
 			name = Release;

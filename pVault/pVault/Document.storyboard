@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
@@ -2087,17 +2087,17 @@
                                 <exclude reference="qmM-dT-jwc"/>
                                 <exclude reference="zt3-yb-FHf"/>
                                 <exclude reference="wUu-YN-TvM"/>
-                                <exclude reference="BDF-q3-mbO"/>
-                                <exclude reference="X8j-J8-RPa"/>
-                                <exclude reference="cbv-FY-dNx"/>
-                                <exclude reference="ui4-6u-Pue"/>
-                                <exclude reference="zrt-8l-8XY"/>
                                 <exclude reference="0Qt-4P-dLn"/>
                                 <exclude reference="4Cq-At-UIR"/>
                                 <exclude reference="7vq-tS-Y1P"/>
                                 <exclude reference="FBl-ih-4IO"/>
                                 <exclude reference="Mhv-jO-1Ym"/>
                                 <exclude reference="qZy-ai-uny"/>
+                                <exclude reference="BDF-q3-mbO"/>
+                                <exclude reference="X8j-J8-RPa"/>
+                                <exclude reference="cbv-FY-dNx"/>
+                                <exclude reference="ui4-6u-Pue"/>
+                                <exclude reference="zrt-8l-8XY"/>
                                 <exclude reference="Z9X-HA-JVz"/>
                             </mask>
                         </variation>
@@ -2110,17 +2110,17 @@
                                 <include reference="qmM-dT-jwc"/>
                                 <include reference="zt3-yb-FHf"/>
                                 <include reference="wUu-YN-TvM"/>
-                                <include reference="BDF-q3-mbO"/>
-                                <include reference="X8j-J8-RPa"/>
-                                <include reference="cbv-FY-dNx"/>
-                                <include reference="ui4-6u-Pue"/>
-                                <include reference="zrt-8l-8XY"/>
                                 <include reference="0Qt-4P-dLn"/>
                                 <include reference="4Cq-At-UIR"/>
                                 <include reference="7vq-tS-Y1P"/>
                                 <include reference="FBl-ih-4IO"/>
                                 <include reference="Mhv-jO-1Ym"/>
                                 <include reference="qZy-ai-uny"/>
+                                <include reference="BDF-q3-mbO"/>
+                                <include reference="X8j-J8-RPa"/>
+                                <include reference="cbv-FY-dNx"/>
+                                <include reference="ui4-6u-Pue"/>
+                                <include reference="zrt-8l-8XY"/>
                                 <include reference="Z9X-HA-JVz"/>
                             </mask>
                         </variation>

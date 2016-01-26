@@ -11,6 +11,7 @@ import UIKit
 class DocumentConfirmCreateViewController: UIViewController, DocumentView , Alertable, UITextFieldDelegate {
 
     var document : Document!
+    var doc: PFObject!
     
     @IBOutlet weak var docName: UITextField!
     
@@ -25,13 +26,25 @@ class DocumentConfirmCreateViewController: UIViewController, DocumentView , Aler
     @IBAction func createPushed(sender: AnyObject) {
         
         
+        
         DocumentDBConnection.AlertDelStuct.alertDelegate = self
         
         //create document
         if(document.editEnabled == false){
         var pfOb = DocumentDBConnection.createDocumentPFObject(self.document)
+            doc = pfOb
             if Reachability.isConnectedToNetwork(){
-                DocumentDBConnection.create(pfOb, obj: self.document);
+                
+                
+                //ASYNC ADD
+                let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+                dispatch_async(queue, async_create)
+                if(self.document.docType == .None ){
+                    self.moveBack(4)
+                }
+                else{
+                    self.moveBack(5)
+                }
                 
                 //LocalFileManager.addDocument(self.document, userEmail: LoggedInuser.getEmail(), temp: false)
             }
@@ -59,6 +72,11 @@ class DocumentConfirmCreateViewController: UIViewController, DocumentView , Aler
         }
 
     }
+    
+    func async_create(){
+        DocumentDBConnection.create(doc, obj: self.document);
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -106,6 +124,8 @@ class DocumentConfirmCreateViewController: UIViewController, DocumentView , Aler
         
         let alertController = UIAlertController(title: messageA, message: message, preferredStyle: .Alert)
         
+        
+        
         let okAction = UIAlertAction(title: "Ok", style: .Default) {
             (action) in
             
@@ -140,12 +160,10 @@ class DocumentConfirmCreateViewController: UIViewController, DocumentView , Aler
             }
         }
         
+        dispatch_async(dispatch_get_main_queue(), {
         alertController.addAction(okAction)
-        
-        self.presentViewController(alertController,animated:true) {
-            
-        }
-
+            self.navigationController?.topViewController.presentViewController(alertController, animated: true, completion: {})
+        })
     }
     
     //param: takes in number of screens to move back
